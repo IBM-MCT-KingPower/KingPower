@@ -1,0 +1,126 @@
+//
+//  ProfileDetailTableViewController.swift
+//  KingPowerUsingCoreData
+//
+//  Created by Patis Piriyahaphan on 9/4/2558 BE.
+//  Copyright © 2558 IBM. All rights reserved.
+//
+
+import UIKit
+
+class ProfileDetailTableViewController: UITableViewController {
+
+    
+    @IBOutlet weak var btnMenu: UIBarButtonItem!
+    
+    @IBOutlet weak var lblCustNameTitle: UILabel!
+    @IBOutlet weak var lblCustNameDesc: UILabel!
+    @IBOutlet weak var lblPointTitle: UILabel!
+    @IBOutlet weak var lblPointDesc: UILabel!
+    @IBOutlet weak var lblExpDateTitle: UILabel!
+    @IBOutlet weak var lblExpDateDesc: UILabel!
+    @IBOutlet weak var lblCardInfoTitle: UILabel!
+    @IBOutlet weak var lblCardInfoDesc: UILabel!
+    
+    var constat = Constants()
+    var lol = Locale()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.decorate();
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if self.revealViewController() != nil {
+            btnMenu.target = self.revealViewController()
+            btnMenu.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+    }
+    func decorate(){
+        self.lblCustNameTitle.text = self.constat.customLocalizedString("profileCustNameTitle", comment: "this is comment")as String
+        self.lblPointTitle.text = self.constat.customLocalizedString("profilePointTitle", comment: "this is comment")as String
+        self.lblExpDateTitle.text = self.constat.customLocalizedString("profileExpDateTitle", comment: "this is comment")as String
+        self.lblCardInfoTitle.text = self.constat.customLocalizedString("profileCardInfoTitle", comment: "this is comment")as String
+        
+        self.lblCustNameDesc.text = "Duangkamol Chewchan"
+        self.lblPointDesc.text = "1029"
+        self.lblExpDateDesc.text = "31/12/2016"
+        self.lblCardInfoDesc.text = "This is card information"
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: - Table view data source
+/*
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+*/
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

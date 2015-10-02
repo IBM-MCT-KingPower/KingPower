@@ -1,0 +1,6 @@
+framework module Pods_KingPowerUsingCoreData {
+  umbrella header "Pods-KingPowerUsingCoreData-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  KingPowerUsingCoreData
+
+  Created by Patis Piriyahaphan on 9/3/2558 BE.
+  Copyright © 2558 IBM. All rights reserved.
+*/
+loginCompanyName="KING POWER";
+loginStaffId="Staff ID";
+loginStaffPassword="Password";
+loginLogin="Log In";
+welcomeStart="Continue";
+menuProfile="Profile";
+menuSetting="Setting";
+menuCheckout="Checkout";
+menuLogout="Logout";
+profileCustNameTitle="Customer Name";
+profilePointTitle="Point";
+profileExpDateTitle="Expired Date";
+profileCardInfoTitle="Card Info";
+settingLanguage="Language";

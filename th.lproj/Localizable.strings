@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  KingPowerUsingCoreData
+
+  Created by Patis Piriyahaphan on 9/3/2558 BE.
+  Copyright © 2558 IBM. All rights reserved.
+*/
+loginCompanyName = "คิงพาวเวอร์";
+loginStaffId="เลขที่ผู้ใช้ / เลขที่บัตรสมาชิก";
+loginEmployeeId="เลขที่พนักงาน";
+loginLogin="เข้าสู่ระบบ";
+welcomeStart="เริ่มต้นใช้งาน";
+menuProfile="ข้อมูลส่วนตัว";
+menuSetting="ตั้งค่า";
+menuCheckout="นำสินค้าออก";
+menuLogout="ออกจากระบบ";
+profileCustNameTitle="ชื่อลูกค้า";
+profilePointTitle="คะแนนสะสม";
+profileExpDateTitle="วันที่บัตรหมดอายุ";
+profileCardInfoTitle="รายบะเอียดบัตร";
+settingLanguage = "ภาษา";

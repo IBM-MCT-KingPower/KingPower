@@ -1,0 +1,33 @@
+
+/* Class = "UITextField"; placeholder = "UserID / Member Card no."; ObjectID = "22p-Dk-K8r"; */
+"22p-Dk-K8r.placeholder" = "UserID / Member Card no.";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "3ws-5R-r3k"; */
+"3ws-5R-r3k.normalTitle" = "Sign In";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "6y1-tv-OZp"; */
+"6y1-tv-OZp.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ANB-Gc-s1E"; */
+"ANB-Gc-s1E.text" = "Name";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Iem-SE-wAM"; */
+"Iem-SE-wAM.title" = "Item";
+
+/* Class = "UISegmentedControl"; TUf-Dh-j0f.segmentTitles[0] = "ENG"; ObjectID = "TUf-Dh-j0f"; */
+"TUf-Dh-j0f.segmentTitles[0]" = "ENG";
+
+/* Class = "UISegmentedControl"; TUf-Dh-j0f.segmentTitles[1] = "THA"; ObjectID = "TUf-Dh-j0f"; */
+"TUf-Dh-j0f.segmentTitles[1]" = "THA";
+
+/* Class = "UILabel"; text = "Setting"; ObjectID = "jnA-xK-6TF"; */
+"jnA-xK-6TF.text" = "Setting";
+
+/* Class = "UITextField"; placeholder = "EmployeeID"; ObjectID = "msd-hq-Iei"; */
+"msd-hq-Iei.placeholder" = "EmployeeID";
+
+/* Class = "UILabel"; text = "KING POWER"; ObjectID = "oGp-re-TtL"; */
+"oGp-re-TtL.text" = "KING POWER";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "t8L-BK-CK8"; */
+"t8L-BK-CK8.text" = "Language";
