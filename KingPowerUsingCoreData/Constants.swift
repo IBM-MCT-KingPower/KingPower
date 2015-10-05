@@ -13,7 +13,7 @@ import DynamicColor
 
 class Constants {
     
-    static let CURRENCY_CODE = "THB"
+    //static let CURRENCY_CODE = "THB"
     
     func getLanguageCode()->NSString {
         
@@ -27,7 +27,7 @@ class Constants {
         return LanguageManager.sharedInstance.getTranslationForKey(key)
 
     }
-    
+    /*
     struct Color {
         static let LogoColor:UIColor =
         UIColor(hex: 0x6ECCB9)
@@ -37,5 +37,5 @@ class Constants {
         static let WhiteColor:UIColor = UIColor(hex: 0xF5F5F5)
         static let RedColor:UIColor = UIColor(hex: 0xCA4200)
         static let GoldColor:UIColor = UIColor(hex: 0xF8AD05)
-    }
+    }*/
 }

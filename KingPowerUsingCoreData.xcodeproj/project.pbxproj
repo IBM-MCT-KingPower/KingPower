@@ -46,12 +46,9 @@
 		3A8D88E61BB9AEBC0036EB82 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88DF1BB9AEBC0036EB82 /* PromotionViewController.swift */; };
 		3A8D88E71BB9AEBC0036EB82 /* PromotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88E01BB9AEBC0036EB82 /* PromotionDetailViewController.swift */; };
 		3A8D88EA1BB9AEBC0036EB82 /* Productlayout1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88E31BB9AEBC0036EB82 /* Productlayout1TableViewCell.swift */; };
-		3A8D88F11BB9AEC80036EB82 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88EB1BB9AEC80036EB82 /* MenuTableViewController.swift */; };
 		3A8D88F21BB9AEC80036EB82 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88EC1BB9AEC80036EB82 /* SettingTableViewController.swift */; };
 		3A8D88F31BB9AEC80036EB82 /* ProfileDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88ED1BB9AEC80036EB82 /* ProfileDetailTableViewController.swift */; };
 		3A8D88F41BB9AEC80036EB82 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88EE1BB9AEC80036EB82 /* LanguageTableViewController.swift */; };
-		3A8D88F51BB9AEC80036EB82 /* CallAssistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88EF1BB9AEC80036EB82 /* CallAssistViewController.swift */; };
-		3A8D88F61BB9AEC80036EB82 /* CallAssistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88F01BB9AEC80036EB82 /* CallAssistViewController.xib */; };
 		3A8D88F91BB9AF5B0036EB82 /* DrawLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88F81BB9AF5B0036EB82 /* DrawLine.swift */; };
 		3A8D88FB1BB9B06F0036EB82 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */; };
 		3A8D88FD1BB9B07C0036EB82 /* kp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88FC1BB9B07C0036EB82 /* kp.plist */; };
@@ -84,6 +81,14 @@
 		78EA725A1BAC1D7A000DE622 /* LoginByTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA72591BAC1D7A000DE622 /* LoginByTypeViewController.swift */; };
 		78EA725C1BAC2137000DE622 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA725B1BAC2137000DE622 /* LoginDetailViewController.swift */; };
 		78EA725E1BAC2152000DE622 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA725D1BAC2152000DE622 /* LanguageViewController.swift */; };
+		A110E7461BC261C500A58EA7 /* CallAssistanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A110E7431BC261C500A58EA7 /* CallAssistanceViewController.xib */; };
+		A110E7471BC261C500A58EA7 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110E7441BC261C500A58EA7 /* FlightViewController.swift */; };
+		A110E7481BC261C500A58EA7 /* FlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A110E7451BC261C500A58EA7 /* FlightViewController.xib */; };
+		A110E74A1BC261EE00A58EA7 /* CallAssistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110E7491BC261EE00A58EA7 /* CallAssistanceViewController.swift */; };
+		A110E74C1BC2693700A58EA7 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A110E74B1BC2693700A58EA7 /* MenuTableViewController.swift */; };
+		A110E74F1BC269C700A58EA7 /* 05.png in Resources */ = {isa = PBXBuildFile; fileRef = A110E74E1BC269C700A58EA7 /* 05.png */; };
+		A110E7521BC27DCD00A58EA7 /* flight.png in Resources */ = {isa = PBXBuildFile; fileRef = A110E7511BC27DCD00A58EA7 /* flight.png */; };
+		A110E7551BC27E0500A58EA7 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = A110E7541BC27E0500A58EA7 /* call.png */; };
 		A11EBE0B1BBE30BA00274BB3 /* sort.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EBDFA1BBE30BA00274BB3 /* sort.png */; };
 		A11EBE0C1BBE30BA00274BB3 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EBDFB1BBE30BA00274BB3 /* check.png */; };
 		A11EBE0D1BBE30BA00274BB3 /* infos.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EBDFC1BBE30BA00274BB3 /* infos.png */; };
@@ -288,12 +293,9 @@
 		3A8D88DF1BB9AEBC0036EB82 /* PromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		3A8D88E01BB9AEBC0036EB82 /* PromotionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionDetailViewController.swift; sourceTree = "<group>"; };
 		3A8D88E31BB9AEBC0036EB82 /* Productlayout1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Productlayout1TableViewCell.swift; sourceTree = "<group>"; };
-		3A8D88EB1BB9AEC80036EB82 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		3A8D88EC1BB9AEC80036EB82 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		3A8D88ED1BB9AEC80036EB82 /* ProfileDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewController.swift; sourceTree = "<group>"; };
 		3A8D88EE1BB9AEC80036EB82 /* LanguageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
-		3A8D88EF1BB9AEC80036EB82 /* CallAssistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallAssistViewController.swift; sourceTree = "<group>"; };
-		3A8D88F01BB9AEC80036EB82 /* CallAssistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallAssistViewController.xib; sourceTree = "<group>"; };
 		3A8D88F81BB9AF5B0036EB82 /* DrawLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawLine.swift; sourceTree = "<group>"; };
 		3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		3A8D88FC1BB9B07C0036EB82 /* kp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kp.plist; sourceTree = "<group>"; };
@@ -336,6 +338,14 @@
 		78EA72591BAC1D7A000DE622 /* LoginByTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginByTypeViewController.swift; sourceTree = "<group>"; };
 		78EA725B1BAC2137000DE622 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
 		78EA725D1BAC2152000DE622 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		A110E7431BC261C500A58EA7 /* CallAssistanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallAssistanceViewController.xib; sourceTree = "<group>"; };
+		A110E7441BC261C500A58EA7 /* FlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
+		A110E7451BC261C500A58EA7 /* FlightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightViewController.xib; sourceTree = "<group>"; };
+		A110E7491BC261EE00A58EA7 /* CallAssistanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallAssistanceViewController.swift; sourceTree = "<group>"; };
+		A110E74B1BC2693700A58EA7 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		A110E74E1BC269C700A58EA7 /* 05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05.png; sourceTree = "<group>"; };
+		A110E7511BC27DCD00A58EA7 /* flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flight.png; sourceTree = "<group>"; };
+		A110E7541BC27E0500A58EA7 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		A11EBDE01BBE304600274BB3 /* btnBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnBack.png; path = ../../KingPower/KingPower/btnBack.png; sourceTree = "<group>"; };
 		A11EBDE11BBE304600274BB3 /* Burger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Burger.png; path = ../../KingPower/KingPower/Burger.png; sourceTree = "<group>"; };
 		A11EBDE21BBE304600274BB3 /* Call-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Call-icon.png"; path = "../../KingPower/KingPower/Call-icon.png"; sourceTree = "<group>"; };
@@ -701,6 +711,9 @@
 		78AC943D1B96C4D800B20D9F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A110E7531BC27DF500A58EA7 /* CallAssist */,
+				A110E7501BC27DB600A58EA7 /* Flight */,
+				A110E74D1BC269BA00A58EA7 /* MenuBar */,
 				A11EBDF91BBE30AC00274BB3 /* temp */,
 				A11EBDF21BBE308700274BB3 /* nationflag */,
 				3A77FC3A1BBC507300E96C04 /* ProductFeature */,
@@ -819,12 +832,15 @@
 		78BC9BC01B9836C500EF5DF6 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				3A8D88EB1BB9AEC80036EB82 /* MenuTableViewController.swift */,
+				A110E74B1BC2693700A58EA7 /* MenuTableViewController.swift */,
 				3A8D88EC1BB9AEC80036EB82 /* SettingTableViewController.swift */,
 				3A8D88ED1BB9AEC80036EB82 /* ProfileDetailTableViewController.swift */,
 				3A8D88EE1BB9AEC80036EB82 /* LanguageTableViewController.swift */,
-				3A8D88EF1BB9AEC80036EB82 /* CallAssistViewController.swift */,
-				3A8D88F01BB9AEC80036EB82 /* CallAssistViewController.xib */,
+				A110E7491BC261EE00A58EA7 /* CallAssistanceViewController.swift */,
+				A110E7431BC261C500A58EA7 /* CallAssistanceViewController.xib */,
+				A11EBE521BBE31C100274BB3 /* CatagoryTableViewCell.swift */,
+				A110E7441BC261C500A58EA7 /* FlightViewController.swift */,
+				A110E7451BC261C500A58EA7 /* FlightViewController.xib */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -840,6 +856,30 @@
 			name = InAppLocalize;
 			sourceTree = "<group>";
 		};
+		A110E74D1BC269BA00A58EA7 /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				A110E74E1BC269C700A58EA7 /* 05.png */,
+			);
+			name = MenuBar;
+			sourceTree = "<group>";
+		};
+		A110E7501BC27DB600A58EA7 /* Flight */ = {
+			isa = PBXGroup;
+			children = (
+				A110E7511BC27DCD00A58EA7 /* flight.png */,
+			);
+			name = Flight;
+			sourceTree = "<group>";
+		};
+		A110E7531BC27DF500A58EA7 /* CallAssist */ = {
+			isa = PBXGroup;
+			children = (
+				A110E7541BC27E0500A58EA7 /* call.png */,
+			);
+			name = CallAssist;
+			sourceTree = "<group>";
+		};
 		A11EBD4E1BBE2F6C00274BB3 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,7 +891,6 @@
 				A11EBE4F1BBE31C100274BB3 /* CurrencyConvertorPopupViewController.swift */,
 				A11EBE501BBE31C100274BB3 /* PromotionPopupViewController.swift */,
 				A11EBE511BBE31C100274BB3 /* CatagoryCollectionViewCell.swift */,
-				A11EBE521BBE31C100274BB3 /* CatagoryTableViewCell.swift */,
 				A11EBE531BBE31C100274BB3 /* ThankyouViewController.swift */,
 			);
 			name = Cart;
@@ -1163,6 +1202,7 @@
 				3A8D88A21BB827D20036EB82 /* btnTextInput.png in Resources */,
 				A1A880B31BBE9D49001125A9 /* 557590-L1.jpg in Resources */,
 				A11EBE101BBE30BA00274BB3 /* iphone6.jpg in Resources */,
+				A110E7551BC27E0500A58EA7 /* call.png in Resources */,
 				A1A880AE1BBE9D49001125A9 /* 543709-L2.jpg in Resources */,
 				A1A880981BBE9D49001125A9 /* 461084-L1.jpg in Resources */,
 				A1A880991BBE9D49001125A9 /* 461084-L2.jpg in Resources */,
@@ -1170,6 +1210,7 @@
 				3A8D88A81BB827D20036EB82 /* KP Logo 890x300.png in Resources */,
 				A1CC64441BBE792100A7CDF8 /* CAD.png in Resources */,
 				A1A880D91BBE9E5A001125A9 /* tab-Fashion0.png in Resources */,
+				A110E7521BC27DCD00A58EA7 /* flight.png in Resources */,
 				A1A880901BBE9D49001125A9 /* 233885-S2.jpg in Resources */,
 				3A8D88AB1BB827D20036EB82 /* Membership-Card(1).png in Resources */,
 				A1A880B71BBE9D49001125A9 /* 557590-M3.jpg in Resources */,
@@ -1207,16 +1248,18 @@
 				3A8D888B1BB46D3C0036EB82 /* KP_Language_CH.png in Resources */,
 				A11EBE121BBE30BA00274BB3 /* logo.png in Resources */,
 				3A8D88A41BB827D20036EB82 /* btnCardReader.png in Resources */,
-				3A8D88F61BB9AEC80036EB82 /* CallAssistViewController.xib in Resources */,
 				A1A880B91BBE9D49001125A9 /* 557590-S2.jpg in Resources */,
 				A1A8809D1BBE9D49001125A9 /* 461084-S1.jpg in Resources */,
+				A110E7461BC261C500A58EA7 /* CallAssistanceViewController.xib in Resources */,
 				78AC942C1B96C43E00B20D9F /* Main.storyboard in Resources */,
 				3A8D88B81BB911F80036EB82 /* Flight_128_128.png in Resources */,
 				A1A880B21BBE9D49001125A9 /* 543709-S3.jpg in Resources */,
 				A1A880DC1BBE9E5A001125A9 /* tab-Food1.png in Resources */,
 				A1A880A01BBE9D49001125A9 /* 461084-S4.jpg in Resources */,
 				A1A880C51BBE9DEE001125A9 /* Flight_Only.png in Resources */,
+				A110E74F1BC269C700A58EA7 /* 05.png in Resources */,
 				A1A880C41BBE9DEE001125A9 /* Hot-Item.png in Resources */,
+				A110E7481BC261C500A58EA7 /* FlightViewController.xib in Resources */,
 				A1A880A61BBE9D49001125A9 /* 461108-S1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1284,6 +1327,7 @@
 				F951AD1B1BC1483800FCFC8C /* ProductCategoryModel.swift in Sources */,
 				F951AD151BC1483800FCFC8C /* PromotionModel.swift in Sources */,
 				A11EBE411BBE316B00274BB3 /* filterdetailManager.swift in Sources */,
+				A110E74C1BC2693700A58EA7 /* MenuTableViewController.swift in Sources */,
 				A11EBE471BBE316B00274BB3 /* TransitionDismissAnimator.swift in Sources */,
 				3A8D88E71BB9AEBC0036EB82 /* PromotionDetailViewController.swift in Sources */,
 				F951AD201BC1483800FCFC8C /* CartModel.swift in Sources */,
@@ -1293,6 +1337,7 @@
 				3A8D88FB1BB9B06F0036EB82 /* GlobalVariable.swift in Sources */,
 				F951AD1D1BC1483800FCFC8C /* ProductGroupBrandMapModel.swift in Sources */,
 				A11EBE581BBE31C100274BB3 /* CurrencyTableViewCell.swift in Sources */,
+				A110E74A1BC261EE00A58EA7 /* CallAssistanceViewController.swift in Sources */,
 				3A8D88F41BB9AEC80036EB82 /* LanguageTableViewController.swift in Sources */,
 				A11EBE681BBE31D100274BB3 /* ProductDetailViewController.swift in Sources */,
 				A11EBE341BBE310200274BB3 /* FMResultSet.m in Sources */,
@@ -1316,7 +1361,6 @@
 				A11EBE551BBE31C100274BB3 /* CheckoutViewController.swift in Sources */,
 				F951AD161BC1483800FCFC8C /* PromotionDetailModel.swift in Sources */,
 				A11EBE6D1BBE31D100274BB3 /* detailFilterViewController.swift in Sources */,
-				3A8D88F11BB9AEC80036EB82 /* MenuTableViewController.swift in Sources */,
 				A11EBE561BBE31C100274BB3 /* CheckoutTableViewCell.swift in Sources */,
 				A11EBE591BBE31C100274BB3 /* CurrencyConvertorPopupViewController.swift in Sources */,
 				A11EBE331BBE310200274BB3 /* FMDatabaseQueue.m in Sources */,
@@ -1324,7 +1368,6 @@
 				78AC943C1B96C49400B20D9F /* LoginViewController.swift in Sources */,
 				78DEB1711B99990100E55D30 /* WelcomeViewController.swift in Sources */,
 				A11EBE6A1BBE31D100274BB3 /* sortTableViewCell.swift in Sources */,
-				3A8D88F51BB9AEC80036EB82 /* CallAssistViewController.swift in Sources */,
 				A11EBE461BBE316B00274BB3 /* TransitionPresentationAnimator.swift in Sources */,
 				78EA72581BAC1D5B000DE622 /* LoginByCameraViewController.swift in Sources */,
 				A11EBE301BBE310200274BB3 /* FMDatabase.m in Sources */,
@@ -1346,6 +1389,7 @@
 				78BC9BDC1B98528100EF5DF6 /* LanguageManager.swift in Sources */,
 				A11EBE6C1BBE31D100274BB3 /* filterViewController.swift in Sources */,
 				A11EBE441BBE316B00274BB3 /* PresentationManager.swift in Sources */,
+				A110E7471BC261C500A58EA7 /* FlightViewController.swift in Sources */,
 				3A8D88EA1BB9AEBC0036EB82 /* Productlayout1TableViewCell.swift in Sources */,
 				A11EBE691BBE31D100274BB3 /* popupViewController.swift in Sources */,
 				F951AD101BC1483800FCFC8C /* UserGroupMapModel.swift in Sources */,

@@ -66,7 +66,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         currencyFormatter.negativeFormat = "-¤#,##0.00"
         self.productPrice.text = currencyFormatter.stringFromNumber(self.productDetail.product_price)
 */
-        self.productPrice.text = NSNumber(double: self.productDetail.product_price).currency + " " + Constants.CURRENCY_CODE
+        self.productPrice.text = NSNumber(double: self.productDetail.product_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         self.productDescript.text = self.productDetail.product_description
         self.productDescript.font = UIFont(name: "Century Gothic", size: 15)
         self.pickNow.on = self.productDetail.pickup_flag
@@ -357,7 +357,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     {
         print("navItemFlightClick")
     }
-    
+    /*
     func navItemCallClick(sender:UIButton!)
     {
         print("navItemCallClick")
@@ -367,7 +367,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         callAssistViewController.showInView(self.view, animated: true)
         
     }
-    
+    */
     func navItemCartClick(sender:UIButton!)
     {
         print("navItemCartClick")

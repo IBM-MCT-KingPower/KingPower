@@ -11,12 +11,14 @@ import DynamicColor
 
 class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
-
     @IBOutlet weak var scvPromotion: UIScrollView!
     @IBOutlet weak var pcPromotion: UIPageControl!
+    @IBOutlet weak var vCatagory: UIView!
     @IBOutlet weak var tbvCatagory: UITableView!
-    
     var navBar:UINavigationBar=UINavigationBar()
+    var callAssistanceViewController : CallAssistanceViewController!
+    var flightViewController : FlightViewController!
+    
     //Promotion
     var pageImages: [UIImage] = []
     var pageViews: [UIImageView?] = []
@@ -33,6 +35,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var arrContainer = [[String]]()
     var arrays = [String]()
     var arrayIndex=0;
+    
+    var pointNow: CGPoint!
+    var lastDirection:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,14 +197,37 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView!) {
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        pointNow = scrollView.contentOffset;
+        
+    }
+    func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == scvPromotion {
-        // Load the pages that are now on screen
-        //scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x, 0), animated: false )
-           
-        loadVisiblePages()
+            // Load the pages that are now on screen
+            //scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x, 0), animated: false )
+            
+            loadVisiblePages()
+        } else if scrollView == self.tbvCatagory{
+            if scrollView.contentOffset.y < pointNow.y && lastDirection != "Down" { //Down
+                UIView.animateWithDuration(0.5, animations: {
+                    print("Down")
+                    self.vCatagory.frame.origin.y = 340
+                    self.tbvCatagory.frame.origin.y = 399
+                    self.tbvCatagory.frame.size.height = 369
+                    self.lastDirection = "Down"
+                });
+            }else if scrollView.contentOffset.y > pointNow.y && lastDirection != "Up" { //Up
+                UIView.animateWithDuration(0.5, animations: {
+                    print("Up")
+                    self.vCatagory.frame.origin.y = 0 + 64
+                    self.tbvCatagory.frame.origin.y = 0 + 64 + 40
+                    self.tbvCatagory.frame.size.height = 768 - 64
+                    self.lastDirection = "Up"
+                });
+            }
         }
     }
+
     //End - Promotion
     
     //Start - Catagory
@@ -423,16 +451,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     {
         //Menu
         let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonMenu.frame = CGRectMake(
-            gv.getConfigValue("navigationItemHamburgerImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemHamburgerImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemHamburgerImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemHamburgerImgHeight") as! CGFloat)
-        
-            
-            
-        buttonMenu.setImage(UIImage(named: gv.getConfigValue("navigationItemHamburgerImgName") as! String), forState: UIControlState.Normal)
-        buttonMenu.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside) //use thiss
+        buttonMenu.frame = CGRectMake(0, 0, 40, 40)
+        buttonMenu.setImage(UIImage(named:"Burger.png"), forState: UIControlState.Normal)
+        buttonMenu.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside) //use this
         let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
         
         if self.revealViewController() != nil {
@@ -445,12 +466,8 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         //Flight
         let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonFlight.frame = CGRectMake(
-            gv.getConfigValue("navigationItemAirplainImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgHeight") as! CGFloat)
-        buttonFlight.setImage(UIImage(named: gv.getConfigValue("navigationItemAirplainImgName") as! String), forState: UIControlState.Normal)
+        buttonFlight.frame = CGRectMake(0, 0, 36, 36)
+        buttonFlight.setImage(UIImage(named:"Flight-WH80x80.png"), forState: UIControlState.Normal)
         buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
         let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
         
@@ -461,6 +478,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
         
     }
+    
     func addRightNavItemOnView()
     {
         //Call
@@ -510,17 +528,17 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     //Navigation Bar
     func navItemFlightClick(sender:UIButton!)
     {
-        print("navItemFlightClick")
+        self.removeNavigateView()
+        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+        flightViewController.showInView(self.view, animated: true)
     }
     
     func navItemCallClick(sender:UIButton!)
     {
-        print("navItemCallClick")
-        var callAssistViewController: CallAssistViewController!
-        callAssistViewController = CallAssistViewController(nibName: "CallAssistViewController", bundle: nil)
-        callAssistViewController.title = "This is a popup view"
-        callAssistViewController.showInView(self.view, animated: true)
-
+        self.removeNavigateView()
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        callAssistanceViewController.showInView(self.view, animated: true)
+        
     }
     
     func navItemCartClick(sender:UIButton!)
@@ -540,7 +558,19 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.presentViewController(searchViewController!, animated: true, completion: nil)
     }
     
+    func removeNavigateView(){
+        if(flightViewController != nil && !flightViewController.view.hidden)
+        {
+            flightViewController.view.removeFromSuperview()
+        }
+        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
+        {
+            callAssistanceViewController.view.removeFromSuperview()
+        }
+    }
+    
     func setupTable(){
+        
         //draw button
         for var index = 0; index < 6; ++index {
             var select = 0
@@ -551,28 +581,35 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
                 select = 0
             }
             let image = UIImage(named: "tab-\(buttonName[index])\(select).png")
-          
+            
             let button = UIButton()
-            button.frame = CGRectMake(CGFloat(22 + (index * 166)), 340, (image?.size.width)!/2, (image?.size.height)!/2)
+            button.frame = CGRectMake(CGFloat(22 + (index * 166)), 0, (image?.size.width)!/2, (image?.size.height)!/2)
+            //button.frame = CGRectMake(CGFloat(22 + (index * 166)), 362.5, (image?.size.width)!/2, (image?.size.height)!/2)
             button.setImage(image, forState: .Normal)
             button.addTarget(self, action: "tappedProductCatagory:", forControlEvents: UIControlEvents.TouchUpInside)
             buttonList.append(button)
-            self.view.addSubview(buttonList[index])
+            //self.view.addSubview(buttonList[index])
+            self.vCatagory.addSubview(buttonList[index])
         }
         
         //draw line
         for var index = 0; index < 5; ++index {
             let line = DrawLine(frame: CGRectMake(0, 0, 1000, 1000))
             line.startX = CGFloat(180 + (index * 166))
-            line.startY = CGFloat(340)
+            //line.startY = CGFloat(362.5)
+            line.startY = CGFloat(0)
             line.finishX = CGFloat(180 + (index * 166))
-            line.finishY = CGFloat(380)
-            self.view.addSubview(line)
-            self.view.sendSubviewToBack(line)
+            //line.finishY = CGFloat(402.5)
+            line.finishY = CGFloat(40)
+            //self.view.addSubview(line)
+            //self.view.sendSubviewToBack(line)
+            self.vCatagory.addSubview(line)
+            self.vCatagory.sendSubviewToBack(line)
         }
-        pcPromotion.backgroundColor = UIColor(white: 1, alpha: 0)
-        //self.view.sendSubviewToBack(pcPromotion)
+        self.view.sendSubviewToBack(pcPromotion)
+        
     }
+    
     func tappedProductCatagory(sender:UIButton!){
         //clear all select
         for var index = 0; index < 6; ++index {
@@ -591,6 +628,20 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     @IBAction func exitFromThankyouPage(segue:UIStoryboardSegue){
         print("Back from thank you page")
+    }
+    
+    func swipeProduct(sender:UIGestureRecognizer){
+        // do other task
+        if let gestureSwipe = sender as? UISwipeGestureRecognizer {
+            switch gestureSwipe.direction {
+            case UISwipeGestureRecognizerDirection.Up:
+                print("UISwipeGestureRecognizerDirection.Up")
+            case UISwipeGestureRecognizerDirection.Down:
+                print("UISwipeGestureRecognizerDirection.Down")
+            default:
+                break
+            }
+        }
     }
 
 }

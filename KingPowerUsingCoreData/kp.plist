@@ -87,8 +87,10 @@
 	<key>navigationItemSearchImgHeight</key>
 	<integer>36</integer>
 	<key>sectionHeaderColor</key>
-	<string></string>
+	<string>#0081AF</string>
 	<key>borderCollectionColor</key>
-	<string></string>
+	<string>#E5E5E5</string>
+	<key>whiteColor</key>
+	<string>#F5F5F5</string>
 </dict>
 </plist>

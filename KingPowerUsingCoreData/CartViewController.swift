@@ -39,6 +39,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
     
+    var callAssistanceViewController : CallAssistanceViewController!
+    var flightViewController : FlightViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialValue()
@@ -161,10 +164,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let hView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 30))
-            hView.backgroundColor = Constants.Color.LinkColor
+            hView.backgroundColor = UIColor(hexString: String(gv.getConfigValue("sectionHeaderColor")))
             let hLabel = UILabel(frame: CGRectMake(10, 0, tableView.frame.width, 30))
             hLabel.font = UIFont(name: "Century Gothic", size: 18)
-            hLabel.textColor = Constants.Color.WhiteColor
+            hLabel.textColor = UIColor(hexString: String(gv.getConfigValue("whiteColor")))
             switch section {
             case 0 :
                 hLabel.text =  "Pick Now"
@@ -423,16 +426,16 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func navItemFlightClick(sender:UIButton!)
     {
-        print("navItemFlightClick")
+        self.removeNavigateView()
+        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+        flightViewController.showInView(self.view, animated: true)
     }
     
     func navItemCallClick(sender:UIButton!)
     {
-        print("navItemCallClick")
-        var callAssistViewController: CallAssistViewController!
-        callAssistViewController = CallAssistViewController(nibName: "CallAssistViewController", bundle: nil)
-        callAssistViewController.title = "This is a popup view"
-        callAssistViewController.showInView(self.view, animated: true)
+        self.removeNavigateView()
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        callAssistanceViewController.showInView(self.view, animated: true)
         
     }
     
@@ -453,5 +456,15 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.presentViewController(searchViewController!, animated: true, completion: nil)
     }
     
+    func removeNavigateView(){
+        if(flightViewController != nil && !flightViewController.view.hidden)
+        {
+            flightViewController.view.removeFromSuperview()
+        }
+        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
+        {
+            callAssistanceViewController.view.removeFromSuperview()
+        }
+    }
 
 }

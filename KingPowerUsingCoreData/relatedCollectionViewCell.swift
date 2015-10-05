@@ -14,6 +14,8 @@ class relatedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var relateButton: UIButton!
     
+    var gv = GlobalVariable()
+    
     @IBAction func selectImage(sender: AnyObject) {
         mainView.productDetail = productRelate
         mainView.productIdLabel.text = self.productRelate.product_id
@@ -31,7 +33,7 @@ class relatedCollectionViewCell: UICollectionViewCell {
         currencyFormatter.negativeFormat = "-¤#,##0.00"
         mainView.productPrice.text = currencyFormatter.stringFromNumber(self.productRelate.product_price)
 */
-        mainView.productPrice.text = NSNumber(double: self.productRelate.product_price).currency + " " + Constants.CURRENCY_CODE
+        mainView.productPrice.text = NSNumber(double: self.productRelate.product_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         mainView.productDescript.text = self.productRelate.product_description
         mainView.pickNow.on = self.productRelate.pickup_flag
         mainView.ratingControl.rating = Int(self.productRelate.product_rating)

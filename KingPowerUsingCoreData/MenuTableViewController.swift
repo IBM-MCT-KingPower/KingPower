@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import APAvatarImageView
 
 class MenuTableViewController: UITableViewController {
+    
+    @IBOutlet weak var imvProfile: APAvatarImageView!
+    @IBOutlet weak var lblProfileName: UILabel!
+    @IBOutlet weak var lblMain: UILabel!
     @IBOutlet weak var lblProfile: UILabel!
+    @IBOutlet weak var lblOrderList: UILabel!
+    @IBOutlet weak var lblCart: UILabel!
     @IBOutlet weak var lblSetting: UILabel!
     @IBOutlet weak var lblCheckout: UILabel!
     @IBOutlet weak var lblLanguage: UILabel!
@@ -17,7 +24,7 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet weak var btnLanguage: UIButton!
     
-    
+    var gv = GlobalVariable()
     var constat = Constants()
     var lol = Locale()
     override func viewWillAppear(animated: Bool) {
@@ -27,6 +34,11 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMenuList:",name:"loadMenuList", object: nil)
         
+        self.imvProfile.image = UIImage(named: "05.png")
+        self.imvProfile.contentMode = .ScaleAspectFit
+        self.imvProfile.borderWidth = 5.0
+        self.imvProfile.borderColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
+        self.lblProfileName.text = "MR.XXX XXXXXXXXX"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,9 +59,12 @@ class MenuTableViewController: UITableViewController {
         self.decorate()
     }
     func decorate(){
+        self.lblMain.text = self.constat.customLocalizedString("menuMain", comment: "this is comment")as String
         self.lblProfile.text = self.constat.customLocalizedString("menuProfile", comment: "this is comment")as String
+        self.lblOrderList.text = self.constat.customLocalizedString("menuOrderList", comment: "this is comment")as String
+        self.lblCart.text = self.constat.customLocalizedString("menuCart", comment: "this is comment")as String
         self.lblSetting.text = self.constat.customLocalizedString("menuSetting", comment: "this is comment")as String
-        self.lblCheckout.text = self.constat.customLocalizedString("menuCheckout", comment: "this is comment")as String
+        //self.lblCheckout.text = self.constat.customLocalizedString("menuCheckout", comment: "this is comment")as String
         self.lblLogout.text = self.constat.customLocalizedString("menuLogout", comment: "this is comment")as String
         
     }

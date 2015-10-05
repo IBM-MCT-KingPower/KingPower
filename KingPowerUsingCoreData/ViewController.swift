@@ -60,11 +60,11 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         
         cell.productPrice.text = currencyFormatter.stringFromNumber(self.productArray[indexPath.row].product_price)
 */
-        cell.productPrice.text = NSNumber(double: self.productArray[indexPath.row].product_price).currency + " " + Constants.CURRENCY_CODE
+        cell.productPrice.text = NSNumber(double: self.productArray[indexPath.row].product_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         cell.backgroundColor = UIColor.whiteColor()
         cell.productImage.image = UIImage(named: self.productArray[indexPath.row].product_image1)
         cell.productImage.layer.borderWidth = 1.0
-        cell.productImage.layer.borderColor = Constants.Color.BorderColor.CGColor
+        cell.productImage.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
         return cell
     }
     
@@ -138,7 +138,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             }
           }
           else if (segue.identifier == "popSegue") {
-            var detailViewController = segue.destinationViewController as! popupViewController
+            let detailViewController = segue.destinationViewController as! popupViewController
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
             //detailViewController.modalPresentationStyle = .Custom
             (segue.destinationViewController as! popupViewController).sortingIndex = self.sortingIndex
@@ -146,7 +146,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             (segue.destinationViewController as! popupViewController).delegate = self
           }
           else if (segue.identifier == "filterpopSegue") {
-            var detailViewController = segue.destinationViewController as! popupViewController
+            let detailViewController = segue.destinationViewController as! popupViewController
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
             //detailViewController.modalPresentationStyle = .Custom
             (segue.destinationViewController as! popupViewController).sortingIndex = self.sortingIndex
@@ -274,7 +274,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     {
         print("navItemFlightClick")
     }
-    
+    /*
     func navItemCallClick(sender:UIButton!)
     {
         print("navItemCallClick")
@@ -284,7 +284,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         callAssistViewController.showInView(self.view, animated: true)
         
     }
-    
+    */
     func navItemCartClick(sender:UIButton!)
     {
         print("navItemCartClick")

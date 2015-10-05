@@ -14,6 +14,7 @@ class CatagoryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     @IBOutlet weak var clvRecommended: UICollectionView!
     var index = 0;
     var counter:Int = 1;
+    var gv = GlobalVariable()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,12 +44,12 @@ class CatagoryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
             cell.lblProductName.text = "Fantasy"
             cell.imvProduct.image = UIImage(named: "115758-L1.jpg")
             cell.imvProduct.layer.borderWidth = 1.0
-            cell.imvProduct.layer.borderColor = Constants.Color.BorderColor.CGColor
+            cell.imvProduct.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
         }else{
             cell.lblProductName.text = "Age Perfect"
             cell.imvProduct.image = UIImage(named: "030082-L2.jpg")
             cell.imvProduct.layer.borderWidth = 1.0
-            cell.imvProduct.layer.borderColor = Constants.Color.BorderColor.CGColor
+            cell.imvProduct.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
         }
 
         return cell

@@ -21,7 +21,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     let fashionList = ["Wallet","Ruler","Pencil", "Ice Green Tea"]
     let electronicList = ["Fuji Camera X-A2", "Fuji Camera X-T10", "Macbook Air", "Macbook Pro", "Apple Watch"]
     
-    
+    var gv = GlobalVariable()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,10 +135,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let hView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
-        hView.backgroundColor = Constants.Color.LinkColor
+        hView.backgroundColor = UIColor(hexString: String(gv.getConfigValue("sectionHeaderColor")))
         let hLabel = UILabel(frame: CGRectMake(10, 0, tableView.frame.width, 35))
         hLabel.font = UIFont(name: "Century Gothic", size: 18)
-        hLabel.textColor = Constants.Color.WhiteColor
+        hLabel.textColor = UIColor(hexString: String(gv.getConfigValue("whiteColor")))
         if section == 0 {
             hLabel.text = "Beauty"
         } else if section == 1 {
