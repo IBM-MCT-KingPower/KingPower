@@ -39,6 +39,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
 
+    var callAssistanceViewController : CallAssistanceViewController!
+    var flightViewController : FlightViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -355,19 +357,19 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func navItemFlightClick(sender:UIButton!)
     {
-        print("navItemFlightClick")
+        self.removeNavigateView()
+        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+        flightViewController.showInView(self.view, animated: true)
     }
-    /*
+    
     func navItemCallClick(sender:UIButton!)
     {
-        print("navItemCallClick")
-        var callAssistViewController: CallAssistViewController!
-        callAssistViewController = CallAssistViewController(nibName: "CallAssistViewController", bundle: nil)
-        callAssistViewController.title = "This is a popup view"
-        callAssistViewController.showInView(self.view, animated: true)
+        self.removeNavigateView()
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        callAssistanceViewController.showInView(self.view, animated: true)
         
     }
-    */
+    
     func navItemCartClick(sender:UIButton!)
     {
         print("navItemCartClick")
@@ -385,6 +387,16 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.presentViewController(searchViewController!, animated: true, completion: nil)
     }
     
+    func removeNavigateView(){
+        if(flightViewController != nil && !flightViewController.view.hidden)
+        {
+            flightViewController.view.removeFromSuperview()
+        }
+        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
+        {
+            callAssistanceViewController.view.removeFromSuperview()
+        }
+    }
 
 
 }
