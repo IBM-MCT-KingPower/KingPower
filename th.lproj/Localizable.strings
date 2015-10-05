@@ -7,11 +7,15 @@
 */
 loginCompanyName = "คิงพาวเวอร์";
 loginStaffId="เลขที่ผู้ใช้ / เลขที่บัตรสมาชิก";
+loginStaffPassword="รหัสผ่าน";
 loginEmployeeId="เลขที่พนักงาน";
 loginLogin="เข้าสู่ระบบ";
 welcomeStart="เริ่มต้นใช้งาน";
+menuMain="เมนูหลัก";
 menuProfile="ข้อมูลส่วนตัว";
+menuOrderList="รายการสั่งซื้อ";
 menuSetting="ตั้งค่า";
+menuCart="สินค้าในตะกร้า";
 menuCheckout="นำสินค้าออก";
 menuLogout="ออกจากระบบ";
 profileCustNameTitle="ชื่อลูกค้า";

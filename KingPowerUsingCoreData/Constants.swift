@@ -13,8 +13,6 @@ import DynamicColor
 
 class Constants {
     
-    //static let CURRENCY_CODE = "THB"
-    
     func getLanguageCode()->NSString {
         
       // language code is saved as constant on #languaeManager class as DEFAULTS_KEY_LANGUAGE_CODE

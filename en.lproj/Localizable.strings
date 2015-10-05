@@ -6,14 +6,18 @@
   Copyright © 2558 IBM. All rights reserved.
 */
 loginCompanyName="KING POWER";
-loginStaffId="Staff ID";
+loginStaffId="UserID / Member Card no.";
+loginEmployeeId="EmployeeID";
 loginStaffPassword="Password";
 loginLogin="Log In";
-welcomeStart="Continue";
-menuProfile="Profile";
-menuSetting="Setting";
-menuCheckout="Checkout";
-menuLogout="Logout";
+welcomeStart="Start";
+menuMain="MAIN";
+menuProfile="PROFILE";
+menuOrderList="ORDER LIST";
+menuSetting="SETTING";
+menuCart="CART";
+menuCheckout="CHECKOUT";
+menuLogout="LOGOUT";
 profileCustNameTitle="Customer Name";
 profilePointTitle="Point";
 profileExpDateTitle="Expired Date";
