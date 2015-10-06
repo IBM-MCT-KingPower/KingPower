@@ -10,10 +10,15 @@ import Foundation
 
 public class FlightInfoModel{
     
-    var flii_id         : Int = 0
-    var flii_cust_id    : Int = 0
+    var flii_id         : Int32 = 0
+    var flii_cust_id    : Int32 = 0
     var flii_flight_no  : String = ""
     var flii_flight_date : NSDate = NSDate()
     var flii_return_flag : String = ""
+    
+    var queryInsertFlight : String = ""
+    var queryUpdateFlightById : String = ""
+    var queryGetFlightByCustomerIdAndCurrentDate : String = ""
+    
     
 }

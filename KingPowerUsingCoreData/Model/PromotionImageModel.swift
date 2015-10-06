@@ -10,9 +10,13 @@ import Foundation
 
 public class PromotionImageModel{
     
-    var prmi_id       : Int = 0
-    var prmi_prom_id    : Int = 0
-    var prmi_img_seq    : Int = 0
+    var prmi_id       : Int32 = 0
+    var prmi_prom_id    : Int32 = 0
+    var prmi_img_seq    : Int32 = 0
     var prmi_img_path : String = ""
+    
+    var queryGetPromotionImageById : String = ""
+    var queryGetPromotionImageByPromotionId : String = ""
+    
     
 }

@@ -33,5 +33,10 @@ class ProductModel {
     var prod_create_date:NSDate = NSDate()
     var prod_update_date:NSDate = NSDate()
     var prod_imageArray:[ProductImageModel] = []
+    
     var queryProductAll : String = "SELECT * FROM PRODUCT ORDER BY %@ %@;"
+    var queryProductById : String = ""
+    var queryProductByBrandId : String = ""
+    var queryProductByProductCategoryId : String = ""
+    var queryProductByGender : String = ""
 }

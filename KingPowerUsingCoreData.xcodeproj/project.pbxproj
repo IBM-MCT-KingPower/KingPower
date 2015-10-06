@@ -678,6 +678,7 @@
 		78AC94251B96C43E00B20D9F /* KingPowerUsingCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				78AC942A1B96C43E00B20D9F /* Main.storyboard */,
 				A14267941BC36B7400A05ECF /* Authentication */,
 				A14267851BC36B4600A05ECF /* OrderController */,
 				A14267741BC36B2500A05ECF /* ProductController */,
@@ -800,7 +801,6 @@
 		78BC9BBA1B98330700EF5DF6 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				78AC942A1B96C43E00B20D9F /* Main.storyboard */,
 				A16DDDD31BC3782A00F1B427 /* SidebarMenu-Bridging-Header.h */,
 				A16DDDD41BC3782A00F1B427 /* SWRevealViewController.h */,
 				A16DDDD51BC3782A00F1B427 /* SWRevealViewController.m */,

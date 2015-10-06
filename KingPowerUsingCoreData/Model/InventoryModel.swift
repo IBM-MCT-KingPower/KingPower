@@ -10,12 +10,15 @@ import Foundation
 
 public class InventoryModel{
     
-    var invt_id       : Int = 0
-    var invt_prod_id    : Int = 0
-    var invt_ware_id    : Int = 0
+    var invt_id       : Int32 = 0
+    var invt_prod_id    : Int32 = 0
+    var invt_ware_id    : Int32 = 0
     var invt_location   : String = ""
-    var invt_avai_quantity : Int = 0
+    var invt_avai_quantity : Int32 = 0
     var invt_create_date : NSDate = NSDate()
     var invt_update_date : NSDate = NSDate()
+    
+    var queryUpdateInventoryByProductIdAndWarehouseId : String = ""
+    var queryInventoryByProductIdAndWarehouseId : String = ""
     
 }

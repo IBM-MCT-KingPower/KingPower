@@ -10,11 +10,18 @@ import Foundation
 
 public class ProductCategoryModel{
     
-    var prc_id          : Int = 0
-    var prc_prog_id     : Int = 0
+    var prc_id          : Int32 = 0
+    var prc_prog_id     : Int32 = 0
     var prc_name        : String = ""
-    var prc_parent_category_id : Int = 0
+    var prc_parent_category_id : Int32 = 0
     var prc_create_date : NSDate = NSDate()
     var prc_update_date : NSDate = NSDate()
+    
+    var queryGetProductCategoryAll : String = ""
+    var queryGetProductCategoryByProductGroupId = ""
+    var queryGetProductCategoryById : String = ""
+    var queryGetProductCategoryByParentId : String = ""
+    
+    
     
 }

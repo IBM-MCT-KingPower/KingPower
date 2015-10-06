@@ -10,9 +10,12 @@ import Foundation
 
 public class BrandModel{
     
-    var bran_id         : Int = 0
+    var bran_id         : Int32 = 0
     var bran_name       : String = ""
     var bran_create_date : NSDate = NSDate()
     var bran_update_date : NSDate = NSDate()
+    
+    var queryGetBrandById : String = ""
+    var queryGetBrandAll  : String = ""
     
 }

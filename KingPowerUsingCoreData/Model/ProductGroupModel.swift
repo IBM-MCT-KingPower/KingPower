@@ -10,9 +10,12 @@ import Foundation
 
 public class ProductGroupModel{
     
-    var prog_id         : Int = 0
+    var prog_id         : Int32 = 0
     var prog_name       : String = ""
     var prog_create_date : NSDate = NSDate()
     var prog_update_date : NSDate = NSDate()
+    
+    var queryGetProductGroupById : String = ""
+    var queryGetProductGroupAll : String = ""
     
 }

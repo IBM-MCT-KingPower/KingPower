@@ -10,9 +10,11 @@ import Foundation
 
 public class PermissionModel{
     
-    var perm_id       : Int = 0
+    var perm_id       : Int32 = 0
     var perm_name    : String = ""
     var perm_create_date : NSDate = NSDate()
     var perm_update_date : NSDate = NSDate()
+    
+    var queryGetPermissionById : String = ""
     
 }

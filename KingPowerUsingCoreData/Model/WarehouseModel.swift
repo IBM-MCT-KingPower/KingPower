@@ -10,8 +10,11 @@ import Foundation
 
 public class WarehouseModel{
     
-    var ware_id       : Int = 0
+    var ware_id       : Int32 = 0
     var ware_name    : String = ""
     var ware_address    : String = ""
+    
+    var queryGetWarehouseById : String = ""
+    var queryGetWarehouseAll : String = ""
     
 }

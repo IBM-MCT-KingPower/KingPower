@@ -10,9 +10,12 @@ import Foundation
 
 public class UserGroupModel{
     
-    var usgr_id       : Int = 0
+    var usgr_id       : Int32 = 0
     var usgr_name    : String = ""
     var usgr_create_date : NSDate = NSDate()
     var usgr_update_date : NSDate = NSDate()
+    
+    var queryGetUserGroupAll : String = ""
+    var queryGetUserGroupById : String = ""
     
 }

@@ -10,15 +10,17 @@ import Foundation
 
 public class CustomerModel{
     
-    var cust_id         : Int = 0
+    var cust_id         : Int32 = 0
     var cust_first_name : String = ""
     var cust_last_name  : String = ""
     var cust_member_id  : String = ""
-    var cust_card_id    : Int = 0
+    var cust_card_id    : Int32 = 0
     var cust_card_exp_date : NSDate = NSDate()
-    var cust_point      : Int = 0
+    var cust_point      : Int32 = 0
     var cust_point_exp_date : NSDate = NSDate()
     var cust_create_date : NSDate = NSDate()
     var cust_update_date : NSDate = NSDate()
+    
+    var queryGetCustomerByMemberId : String = ""
     
 }

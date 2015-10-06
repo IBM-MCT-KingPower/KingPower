@@ -10,9 +10,11 @@ import Foundation
 
 public class OrderStatusModel{
     
-    var ords_id         : Int = 0
+    var ords_id         : Int32 = 0
     var ords_name       : String = ""
     var ords_create_date : NSDate = NSDate()
     var ords_update_date : NSDate = NSDate()
+    
+    var queryGetOrderStatusById : String = ""
     
 }

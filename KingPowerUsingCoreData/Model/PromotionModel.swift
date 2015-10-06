@@ -10,7 +10,7 @@ import Foundation
 
 public class PromotionModel{
     
-    var prom_id         : Int = 0
+    var prom_id         : Int32 = 0
     var prom_type       : String = ""
     var prom_name       : String = ""
     var prom_content    : String = ""

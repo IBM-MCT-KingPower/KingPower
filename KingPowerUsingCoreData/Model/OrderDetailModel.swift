@@ -10,15 +10,19 @@ import Foundation
 
 public class OrderDetailModel{
     
-    var ordd_id         : Int = 0
-    var ordd_ordm_id    : Int = 0
-    var ordd_seq        : Int = 0
-    var ordd_prod_id    : Int = 0
-    var ordd_quantity   : Int = 0
+    var ordd_id         : Int32 = 0
+    var ordd_ordm_id    : Int32 = 0
+    var ordd_seq        : Int32 = 0
+    var ordd_prod_id    : Int32 = 0
+    var ordd_quantity   : Int32 = 0
     var ordd_total_price    : NSNumber = NSNumber()
     var ordd_redeem_item    : String = ""
     var ordd_pickup_now : String = ""
     var ordd_create_date : NSDate = NSDate()
     var ordd_update_date : NSDate = NSDate()
+    
+    var queryInsertOrderDetail : String = ""
+    var queryUpdateOrderDetailById : String = ""
+    var queryGetOrderDetailByOrderId : String = ""
     
 }
