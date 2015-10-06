@@ -42,8 +42,8 @@ class KPNavigationBar{
         uiView.navigationItem.hidesBackButton = true
         
         
-//        self.addRightNavItemOnView()
-//        self.addLeftNavItemOnView()
+        //        self.addRightNavItemOnView()
+        //        self.addLeftNavItemOnView()
         
     }
     
@@ -72,7 +72,7 @@ class KPNavigationBar{
     }
     
     func addCartItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Right Item
-                //Cart
+        //Cart
         let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
         buttonCart.frame = CGRectMake(
             gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
@@ -91,7 +91,7 @@ class KPNavigationBar{
         }else{
             uiView.navigationItem.rightBarButtonItems?.append(rightBarButtonItemCart)
         }
-
+        
         
     }
     
@@ -113,7 +113,7 @@ class KPNavigationBar{
         }else{
             uiView.navigationItem.rightBarButtonItems?.append(rightBarButtonItemCall)
         }
-
+        
     }
     
     func addSearchItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Right Item
@@ -184,7 +184,7 @@ class KPNavigationBar{
             uiView.navigationItem.leftBarButtonItems?.append(leftBarButtonItemMenu)
         }
         
-
+        
     }
     
     func addFlightItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Left Item
@@ -227,7 +227,7 @@ class KPNavigationBar{
         }
         
         
-
+        
     }
     
     

@@ -10,26 +10,28 @@ import UIKit
 
 class LoginByCameraViewController: UIViewController {
 
+    var setupNav = KPNavigationBar()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let imageTitleItem : UIImage = UIImage(named: "KP_Logo_Title_Bar.png")!
-        let imageTitleView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        imageTitleView.contentMode = .ScaleAspectFit
-        imageTitleView.image = imageTitleItem
-        self.navigationItem.titleView = imageTitleView
-        self.navigationController?.navigationBar.backgroundColor = UIColor.redColor()
-        
-        
-        var nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor(red: (0/255.0), green: (110/255.0), blue: (204/255.0), alpha: 1.0)
-        
-        let buttonSignout: UIButton = UIButton(type: UIButtonType.Custom)
-        buttonSignout.frame = CGRectMake(0, 0, 30, 30)
-        buttonSignout.setImage(UIImage(named:"btnLogOut.png"), forState: UIControlState.Normal)
-        buttonSignout.addTarget(self, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
-        var rightBarButtonItemSignout: UIBarButtonItem = UIBarButtonItem(customView: buttonSignout)
-        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSignout], animated: true)
+        setupNav.setupNavigationBar(self)
+//
+//        let imageTitleItem : UIImage = UIImage(named: "KP_Logo_Title_Bar.png")!
+//        let imageTitleView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+//        imageTitleView.contentMode = .ScaleAspectFit
+//        imageTitleView.image = imageTitleItem
+//        self.navigationItem.titleView = imageTitleView
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.redColor()
+//        
+//        
+//        var nav = self.navigationController?.navigationBar
+//        nav?.barTintColor = UIColor(red: (0/255.0), green: (110/255.0), blue: (204/255.0), alpha: 1.0)
+//        
+//        let buttonSignout: UIButton = UIButton(type: UIButtonType.Custom)
+//        buttonSignout.frame = CGRectMake(0, 0, 30, 30)
+//        buttonSignout.setImage(UIImage(named:"btnLogOut.png"), forState: UIControlState.Normal)
+//        buttonSignout.addTarget(self, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
+//        var rightBarButtonItemSignout: UIBarButtonItem = UIBarButtonItem(customView: buttonSignout)
+//        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSignout], animated: true)
         
 
         

@@ -11,6 +11,8 @@ import DynamicColor
 
 class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    var setupNav = KPNavigationBar()
+    
     @IBOutlet weak var scvPromotion: UIScrollView!
     @IBOutlet weak var pcPromotion: UIPageControl!
     @IBOutlet weak var vCatagory: UIView!
@@ -41,6 +43,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNav.setupNavigationBar(self)
         // Do any additional setup after loading the view.
         print("view.bounds: \(view.bounds.width) x \(view.bounds.height)")
         print("view.frame : \(view.frame.size.width) x \(view.frame.size.height)")
@@ -56,7 +59,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         /*
         for var i=0 ; i<10 ; i++ {
-            arrContainer.append(arrays)
+        arrContainer.append(arrays)
         }
         */
         
@@ -99,7 +102,8 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.setupNavigationBar()
+        //        self.setupNavigationBar()
+        
     }
     
     //Start - Promotion
@@ -169,7 +173,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             let newPageView = UIImageView(image: pageImages[page])
             //newPageView.contentMode = .ScaleAspectFit
             newPageView.frame = frame
-
+            
             //
             let btnPromotion = UIButton()
             //btnPromotion.setImage(pageImages[page],forState: .Normal)
@@ -227,7 +231,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
         }
     }
-
+    
     //End - Promotion
     
     //Start - Catagory
@@ -241,7 +245,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         return arrContainer.count
     }
     
-   
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cellIdentify = "Cell1"
@@ -275,8 +279,8 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
         cell.v2.addGestureRecognizer(gesture2)
-       // cell.v2.layer.borderWidth = 1
-       // cell.v2.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+        // cell.v2.layer.borderWidth = 1
+        // cell.v2.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
         cell.v2.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
         cell.img2Product.image = UIImage(named: "030082-L2.jpg")
         cell.img2Product.contentMode = .ScaleAspectFit
@@ -305,7 +309,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
         cell.v4.addGestureRecognizer(gesture4)
-       // cell.v4.layer.borderWidth = 1
+        // cell.v4.layer.borderWidth = 1
         //cell.v4.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
         cell.v4.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
         cell.img4Product.image = UIImage(named: "030082-L2.jpg")
@@ -376,7 +380,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         cell.img8Tag.contentMode = .ScaleAspectFit
         cell.img8Plan.image = UIImage(named: "Flight_Only.png")
         cell.img8Plan.contentMode = .ScaleAspectFit
-            arrayIndex++
+        arrayIndex++
         return cell
     }
     
@@ -385,22 +389,22 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PromotionDetailViewController") as! PromotionDetailViewController
         self.navigationController?.pushViewController(vc, animated: true)
         
-
+        
     }
     
     // MARK: - Navigation
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        //(segue.destinationViewController as! DetailViewController).detailText = String(cell.labelIndex.text)
-        
-        //let cell = sender as! MyCustomCollectionViewCell
-        //print(self.tbv.
-        
-        //print(cell.labelIndex.text)
-        //print(indexPath?.row)
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    //(segue.destinationViewController as! DetailViewController).detailText = String(cell.labelIndex.text)
+    
+    //let cell = sender as! MyCustomCollectionViewCell
+    //print(self.tbv.
+    
+    //print(cell.labelIndex.text)
+    //print(indexPath?.row)
     }
     */
     //End Catagory
@@ -413,161 +417,161 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     
     //Navigation Bar
-    func setupNavigationBar(){
-        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
-        //Remove the shadow image altogether
-        for parent in self.navigationController!.navigationBar.subviews {
-            for childView in parent.subviews {
-                if(childView is UIImageView) {
-                    childView.removeFromSuperview()
-                }
-            }
-        }
-        //Container Layout
-        navBar.frame=CGRectMake(0, 0, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height)
-        navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
-        self.view.addSubview(navBar)
-        self.view.sendSubviewToBack(navBar)
-
-        //Navigation Bar
-        self.navigationController!.navigationBar.barTintColor =  UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
-        
-        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
-        let imageTitleView = UIImageView(frame: CGRect(
-            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
-            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
-            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
-            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
-        
-        imageTitleView.contentMode = .ScaleAspectFit
-        imageTitleView.image = imageTitleItem
-        self.navigationItem.titleView = imageTitleView
-        
-        self.addRightNavItemOnView()
-        self.addLeftNavItemOnView()
-        
-    }
-    func addLeftNavItemOnView()
-    {
-        //Menu
-        let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonMenu.frame = CGRectMake(0, 0, 40, 40)
-        buttonMenu.setImage(UIImage(named:"Burger.png"), forState: UIControlState.Normal)
-        buttonMenu.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside) //use this
-        let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
-        
-        if self.revealViewController() != nil {
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            //btnMenu2.target = self.langRevealViewController()
-            //btnMenu2.action = "langRevealToggle:"
-            // Uncomment to change the width of menu
-            //self.revealViewController().rearViewRevealWidth = 62
-        }
-        
-        //Flight
-        let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonFlight.frame = CGRectMake(0, 0, 36, 36)
-        buttonFlight.setImage(UIImage(named:"Flight-WH80x80.png"), forState: UIControlState.Normal)
-        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
-        
-        
-        // add multiple right bar button items
-        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemMenu,leftBarButtonItemFilght], animated: true)
-        // uncomment to add single right bar button item
-        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-        
-    }
+    //    func setupNavigationBar(){
+    //        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
+    //        //Remove the shadow image altogether
+    //        for parent in self.navigationController!.navigationBar.subviews {
+    //            for childView in parent.subviews {
+    //                if(childView is UIImageView) {
+    //                    childView.removeFromSuperview()
+    //                }
+    //            }
+    //        }
+    //        //Container Layout
+    //        navBar.frame=CGRectMake(0, 0, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height)
+    //        navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
+    //        self.view.addSubview(navBar)
+    //        self.view.sendSubviewToBack(navBar)
+    //
+    //        //Navigation Bar
+    //        self.navigationController!.navigationBar.barTintColor =  UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
+    //
+    //        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
+    //        let imageTitleView = UIImageView(frame: CGRect(
+    //            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
+    //            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
+    //            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
+    //            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
+    //
+    //        imageTitleView.contentMode = .ScaleAspectFit
+    //        imageTitleView.image = imageTitleItem
+    //        self.navigationItem.titleView = imageTitleView
+    //
+    //        self.addRightNavItemOnView()
+    //        self.addLeftNavItemOnView()
+    //
+    //    }
+    //    func addLeftNavItemOnView()
+    //    {
+    //        //Menu
+    //        let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
+    //        buttonMenu.frame = CGRectMake(0, 0, 40, 40)
+    //        buttonMenu.setImage(UIImage(named:"Burger.png"), forState: UIControlState.Normal)
+    //        buttonMenu.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside) //use this
+    //        let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
+    //
+    //        if self.revealViewController() != nil {
+    //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    //            //btnMenu2.target = self.langRevealViewController()
+    //            //btnMenu2.action = "langRevealToggle:"
+    //            // Uncomment to change the width of menu
+    //            //self.revealViewController().rearViewRevealWidth = 62
+    //        }
+    //
+    //        //Flight
+    //        let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
+    //        buttonFlight.frame = CGRectMake(0, 0, 36, 36)
+    //        buttonFlight.setImage(UIImage(named:"Flight-WH80x80.png"), forState: UIControlState.Normal)
+    //        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
+    //        let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
+    //
+    //
+    //        // add multiple right bar button items
+    //        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemMenu,leftBarButtonItemFilght], animated: true)
+    //        // uncomment to add single right bar button item
+    //        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
+    //
+    //    }
     
-    func addRightNavItemOnView()
-    {
-        //Call
-        let buttonCall = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonCall.frame = CGRectMake(
-            gv.getConfigValue("navigationItemCallImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
-        
-        buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
-        buttonCall.addTarget(self, action: "navItemCallClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
-        
-        //Cart
-        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonCart.frame = CGRectMake(
-            gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
-        
-        buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
-        buttonCart.addTarget(self, action: "navItemCartClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
-        
-        //Search
-        let buttonSearch = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonSearch.frame = CGRectMake(
-            gv.getConfigValue("navigationItemSearchImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
-        buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
-        buttonSearch.addTarget(self, action: "navItemSearchClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
-        
-        
-        
-        // add multiple right bar button items
-        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSearch,rightBarButtonItemCart,rightBarButtonItemCall], animated: true)
-        
-        // uncomment to add single right bar button item
-        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-    }
+    //    func addRightNavItemOnView()
+    //    {
+    //        //Call
+    //        let buttonCall = UIButton(type: UIButtonType.Custom) as UIButton
+    //        buttonCall.frame = CGRectMake(
+    //            gv.getConfigValue("navigationItemCallImgPositionX") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCallImgPositionY") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCallImgWidth") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
+    //
+    //        buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
+    //        buttonCall.addTarget(self, action: "navItemCallClick:", forControlEvents: UIControlEvents.TouchUpInside)
+    //        let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
+    //
+    //        //Cart
+    //        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
+    //        buttonCart.frame = CGRectMake(
+    //            gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCartImgWidth") as! CGFloat,
+    //            gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
+    //
+    //        buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
+    //        buttonCart.addTarget(self, action: "navItemCartClick:", forControlEvents: UIControlEvents.TouchUpInside)
+    //        let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
+    //
+    //        //Search
+    //        let buttonSearch = UIButton(type: UIButtonType.Custom) as UIButton
+    //        buttonSearch.frame = CGRectMake(
+    //            gv.getConfigValue("navigationItemSearchImgPositionX") as! CGFloat,
+    //            gv.getConfigValue("navigationItemSearchImgPositionY") as! CGFloat,
+    //            gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
+    //            gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
+    //        buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
+    //        buttonSearch.addTarget(self, action: "navItemSearchClick:", forControlEvents: UIControlEvents.TouchUpInside)
+    //        let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
+    //
+    //
+    //
+    //        // add multiple right bar button items
+    //        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSearch,rightBarButtonItemCart,rightBarButtonItemCall], animated: true)
+    //
+    //        // uncomment to add single right bar button item
+    //        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
+    //    }
     
-    //Navigation Bar
-    func navItemFlightClick(sender:UIButton!)
-    {
-        self.removeNavigateView()
-        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
-        flightViewController.showInView(self.view, animated: true)
-    }
-    
-    func navItemCallClick(sender:UIButton!)
-    {
-        self.removeNavigateView()
-        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
-        callAssistanceViewController.showInView(self.view, animated: true)
-        
-    }
-    
-    func navItemCartClick(sender:UIButton!)
-    {
-        print("navItemCartClick")
-        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
-        self.navigationController?.pushViewController(cartViewController!, animated: true)
-
-    }
-    
-    func navItemSearchClick(sender:UIButton!)
-    {
-        print("navItemSearchClick")
-        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
-        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
-        searchViewController?.modalPresentationStyle = modalStyle
-        self.presentViewController(searchViewController!, animated: true, completion: nil)
-    }
-    
-    func removeNavigateView(){
-        if(flightViewController != nil && !flightViewController.view.hidden)
-        {
-            flightViewController.view.removeFromSuperview()
-        }
-        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
-        {
-            callAssistanceViewController.view.removeFromSuperview()
-        }
-    }
+    //    //Navigation Bar
+    //    func navItemFlightClick(sender:UIButton!)
+    //    {
+    //        self.removeNavigateView()
+    //        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+    //        flightViewController.showInView(self.view, animated: true)
+    //    }
+    //
+    //    func navItemCallClick(sender:UIButton!)
+    //    {
+    //        self.removeNavigateView()
+    //        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+    //        callAssistanceViewController.showInView(self.view, animated: true)
+    //
+    //    }
+    //
+    //    func navItemCartClick(sender:UIButton!)
+    //    {
+    //        print("navItemCartClick")
+    //        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
+    //        self.navigationController?.pushViewController(cartViewController!, animated: true)
+    //
+    //    }
+    //
+    //    func navItemSearchClick(sender:UIButton!)
+    //    {
+    //        print("navItemSearchClick")
+    //        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
+    //        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
+    //        searchViewController?.modalPresentationStyle = modalStyle
+    //        self.presentViewController(searchViewController!, animated: true, completion: nil)
+    //    }
+    //
+    //    func removeNavigateView(){
+    //        if(flightViewController != nil && !flightViewController.view.hidden)
+    //        {
+    //            flightViewController.view.removeFromSuperview()
+    //        }
+    //        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
+    //        {
+    //            callAssistanceViewController.view.removeFromSuperview()
+    //        }
+    //    }
     
     func setupTable(){
         
@@ -643,5 +647,5 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
         }
     }
-
+    
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20848786B97210FA4041EB17 /* Pods_KingPowerUsingCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3A8D88FD1BB9B07C0036EB82 /* kp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88FC1BB9B07C0036EB82 /* kp.plist */; };
+		3ACEF66F1BC3CEF600707DB5 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */; settings = {ASSET_TAGS = (); }; };
 		78AC942C1B96C43E00B20D9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AC942A1B96C43E00B20D9F /* Main.storyboard */; };
 		78AC94311B96C43E00B20D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC94301B96C43E00B20D9F /* Assets.xcassets */; };
 		78AC94341B96C43E00B20D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AC94321B96C43E00B20D9F /* LaunchScreen.storyboard */; };
@@ -275,6 +276,7 @@
 		1D7FD133FF26CCED4B69C124 /* Pods-KingPowerUsingCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingPowerUsingCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-KingPowerUsingCoreData/Pods-KingPowerUsingCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		3A8D88FC1BB9B07C0036EB82 /* kp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kp.plist; sourceTree = "<group>"; };
+		3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		59BBEBA4D78C6B26D25D379E /* Pods-KingPowerUsingCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingPowerUsingCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KingPowerUsingCoreData/Pods-KingPowerUsingCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		78AC94231B96C43E00B20D9F /* KingPowerUsingCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingPowerUsingCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC94261B96C43E00B20D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 		3A8D88F71BB9AF4A0036EB82 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */,
 				A16DDDCD1BC3781900F1B427 /* DrawLine.swift */,
 				A16DDDCE1BC3781900F1B427 /* KPNavigationBar.swift */,
 				A16DDDCF1BC3781900F1B427 /* StringFormat.swift */,
@@ -1414,6 +1417,7 @@
 				A11F143F1BC389BA0045B7B6 /* SettingTableViewController.swift in Sources */,
 				A11F142B1BC389A50045B7B6 /* relatedCollectionViewCell.swift in Sources */,
 				A11F142C1BC389A50045B7B6 /* SearchViewController.swift in Sources */,
+				3ACEF66F1BC3CEF600707DB5 /* DatabaseUtil.swift in Sources */,
 				A11F142D1BC389A50045B7B6 /* sortTableViewCell.swift in Sources */,
 				A11F142E1BC389A50045B7B6 /* sortViewController.swift in Sources */,
 				A11F142F1BC389A50045B7B6 /* ViewController.swift in Sources */,
