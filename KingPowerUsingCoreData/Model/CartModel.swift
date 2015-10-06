@@ -16,6 +16,7 @@ public class CartModel{
     var cart_prod_id    : Int32 = 0
     var cart_quantity   : Int32 = 0
     var cart_pickup_now  : String = ""
+    var cart_customer_location : String = ""
     var cart_create_date : NSDate = NSDate()
     var cart_update_date : NSDate = NSDate()
     
