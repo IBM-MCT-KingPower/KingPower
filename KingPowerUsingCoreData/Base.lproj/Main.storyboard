@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,9 +31,9 @@
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
         </mutableArray>
         <mutableArray key="ufonts.com_century-gothic.ttf">
-            <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
@@ -758,6 +758,9 @@
                                     <outlet property="delegate" destination="hGX-X8-U4y" id="e3u-8w-AFA"/>
                                 </connections>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lBx-qH-QdV">
+                                <rect key="frame" x="0.0" y="300" width="1024" height="37"/>
+                            </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="367" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lgp-rP-Xfv">
                                 <rect key="frame" x="0.0" y="399" width="1024" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1260,9 +1263,6 @@
                                     <outlet property="delegate" destination="hGX-X8-U4y" id="FdH-QZ-FY7"/>
                                 </connections>
                             </tableView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lBx-qH-QdV">
-                                <rect key="frame" x="0.0" y="300" width="1024" height="37"/>
-                            </pageControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huF-kw-rQ1">
                                 <rect key="frame" x="0.0" y="340" width="1024" height="50"/>
                                 <subviews>
@@ -1637,6 +1637,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Uwx-1Q-Xi7" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="VFO-Xm-m1l"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="T4F-do-292">
                                         <rect key="frame" x="0.0" y="379" width="260" height="44"/>
@@ -1959,12 +1962,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="productid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-zu-1S7">
-                                <rect key="frame" x="427" y="111" width="577" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8e-5V-4hO">
                                 <rect key="frame" x="465" y="140" width="197" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="25"/>
@@ -1997,7 +1994,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfR-Oo-fup">
-                                <rect key="frame" x="423" y="319" width="554" height="163"/>
+                                <rect key="frame" x="423" y="319" width="554" height="184"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2008,34 +2005,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-CN-v2P">
-                                <rect key="frame" x="138" y="408" width="70" height="95"/>
-                                <state key="normal" image="noimage.png"/>
-                                <connections>
-                                    <action selector="selectImage2:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="MTs-g3-dep"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gho-uw-urD">
-                                <rect key="frame" x="216" y="408" width="70" height="95"/>
-                                <state key="normal" image="noimage.png"/>
-                                <connections>
-                                    <action selector="selectImage3:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="PPb-l9-xWn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s27-Rl-YGP">
-                                <rect key="frame" x="294" y="408" width="70" height="95"/>
-                                <state key="normal" image="noimage.png"/>
-                                <connections>
-                                    <action selector="selectImage4:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="AH3-Dv-KuM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iq0-Xu-LXX">
-                                <rect key="frame" x="60" y="408" width="70" height="95"/>
-                                <state key="normal" image="noimage.png"/>
-                                <connections>
-                                    <action selector="selectImage1:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="XEG-k2-98p"/>
-                                </connections>
-                            </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="pRv-tM-EKS">
                                 <rect key="frame" x="598" y="249" width="94" height="29"/>
                                 <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2051,6 +2020,9 @@
                                 <state key="normal" title="ADD TO CART">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToCart:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="tqm-vc-6Uk"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="airplane.png" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-rv-KoD">
                                 <rect key="frame" x="427" y="136" width="30" height="30"/>
@@ -2058,6 +2030,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-b7-8jj">
                                 <rect key="frame" x="662" y="139" width="24" height="24"/>
                                 <state key="normal" title="Button" image="infos.png"/>
+                                <connections>
+                                    <action selector="currencyConvertorPopup:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="5JS-Z8-fcI"/>
+                                    <segue destination="wjn-pv-gl5" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="wlp-ut-Mc6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Related Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w84-vI-d4s">
                                 <rect key="frame" x="60" y="545" width="304" height="21"/>
@@ -2202,13 +2178,52 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MnK-bJ-iQh">
-                                <rect key="frame" x="0.0" y="510" width="1024" height="50"/>
+                                <rect key="frame" x="0.0" y="511" width="1024" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhq-vN-CS9" customClass="RatingControl" customModule="KingPowerUsingCoreData" customModuleProvider="target">
                                 <rect key="frame" x="554" y="209" width="159" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="productid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMP-zu-1S7">
+                                <rect key="frame" x="427" y="111" width="577" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bkD-hk-9Ij">
+                                <rect key="frame" x="35" y="413" width="355" height="90"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KRN-of-zAw">
+                                    <size key="itemSize" width="80" height="80"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="moreImageCell" id="Wam-dE-Nv8" customClass="MoreImageProductCollectionViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="5" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lzt-a2-K5M">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="80" height="80"/>
+                                        <connections>
+                                            <outlet property="imgProduct" destination="Lzt-a2-K5M" id="sbG-sl-KqV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zCF-dZ-XYh" id="CSo-me-yRt"/>
+                                    <outlet property="delegate" destination="zCF-dZ-XYh" id="720-sp-wzQ"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2223,11 +2238,8 @@
                     <connections>
                         <outlet property="amount" destination="bOV-P6-Ipj" id="J0J-rY-xls"/>
                         <outlet property="itemControl" destination="pRv-tM-EKS" id="680-6j-k0B"/>
+                        <outlet property="moreImageCollectionView" destination="bkD-hk-9Ij" id="3VD-SE-mls"/>
                         <outlet property="pickNow" destination="ONk-2s-BCc" id="HFd-sD-r0Q"/>
-                        <outlet property="productButton1" destination="iq0-Xu-LXX" id="Pqf-T9-dpR"/>
-                        <outlet property="productButton2" destination="LEU-CN-v2P" id="UwY-sh-eLX"/>
-                        <outlet property="productButton3" destination="gho-uw-urD" id="3sc-SE-Yqb"/>
-                        <outlet property="productButton4" destination="s27-Rl-YGP" id="awk-gz-yES"/>
                         <outlet property="productDescript" destination="FfR-Oo-fup" id="fej-bP-aTZ"/>
                         <outlet property="productIdLabel" destination="TMP-zu-1S7" id="b1L-m9-6Xz"/>
                         <outlet property="productImageLabel" destination="sTi-2T-Pse" id="IzD-HW-geW"/>
@@ -2832,7 +2844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpO-KN-1qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9588" y="2562"/>
+            <point key="canvasLocation" x="9036" y="2606"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="rfA-1w-WHK">
@@ -3288,7 +3300,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Promotion Name or Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX5-XT-JEV">
                                 <rect key="frame" x="20" y="329" width="557" height="50"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -3365,7 +3377,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIa-r4-mGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8575" y="2830"/>
+            <point key="canvasLocation" x="10407" y="2586"/>
         </scene>
     </scenes>
     <resources>
@@ -3399,13 +3411,13 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="infos.png" width="42" height="42"/>
         <image name="logo.png" width="345" height="91"/>
         <image name="menu" width="22" height="22"/>
-        <image name="noimage.png" width="180" height="235"/>
         <image name="search.png" width="24" height="24"/>
         <image name="sort.png" width="20" height="24"/>
         <image name="takeoff.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h9l-HJ-MCb"/>
         <segue reference="2pT-n0-ev4"/>
+        <segue reference="h9l-HJ-MCb"/>
+        <segue reference="wlp-ut-Mc6"/>
     </inferredMetricsTieBreakers>
 </document>

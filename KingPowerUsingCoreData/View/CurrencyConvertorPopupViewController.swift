@@ -16,7 +16,7 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
     var currencyArray = NSArray()
     var currencyArray1 = NSMutableArray()
     var currencyArray2 = NSMutableArray()
-    var grandTotal:NSNumber = 0
+    var grandTotal:NSDecimalNumber = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

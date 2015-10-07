@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImageLabel: UIImageView!
@@ -17,33 +17,29 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var pickNow: UISwitch!
     @IBOutlet weak var amount: UITextField!
     @IBOutlet weak var productDescript: UITextView!
-    var productDetail:Products = Products()
-    
-    @IBOutlet weak var productButton1: UIButton!
-    @IBOutlet weak var productButton2: UIButton!
-    @IBOutlet weak var productButton3: UIButton!
-    @IBOutlet weak var productButton4: UIButton!
     @IBOutlet weak var itemControl: UIStepper!
     @IBOutlet weak var ratingControl: RatingControl!
-    
-    
-    var productArray:[Products] = []
-    var database:FMDatabase!
-    
+
+    @IBOutlet weak var moreImageCollectionView: UICollectionView!
     @IBOutlet weak var relatedProductTableView: UITableView!
     @IBOutlet weak var tabView: UIView!
+    var buttonCart = UIButton()
     var btnRelatedProduct = UIButton()
     var btnRecommendedProduct = UIButton()
     var isRelated = true
-    
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
-
+    var productDetail:Products = Products()
+    var productArray:[Products] = []
+    var productImgArray:[UIImage] = []
+    var database:FMDatabase!
+    
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.moreImageCollectionView.backgroundColor = UIColor.whiteColor()
         self.openDB()
         self.query()
         self.initialTabView()
@@ -56,18 +52,12 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.productNameLabel.text = self.productDetail.product_name
         self.productImageLabel.image = UIImage(named: self.productDetail.product_image1)
 
-        self.productButton1.setImage(UIImage(named: self.productDetail.product_image1), forState: UIControlState.Normal)
-        self.productButton2.setImage(UIImage(named: self.productDetail.product_image2), forState: UIControlState.Normal)
-        self.productButton3.setImage(UIImage(named: self.productDetail.product_image3), forState: UIControlState.Normal)
-        self.productButton4.setImage(UIImage(named: self.productDetail.product_image4), forState: UIControlState.Normal)
-        
-        /*
-        var currencyFormatter = NSNumberFormatter()
-        currencyFormatter.currencyCode = "THB"
-        currencyFormatter.numberStyle = .CurrencyStyle
-        currencyFormatter.negativeFormat = "-¤#,##0.00"
-        self.productPrice.text = currencyFormatter.stringFromNumber(self.productDetail.product_price)
-*/
+        self.productImgArray.append(UIImage(named: self.productDetail.product_image1)!)
+        self.productImgArray.append(UIImage(named: self.productDetail.product_image2)!)
+        self.productImgArray.append(UIImage(named: self.productDetail.product_image3)!)
+        self.productImgArray.append(UIImage(named: self.productDetail.product_image4)!)
+        self.moreImageCollectionView.reloadData()
+
         self.productPrice.text = NSNumber(double: self.productDetail.product_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         self.productDescript.text = self.productDetail.product_description
         self.productDescript.font = UIFont(name: "Century Gothic", size: 15)
@@ -130,50 +120,102 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func selectImage1(sender: AnyObject) {
-        productImageLabel.image = UIImage(named: productDetail.product_image1)
-    }
-    
-    @IBAction func selectImage2(sender: AnyObject) {
-        productImageLabel.image = UIImage(named: productDetail.product_image2)
-    }
-    
-    @IBAction func selectImage3(sender: AnyObject) {
-        productImageLabel.image = UIImage(named: productDetail.product_image3)
-    }
-    
-    @IBAction func selectImage4(sender: AnyObject) {
-        productImageLabel.image = UIImage(named: productDetail.product_image4)
-    }
-
-    
     @IBAction func itemChange(sender: AnyObject) {
         self.amount.text = Int(self.itemControl.value).description
     }
     
+    @IBAction func addToCart(sender: AnyObject) {
+        let btnAddToCart = sender as! UIButton
+        let startPoint = btnAddToCart.center
+        let endPoint = buttonCart.center
+        
+        let cartCountView:UIView = UIView(frame: CGRectMake(0, 0, 30, 30))
+        let circleView:UIView = UIView(frame: CGRectMake(0,  0, 30, 30))
+        circleView.layer.cornerRadius = circleView.frame.size.width/2
+        circleView.clipsToBounds = true
+        circleView.backgroundColor = UIColor.redColor()
+        cartCountView.addSubview(circleView)
+        let lblCartCount:UILabel = UILabel(frame: CGRectMake(10, 0, 30, 30))
+        lblCartCount.text = self.amount.text
+        lblCartCount.font = UIFont.boldSystemFontOfSize(16)
+        //lblCartCount.font = UIFont(name: "Century Gothic", size: 18)
+        lblCartCount.textColor = UIColor.whiteColor()
+        circleView.addSubview(lblCartCount)
+        let cur:UIWindow? = UIApplication.sharedApplication().keyWindow
+        cur?.addSubview(cartCountView)
+        
+        
+        let pathAnimation:CAKeyframeAnimation = CAKeyframeAnimation(keyPath: "position");
+        pathAnimation.calculationMode = kCAAnimationPaced;
+        pathAnimation.fillMode = kCAFillModeForwards;
+        pathAnimation.removedOnCompletion = false;
+        pathAnimation.duration=1.0;
+        pathAnimation.delegate=self;
+        
+        let path = UIBezierPath()
+        path.moveToPoint(CGPointMake(startPoint.x, btnAddToCart.frame.origin.y))
+        //print("\(pointTest.frame.origin.x), \(pointTest.frame.origin.y)")
+        //path.addQuadCurveToPoint(CGPoint(x: endPoint.x + 12, y: endPoint.y + 2), controlPoint: CGPoint(x:760.0, y:125.0))
+        path.addQuadCurveToPoint(CGPoint(x: endPoint.x + 12, y: endPoint.y + 2), controlPoint: CGPoint(x:630, y:50))
+        pathAnimation.path = path.CGPath
+        
+        // apply transform animation
+        let animation:CABasicAnimation = CABasicAnimation(keyPath: "transform")
+        let transform : CATransform3D = CATransform3DMakeScale(0.25, 0.25, 0.25 ) //0.25, 0.25, 0.25);
+        
+        animation.setValue(NSValue(CATransform3D: transform), forKey: "transform")
+        animation.duration = 1.5
+        
+        cartCountView.layer.addAnimation(pathAnimation, forKey: "curveAnimation")
+        cartCountView.layer.addAnimation(animation, forKey: "transform")
+        /*
+        let animation2 = CABasicAnimation(keyPath: "transform.scale")
+        animation2.toValue = NSNumber(float: 0.5)
+        animation2.duration = 1.5
+        
+        //animation2.
+        //animation2.repeatCount = 1.0
+        //animation2.autoreverses = false
+        cartCountView.layer.addAnimation(animation2, forKey: nil)
+*/
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDelegate(self)
+       // UIView.setAnimationDelay(0.5)
+        UIView.setAnimationDuration(1.0)
+        UIView.setAnimationRepeatCount(1)
+        UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
+        cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
+        UIView.commitAnimations()
+        
+    }
+    @IBAction func currencyConvertorPopup(sender: AnyObject) {
+        self.performSegueWithIdentifier("currencyConvertorSegue", sender: nil)
+    }
+    
+    // MARK: - CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.productArray.count
+        return self.productImgArray.count
     }
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("relatedCell",
-            forIndexPath: indexPath) as! relatedCollectionViewCell
-        cell.relateButton.setImage(UIImage(named: self.productArray[indexPath.row].product_image1), forState: UIControlState.Normal)
-        cell.productRelate = self.productArray[indexPath.row]
-        cell.mainView = self
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("moreImageCell",
+            forIndexPath: indexPath) as! MoreImageProductCollectionViewCell
+        cell.imgProduct.image = self.productImgArray[indexPath.row]
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
         return cell
     }
     
-    @IBAction func selectImage(sender: AnyObject) {
-        
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.productImageLabel.image = self.productImgArray[indexPath.row]
     }
-    
+
     func initialTabView(){
         let imgRelatedProduct = UIImage(named: "tab-Related1.png")
         btnRelatedProduct.frame = CGRectMake(0, 0, (imgRelatedProduct?.size.width)!/2, (imgRelatedProduct?.size.height)!/2)
@@ -228,15 +270,21 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "currencyConvertorSegue"{
+            let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
+            print("\(productPrice.text)")
+            viewController.grandTotal = NSDecimalNumber(double: self.productDetail.product_price)
+            
+        }
     }
-    */
+    
     
     func setupNavigationBar(){
         print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
@@ -319,7 +367,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
         
         //Cart
-        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
+        buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
         buttonCart.frame = CGRectMake(
             gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
             gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
