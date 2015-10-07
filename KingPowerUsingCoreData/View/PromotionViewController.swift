@@ -529,49 +529,73 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     //        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
     //    }
     
+    func viewFlightMethod(){
+        print("1")
+        self.removeNavigateView()
+        print("2")
+        CommonViewController().viewFlightMethod(self)
+        
+//        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+//        flightViewController.showInView(self.view, animated: true)
+        print("3")
+    }
+    
+    func callAssistMethod(){
+        self.removeNavigateView()
+    }
+    
+    func searchMethod(){
+        
+    }
+    
+    func viewCartMethod(){
+        
+    }
+    
+    
     //    //Navigation Bar
-    //    func navItemFlightClick(sender:UIButton!)
-    //    {
-    //        self.removeNavigateView()
-    //        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
-    //        flightViewController.showInView(self.view, animated: true)
-    //    }
-    //
-    //    func navItemCallClick(sender:UIButton!)
-    //    {
-    //        self.removeNavigateView()
-    //        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
-    //        callAssistanceViewController.showInView(self.view, animated: true)
-    //
-    //    }
-    //
-    //    func navItemCartClick(sender:UIButton!)
-    //    {
-    //        print("navItemCartClick")
-    //        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
-    //        self.navigationController?.pushViewController(cartViewController!, animated: true)
-    //
-    //    }
-    //
-    //    func navItemSearchClick(sender:UIButton!)
-    //    {
-    //        print("navItemSearchClick")
-    //        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
-    //        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
-    //        searchViewController?.modalPresentationStyle = modalStyle
-    //        self.presentViewController(searchViewController!, animated: true, completion: nil)
-    //    }
-    //
-    //    func removeNavigateView(){
-    //        if(flightViewController != nil && !flightViewController.view.hidden)
-    //        {
-    //            flightViewController.view.removeFromSuperview()
-    //        }
-    //        if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
-    //        {
-    //            callAssistanceViewController.view.removeFromSuperview()
-    //        }
-    //    }
+        func navItemFlightClick(sender:UIButton!)
+        {
+            self.removeNavigateView()
+            flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+            flightViewController.showInView(self.view, animated: true)
+        }
+    
+        func navItemCallClick(sender:UIButton!)
+        {
+            self.removeNavigateView()
+            callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+            callAssistanceViewController.showInView(self.view, animated: true)
+    
+        }
+    
+        func navItemCartClick(sender:UIButton!)
+        {
+            print("navItemCartClick")
+            let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
+            self.navigationController?.pushViewController(cartViewController!, animated: true)
+    
+        }
+    
+        func navItemSearchClick(sender:UIButton!)
+        {
+            print("navItemSearchClick")
+            let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
+            let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
+            searchViewController?.modalPresentationStyle = modalStyle
+            self.presentViewController(searchViewController!, animated: true, completion: nil)
+        }
+    
+        func removeNavigateView(){
+            if(flightViewController != nil && !flightViewController.view.hidden)
+            {
+                flightViewController.view.removeFromSuperview()
+            }
+            if(callAssistanceViewController != nil && !callAssistanceViewController.view.hidden)
+            {
+                callAssistanceViewController.view.removeFromSuperview()
+            }
+        }
     
     func setupTable(){
         

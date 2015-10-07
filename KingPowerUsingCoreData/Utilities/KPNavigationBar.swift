@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KPNavigationBar{
+class KPNavigationBar: NSObject{
     
     var gv = GlobalVariable()
     
@@ -29,26 +29,20 @@ class KPNavigationBar{
             addSignOutItem(uiView, navBar: navBar, isEdge: true)
             addBackItem(uiView, navBar: navBar, isEdge: true)
         }else if(uiView.isKindOfClass(WelcomeViewController)){
-            addSignOutItem(uiView, navBar: navBar, isEdge: true)
             addBackItem(uiView, navBar: navBar, isEdge: true)
         }else{
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addFlightItem(uiView, navBar: navBar, isEdge: false)
             addSearchItem(uiView, navBar: navBar, isEdge: true)
-            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
             addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
         }
         
         uiView.navigationItem.hidesBackButton = true
         
-        
-        //        self.addRightNavItemOnView()
-        //        self.addLeftNavItemOnView()
-        
     }
     
     func addKPLogo(uiView: UIViewController, navBar: UINavigationBar){
-        print("ADD KP LOGO")
         //Container Layout
         navBar.frame=CGRectMake(0, 0, uiView.navigationController!.navigationBar.frame.width, uiView.navigationController!.navigationBar.frame.height)
         navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
@@ -81,7 +75,7 @@ class KPNavigationBar{
             gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
         
         buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
-        buttonCart.addTarget(self, action: "navItemCartClick", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonCart.addTarget(uiView, action: "viewCartMethod", forControlEvents: UIControlEvents.TouchUpInside)
         let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
         
         
@@ -105,7 +99,7 @@ class KPNavigationBar{
             gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
         
         buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
-        buttonCall.addTarget(self, action: "navItemCallClick", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonCall.addTarget(uiView, action: "callAssistMethod", forControlEvents: UIControlEvents.TouchUpInside)
         let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
         
         if(isEdge){
@@ -125,7 +119,7 @@ class KPNavigationBar{
             gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
             gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
         buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
-        buttonSearch.addTarget(self, action: "navItemSearchClick", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonSearch.addTarget(uiView, action: "searchMethod", forControlEvents: UIControlEvents.TouchUpInside)
         let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
         
         if(isEdge){
@@ -145,17 +139,7 @@ class KPNavigationBar{
             height: gv.getConfigValue("navigationItemSignoutImgHeight") as! CGFloat)
         
         buttonSignout.setImage(UIImage(named: gv.getConfigValue("navigationItemSignoutImgName") as! String), forState: UIControlState.Normal)
-        
-        if(uiView.isKindOfClass(LoginMethodViewController)){
-//            var castView = uiView as! LoginMethodViewController
-//            buttonSignout.addTarget(LoginMethodViewController.sharedInstance, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        }else{
-            print("FAIL")
-        }
-        
-        
-        buttonSignout.addTarget(self, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonSignout.addTarget(uiView, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
         var rightBarButtonItemSignout: UIBarButtonItem = UIBarButtonItem(customView: buttonSignout)
         
         if(isEdge){
@@ -206,7 +190,7 @@ class KPNavigationBar{
             gv.getConfigValue("navigationItemAirplainImgWidth") as! CGFloat,
             gv.getConfigValue("navigationItemAirplainImgHeight") as! CGFloat)
         buttonFlight.setImage(UIImage(named: gv.getConfigValue("navigationItemAirplainImgName") as! String), forState: UIControlState.Normal)
-        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonFlight.addTarget(uiView, action: "viewFlightMethod", forControlEvents: UIControlEvents.TouchUpInside)
         let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
         
         if(isEdge){
@@ -214,8 +198,6 @@ class KPNavigationBar{
         }else{
             uiView.navigationItem.leftBarButtonItems?.append(leftBarButtonItemFilght)
         }
-        // uncomment to add single right bar button item
-        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
     }
     
     func addBackItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Left Item
@@ -227,7 +209,7 @@ class KPNavigationBar{
             height: gv.getConfigValue("navigationItemBackImgHeight") as! CGFloat)
         
         buttonBack.setImage(UIImage(named: gv.getConfigValue("navigationItemBackImgName") as! String), forState: UIControlState.Normal)
-        buttonBack.addTarget(self, action: "BackMethod", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonBack.addTarget(uiView, action: "BackMethod", forControlEvents: UIControlEvents.TouchUpInside)
         var leftBarButtonItemBack : UIBarButtonItem = UIBarButtonItem(customView: buttonBack)
         
         if(isEdge){

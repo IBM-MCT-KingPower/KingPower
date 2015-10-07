@@ -10,6 +10,8 @@
 		20848786B97210FA4041EB17 /* Pods_KingPowerUsingCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3A8D88FD1BB9B07C0036EB82 /* kp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88FC1BB9B07C0036EB82 /* kp.plist */; };
 		3ACEF66F1BC3CEF600707DB5 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */; };
+		3ACEF6711BC50CA400707DB5 /* SignoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF6701BC50CA400707DB5 /* SignoutUtil.swift */; settings = {ASSET_TAGS = (); }; };
+		3ACEF6731BC514FC00707DB5 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF6721BC514FC00707DB5 /* CommonViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		78AC942C1B96C43E00B20D9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AC942A1B96C43E00B20D9F /* Main.storyboard */; };
 		78AC94311B96C43E00B20D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC94301B96C43E00B20D9F /* Assets.xcassets */; };
 		78AC94341B96C43E00B20D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AC94321B96C43E00B20D9F /* LaunchScreen.storyboard */; };
@@ -278,6 +280,8 @@
 		3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		3A8D88FC1BB9B07C0036EB82 /* kp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kp.plist; sourceTree = "<group>"; };
 		3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
+		3ACEF6701BC50CA400707DB5 /* SignoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignoutUtil.swift; sourceTree = "<group>"; };
+		3ACEF6721BC514FC00707DB5 /* CommonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		59BBEBA4D78C6B26D25D379E /* Pods-KingPowerUsingCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingPowerUsingCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KingPowerUsingCoreData/Pods-KingPowerUsingCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		78AC94231B96C43E00B20D9F /* KingPowerUsingCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingPowerUsingCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC94261B96C43E00B20D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -653,11 +657,20 @@
 			isa = PBXGroup;
 			children = (
 				3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */,
+				3ACEF6701BC50CA400707DB5 /* SignoutUtil.swift */,
 				A16DDDCD1BC3781900F1B427 /* DrawLine.swift */,
 				A16DDDCE1BC3781900F1B427 /* KPNavigationBar.swift */,
 				A16DDDCF1BC3781900F1B427 /* StringFormat.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		3ACEF6741BC5150300707DB5 /* CommonController */ = {
+			isa = PBXGroup;
+			children = (
+				3ACEF6721BC514FC00707DB5 /* CommonViewController.swift */,
+			);
+			name = CommonController;
 			sourceTree = "<group>";
 		};
 		78AC941A1B96C43E00B20D9F = {
@@ -764,6 +777,7 @@
 		78B31B9E1B96F7DC008873AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3ACEF6741BC5150300707DB5 /* CommonController */,
 				A11EBD4F1BBE2F7100274BB3 /* Product */,
 				A11EBD4E1BBE2F6C00274BB3 /* Cart */,
 				78BC9BC01B9836C500EF5DF6 /* Menu */,
@@ -1428,6 +1442,8 @@
 				A11F142F1BC389A50045B7B6 /* ViewController.swift in Sources */,
 				A11F13EB1BC389980045B7B6 /* UserController.swift in Sources */,
 				A11F13EC1BC389980045B7B6 /* UserGroupMappingController.swift in Sources */,
+				3ACEF6711BC50CA400707DB5 /* SignoutUtil.swift in Sources */,
+				3ACEF6731BC514FC00707DB5 /* CommonViewController.swift in Sources */,
 				A11F13ED1BC389980045B7B6 /* UserPermissionMappingController.swift in Sources */,
 				A11F13EE1BC389980045B7B6 /* CartController.swift in Sources */,
 				A11F13EF1BC389980045B7B6 /* CustomerController.swift in Sources */,

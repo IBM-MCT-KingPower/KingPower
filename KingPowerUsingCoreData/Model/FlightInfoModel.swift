@@ -16,6 +16,7 @@ public class FlightInfoModel{
     var flii_flight_no  : String = ""
     var flii_flight_date : NSDate = NSDate()
     var flii_return_flag : String = ""
+    var flii_create_date : NSDate = NSDate()
     
     var queryInsertFlight : String = ""
     var queryUpdateFlightById : String = ""

@@ -73,12 +73,9 @@ class WelcomeViewController: UIViewController {
 
     }
 
-    func SignoutMethod(){
-        print("Sing Out Method")
-    }
-    
+
     func BackMethod(){
-        print("Back Method")
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func decorate() {

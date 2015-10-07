@@ -95,11 +95,13 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func SignoutMethod(){
-        print("Sing Out Method")
+        CommonViewController().signoutMethod()
+        
+
     }
     
     func BackMethod(){
-        print("Back Method")
+        navigationController?.popViewControllerAnimated(true)
     }
     
     override func didReceiveMemoryWarning() {

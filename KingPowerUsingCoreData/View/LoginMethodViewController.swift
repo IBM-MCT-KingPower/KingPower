@@ -13,6 +13,7 @@ class LoginMethodViewController: UIViewController {
     var gv = GlobalVariable()
     var setupNav = KPNavigationBar()
     
+    
     @IBAction func TappedCardReader(sender: AnyObject) {
         let alertController = UIAlertController(title: "Card Reader Method", message:
             "Under Implemenation", preferredStyle: UIAlertControllerStyle.Alert)
@@ -70,9 +71,10 @@ class LoginMethodViewController: UIViewController {
     }
     
     func SignoutMethod(){
-        print(">> Sing Out Method")
+        CommonViewController().signoutMethod()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

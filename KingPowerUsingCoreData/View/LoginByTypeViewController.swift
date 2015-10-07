@@ -66,11 +66,12 @@ class LoginByTypeViewController: UIViewController {
     
     
     func SignoutMethod(){
-        print("Sing Out Method")
+        CommonViewController().signoutMethod()
+        
     }
     
     func BackMethod(){
-        print("Back Method")
+        navigationController?.popViewControllerAnimated(true)
     }
     
     
