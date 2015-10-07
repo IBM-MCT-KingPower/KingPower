@@ -145,6 +145,16 @@ class KPNavigationBar{
             height: gv.getConfigValue("navigationItemSignoutImgHeight") as! CGFloat)
         
         buttonSignout.setImage(UIImage(named: gv.getConfigValue("navigationItemSignoutImgName") as! String), forState: UIControlState.Normal)
+        
+        if(uiView.isKindOfClass(LoginMethodViewController)){
+//            var castView = uiView as! LoginMethodViewController
+//            buttonSignout.addTarget(LoginMethodViewController.sharedInstance, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        }else{
+            print("FAIL")
+        }
+        
+        
         buttonSignout.addTarget(self, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
         var rightBarButtonItemSignout: UIBarButtonItem = UIBarButtonItem(customView: buttonSignout)
         

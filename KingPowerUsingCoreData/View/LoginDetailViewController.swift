@@ -24,6 +24,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var returnAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
     
     override func viewDidLoad() {
+        print("LoginDetailViewController")
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
         

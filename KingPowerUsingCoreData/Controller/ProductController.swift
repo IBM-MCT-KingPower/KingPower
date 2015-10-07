@@ -35,11 +35,11 @@ class ProductController {
                 prodbyOrderlist.prod_name = rs.stringForColumn("prod_name")
                 prodbyOrderlist.prod_type = rs.stringForColumn("prod_type")
                 prodbyOrderlist.prod_price = rs.doubleForColumn("prod_price")
+                prodbyOrderlist.prod_discount_price = rs.doubleForColumn("prod_discount_price")
                 prodbyOrderlist.prod_description = rs.stringForColumn("prod_description")
                 prodbyOrderlist.prod_details = rs.stringForColumn("prod_details")
                 prodbyOrderlist.prod_remark = rs.stringForColumn("prod_remark")
                 prodbyOrderlist.prod_flight_only = rs.stringForColumn("prod_flight_only")
-                prodbyOrderlist.prod_discount = rs.stringForColumn("prod_discount")
                 prodbyOrderlist.prod_in_stock = rs.stringForColumn("prod_in_stock")
                 prodbyOrderlist.prod_sale = rs.stringForColumn("prod_sale")
                 prodbyOrderlist.prod_weight = rs.doubleForColumn("prod_weight")
@@ -74,7 +74,6 @@ class ProductController {
                 prodImagelist.proi_prod_id = rs.intForColumn("proi_id")
                 prodImagelist.proi_prod_image_seq = rs.stringForColumn("proi_prod_image_seq")
                 prodImagelist.proi_image_path = rs.stringForColumn("proi_image_path")
-                prodImagelist.proi_description = String(rs.stringForColumn("proi_description"))
                 image.append(prodImagelist)
             }
             if (image.count==0){
@@ -83,7 +82,6 @@ class ProductController {
                 prodImagelist.proi_prod_id = prod_id
                 prodImagelist.proi_prod_image_seq = ""
                 prodImagelist.proi_image_path = "noimage"
-                prodImagelist.proi_description = ""
                 image.append(prodImagelist)
             }
             

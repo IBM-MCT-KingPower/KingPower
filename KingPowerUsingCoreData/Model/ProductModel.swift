@@ -14,11 +14,11 @@ class ProductModel {
     var prod_name:String = ""
     var prod_type:String = ""
     var prod_price:Double = 0
+    var prod_discount_price:Double = 0
     var prod_description:String = ""
     var prod_details:String = ""
     var prod_remark:String = ""
     var prod_flight_only:String = ""
-    var prod_discount:String = ""
     var prod_in_stock:String = ""
     var prod_sale:String = ""
     var prod_weight:Double = 0

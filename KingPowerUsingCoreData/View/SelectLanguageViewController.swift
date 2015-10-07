@@ -14,6 +14,7 @@ class SelectLanguageViewController: UIViewController {
     var setupNav = KPNavigationBar()
     
     override func viewDidLoad() {
+        print("SelectLanguageViewController")
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
         

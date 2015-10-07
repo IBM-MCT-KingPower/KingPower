@@ -70,7 +70,7 @@ class LoginMethodViewController: UIViewController {
     }
     
     func SignoutMethod(){
-        print("Sing Out Method")
+        print(">> Sing Out Method")
     }
 
     override func didReceiveMemoryWarning() {
