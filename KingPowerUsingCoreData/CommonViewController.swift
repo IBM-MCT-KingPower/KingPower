@@ -11,6 +11,7 @@ import UIKit
 class CommonViewController: UIViewController {
 
     var flightViewController : FlightViewController!
+    var callAssistanceViewController : CallAssistanceViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,11 @@ class CommonViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func signoutMethod(){
+    func signoutMethod(uiView: UIViewController){
         print("CommonViewController: Signout Method")
-//        let home :UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
-//        print("1")
-//        
-//        self.presentViewController(home, animated: false, completion: nil)
-//        print("2")
+        let home = uiView.storyboard?.instantiateViewControllerWithIdentifier("LoginViewController") as? LoginViewController
+        uiView.navigationController?.pushViewController(home!, animated: true)
+        
         
     }
     
@@ -37,19 +36,26 @@ class CommonViewController: UIViewController {
         print("CommonViewController: ViewFlight Method")
         flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
         flightViewController.showInView(uiView.view, animated: true)
-        print("2.1")
-    }
-    
-    func viewCartMethod(){
         
     }
     
-    func callAssistMethod(){
-        
+    func viewCartMethod(uiView: UIViewController){
+        print("CommonViewController: ViewCart Method")
+        let cartViewController = uiView.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
+        uiView.navigationController?.pushViewController(cartViewController!, animated: true)
     }
     
-    func searchMethod(){
-        
+    func callAssistMethod(uiView: UIViewController){
+        print("CommonViewController: CallAssist Method")
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        callAssistanceViewController.showInView(uiView.view, animated: true)    }
+    
+    func searchMethod(uiView: UIViewController){
+        print("CommonViewController: Search Method")
+        let searchViewController = uiView.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
+        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
+        searchViewController?.modalPresentationStyle = modalStyle
+        uiView.presentViewController(searchViewController!, animated: true, completion: nil)
     }
 
     

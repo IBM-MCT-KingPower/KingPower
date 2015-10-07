@@ -66,7 +66,7 @@ class LoginByTypeViewController: UIViewController {
     
     
     func SignoutMethod(){
-        CommonViewController().signoutMethod()
+        CommonViewController().signoutMethod(self)
         
     }
     

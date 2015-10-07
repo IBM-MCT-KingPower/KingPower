@@ -95,7 +95,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func SignoutMethod(){
-        CommonViewController().signoutMethod()
+        CommonViewController().signoutMethod(self)
         
 
     }
