@@ -70,6 +70,13 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scvPromotion.frame.size.height = 270
         print("scvPromotion.frame: \(scvPromotion.frame)")
         
+        
+        var promController : PromotionController = PromotionController()
+        var promObj : PromotionModel = promController.getPromotionById(1, includeExpire: false)
+        print("----- promObj : \(promObj.prom_name)")
+        print("----- promImage: \(promObj.promotionImageArray[0].prmi_img_path)")
+        
+        
         //Promotion
         // Set up the image you want to scroll & zoom and add it to the scroll view
         let imgPromo1 = UIImage(named:"Promo 1.jpg")

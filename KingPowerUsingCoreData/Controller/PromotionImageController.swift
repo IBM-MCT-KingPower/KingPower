@@ -12,7 +12,6 @@ import Foundation
 class PromotionImageController{
     
     var database: FMDatabase!
-    var promotionArray: [PromotionModel] = []
     
     init(){
         self.database = DatabaseUtil().getDBConnect()

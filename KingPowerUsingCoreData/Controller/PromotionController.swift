@@ -12,6 +12,7 @@ class PromotionController{
     
     var database: FMDatabase!
     var promotionArray: [PromotionModel] = []
+    var promotionImageController = PromotionImageController()
     
     init(){
         self.database = DatabaseUtil().getDBConnect()
@@ -35,15 +36,20 @@ class PromotionController{
                 promotionObj.prom_type = rs.stringForColumn("prom_type")
                 promotionObj.prom_name = rs.stringForColumn("prom_name")
                 promotionObj.prom_content1 = rs.stringForColumn("prom_content1")
-                promotionObj.prom_content2 = rs.stringForColumn("prom_content2")
+                if let content2 = rs.stringForColumn("prom_content2"){
+                    promotionObj.prom_content2 = content2
+                }
+                
                 promotionObj.prom_effective_date = rs.dateForColumn("prom_effective_date")
                 promotionObj.prom_expire_date = rs.dateForColumn("prom_expire_date")
                 promotionObj.prom_expire_flag = rs.stringForColumn("prom_expire_flag")
                 promotionObj.prom_create_date = rs.dateForColumn("prom_create_date")
                 promotionObj.prom_update_date = rs.dateForColumn("prom_update_date")
+                promotionObj.promotionImageArray = promotionImageController.getPromotionImageByPromotionId(promotionObj.prom_id)
                 
                 break;
             }
+            
             
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
@@ -77,6 +83,8 @@ class PromotionController{
                 promotionObj.prom_expire_flag = rs.stringForColumn("prom_expire_flag")
                 promotionObj.prom_create_date = rs.dateForColumn("prom_create_date")
                 promotionObj.prom_update_date = rs.dateForColumn("prom_update_date")
+                promotionObj.promotionImageArray = promotionImageController.getPromotionImageByPromotionId(promotionObj.prom_id)
+                
                 promotionArray.append(promotionObj)
             }
             
@@ -111,6 +119,8 @@ class PromotionController{
                 promotionObj.prom_expire_flag = rs.stringForColumn("prom_expire_flag")
                 promotionObj.prom_create_date = rs.dateForColumn("prom_create_date")
                 promotionObj.prom_update_date = rs.dateForColumn("prom_update_date")
+                promotionObj.promotionImageArray = promotionImageController.getPromotionImageByPromotionId(promotionObj.prom_id)
+                
                 promotionArray.append(promotionObj)
             }
             

@@ -20,6 +20,7 @@ public class PromotionModel{
     var prom_expire_flag : String = ""
     var prom_create_date : NSDate = NSDate()
     var prom_update_date : NSDate = NSDate()
+    var promotionImageArray : [PromotionImageModel] = []
     
     
     var queryGetPromotionById : String = ""
