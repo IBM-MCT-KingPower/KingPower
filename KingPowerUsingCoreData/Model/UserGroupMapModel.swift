@@ -18,6 +18,7 @@ public class UserGroupMapModel{
     
     var queryGetMappingById : String = ""
     var queryGetMappingByUserGroupId : String = ""
-    var queryGetMappingByUserId : String = ""
+    var queryGetMappingByUserId : String = "SELECT * FROM USER_GROUP_MAP WHERE USGM_USER_ID = %@;"
+    
     
 }

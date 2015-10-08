@@ -27,9 +27,9 @@ class UserController {
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
             while rs.next(){
                 user = UserModel()
-                user.user_id = rs.intForColumn("")
-                user.user_username = rs.stringForColumn("")
-                user.user_password = rs.stringForColumn("")
+                user.user_id = rs.intForColumn("user_id")
+                user.user_username = rs.stringForColumn("user_username")
+                user.user_password = rs.stringForColumn("user_password")
                 
                 self.userArray.append(user)
             }

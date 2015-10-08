@@ -18,6 +18,6 @@ public class UserGroupPermissionModel{
     
     var getMappingById : String = ""
     var getMappingByPermissionId : String = ""
-    var getMappingByUserGroupId : String = ""
+    var getMappingByUserGroupId : String = "SELECT * FROM UGR_PER_MAP WHERE UGPM_URGR_ID = %@;"
     
 }
