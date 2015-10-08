@@ -21,4 +21,9 @@ public class PromotionModel{
     var prom_create_date : NSDate = NSDate()
     var prom_update_date : NSDate = NSDate()
     
+    
+    var queryGetPromotionById : String = ""
+    var queryGetPromotionAllEffective : String = ""
+    var queryGetPromotionByType : String = ""
+    
 }

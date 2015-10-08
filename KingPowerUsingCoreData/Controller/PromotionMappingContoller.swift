@@ -8,13 +8,10 @@
 
 import Foundation
 
-class PromotionDetailController{
+class PromotionMappingContoller {
     
-    func getPromotionDetailById(){ //Need return PromotionDetailObj
+    func getPromotionMappingByPromotionId(){
         
     }
     
-    func getPromotionDetailByPromotionId(){ //Need return list of PromotionDetailObj
-        
-    }
 }

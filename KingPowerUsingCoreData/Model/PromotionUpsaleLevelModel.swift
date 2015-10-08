@@ -18,4 +18,7 @@ public class PromotionUpsaleLevelModel{
     var prup_update_date : NSDate = NSDate()
     
     
+    var queryGetPromotionUpSaleByPromotionId: String = ""
+    var queryGetPromotionUpSaleById : String = ""
+    
 }

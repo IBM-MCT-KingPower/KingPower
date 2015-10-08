@@ -20,4 +20,6 @@ public class PromotionMapModel{
     var prma_update_date : NSDate = NSDate()
     
     
+    var queryGetPromotionMapByPromotionId : String = ""
+    
 }
