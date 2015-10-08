@@ -29,8 +29,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var isRelated = true
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
-    var productDetail:Products = Products()
-    var productArray:[Products] = []
+    var productDetail:ProductModel = ProductModel()
+    var productArray:[ProductModel] = []
     var productImgArray:[UIImage] = []
     var database:FMDatabase!
     
@@ -40,81 +40,27 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreImageCollectionView.backgroundColor = UIColor.whiteColor()
-        self.openDB()
-        self.query()
         self.initialTabView()
         
     }
     
     override func viewDidAppear(animated: Bool) {
         self.setupNavigationBar()
-        self.productIdLabel.text = self.productDetail.product_id
-        self.productNameLabel.text = self.productDetail.product_name
-        self.productImageLabel.image = UIImage(named: self.productDetail.product_image1)
-
-        self.productImgArray.append(UIImage(named: self.productDetail.product_image1)!)
-        self.productImgArray.append(UIImage(named: self.productDetail.product_image2)!)
-        self.productImgArray.append(UIImage(named: self.productDetail.product_image3)!)
-        self.productImgArray.append(UIImage(named: self.productDetail.product_image4)!)
+        self.productIdLabel.text = self.productDetail.prod_code
+        self.productNameLabel.text = self.productDetail.prod_name
+        self.productImageLabel.image = UIImage(named: self.productDetail.prod_imageArray[0].proi_image_path)
+        
+        for path in self.productDetail.prod_imageArray {
+            self.productImgArray.append(UIImage(named: path.proi_image_path)!)
+        }
         self.moreImageCollectionView.reloadData()
 
-        self.productPrice.text = NSNumber(double: self.productDetail.product_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
-        self.productDescript.text = self.productDetail.product_description
+        self.productPrice.text = NSNumber(double: self.productDetail.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
+        self.productDescript.text = self.productDetail.prod_description
         self.productDescript.font = UIFont(name: "Century Gothic", size: 15)
-        self.pickNow.on = self.productDetail.pickup_flag
-        self.ratingControl.rating = Int(self.productDetail.product_rating)
+        //self.pickNow.on = self.productDetail.pickup_flag
+        self.ratingControl.rating = Int(self.productDetail.prod_rating)
     }
-    
-    func openDB(){
-        let documentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let path = documentsFolder.stringByAppendingPathComponent("kpdata")
-        let fileManager = NSFileManager()
-        if (!fileManager.fileExistsAtPath(path)){
-            
-            let dbFilePath = NSBundle.mainBundle().pathForResource("kpdata", ofType: "db")
-            print(dbFilePath, terminator: "")
-            do {
-                try fileManager.copyItemAtPath(dbFilePath!, toPath: path)
-            } catch _ {
-            }
-            
-        }
-        self.database = FMDatabase(path: path)
-        
-        if !self.database.open() {
-            print("Unable to open database", terminator: "")
-            return
-        }else{
-            print("database is opened", terminator: "")
-        }
-        
-        
-    }
-    
-    func query(){
-        self.productArray.removeAll(keepCapacity: true)
-        if let rs = database.executeQuery("SELECT product_id, product_name, product_description, product_price,product_image1,product_image2,product_image3,product_image4,product_image5,product_rating FROM kp_product where product_id not in ('"+self.productDetail.product_id+"');", withArgumentsInArray: nil) {
-            
-            while rs.next(){
-                let prolist = Products()
-                prolist.product_id = rs.stringForColumn("product_id")
-                prolist.product_name = rs.stringForColumn("product_name")
-                prolist.product_description = rs.stringForColumn("product_description")
-                prolist.product_price = rs.doubleForColumn("product_price")
-                prolist.product_image1 = rs.stringForColumn("product_image1")
-                prolist.product_image2 = rs.stringForColumn("product_image2")
-                prolist.product_image3 = rs.stringForColumn("product_image3")
-                prolist.product_image4 = rs.stringForColumn("product_image4")
-                prolist.product_image5 = rs.stringForColumn("product_image5")
-                prolist.product_rating = rs.intForColumn("product_rating")
-                self.productArray.append(prolist)
-            }
-        } else {
-            print("select failed: \(database.lastErrorMessage())", terminator: "")
-        }
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -280,7 +226,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
             print("\(productPrice.text)")
-            viewController.grandTotal = NSDecimalNumber(double: self.productDetail.product_price)
+            viewController.grandTotal = NSDecimalNumber(double: self.productDetail.prod_price)
             
         }
     }

@@ -17,7 +17,7 @@ class DatabaseUtil {
         
         let fileManager = NSFileManager()
         if (!fileManager.fileExistsAtPath(path)){
-            
+            print("Exist")
             let dbFilePath = NSBundle.mainBundle().pathForResource("kp", ofType: "sqlite")
             print(dbFilePath, terminator: "")
             do {

@@ -84,7 +84,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         // Set up the page control
         pcPromotion.currentPage = 0
         pcPromotion.numberOfPages = pageCount
-        
+        pcPromotion.backgroundColor = UIColor(white: 1, alpha: 0)
         // Set up the array to hold the views for each page
         for _ in 0..<pageCount {
             pageViews.append(nil)
@@ -629,7 +629,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.vCatagory.addSubview(line)
             self.vCatagory.sendSubviewToBack(line)
         }
-        self.view.sendSubviewToBack(pcPromotion)
+       // self.view.sendSubviewToBack(pcPromotion)
         
     }
     

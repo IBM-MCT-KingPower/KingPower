@@ -17,6 +17,9 @@ public class ProductCategoryModel{
     var prc_create_date : NSDate = NSDate()
     var prc_update_date : NSDate = NSDate()
     
+    var prc_prog        : ProductGroupModel = ProductGroupModel()
+    var prc_parent_category : ProductCategoryModel = ProductCategoryModel()
+    
     var queryGetProductCategoryAll : String = ""
     var queryGetProductCategoryByProductGroupId = ""
     var queryGetProductCategoryById : String = ""

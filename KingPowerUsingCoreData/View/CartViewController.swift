@@ -59,7 +59,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         self.cartTableView.delegate = self
         self.setupNavigationBar()
-        
+        let prod = ProductController().getProductByID(1)
+        print("Product Name = \(prod.prod_name) and Product Image = \(prod.prod_imageArray.count)")
+        //let prodGrp = ProductGroupController().getAllProductGroup()
+        //print("product group = \(prodGrp.count)")
     }
     
     func initialValue(){
