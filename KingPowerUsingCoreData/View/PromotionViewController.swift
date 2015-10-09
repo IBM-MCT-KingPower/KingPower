@@ -34,35 +34,25 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var buttonName = ["Recommend","Fashion","Beauty","Electronics","Food","Liquor"]
     var Recommend = [""]
     
-    var arrContainer = [[String]]()
-    var arrays = [String]()
+    //var arrContainer = [[String]]()
+   // var arrays = [String]()
     var arrayIndex=0;
     
     var pointNow: CGPoint!
     var lastDirection:String!
     
+    var productArray:[ProductModel] = []
+    var prodRemain:Int = 0
+    var prodRow:Int = 0
+    var prodCount:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNav.setupNavigationBar(self)
+        self.setupNav.setupNavigationBar(self)
+        self.getProductList(0)
         // Do any additional setup after loading the view.
         print("view.bounds: \(view.bounds.width) x \(view.bounds.height)")
         print("view.frame : \(view.frame.size.width) x \(view.frame.size.height)")
-        
-        var i = 0
-        for var x=0 ; x<8 ; x++ {
-            for var y=0 ; y<8 ; y++ {
-                arrays.append("\(i)")
-                i++
-            }
-            arrContainer.append(arrays)
-            arrays.removeAll()
-        }
-        /*
-        for var i=0 ; i<10 ; i++ {
-        arrContainer.append(arrays)
-        }
-        */
-        
         
         
         scvPromotion.frame.origin.x = 0
@@ -108,9 +98,29 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.tbvCatagory.delegate = self
     }
     
+    func getProductList(selectedGroup:Int){
+        // get product list
+        if selectedGroup == 0 {
+            productArray = ProductController().getAllProduct()
+        } else if selectedGroup == 1 {
+            productArray = ProductController().getProductByProductGroupID(0)
+        } else if selectedGroup == 2 {
+            productArray = ProductController().getProductByProductGroupID(1)
+        }else if selectedGroup == 3 {
+            productArray = ProductController().getProductByProductGroupID(2)
+        }else if selectedGroup == 4 {
+            productArray = ProductController().getProductByProductGroupID(3)
+        }else if selectedGroup == 5 {
+            productArray = ProductController().getProductByProductGroupID(4)
+        }
+        prodRemain = productArray.count%8
+        prodRow = productArray.count/8
+        prodCount = productArray.count
+    }
+    
     override func viewDidAppear(animated: Bool) {
         //        self.setupNavigationBar()
-        
+        //setupNav.setupNavigationBar(self)
     }
     
     //Start - Promotion
@@ -243,13 +253,11 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     //Start - Catagory
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //return 1
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return 5
-        return arrContainer.count
+        return prodRow
     }
     
     
@@ -261,139 +269,233 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             cellIdentify = "Cell1"
         }
         else if (indexPath.row%3 == 1) {
-            cellIdentify = "Cell2"
-        }
-        else {
             cellIdentify = "Cell3"
         }
-        
+        else {
+            cellIdentify = "Cell2"
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentify) as! Productlayout1TableViewCell!
+        let rowIndex = indexPath.row*8
         
-        let gesture1 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v1.addGestureRecognizer(gesture1)
-        //cell.v1.layer.borderWidth = 1
-        //cell.v1.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v1.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img1Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img1Product.contentMode = .ScaleAspectFit
-        cell.img1Product.layer.borderWidth = 1
-        cell.img1Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img1Tag.image = UIImage(named: "Best-Seller.ham")
-        cell.img1Tag.contentMode = .ScaleAspectFit
-        cell.img1Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img1Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        let count = productArray.count
+        var curIndex = rowIndex + arrayIndex
         
-        let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v2.addGestureRecognizer(gesture2)
-        // cell.v2.layer.borderWidth = 1
-        // cell.v2.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v2.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img2Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img2Product.contentMode = .ScaleAspectFit
-        cell.img2Product.layer.borderWidth = 1
-        cell.img2Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img2Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img2Tag.contentMode = .ScaleAspectFit
-        cell.img2Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img2Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product1 = productArray[curIndex]
+            let gesture1 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v1.tag = curIndex
+            cell.v1.addGestureRecognizer(gesture1)
+            cell.img1Product.layer.borderWidth = 1
+            cell.img1Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v1.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img1Product.image = UIImage(named: product1.prod_imageArray[0].proi_image_path)
+            cell.img1Product.contentMode = .ScaleAspectFit
+            cell.txtv1ProdName.text = product1.prod_name
+            cell.txtv1ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv1ProdName.textAlignment = .Center
+            cell.lbl1ProdPrice.text = String(product1.prod_price)
+            if product1.prod_rating > 3 {
+                cell.img1Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img1Tag.contentMode = .ScaleAspectFit
+            }
+            if product1.prod_flight_only == "Y" {
+                cell.img1Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img1Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture3 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v3.addGestureRecognizer(gesture3)
-        //cell.v3.layer.borderWidth = 1
-        //cell.v3.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v3.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img3Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img3Product.contentMode = .ScaleAspectFit
-        cell.img3Product.layer.borderWidth = 1
-        cell.img3Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img3Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img3Tag.contentMode = .ScaleAspectFit
-        cell.img3Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img3Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product2 = productArray[curIndex]
+            let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v2.tag = curIndex
+            cell.v2.addGestureRecognizer(gesture2)
+            cell.img2Product.layer.borderWidth = 1
+            cell.img2Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v2.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img2Product.image = UIImage(named: product2.prod_imageArray[0].proi_image_path)
+            cell.img2Product.contentMode = .ScaleAspectFit
+            cell.txtv2ProdName.text = product2.prod_name
+            cell.txtv2ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv2ProdName.textAlignment = .Center
+            print("prod name : \(product2.prod_name)")
+            cell.lbl2ProdPrice.text = String(product2.prod_price)
+            if product2.prod_rating > 3 {
+                cell.img2Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img2Tag.contentMode = .ScaleAspectFit
+            }
+            if product2.prod_flight_only == "Y" {
+                cell.img2Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img2Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v4.addGestureRecognizer(gesture4)
-        // cell.v4.layer.borderWidth = 1
-        //cell.v4.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v4.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img4Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img4Product.contentMode = .ScaleAspectFit
-        cell.img4Product.layer.borderWidth = 1
-        cell.img4Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img4Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img4Tag.contentMode = .ScaleAspectFit
-        cell.img4Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img4Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product3 = productArray[curIndex]
+            let gesture3 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v3.tag = curIndex
+            cell.v3.addGestureRecognizer(gesture3)
+            cell.img3Product.layer.borderWidth = 1
+            cell.img3Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v3.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img3Product.image = UIImage(named: product3.prod_imageArray[0].proi_image_path)
+            cell.img3Product.contentMode = .ScaleAspectFit
+            cell.txtv3ProdName.text = product3.prod_name
+            cell.txtv3ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv3ProdName.textAlignment = .Center
+            print("prod name : \(product3.prod_name)")
+            cell.lbl3ProdPrice.text = String(product3.prod_price)
+            if product3.prod_rating > 3 {
+                cell.img3Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img3Tag.contentMode = .ScaleAspectFit
+            }
+            if product3.prod_flight_only == "Y" {
+                cell.img3Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img3Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture5 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v5.addGestureRecognizer(gesture5)
-        //cell.v5.layer.borderWidth = 1
-        //cell.v5.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v5.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img5Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img5Product.contentMode = .ScaleAspectFit
-        cell.img5Product.layer.borderWidth = 1
-        cell.img5Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img5Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img5Tag.contentMode = .ScaleAspectFit
-        cell.img5Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img5Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product4 = productArray[curIndex]
+            let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v4.tag = curIndex
+            cell.v4.addGestureRecognizer(gesture4)
+            cell.img4Product.layer.borderWidth = 1
+            cell.img4Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v4.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img4Product.image = UIImage(named: product4.prod_imageArray[0].proi_image_path)
+            cell.img4Product.contentMode = .ScaleAspectFit
+            cell.txtv4ProdName.text = product4.prod_name
+            cell.txtv4ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv4ProdName.textAlignment = .Center
+            cell.lbl4ProdPrice.text = String(product4.prod_price)
+            if product4.prod_rating > 3 {
+                cell.img4Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img4Tag.contentMode = .ScaleAspectFit
+            }
+            if product4.prod_flight_only == "Y" {
+                cell.img4Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img4Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture6 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v6.addGestureRecognizer(gesture6)
-        //cell.v6.layer.borderWidth = 1
-        //cell.v6.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v6.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img6Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img6Product.contentMode = .ScaleAspectFit
-        cell.img6Product.layer.borderWidth = 1
-        cell.img6Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img6Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img6Tag.contentMode = .ScaleAspectFit
-        cell.img6Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img6Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product5 = productArray[curIndex]
+            let gesture5 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v5.tag = curIndex
+            cell.v5.addGestureRecognizer(gesture5)
+            cell.img5Product.layer.borderWidth = 1
+            cell.img5Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v5.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img5Product.image = UIImage(named: product5.prod_imageArray[0].proi_image_path)
+            cell.img5Product.contentMode = .ScaleAspectFit
+            cell.txtv5ProdName.text = product5.prod_name
+            cell.txtv5ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv5ProdName.textAlignment = .Center
+            cell.lbl5ProdPrice.text = String(product5.prod_price)
+            if product5.prod_rating > 3 {
+                cell.img5Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img5Tag.contentMode = .ScaleAspectFit
+            }
+            if product5.prod_flight_only == "Y" {
+                cell.img5Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img5Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture7 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v7.addGestureRecognizer(gesture7)
-        //cell.v7.layer.borderWidth = 1
-        //cell.v7.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v7.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img7Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img7Product.contentMode = .ScaleAspectFit
-        cell.img7Product.layer.borderWidth = 1
-        cell.img7Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img7Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img7Tag.contentMode = .ScaleAspectFit
-        cell.img7Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img7Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product6 = productArray[curIndex]
+            let gesture6 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v6.tag = curIndex
+            cell.v6.addGestureRecognizer(gesture6)
+            cell.img6Product.layer.borderWidth = 1
+            cell.img6Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v6.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img6Product.image = UIImage(named: product6.prod_imageArray[0].proi_image_path)
+            cell.img6Product.contentMode = .ScaleAspectFit
+            cell.txtv6ProdName.text = product6.prod_name
+            cell.txtv6ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv6ProdName.textAlignment = .Center
+            cell.lbl6ProdPrice.text = String(product6.prod_price)
+            if product6.prod_rating > 3 {
+                cell.img6Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img6Tag.contentMode = .ScaleAspectFit
+            }
+            if product6.prod_flight_only == "Y" {
+                cell.img6Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img6Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
+        if curIndex < count {
+            let product7 = productArray[curIndex]
+            let gesture7 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+            cell.v7.tag = curIndex
+            cell.v7.addGestureRecognizer(gesture7)
+            cell.img7Product.layer.borderWidth = 1
+            cell.img7Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v7.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img7Product.image = UIImage(named: product7.prod_imageArray[0].proi_image_path)
+            cell.img7Product.contentMode = .ScaleAspectFit
+            cell.txtv7ProdName.text = product7.prod_name
+            cell.txtv7ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv7ProdName.textAlignment = .Center
+            cell.lbl7ProdPrice.text = String(product7.prod_price)
+            if product7.prod_rating > 3 {
+                cell.img7Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img7Tag.contentMode = .ScaleAspectFit
+            }
+            if product7.prod_flight_only == "Y" {
+                cell.img7Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img7Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         
-        let gesture8 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
-        cell.v8.addGestureRecognizer(gesture8)
-        //cell.v8.layer.borderWidth = 1
-        //cell.v8.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.v8.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
-        cell.img8Product.image = UIImage(named: "030082-L2.jpg")
-        cell.img8Product.contentMode = .ScaleAspectFit
-        cell.img8Product.layer.borderWidth = 1
-        cell.img8Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-        cell.img8Tag.image = UIImage(named: "Best-Seller.png")
-        cell.img8Tag.contentMode = .ScaleAspectFit
-        cell.img8Plan.image = UIImage(named: "Flight_Only.png")
-        cell.img8Plan.contentMode = .ScaleAspectFit
-        arrayIndex++
+        if curIndex < count {
+            let product8 = productArray[curIndex]
+            let gesture8 = UITapGestureRecognizer(target: self, action: Selector("tappedProduct:"))
+            cell.v8.tag = curIndex
+            cell.v8.addGestureRecognizer(gesture8)
+            cell.img8Product.layer.borderWidth = 1
+            cell.img8Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
+            //cell.v8.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.img8Product.image = UIImage(named: product8.prod_imageArray[0].proi_image_path)
+            cell.img8Product.contentMode = .ScaleAspectFit
+            cell.txtv8ProdName.text = product8.prod_name
+            cell.txtv8ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv8ProdName.textAlignment = .Center
+            cell.lbl8ProdPrice.text = String(product8.prod_price)
+            if product8.prod_rating > 3 {
+                cell.img8Tag.image = UIImage(named: "Best-Seller.png")
+                cell.img8Tag.contentMode = .ScaleAspectFit
+            }
+            if product8.prod_flight_only == "Y" {
+                cell.img8Plan.image = UIImage(named: "Flight_Only.png")
+                cell.img8Plan.contentMode = .ScaleAspectFit
+            }
+            arrayIndex++
+            curIndex = rowIndex + arrayIndex
+        }
         return cell
     }
     
     func tappedProduct(sender:UITapGestureRecognizer){
         // do other task
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PromotionDetailViewController") as! PromotionDetailViewController
+        let product = sender.view
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProductDetailViewController") as! ProductDetailViewController
+        vc.productDetail = productArray[(product!.tag)]
         self.navigationController?.pushViewController(vc, animated: true)
         
         
@@ -646,6 +748,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             var select = 0
             if sender == buttonList[index] {
                 select = 1
+                self.getProductList(index)
             }
             else{
                 select = 0
@@ -653,7 +756,8 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             let image = UIImage(named: "tab-\(buttonName[index])\(select).png")
             buttonList[index].setImage(image, forState: .Normal)
         }
-        tbvCatagory.reloadData()
+        
+        //tbvCatagory.reloadData()
     }
     
     @IBAction func exitFromThankyouPage(segue:UIStoryboardSegue){

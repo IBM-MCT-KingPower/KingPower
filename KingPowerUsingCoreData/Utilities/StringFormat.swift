@@ -20,4 +20,13 @@ extension NSNumber {
         }
         return ""
     }
+
+}
+
+extension UIFont {
+    var bold:UIFont {
+        let fontDesc = fontDescriptor().fontDescriptorWithSymbolicTraits(UIFontDescriptorSymbolicTraits.TraitBold)
+        return UIFont(descriptor: fontDesc, size: 0)
+
+    }
 }
