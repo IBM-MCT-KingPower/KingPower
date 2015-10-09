@@ -23,8 +23,8 @@ public class PromotionModel{
     var promotionImageArray : [PromotionImageModel] = []
     
     
-    var queryGetPromotionById : String = ""
-    var queryGetPromotionAllEffective : String = ""
-    var queryGetPromotionByType : String = ""
+    var queryGetPromotionById : String = "SELECT PROM_ID, PROM_TYPE, PROM_NAME, PROM_CONTENT1, PROM_CONTENT2, PROM_EFFECTIVE_DATE, PROM_EXPIRE_FATE, PROM_EXPIRE_FLAG, PROM_CREATE_DATE, PROM_UPDATE_DATE FROM PROMOTION WHERE PROM_ID = %@;"
+    var queryGetPromotionAllEffective : String = "SELECT PROM_ID, PROM_TYPE, PROM_NAME, PROM_CONTENT1, PROM_CONTENT2, PROM_EFFECTIVE_DATE, PROM_EXPIRE_FATE, PROM_EXPIRE_FLAG, PROM_CREATE_DATE, PROM_UPDATE_DATE FROM PROMOTION WHERE PROM_EXPIRE_FLAG = 'N';"
+    var queryGetPromotionByType : String = "SELECT PROM_ID, PROM_TYPE, PROM_NAME, PROM_CONTENT1, PROM_CONTENT2, PROM_EFFECTIVE_DATE, PROM_EXPIRE_FATE, PROM_EXPIRE_FLAG, PROM_CREATE_DATE, PROM_UPDATE_DATE FROM PROMOTION WHERE PROM_TYPE = %@;"
     
 }

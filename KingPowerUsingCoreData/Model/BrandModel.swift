@@ -15,7 +15,7 @@ public class BrandModel{
     var bran_create_date : NSDate = NSDate()
     var bran_update_date : NSDate = NSDate()
     
-    var queryGetBrandById : String = ""
-    var queryGetBrandAll  : String = ""
+    var queryGetBrandById : String = "SELECT BRAN_ID, BRAN_NAME, BRAN_CREATE_DATE, BRAN_UPDATE_DATE FROM BRAND WHERE BRAN_ID = %@;"
+    var queryGetBrandAll  : String = "SELECT BRAN_ID, BRAN_NAME, BRAN_CREATE_DATE, BRAN_UPDATE_DATE FROM BRAND ORDER BY BRAN_NAME;"
     
 }

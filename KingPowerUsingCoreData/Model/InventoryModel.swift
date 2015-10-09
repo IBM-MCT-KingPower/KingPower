@@ -18,7 +18,7 @@ public class InventoryModel{
     var invt_create_date : NSDate = NSDate()
     var invt_update_date : NSDate = NSDate()
     
-    var queryUpdateInventoryByProductIdAndWarehouseId : String = ""
-    var queryInventoryByProductIdAndWarehouseId : String = ""
+    var queryUpdateInventoryByProductIdAndWarehouseId : String = "UPDATE INVENTORY SET INVT_AVAI_QUANTITY = %@ WHERE INVT_PROD_ID = %@ AND INVT_WARE_ID = %@;"
+    var queryInventoryByProductIdAndWarehouseId : String = "SELECT INVT_ID, INVT_PROD_ID, INVT_WARE_ID, INVT_LOCATION, INVT_AVAI_QUANTITY, INVT_CREATE_DATE, INVT_UPDATE_DATE FROM INVENTORY WHERE INVT_PROD_ID = %@ AND INVT_WARE_ID = %@;"
     
 }

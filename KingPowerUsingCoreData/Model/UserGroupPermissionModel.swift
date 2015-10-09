@@ -16,8 +16,8 @@ public class UserGroupPermissionModel{
     var ugpm_create_date : NSDate = NSDate()
     var ugpm_update_date : NSDate = NSDate()
     
-    var getMappingById : String = ""
-    var getMappingByPermissionId : String = ""
-    var getMappingByUserGroupId : String = "SELECT * FROM UGR_PER_MAP WHERE UGPM_URGR_ID = %@;"
-    
+    var getMappingById : String = "SELECT UGPM_ID, UGPM_USGR_ID, UGPM_PERM_ID, UGPM_CREATE_DATE, UGPM_UPDATE_DATE FROM UGR_PER_MAP WHERE UGPM_ID = %@;"
+    var getMappingByPermissionId : String = "SELECT UGPM_ID, UGPM_USGR_ID, UGPM_PERM_ID, UGPM_CREATE_DATE, UGPM_UPDATE_DATE FROM UGR_PER_MAP WHERE UGPM_PERM_ID = %@;"
+    var getMappingByUserGroupId : String = "SELECT UGPM_ID, UGPM_USGR_ID, UGPM_PERM_ID, UGPM_CREATE_DATE, UGPM_UPDATE_DATE FROM UGR_PER_MAP WHERE USGR_ID = %@;"
+
 }

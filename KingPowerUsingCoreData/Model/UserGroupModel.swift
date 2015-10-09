@@ -15,7 +15,7 @@ public class UserGroupModel{
     var usgr_create_date : NSDate = NSDate()
     var usgr_update_date : NSDate = NSDate()
     
-    var queryGetUserGroupAll : String = ""
-    var queryGetUserGroupById : String = ""
+    var queryGetUserGroupAll : String = "SELECT USGR_ID, USGR_NAME, USGR_CREATE_DATE, USGR_UPDATE_DATE FROM USER_GROUP;"
+    var queryGetUserGroupById : String = "SELECT USGR_ID, USGR_NAME, USGR_CREATE_DATE, USGR_UPDATE_DATE FROM USER_GROUP WHERE USGR_ID = %@;"
     
 }

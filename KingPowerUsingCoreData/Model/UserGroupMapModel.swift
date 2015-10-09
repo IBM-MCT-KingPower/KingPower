@@ -16,9 +16,9 @@ public class UserGroupMapModel{
     var usgm_create_date : NSDate = NSDate()
     var usgm_update_date : NSDate = NSDate()
     
-    var queryGetMappingById : String = ""
-    var queryGetMappingByUserGroupId : String = ""
-    var queryGetMappingByUserId : String = "SELECT * FROM USER_GROUP_MAP WHERE USGM_USER_ID = %@;"
-    
+    var queryGetMappingById : String = "SELECT USGM_ID, USGM_USER_ID, USGM_USGR_ID USGM_CREATE_DATE, USGM_UPDATE_DATE FROM USER_GROUP_MAP WHERE USGM_ID = %@;"
+    var queryGetMappingByUserGroupId : String = "SELECT USGM_ID, USGM_USER_ID, USGM_USGR_ID USGM_CREATE_DATE, USGM_UPDATE_DATE FROM USER_GROUP_MAP WHERE USGM_USGR_ID = %@;"
+    var queryGetMappingByUserId : String = "SELECT USGM_ID, USGM_USER_ID, USGM_USGR_ID USGM_CREATE_DATE, USGM_UPDATE_DATE FROM USER_GROUP_MAP WHERE USGM_USER_ID = %@;"
+
     
 }

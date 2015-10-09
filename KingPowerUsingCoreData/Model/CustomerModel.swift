@@ -21,6 +21,6 @@ public class CustomerModel{
     var cust_create_date : NSDate = NSDate()
     var cust_update_date : NSDate = NSDate()
     
-    var queryGetCustomerByMemberId : String = ""
+    var queryGetCustomerByMemberId : String = "SELECT CUST_ID, CUST_FIRST_NAME, CUST_LAST_NAME, CUST_MEMBER_ID, CUST_CARD_ID, CUST_CARD_EXP_DATE, CUST_POINT, CUST_POINT_EXP_DATE, CUST_CREATE_DATE, CUST_UPDATE_DATE FROM CUSTOMER WHERE CUST_MEMBER_ID = %@;"
     
 }

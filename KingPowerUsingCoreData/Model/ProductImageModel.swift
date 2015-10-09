@@ -15,5 +15,5 @@ class ProductImageModel {
     var proi_prod_image_seq:String = ""
     var proi_image_path:String = ""
     
-    var queryProductImageByProductId : String = "SELECT * FROM PRODUCT_IMAGE WHERE PROI_PROD_ID = %@ ORDER BY PROI_PROD_IMAGE_SEQ ASC;"
+    var queryProductImageByProductId : String = "SELECT PROI_ID, PROI_PROD_ID, PROI_PROD_IMAGE_SEQ, PROI_IMAGE_PATH FROM PRODUCT_IMAGE WHERE PROI_PROD_ID = %@ ORDER BY PROI_PROD_ID, PROI_PROD_IMAGE_SEQ ASC;"
 }

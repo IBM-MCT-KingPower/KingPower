@@ -19,7 +19,7 @@ public class ProductGroupBrandMapModel{
     var prbm_bran        : BrandModel = BrandModel()
     var prbm_prog        : ProductGroupModel = ProductGroupModel()
     
-    var queryGetMappingByBrandId : String = ""
-    var queryGetMappingByProductGroupId : String = ""
+    var queryGetMappingByBrandId : String = "SELECT PRBM_ID, PRBM_BRAN_ID, PRBM_PROG_ID, PRBM_CREATE_DATE, PRBM_UPDATE_DATE FROM PRODUCT_GROUP_BRAND_MAP WHERE PRBM_BRAN_ID = %@;"
+    var queryGetMappingByProductGroupId : String = "SELECT PRBM_ID, PRBM_BRAN_ID, PRBM_PROG_ID, PRBM_CREATE_DATE, PRBM_UPDATE_DATE FROM PRODUCT_GROUP_BRAND_MAP WHERE PRBM_PROG_ID = %@;"
 
 }

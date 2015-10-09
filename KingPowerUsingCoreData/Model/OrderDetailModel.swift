@@ -12,7 +12,6 @@ public class OrderDetailModel{
     
     var ordd_id         : Int32 = 0
     var ordd_ordm_id    : Int32 = 0
-    var ordd_seq        : Int32 = 0
     var ordd_prod_id    : Int32 = 0
     var ordd_quantity   : Int32 = 0
     var ordd_total_price    : NSNumber = NSNumber()
@@ -21,8 +20,8 @@ public class OrderDetailModel{
     var ordd_create_date : NSDate = NSDate()
     var ordd_update_date : NSDate = NSDate()
     
-    var queryInsertOrderDetail : String = ""
-    var queryUpdateOrderDetailById : String = ""
-    var queryGetOrderDetailByOrderId : String = ""
+    var queryInsertOrderDetail : String = "INSERT INTO ORDER_DETAIL (%@) VALUES (%@);"
+    var queryUpdateOrderDetailById : String = "UPDATE ORDER_DETAIL SET %@ WHERE ORDD_ID = %@;"
+    var queryGetOrderDetailByOrderId : String = "SELECT ORDD_ID, ORDD_ORDM_ID, ORDD_PROD_ID, ORDD_QUANTITY, ORDD_TOTAL_PRICE, ORDD_REDEEM_ITEM, ORDD_PICKUP_NOW, ORDD_CREATE_DATE, ORDD_UPDATE_DATE FROM ORDER_DETAIL WHERE ORDD_ORDM_ID = %@;"
     
 }
