@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,8 +32,56 @@
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
         </mutableArray>
         <mutableArray key="ufonts.com_century-gothic.ttf">
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
@@ -785,6 +833,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PS-i2-8za">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mG-ag-8IT">
+                                                            <rect key="frame" x="0.0" y="325" width="289.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-Ha-crG">
+                                                            <rect key="frame" x="1" y="285" width="289.5" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -800,6 +859,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fmo-iL-xet">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njv-jw-eOM">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peO-Zn-0Tv">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -815,6 +885,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lL3-m6-6j0">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ir1-ZZ-TQt">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-CB-TfO">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -830,6 +911,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Il4-3Y-Sk6">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idX-n5-IZd">
+                                                            <rect key="frame" x="0.0" y="135" width="180" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gA0-Gc-TF7">
+                                                            <rect key="frame" x="0.0" y="175" width="180" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -845,6 +937,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYN-ka-bMX">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLp-et-xsT">
+                                                            <rect key="frame" x="0.0" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFC-Bq-aR2">
+                                                            <rect key="frame" x="0.0" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -860,6 +963,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJq-7i-HkR">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jae-Oq-Mks">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtX-PV-a1Z">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -875,6 +989,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-kq-jq3">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8X-RN-iwf">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1K-Jc-nOh">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -890,6 +1015,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgR-u9-SdV">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySh-9n-ZOc">
+                                                            <rect key="frame" x="2" y="80" width="180" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj3-Xk-hWB">
+                                                            <rect key="frame" x="2" y="115" width="180" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -920,6 +1056,22 @@
                                             <outlet property="img8Plan" destination="cnG-WZ-Mw9" id="Lyr-yN-6uV"/>
                                             <outlet property="img8Product" destination="gfe-GT-12I" id="UFe-We-1C8"/>
                                             <outlet property="img8Tag" destination="xgR-u9-SdV" id="e8F-ge-Qsc"/>
+                                            <outlet property="lbl1ProdPrice" destination="0mG-ag-8IT" id="hFn-gu-UTN"/>
+                                            <outlet property="lbl2ProdPrice" destination="peO-Zn-0Tv" id="QPq-25-m0V"/>
+                                            <outlet property="lbl3ProdPrice" destination="uVq-CB-TfO" id="fub-pG-XdW"/>
+                                            <outlet property="lbl4ProdPrice" destination="gA0-Gc-TF7" id="esl-pg-JG0"/>
+                                            <outlet property="lbl5ProdPrice" destination="qFC-Bq-aR2" id="ymZ-3N-RFG"/>
+                                            <outlet property="lbl6ProdPrice" destination="NtX-PV-a1Z" id="ctl-IL-V1r"/>
+                                            <outlet property="lbl7ProdPrice" destination="K1K-Jc-nOh" id="nI1-vK-cSJ"/>
+                                            <outlet property="lbl8ProdPrice" destination="Yj3-Xk-hWB" id="kVw-wM-qUv"/>
+                                            <outlet property="txtv1ProdName" destination="lwA-Ha-crG" id="xH1-fr-1f1"/>
+                                            <outlet property="txtv2ProdName" destination="njv-jw-eOM" id="isP-ix-8r0"/>
+                                            <outlet property="txtv3ProdName" destination="ir1-ZZ-TQt" id="xKu-Tr-XMT"/>
+                                            <outlet property="txtv4ProdName" destination="idX-n5-IZd" id="93V-gB-3wI"/>
+                                            <outlet property="txtv5ProdName" destination="MLp-et-xsT" id="3sN-qj-JEA"/>
+                                            <outlet property="txtv6ProdName" destination="jae-Oq-Mks" id="lAB-Zm-APR"/>
+                                            <outlet property="txtv7ProdName" destination="v8X-RN-iwf" id="jdq-p5-64d"/>
+                                            <outlet property="txtv8ProdName" destination="ySh-9n-ZOc" id="YxS-r2-0Xb"/>
                                             <outlet property="v1" destination="osW-5j-XAi" id="3YW-74-ciu"/>
                                             <outlet property="v2" destination="Sx8-b7-HLn" id="MMd-sJ-Qac"/>
                                             <outlet property="v3" destination="gTG-2F-ejs" id="xFg-HP-sfy"/>
@@ -949,6 +1101,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-VM-bMO">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEL-JO-OsE">
+                                                            <rect key="frame" x="0.0" y="285" width="289.5" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hea-u2-DAN">
+                                                            <rect key="frame" x="0.0" y="325" width="289.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -964,6 +1127,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y49-jp-y3i">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3C-0Y-ORF">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDz-dx-MgN">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -979,6 +1153,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-yu-ccp">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKZ-zW-Oye">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wX3-IN-wSN">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -994,6 +1179,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSy-GA-y9n">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDf-tD-Hel">
+                                                            <rect key="frame" x="2" y="135" width="180" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-vN-EcS">
+                                                            <rect key="frame" x="2" y="175" width="180" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1009,6 +1205,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsD-Y7-T8b">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOr-OY-hOt">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0H-bc-cCV">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1024,6 +1231,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-cy-2O3">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-ku-Lkb">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFG-as-z6j">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1039,6 +1257,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-nU-XsW">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkq-CO-z5T">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncp-RQ-e3x">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1054,6 +1283,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-ly-AYg">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jof-n0-RRA">
+                                                            <rect key="frame" x="12" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVJ-pp-SL2">
+                                                            <rect key="frame" x="12" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1084,6 +1324,22 @@
                                             <outlet property="img8Plan" destination="7pj-a5-b2i" id="Uiq-jx-55s"/>
                                             <outlet property="img8Product" destination="rlb-bo-W9e" id="GOM-0g-T8U"/>
                                             <outlet property="img8Tag" destination="akJ-ly-AYg" id="Z9m-Wl-cqL"/>
+                                            <outlet property="lbl1ProdPrice" destination="hea-u2-DAN" id="4Y2-dZ-nqc"/>
+                                            <outlet property="lbl2ProdPrice" destination="VDz-dx-MgN" id="gjm-2P-NPH"/>
+                                            <outlet property="lbl3ProdPrice" destination="wX3-IN-wSN" id="igP-Fj-yq6"/>
+                                            <outlet property="lbl4ProdPrice" destination="rD7-vN-EcS" id="p6E-da-R4t"/>
+                                            <outlet property="lbl5ProdPrice" destination="W0H-bc-cCV" id="u48-18-wPQ"/>
+                                            <outlet property="lbl6ProdPrice" destination="TFG-as-z6j" id="nDZ-wU-nLa"/>
+                                            <outlet property="lbl7ProdPrice" destination="ncp-RQ-e3x" id="u7Z-4L-BXD"/>
+                                            <outlet property="lbl8ProdPrice" destination="NVJ-pp-SL2" id="v1D-LS-ode"/>
+                                            <outlet property="txtv1ProdName" destination="eEL-JO-OsE" id="Xqi-U5-LuX"/>
+                                            <outlet property="txtv2ProdName" destination="p3C-0Y-ORF" id="hDo-qY-hGK"/>
+                                            <outlet property="txtv3ProdName" destination="XKZ-zW-Oye" id="NpK-29-ba7"/>
+                                            <outlet property="txtv4ProdName" destination="dDf-tD-Hel" id="MMM-mV-TNf"/>
+                                            <outlet property="txtv5ProdName" destination="TOr-OY-hOt" id="cLj-i2-6Xu"/>
+                                            <outlet property="txtv6ProdName" destination="t5o-ku-Lkb" id="B7w-8M-BTa"/>
+                                            <outlet property="txtv7ProdName" destination="Jkq-CO-z5T" id="WYF-dN-Dln"/>
+                                            <outlet property="txtv8ProdName" destination="Jof-n0-RRA" id="9nJ-Z4-4lc"/>
                                             <outlet property="v1" destination="s5q-cq-3SL" id="j0r-DK-nFd"/>
                                             <outlet property="v2" destination="b6l-km-4Mc" id="z9x-wx-OF7"/>
                                             <outlet property="v3" destination="0tM-i3-OXf" id="bKA-BP-g4m"/>
@@ -1113,6 +1369,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9f-Mg-CT3">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vy-Wg-Tw9">
+                                                            <rect key="frame" x="0.0" y="285" width="289.5" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOh-ts-i1Q">
+                                                            <rect key="frame" x="0.0" y="325" width="289.5" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1128,6 +1395,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-9q-NTd">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyf-Za-pNR">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8d-wZ-D4r">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1143,6 +1421,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huI-0L-POi">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwb-5G-qWM">
+                                                            <rect key="frame" x="0.0" y="135" width="250" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26A-d7-VYK">
+                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1158,6 +1447,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHc-R0-T3M">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8da-z4-JDo">
+                                                            <rect key="frame" x="2" y="135" width="180" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7u-fK-feR">
+                                                            <rect key="frame" x="2" y="175" width="180" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1173,6 +1473,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skh-CG-oeT">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOD-eq-o1y">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-ph-p3E">
+                                                            <rect key="frame" x="0.0" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1188,6 +1499,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCf-sa-TzI">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swu-gf-lHK">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7l-Wl-8Mj">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1203,6 +1525,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsY-0Q-sdg">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRa-YO-d2g">
+                                                            <rect key="frame" x="1" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rd-PI-xN9">
+                                                            <rect key="frame" x="1" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1218,6 +1551,17 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cUo-of-DRe">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Product Line 1 Product Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeO-Hj-6QW">
+                                                            <rect key="frame" x="12" y="80" width="160" height="42.5"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55C-av-7sz">
+                                                            <rect key="frame" x="12" y="115" width="160" height="21"/>
+                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1248,6 +1592,22 @@
                                             <outlet property="img8Plan" destination="DcV-eh-F6B" id="ByO-8N-vvK"/>
                                             <outlet property="img8Product" destination="cGG-Hj-qqO" id="Mha-lg-hQD"/>
                                             <outlet property="img8Tag" destination="cUo-of-DRe" id="phW-GY-W1d"/>
+                                            <outlet property="lbl1ProdPrice" destination="WOh-ts-i1Q" id="Bit-h5-hlV"/>
+                                            <outlet property="lbl2ProdPrice" destination="W8d-wZ-D4r" id="AZJ-se-upg"/>
+                                            <outlet property="lbl3ProdPrice" destination="26A-d7-VYK" id="Zkb-c1-AzD"/>
+                                            <outlet property="lbl4ProdPrice" destination="r7u-fK-feR" id="KbG-nD-iq8"/>
+                                            <outlet property="lbl5ProdPrice" destination="sOD-eq-o1y" id="p2E-dR-ibN"/>
+                                            <outlet property="lbl6ProdPrice" destination="m7l-Wl-8Mj" id="xMX-o9-XyA"/>
+                                            <outlet property="lbl7ProdPrice" destination="0Rd-PI-xN9" id="k8j-Nh-gvO"/>
+                                            <outlet property="lbl8ProdPrice" destination="55C-av-7sz" id="xi2-9S-Yox"/>
+                                            <outlet property="txtv1ProdName" destination="7Vy-Wg-Tw9" id="ylj-Yb-Qbl"/>
+                                            <outlet property="txtv2ProdName" destination="eyf-Za-pNR" id="6Ge-JY-9qr"/>
+                                            <outlet property="txtv3ProdName" destination="kwb-5G-qWM" id="kbK-Yq-F79"/>
+                                            <outlet property="txtv4ProdName" destination="8da-z4-JDo" id="Zxz-SU-QoR"/>
+                                            <outlet property="txtv5ProdName" destination="HaS-ph-p3E" id="8P2-VR-EZ6"/>
+                                            <outlet property="txtv6ProdName" destination="Swu-gf-lHK" id="zPI-IY-37a"/>
+                                            <outlet property="txtv7ProdName" destination="CRa-YO-d2g" id="nMi-tg-QTt"/>
+                                            <outlet property="txtv8ProdName" destination="qeO-Hj-6QW" id="rQz-OH-Yct"/>
                                             <outlet property="v1" destination="bg9-LU-Ow0" id="AjA-ph-Spx"/>
                                             <outlet property="v2" destination="wJZ-uB-59s" id="oTu-Ri-BdB"/>
                                             <outlet property="v3" destination="BCr-pY-6uU" id="ROB-5S-uL1"/>
