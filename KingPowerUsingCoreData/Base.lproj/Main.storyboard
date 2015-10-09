@@ -32,56 +32,8 @@
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
-            <string>CenturyGothic-Bold</string>
         </mutableArray>
         <mutableArray key="ufonts.com_century-gothic.ttf">
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
-            <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
@@ -833,17 +785,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1PS-i2-8za">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fj-fe-FE3">
-                                                            <rect key="frame" x="0.0" y="320" width="289.5" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY6-4p-3oY">
-                                                            <rect key="frame" x="0.0" y="275" width="289.5" height="48"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -859,17 +800,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fmo-iL-xet">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTn-yF-y1j">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiz-Xq-xuf">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -885,17 +815,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lL3-m6-6j0">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpA-n2-Oo5">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPS-3M-epw">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -911,17 +830,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Il4-3Y-Sk6">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOF-ds-Dnv">
-                                                            <rect key="frame" x="0.0" y="175" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-1j-2Ti">
-                                                            <rect key="frame" x="0.0" y="139" width="184" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -937,17 +845,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYN-ka-bMX">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcS-3i-Kcn">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-if-zXL">
-                                                            <rect key="frame" x="0.0" y="79" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -963,17 +860,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJq-7i-HkR">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FJ-dQ-L7E">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-u6-hsR">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -989,17 +875,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HU9-kq-jq3">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g1-my-sIw">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPH-7A-jT4">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1015,17 +890,6 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgR-u9-SdV">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymk-0Z-l0F">
-                                                            <rect key="frame" x="0.0" y="115" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAL-sj-QQb">
-                                                            <rect key="frame" x="0.0" y="80" width="184" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1056,23 +920,7 @@
                                             <outlet property="img8Plan" destination="cnG-WZ-Mw9" id="Lyr-yN-6uV"/>
                                             <outlet property="img8Product" destination="gfe-GT-12I" id="UFe-We-1C8"/>
                                             <outlet property="img8Tag" destination="xgR-u9-SdV" id="e8F-ge-Qsc"/>
-                                            <outlet property="lbl1ProdPrice" destination="3fj-fe-FE3" id="PwV-uM-gMv"/>
-                                            <outlet property="lbl2ProdPrice" destination="vTn-yF-y1j" id="vsh-Om-8qI"/>
-                                            <outlet property="lbl3ProdPrice" destination="rpA-n2-Oo5" id="LNE-w3-2e3"/>
-                                            <outlet property="lbl4ProdPrice" destination="OOF-ds-Dnv" id="zCP-9e-Eze"/>
-                                            <outlet property="lbl5ProdPrice" destination="JcS-3i-Kcn" id="fmQ-Ee-ZV9"/>
-                                            <outlet property="lbl6ProdPrice" destination="6FJ-dQ-L7E" id="L67-i2-0IL"/>
-                                            <outlet property="lbl7ProdPrice" destination="6g1-my-sIw" id="0dr-9g-kFZ"/>
-                                            <outlet property="lbl8ProdPrice" destination="ymk-0Z-l0F" id="hdk-15-c0b"/>
-                                            <outlet property="txtv1ProdName" destination="KY6-4p-3oY" id="XSa-Ce-LgJ"/>
-                                            <outlet property="txtv2ProdName" destination="tiz-Xq-xuf" id="GDI-sm-kq0"/>
-                                            <outlet property="txtv3ProdName" destination="xPS-3M-epw" id="L5e-TM-cZT"/>
-                                            <outlet property="txtv4ProdName" destination="CNI-1j-2Ti" id="8Ft-ID-KDO"/>
-                                            <outlet property="txtv5ProdName" destination="dIQ-if-zXL" id="CYG-In-kRP"/>
-                                            <outlet property="txtv6ProdName" destination="Foy-u6-hsR" id="24K-q9-cRR"/>
-                                            <outlet property="txtv7ProdName" destination="sPH-7A-jT4" id="Bmf-Eg-xV8"/>
-                                            <outlet property="txtv8ProdName" destination="SAL-sj-QQb" id="I3Z-dF-9B9"/>
-                                            <outlet property="v1" destination="osW-5j-XAi" id="JMi-se-Ls8"/>
+                                            <outlet property="v1" destination="osW-5j-XAi" id="3YW-74-ciu"/>
                                             <outlet property="v2" destination="Sx8-b7-HLn" id="MMd-sJ-Qac"/>
                                             <outlet property="v3" destination="gTG-2F-ejs" id="xFg-HP-sfy"/>
                                             <outlet property="v4" destination="Tdd-Bq-JUh" id="KZJ-Pm-xYT"/>
@@ -1082,540 +930,332 @@
                                             <outlet property="v8" destination="Hkx-dN-8J0" id="rkN-uy-Zem"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="369" id="VhW-ry-1iV" customClass="Productlayout1TableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" rowHeight="369" id="u3W-my-3wK" customClass="Productlayout1TableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="370" width="1024" height="369"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VhW-ry-1iV" id="wRb-J1-JnA">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u3W-my-3wK" id="lys-XL-UcG">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="369"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-QU-k4z">
-                                                    <rect key="frame" x="503" y="11" width="250" height="200"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5q-cq-3SL">
+                                                    <rect key="frame" x="204" y="10" width="290" height="350"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nnQ-f3-YIu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xdp-b6-Z6G">
-                                                            <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-Ft-kvf">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k28-Di-qTB">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McJ-j5-G1F">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KE-PS-bhk">
-                                                    <rect key="frame" x="763" y="11" width="250" height="200"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Nw-Gk-AAJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X9B-W2-ah0">
-                                                            <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0YP-0l-sSL">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGd-Az-yKb">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmt-Ub-LgU">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DmN-eE-9uA">
-                                                    <rect key="frame" x="503" y="221" width="163" height="139"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRh-Wz-gRb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N40-Mk-J04">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-KS-DSF">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtL-Zj-PcM">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yy2-C5-MoL">
-                                                            <rect key="frame" x="140" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14A-46-2Vt">
-                                                    <rect key="frame" x="676" y="221" width="163" height="139"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-xR-idx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-Qc-rNM">
-                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTw-CO-UOp">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf5-QD-fGz">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75T-HP-Sbt">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDe-RY-f3U">
-                                                    <rect key="frame" x="849" y="221" width="163" height="139"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWv-z2-Bqy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8c-4l-Q9g">
-                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-if-r4x">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEf-Vq-Qfn">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfl-fa-ZfN">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htP-Jl-sD1">
-                                                    <rect key="frame" x="204" y="11" width="290" height="350"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPr-Jy-Nfa">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2S5-xG-4aR">
                                                             <rect key="frame" x="0.0" y="0.0" width="290" height="350"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w0e-Xf-FzA">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xat-la-F6h">
                                                             <rect key="frame" x="267" y="0.5" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqH-9u-Hk8">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-VM-bMO">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9G-Lu-5nF">
-                                                            <rect key="frame" x="0.0" y="320" width="289.5" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKy-5u-qOS">
-                                                            <rect key="frame" x="0.0" y="275" width="289.5" height="48"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GM-b7-Gqw">
-                                                    <rect key="frame" x="11" y="11" width="184" height="200"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6l-km-4Mc">
+                                                    <rect key="frame" x="504" y="10" width="250" height="200"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-Gu-pYW">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lL5-c0-HJB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7Z-2w-9p7">
+                                                            <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y49-jp-y3i">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tM-i3-OXf">
+                                                    <rect key="frame" x="764" y="10" width="250" height="200"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvZ-oq-6Sr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4V-vp-KSk">
+                                                            <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-yu-ccp">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-au-stK">
+                                                    <rect key="frame" x="10" y="10" width="184" height="200"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DZl-SA-4ls">
                                                             <rect key="frame" x="0.0" y="0.0" width="184" height="200"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJL-A0-JMv">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G7H-Ik-PXn">
                                                             <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GDs-GN-oE3">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nSy-GA-y9n">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdC-vL-DWx">
-                                                            <rect key="frame" x="0.0" y="175" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kk-b5-g0u">
-                                                            <rect key="frame" x="0.0" y="139" width="184" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-FN-rgd">
-                                                    <rect key="frame" x="11" y="221" width="184" height="139"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ABN-3w-FEa">
+                                                    <rect key="frame" x="504" y="220" width="163" height="139"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbd-UW-J1q">
-                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="139"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7W-oe-DIm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-1Q-gZn">
-                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQk-PH-PGP">
+                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JgR-zS-KO2">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsD-Y7-T8b">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61b-QN-fBb">
-                                                            <rect key="frame" x="0.0" y="115" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rgr-Dg-1V3">
-                                                            <rect key="frame" x="10" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CrZ-26-D7s">
+                                                    <rect key="frame" x="677" y="220" width="163" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IvN-tk-zxX">
+                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l2H-Ny-sPH">
+                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-cy-2O3">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ei2-Yv-gzS">
+                                                    <rect key="frame" x="850" y="220" width="163" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZg-UQ-M6w">
+                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-3o-CZO">
+                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-nU-XsW">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csx-Ow-PtM">
+                                                    <rect key="frame" x="10" y="220" width="184" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlb-bo-W9e">
+                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="139"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pj-a5-b2i">
+                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-ly-AYg">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="img1Plan" destination="w0e-Xf-FzA" id="9Kq-Hf-fT2"/>
-                                            <outlet property="img1Product" destination="nPr-Jy-Nfa" id="ymF-CI-rPy"/>
-                                            <outlet property="img1Tag" destination="cqH-9u-Hk8" id="TIr-er-PCF"/>
-                                            <outlet property="img2Plan" destination="Xdp-b6-Z6G" id="KOj-QL-Scc"/>
-                                            <outlet property="img2Product" destination="nnQ-f3-YIu" id="wmE-So-Uwj"/>
-                                            <outlet property="img2Tag" destination="NZ5-Ft-kvf" id="odM-J7-0Fn"/>
-                                            <outlet property="img3Plan" destination="X9B-W2-ah0" id="Z2d-A9-PF1"/>
-                                            <outlet property="img3Product" destination="6Nw-Gk-AAJ" id="VYz-FH-WEl"/>
-                                            <outlet property="img3Tag" destination="0YP-0l-sSL" id="dgQ-ss-0ei"/>
-                                            <outlet property="img4Plan" destination="GJL-A0-JMv" id="AIu-tC-M1A"/>
-                                            <outlet property="img4Product" destination="3Rl-Gu-pYW" id="DI9-ZO-Hpg"/>
-                                            <outlet property="img4Tag" destination="GDs-GN-oE3" id="dim-8e-08a"/>
-                                            <outlet property="img5Plan" destination="Yy2-C5-MoL" id="zUh-Zm-HeR"/>
-                                            <outlet property="img5Product" destination="pRh-Wz-gRb" id="Tp0-n7-zfU"/>
-                                            <outlet property="img5Tag" destination="N40-Mk-J04" id="GLI-b1-QHv"/>
-                                            <outlet property="img6Plan" destination="fe3-Qc-rNM" id="apB-MP-NTQ"/>
-                                            <outlet property="img6Product" destination="Ctp-xR-idx" id="DXh-aJ-Zkm"/>
-                                            <outlet property="img6Tag" destination="NTw-CO-UOp" id="JqO-32-UO6"/>
-                                            <outlet property="img7Plan" destination="X8c-4l-Q9g" id="N1C-gD-Hrl"/>
-                                            <outlet property="img7Product" destination="WWv-z2-Bqy" id="lA8-BU-FyN"/>
-                                            <outlet property="img7Tag" destination="SsQ-if-r4x" id="TmF-A2-2Ua"/>
-                                            <outlet property="img8Plan" destination="SXc-1Q-gZn" id="tZI-LJ-rad"/>
-                                            <outlet property="img8Product" destination="Lbd-UW-J1q" id="8yt-5Q-v2K"/>
-                                            <outlet property="img8Tag" destination="JgR-zS-KO2" id="sqZ-jM-dP6"/>
-                                            <outlet property="lbl1ProdPrice" destination="h9G-Lu-5nF" id="h0y-Z0-tdP"/>
-                                            <outlet property="lbl2ProdPrice" destination="k28-Di-qTB" id="Gml-68-DWS"/>
-                                            <outlet property="lbl3ProdPrice" destination="BGd-Az-yKb" id="GOl-KJ-b10"/>
-                                            <outlet property="lbl4ProdPrice" destination="MdC-vL-DWx" id="tG6-88-z3s"/>
-                                            <outlet property="lbl5ProdPrice" destination="CCU-KS-DSF" id="GH7-jJ-WpU"/>
-                                            <outlet property="lbl6ProdPrice" destination="Lf5-QD-fGz" id="JbC-Gz-UGC"/>
-                                            <outlet property="lbl7ProdPrice" destination="OEf-Vq-Qfn" id="J7S-ld-TDj"/>
-                                            <outlet property="lbl8ProdPrice" destination="61b-QN-fBb" id="5Dm-hL-vLI"/>
-                                            <outlet property="txtv1ProdName" destination="EKy-5u-qOS" id="69H-Dq-hVp"/>
-                                            <outlet property="txtv2ProdName" destination="McJ-j5-G1F" id="h7N-1G-6nf"/>
-                                            <outlet property="txtv3ProdName" destination="Zmt-Ub-LgU" id="gw8-Na-ljF"/>
-                                            <outlet property="txtv4ProdName" destination="1kk-b5-g0u" id="bub-Oj-18L"/>
-                                            <outlet property="txtv5ProdName" destination="xtL-Zj-PcM" id="beA-gq-hCx"/>
-                                            <outlet property="txtv6ProdName" destination="75T-HP-Sbt" id="CEQ-0v-82d"/>
-                                            <outlet property="txtv7ProdName" destination="Gfl-fa-ZfN" id="zyK-Ma-i3T"/>
-                                            <outlet property="txtv8ProdName" destination="Rgr-Dg-1V3" id="u0v-YB-KUO"/>
-                                            <outlet property="v1" destination="htP-Jl-sD1" id="d5h-Eg-VqP"/>
-                                            <outlet property="v2" destination="rDk-QU-k4z" id="iw1-eY-ZuM"/>
-                                            <outlet property="v3" destination="6KE-PS-bhk" id="D3g-Nm-qS6"/>
-                                            <outlet property="v4" destination="9GM-b7-Gqw" id="C79-2Y-gOJ"/>
-                                            <outlet property="v5" destination="DmN-eE-9uA" id="7Oy-Yu-IuJ"/>
-                                            <outlet property="v6" destination="14A-46-2Vt" id="7o5-9D-q9z"/>
-                                            <outlet property="v7" destination="vDe-RY-f3U" id="sqs-4b-HSg"/>
-                                            <outlet property="v8" destination="VgK-FN-rgd" id="zSy-46-YhJ"/>
+                                            <outlet property="img1Plan" destination="xat-la-F6h" id="cAo-0h-nSD"/>
+                                            <outlet property="img1Product" destination="2S5-xG-4aR" id="7R4-E8-JiW"/>
+                                            <outlet property="img1Tag" destination="1EQ-VM-bMO" id="Acm-wp-6bt"/>
+                                            <outlet property="img2Plan" destination="P7Z-2w-9p7" id="A73-gX-NhO"/>
+                                            <outlet property="img2Product" destination="lL5-c0-HJB" id="9eg-W1-Ztq"/>
+                                            <outlet property="img2Tag" destination="y49-jp-y3i" id="Cr5-qi-0Ee"/>
+                                            <outlet property="img3Plan" destination="l4V-vp-KSk" id="Bk8-bg-u9Q"/>
+                                            <outlet property="img3Product" destination="rvZ-oq-6Sr" id="wL0-gO-nqz"/>
+                                            <outlet property="img3Tag" destination="xNb-yu-ccp" id="ghG-nX-WVs"/>
+                                            <outlet property="img4Plan" destination="G7H-Ik-PXn" id="jTc-2e-WiG"/>
+                                            <outlet property="img4Product" destination="DZl-SA-4ls" id="mlk-iy-pl1"/>
+                                            <outlet property="img4Tag" destination="nSy-GA-y9n" id="QTc-X5-zZB"/>
+                                            <outlet property="img5Plan" destination="bQk-PH-PGP" id="P4y-Og-cTu"/>
+                                            <outlet property="img5Product" destination="e7W-oe-DIm" id="WxU-jh-0uY"/>
+                                            <outlet property="img5Tag" destination="CsD-Y7-T8b" id="W3Z-no-QhM"/>
+                                            <outlet property="img6Plan" destination="l2H-Ny-sPH" id="3fP-RB-ObA"/>
+                                            <outlet property="img6Product" destination="IvN-tk-zxX" id="4WO-Mi-WWi"/>
+                                            <outlet property="img6Tag" destination="yHT-cy-2O3" id="FPt-Bj-7QI"/>
+                                            <outlet property="img7Plan" destination="0cP-3o-CZO" id="jw5-rZ-m6Z"/>
+                                            <outlet property="img7Product" destination="RZg-UQ-M6w" id="ddE-nr-wqe"/>
+                                            <outlet property="img7Tag" destination="fUD-nU-XsW" id="XqJ-lg-0ZB"/>
+                                            <outlet property="img8Plan" destination="7pj-a5-b2i" id="Uiq-jx-55s"/>
+                                            <outlet property="img8Product" destination="rlb-bo-W9e" id="GOM-0g-T8U"/>
+                                            <outlet property="img8Tag" destination="akJ-ly-AYg" id="Z9m-Wl-cqL"/>
+                                            <outlet property="v1" destination="s5q-cq-3SL" id="j0r-DK-nFd"/>
+                                            <outlet property="v2" destination="b6l-km-4Mc" id="z9x-wx-OF7"/>
+                                            <outlet property="v3" destination="0tM-i3-OXf" id="bKA-BP-g4m"/>
+                                            <outlet property="v4" destination="rzc-au-stK" id="nGP-VF-kFk"/>
+                                            <outlet property="v5" destination="ABN-3w-FEa" id="RWt-nB-a9x"/>
+                                            <outlet property="v6" destination="CrZ-26-D7s" id="dBx-Wq-gDU"/>
+                                            <outlet property="v7" destination="Ei2-Yv-gzS" id="bpw-KH-raj"/>
+                                            <outlet property="v8" destination="csx-Ow-PtM" id="q4U-pY-6HJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="369" id="5Tb-eH-VXh" customClass="Productlayout1TableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="369" id="vxW-Gq-yPB" customClass="Productlayout1TableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="739" width="1024" height="369"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Tb-eH-VXh" id="RWu-wp-eyp">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxW-Gq-yPB" id="ptu-74-4Dg">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="369"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ep5-9T-ATX">
-                                                    <rect key="frame" x="13" y="10" width="184" height="200"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-LU-Ow0">
+                                                    <rect key="frame" x="724" y="10" width="290" height="350"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uod-jM-cwQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="200"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Es2-eg-J16">
-                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-jI-cGg">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-tL-hBq">
-                                                            <rect key="frame" x="0.0" y="175" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feq-jW-psc">
-                                                            <rect key="frame" x="0.0" y="139" width="184" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-qY-N7e">
-                                                    <rect key="frame" x="13" y="220" width="184" height="139"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hR-tA-V45">
-                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="139"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OHw-jl-3JY">
-                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-sp-6gf">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuJ-05-LMd">
-                                                            <rect key="frame" x="0.0" y="115" width="184" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsH-DD-c9O">
-                                                            <rect key="frame" x="0.0" y="80" width="184" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="by7-oc-mgi">
-                                                    <rect key="frame" x="723" y="10" width="290" height="350"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QN2-zP-6at">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-7Q-8Xd">
                                                             <rect key="frame" x="0.0" y="0.0" width="290" height="350"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-CI-6Sc">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sps-Oj-wOH">
                                                             <rect key="frame" x="267" y="0.5" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqd-kb-G8i">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9f-Mg-CT3">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBc-l1-NBY">
-                                                            <rect key="frame" x="0.0" y="320" width="289.5" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8a-sl-Dni">
-                                                            <rect key="frame" x="0.0" y="275" width="289.5" height="48"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPY-Mt-ggE">
-                                                    <rect key="frame" x="205" y="10" width="250" height="200"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJZ-uB-59s">
+                                                    <rect key="frame" x="10" y="10" width="250" height="200"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grs-Zk-Znq">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HO-sT-bOR">
                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rDH-Ke-mQG">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oj8-2e-aYv">
                                                             <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSW-KQ-SwJ">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-9q-NTd">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zh-Dp-8La">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3J-Ud-Jta">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XrJ-rw-PHj">
-                                                    <rect key="frame" x="465" y="10" width="250" height="200"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BCr-pY-6uU">
+                                                    <rect key="frame" x="270" y="10" width="250" height="200"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QT2-ab-kpc">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9m-z1-JqK">
                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-fG-pls">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-TF-hNT">
                                                             <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ybQ-FF-lLR">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huI-0L-POi">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCe-fS-zyE">
-                                                            <rect key="frame" x="0.0" y="175" width="249" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfr-cP-78h">
-                                                            <rect key="frame" x="0.0" y="140" width="250" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="12"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xE9-co-UZb">
-                                                    <rect key="frame" x="205" y="220" width="163" height="139"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn9-Eh-CcW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-Wa-Tzs">
-                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCF-PX-q7F">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="10"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dv2-2U-K3U">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-ks-GEm">
-                                                            <rect key="frame" x="140" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bG7-9X-xs0">
-                                                    <rect key="frame" x="378" y="220" width="163" height="139"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLX-wR-sXM">
+                                                    <rect key="frame" x="530" y="10" width="184" height="200"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHr-wy-ix2">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Zi-Vd-sDC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="200"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GA1-Ey-0jX">
+                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHc-R0-T3M">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-T6-77u">
+                                                    <rect key="frame" x="10" y="220" width="163" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GTv-Ij-eqg">
                                                             <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJK-ol-3V4">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgM-Wc-rV0">
                                                             <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOA-Jq-FQ5">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skh-CG-oeT">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRG-Na-lVN">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So0-jt-jPP">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esB-J3-Owa">
-                                                    <rect key="frame" x="551" y="220" width="163" height="139"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euC-Ag-3bR">
+                                                    <rect key="frame" x="183" y="220" width="163" height="139"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5FK-Kx-s83">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1z-QW-H2Y">
                                                             <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CfG-G8-wxl">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwI-25-oNG">
                                                             <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6MD-jO-zHI">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCf-sa-TzI">
                                                             <rect key="frame" x="-4" y="-4" width="75" height="75"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzI-4I-hzT">
-                                                            <rect key="frame" x="0.0" y="115" width="163" height="21"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="11"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Product Name Line 1 Product Name Line 2" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87l-10-iiV">
-                                                            <rect key="frame" x="0.0" y="80" width="163" height="46"/>
-                                                            <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="11"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ChC-Zo-hIc">
+                                                    <rect key="frame" x="356" y="220" width="163" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rw-h6-KVT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="163" height="139"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oz5-br-8m2">
+                                                            <rect key="frame" x="140.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsY-0Q-sdg">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBM-me-x4a">
+                                                    <rect key="frame" x="530" y="220" width="184" height="139"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGG-Hj-qqO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="184" height="139"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-eh-F6B">
+                                                            <rect key="frame" x="161.5" y="0.0" width="22.5" height="22.5"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cUo-of-DRe">
+                                                            <rect key="frame" x="-4" y="-4" width="75" height="75"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="img1Plan" destination="vQb-CI-6Sc" id="0R9-1w-xWW"/>
-                                            <outlet property="img1Product" destination="QN2-zP-6at" id="qZX-fE-YRl"/>
-                                            <outlet property="img1Tag" destination="Eqd-kb-G8i" id="eGe-Sq-vMB"/>
-                                            <outlet property="img2Plan" destination="rDH-Ke-mQG" id="qiY-gr-DbY"/>
-                                            <outlet property="img2Product" destination="grs-Zk-Znq" id="SFQ-xb-Orq"/>
-                                            <outlet property="img2Tag" destination="dSW-KQ-SwJ" id="uYB-xw-qqZ"/>
-                                            <outlet property="img3Plan" destination="g2u-fG-pls" id="GVo-7i-Tv4"/>
-                                            <outlet property="img3Product" destination="QT2-ab-kpc" id="XmB-pi-pnV"/>
-                                            <outlet property="img3Tag" destination="ybQ-FF-lLR" id="tKX-zY-uJP"/>
-                                            <outlet property="img4Plan" destination="Es2-eg-J16" id="nZi-YT-M8O"/>
-                                            <outlet property="img4Product" destination="Uod-jM-cwQ" id="B10-tf-rOx"/>
-                                            <outlet property="img4Tag" destination="Cj9-jI-cGg" id="fwe-FF-edq"/>
-                                            <outlet property="img5Plan" destination="2zd-ks-GEm" id="9uv-wB-957"/>
-                                            <outlet property="img5Product" destination="Bn9-Eh-CcW" id="byK-qS-4SG"/>
-                                            <outlet property="img5Tag" destination="vXx-Wa-Tzs" id="Ch0-1h-uGw"/>
-                                            <outlet property="img6Plan" destination="IJK-ol-3V4" id="QVN-JE-IVd"/>
-                                            <outlet property="img6Product" destination="sHr-wy-ix2" id="gMy-X1-3P8"/>
-                                            <outlet property="img6Tag" destination="IOA-Jq-FQ5" id="GsV-DK-H1t"/>
-                                            <outlet property="img7Plan" destination="CfG-G8-wxl" id="AQB-wE-9vW"/>
-                                            <outlet property="img7Product" destination="5FK-Kx-s83" id="K8q-BB-CvQ"/>
-                                            <outlet property="img7Tag" destination="6MD-jO-zHI" id="9b6-5n-pXr"/>
-                                            <outlet property="img8Plan" destination="OHw-jl-3JY" id="3tr-iQ-6Ve"/>
-                                            <outlet property="img8Product" destination="4hR-tA-V45" id="jIx-VV-v7x"/>
-                                            <outlet property="img8Tag" destination="B0H-sp-6gf" id="uTW-h0-T7P"/>
-                                            <outlet property="lbl1ProdPrice" destination="cBc-l1-NBY" id="qru-b2-r5M"/>
-                                            <outlet property="lbl2ProdPrice" destination="2zh-Dp-8La" id="AN4-Ab-kEZ"/>
-                                            <outlet property="lbl3ProdPrice" destination="KCe-fS-zyE" id="LiO-AG-L1Q"/>
-                                            <outlet property="lbl4ProdPrice" destination="w4I-tL-hBq" id="UrH-3F-zD3"/>
-                                            <outlet property="lbl5ProdPrice" destination="vCF-PX-q7F" id="Om1-QS-gsv"/>
-                                            <outlet property="lbl6ProdPrice" destination="qRG-Na-lVN" id="ecq-VP-Vne"/>
-                                            <outlet property="lbl7ProdPrice" destination="yzI-4I-hzT" id="caG-h1-ar0"/>
-                                            <outlet property="lbl8ProdPrice" destination="TuJ-05-LMd" id="LAO-i1-WIc"/>
-                                            <outlet property="txtv1ProdName" destination="O8a-sl-Dni" id="6t0-k3-GSO"/>
-                                            <outlet property="txtv2ProdName" destination="G3J-Ud-Jta" id="rn6-sE-Mmw"/>
-                                            <outlet property="txtv3ProdName" destination="Cfr-cP-78h" id="I1B-sR-6gz"/>
-                                            <outlet property="txtv4ProdName" destination="Feq-jW-psc" id="hFD-Rf-ngh"/>
-                                            <outlet property="txtv5ProdName" destination="Dv2-2U-K3U" id="jE0-Kb-M0j"/>
-                                            <outlet property="txtv6ProdName" destination="So0-jt-jPP" id="eSI-5w-Gml"/>
-                                            <outlet property="txtv7ProdName" destination="87l-10-iiV" id="Tk3-7F-R4R"/>
-                                            <outlet property="txtv8ProdName" destination="hsH-DD-c9O" id="tua-op-qw2"/>
-                                            <outlet property="v1" destination="by7-oc-mgi" id="Nsj-2B-IHF"/>
-                                            <outlet property="v2" destination="YPY-Mt-ggE" id="ccU-4O-rNe"/>
-                                            <outlet property="v3" destination="XrJ-rw-PHj" id="5I1-gD-h2m"/>
-                                            <outlet property="v4" destination="Ep5-9T-ATX" id="ueh-MJ-cSg"/>
-                                            <outlet property="v5" destination="xE9-co-UZb" id="4Ty-LM-yMD"/>
-                                            <outlet property="v6" destination="bG7-9X-xs0" id="Q5i-Q9-2a5"/>
-                                            <outlet property="v7" destination="esB-J3-Owa" id="l4w-DH-VgY"/>
-                                            <outlet property="v8" destination="kqY-qY-N7e" id="FBG-6G-LPS"/>
+                                            <outlet property="img1Plan" destination="sps-Oj-wOH" id="17A-z5-Hau"/>
+                                            <outlet property="img1Product" destination="Xky-7Q-8Xd" id="xhd-mR-c4h"/>
+                                            <outlet property="img1Tag" destination="r9f-Mg-CT3" id="xQ8-8M-K1l"/>
+                                            <outlet property="img2Plan" destination="Oj8-2e-aYv" id="cLo-N6-djH"/>
+                                            <outlet property="img2Product" destination="8HO-sT-bOR" id="0HQ-Cd-lZg"/>
+                                            <outlet property="img2Tag" destination="7jj-9q-NTd" id="W26-Ed-2zD"/>
+                                            <outlet property="img3Plan" destination="Oha-TF-hNT" id="c4U-az-1mc"/>
+                                            <outlet property="img3Product" destination="b9m-z1-JqK" id="nQc-Fa-n9r"/>
+                                            <outlet property="img3Tag" destination="huI-0L-POi" id="rab-oC-ueS"/>
+                                            <outlet property="img4Plan" destination="GA1-Ey-0jX" id="mQg-YU-JiS"/>
+                                            <outlet property="img4Product" destination="1Zi-Vd-sDC" id="pMR-m0-eqX"/>
+                                            <outlet property="img4Tag" destination="JHc-R0-T3M" id="hFz-qo-rdo"/>
+                                            <outlet property="img5Plan" destination="hgM-Wc-rV0" id="eeG-Bt-6pK"/>
+                                            <outlet property="img5Product" destination="GTv-Ij-eqg" id="Jxm-Z0-uHg"/>
+                                            <outlet property="img5Tag" destination="skh-CG-oeT" id="Z2d-w9-FUj"/>
+                                            <outlet property="img6Plan" destination="uwI-25-oNG" id="glh-wm-tXS"/>
+                                            <outlet property="img6Product" destination="o1z-QW-H2Y" id="LYn-bn-we0"/>
+                                            <outlet property="img6Tag" destination="VCf-sa-TzI" id="z3v-cc-e7Y"/>
+                                            <outlet property="img7Plan" destination="Oz5-br-8m2" id="mn6-DV-Ezw"/>
+                                            <outlet property="img7Product" destination="2rw-h6-KVT" id="o5y-GG-x7v"/>
+                                            <outlet property="img7Tag" destination="gsY-0Q-sdg" id="85u-Gp-3Mr"/>
+                                            <outlet property="img8Plan" destination="DcV-eh-F6B" id="ByO-8N-vvK"/>
+                                            <outlet property="img8Product" destination="cGG-Hj-qqO" id="Mha-lg-hQD"/>
+                                            <outlet property="img8Tag" destination="cUo-of-DRe" id="phW-GY-W1d"/>
+                                            <outlet property="v1" destination="bg9-LU-Ow0" id="AjA-ph-Spx"/>
+                                            <outlet property="v2" destination="wJZ-uB-59s" id="oTu-Ri-BdB"/>
+                                            <outlet property="v3" destination="BCr-pY-6uU" id="ROB-5S-uL1"/>
+                                            <outlet property="v4" destination="tLX-wR-sXM" id="MKD-ty-T2q"/>
+                                            <outlet property="v5" destination="pAN-T6-77u" id="Lhk-cL-Qtm"/>
+                                            <outlet property="v6" destination="euC-Ag-3bR" id="t9H-7p-Wib"/>
+                                            <outlet property="v7" destination="ChC-Zo-hIc" id="Z6v-V2-bjF"/>
+                                            <outlet property="v8" destination="GBM-me-x4a" id="9G3-7r-Uhj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2305,7 +1945,7 @@
         <!--Product Detail View Controller-->
         <scene sceneID="D6r-MW-wga">
             <objects>
-                <viewController restorationIdentifier="ProductDetailViewController" storyboardIdentifier="ProductDetailViewController" id="zCF-dZ-XYh" customClass="ProductDetailViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zCF-dZ-XYh" customClass="ProductDetailViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdm-Q9-JmA"/>
                         <viewControllerLayoutGuide type="bottom" id="udb-WV-klh"/>
