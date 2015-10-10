@@ -11,8 +11,10 @@ import Foundation
 public class CustomerModel{
     
     var cust_id         : Int32 = 0
+    var cust_title      : String = ""
     var cust_first_name : String = ""
     var cust_last_name  : String = ""
+    var cust_gender : String = ""
     var cust_member_id  : String = ""
     var cust_card_id    : Int32 = 0
     var cust_card_exp_date : NSDate = NSDate()

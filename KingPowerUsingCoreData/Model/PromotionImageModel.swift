@@ -16,6 +16,7 @@ public class PromotionImageModel{
     var prmi_img_path : String = ""
     
     var queryGetPromotionImageById : String = "SELECT PRMI_ID, PRMI_PROM_ID, PRMI_IMG_SEQ, PRMI_IMG_PATH FROM PROMOTION_IMAGE WHERE PRMI_ID = %@ ORDER BY PRMI_PROM_ID, PRMI_IMG_SEQ;"
+    
     var queryGetPromotionImageByPromotionId : String = "SELECT PRMI_ID, PRMI_PROM_ID, PRMI_IMG_SEQ, PRMI_IMG_PATH FROM PROMOTION_IMAGE WHERE PRMI_PROM_ID = %@ ORDER BY PRMI_IMG_SEQ;"
     
     

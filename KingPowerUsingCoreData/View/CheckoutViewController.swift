@@ -14,6 +14,7 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var btnConfirmCheckout: UIButton!
     @IBOutlet weak var btnContinueShopping: UIButton!
     
+    var setupNav = KPNavigationBar()
     var grandTotal : NSDecimalNumber = 0
     var goodsNowList = [Goods]()
     var goodsLaterList = [Goods]()
@@ -30,7 +31,10 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         self.checkoutTableView.backgroundColor = UIColor.whiteColor()
         print("Now List : \(goodsNowList.count)")
         print("Later List : \(goodsLaterList.count)")
-        self.setupNavigationBar()
+//        self.setupNavigationBar()
+        
+        self.setupNav.setupNavigationBar(self)
+        
     }
     
     func initialPage(){
@@ -126,6 +130,25 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func BackMethod(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func viewFlightMethod(){
+        self.removeNavigateView()
+        CommonViewController().viewFlightMethod(self)
+    }
+    func callAssistMethod(){
+        self.removeNavigateView()
+        CommonViewController().callAssistMethod(self)
+    }
+    func searchMethod(){
+        CommonViewController().searchMethod(self)
+    }
+    func viewCartMethod(){
+        CommonViewController().viewCartMethod(self)
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -137,155 +160,155 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     */
     
-    func setupNavigationBar(){
-        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
-        //Remove the shadow image altogether
-        for parent in self.navigationController!.navigationBar.subviews {
-            for childView in parent.subviews {
-                if(childView is UIImageView) {
-                    childView.removeFromSuperview()
-                }
-            }
-        }
-        //Container Layout
-        navBar.frame=CGRectMake(0, 0, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height)
-        navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
-        self.view.addSubview(navBar)
-        self.view.sendSubviewToBack(navBar)
-        
-        //Navigation Bar
-        self.navigationController!.navigationBar.barTintColor =  UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
-        
-        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
-        let imageTitleView = UIImageView(frame: CGRect(
-            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
-            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
-            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
-            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
-        
-        imageTitleView.contentMode = .ScaleAspectFit
-        imageTitleView.image = imageTitleItem
-        self.navigationItem.titleView = imageTitleView
-        
-        self.addRightNavItemOnView()
-        self.addLeftNavItemOnView()
-        
-    }
-    func addLeftNavItemOnView()
-    {
-        //Back
-        let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonMenu.frame = CGRectMake(
-            gv.getConfigValue("navigationItemBackImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemBackImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemBackImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemBackImgHeight") as! CGFloat)
-        
-        buttonMenu.setImage(UIImage(named: gv.getConfigValue("navigationItemBackImgName") as! String), forState: UIControlState.Normal)
-        buttonMenu.addTarget(self, action: "backToPreviousPage:", forControlEvents: UIControlEvents.TouchUpInside) //use thiss
-        let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
-        
-        //Flight
-        let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonFlight.frame = CGRectMake(
-            gv.getConfigValue("navigationItemAirplainImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemAirplainImgHeight") as! CGFloat)
-        buttonFlight.setImage(UIImage(named: gv.getConfigValue("navigationItemAirplainImgName") as! String), forState: UIControlState.Normal)
-        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
-        
-        
-        // add multiple right bar button items
-        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemMenu,leftBarButtonItemFilght], animated: true)
-        // uncomment to add single right bar button item
-        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-        
-    }
-    func addRightNavItemOnView()
-    {
-        //Call
-        let buttonCall = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonCall.frame = CGRectMake(
-            gv.getConfigValue("navigationItemCallImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
-        
-        buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
-        buttonCall.addTarget(self, action: "navItemCallClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
-        
-        //Cart
-        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonCart.frame = CGRectMake(
-            gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
-        
-        buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
-        buttonCart.addTarget(self, action: "navItemCartClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
-        
-        //Search
-        let buttonSearch = UIButton(type: UIButtonType.Custom) as UIButton
-        buttonSearch.frame = CGRectMake(
-            gv.getConfigValue("navigationItemSearchImgPositionX") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgPositionY") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
-            gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
-        buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
-        buttonSearch.addTarget(self, action: "navItemSearchClick:", forControlEvents: UIControlEvents.TouchUpInside)
-        let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
-        
-        
-        
-        // add multiple right bar button items
-        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSearch,rightBarButtonItemCart,rightBarButtonItemCall], animated: true)
-        
-        // uncomment to add single right bar button item
-        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-    }
-    
-    //Navigation Bar
-    func backToPreviousPage(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-    
-    func navItemFlightClick(sender:UIButton!)
-    {
-        self.removeNavigateView()
-        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
-        flightViewController.showInView(self.view, animated: true)
-    }
-    
-    func navItemCallClick(sender:UIButton!)
-    {
-        self.removeNavigateView()
-        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
-        callAssistanceViewController.showInView(self.view, animated: true)
-        
-    }
-    
-    
-    func navItemCartClick(sender:UIButton!)
-    {
-        print("navItemCartClick")
-        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
-        self.navigationController?.pushViewController(cartViewController!, animated: true)
-        
-    }
-    
-    func navItemSearchClick(sender:UIButton!)
-    {
-        print("navItemSearchClick")
-        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
-        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
-        searchViewController?.modalPresentationStyle = modalStyle
-        self.presentViewController(searchViewController!, animated: true, completion: nil)
-    }
+//    func setupNavigationBar(){
+//        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
+//        //Remove the shadow image altogether
+//        for parent in self.navigationController!.navigationBar.subviews {
+//            for childView in parent.subviews {
+//                if(childView is UIImageView) {
+//                    childView.removeFromSuperview()
+//                }
+//            }
+//        }
+//        //Container Layout
+//        navBar.frame=CGRectMake(0, 0, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height)
+//        navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
+//        self.view.addSubview(navBar)
+//        self.view.sendSubviewToBack(navBar)
+//        
+//        //Navigation Bar
+//        self.navigationController!.navigationBar.barTintColor =  UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
+//        
+//        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
+//        let imageTitleView = UIImageView(frame: CGRect(
+//            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
+//            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
+//            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
+//            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
+//        
+//        imageTitleView.contentMode = .ScaleAspectFit
+//        imageTitleView.image = imageTitleItem
+//        self.navigationItem.titleView = imageTitleView
+//        
+//        self.addRightNavItemOnView()
+//        self.addLeftNavItemOnView()
+//        
+//    }
+//    func addLeftNavItemOnView()
+//    {
+//        //Back
+//        let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
+//        buttonMenu.frame = CGRectMake(
+//            gv.getConfigValue("navigationItemBackImgPositionX") as! CGFloat,
+//            gv.getConfigValue("navigationItemBackImgPositionY") as! CGFloat,
+//            gv.getConfigValue("navigationItemBackImgWidth") as! CGFloat,
+//            gv.getConfigValue("navigationItemBackImgHeight") as! CGFloat)
+//        
+//        buttonMenu.setImage(UIImage(named: gv.getConfigValue("navigationItemBackImgName") as! String), forState: UIControlState.Normal)
+//        buttonMenu.addTarget(self, action: "backToPreviousPage:", forControlEvents: UIControlEvents.TouchUpInside) //use thiss
+//        let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
+//        
+//        //Flight
+//        let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
+//        buttonFlight.frame = CGRectMake(
+//            gv.getConfigValue("navigationItemAirplainImgPositionX") as! CGFloat,
+//            gv.getConfigValue("navigationItemAirplainImgPositionY") as! CGFloat,
+//            gv.getConfigValue("navigationItemAirplainImgWidth") as! CGFloat,
+//            gv.getConfigValue("navigationItemAirplainImgHeight") as! CGFloat)
+//        buttonFlight.setImage(UIImage(named: gv.getConfigValue("navigationItemAirplainImgName") as! String), forState: UIControlState.Normal)
+//        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
+//        let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
+//        
+//        
+//        // add multiple right bar button items
+//        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemMenu,leftBarButtonItemFilght], animated: true)
+//        // uncomment to add single right bar button item
+//        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
+//        
+//    }
+//    func addRightNavItemOnView()
+//    {
+//        //Call
+//        let buttonCall = UIButton(type: UIButtonType.Custom) as UIButton
+//        buttonCall.frame = CGRectMake(
+//            gv.getConfigValue("navigationItemCallImgPositionX") as! CGFloat,
+//            gv.getConfigValue("navigationItemCallImgPositionY") as! CGFloat,
+//            gv.getConfigValue("navigationItemCallImgWidth") as! CGFloat,
+//            gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
+//        
+//        buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
+//        buttonCall.addTarget(self, action: "navItemCallClick:", forControlEvents: UIControlEvents.TouchUpInside)
+//        let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
+//        
+//        //Cart
+//        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
+//        buttonCart.frame = CGRectMake(
+//            gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
+//            gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
+//            gv.getConfigValue("navigationItemCartImgWidth") as! CGFloat,
+//            gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
+//        
+//        buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
+//        buttonCart.addTarget(self, action: "navItemCartClick:", forControlEvents: UIControlEvents.TouchUpInside)
+//        let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
+//        
+//        //Search
+//        let buttonSearch = UIButton(type: UIButtonType.Custom) as UIButton
+//        buttonSearch.frame = CGRectMake(
+//            gv.getConfigValue("navigationItemSearchImgPositionX") as! CGFloat,
+//            gv.getConfigValue("navigationItemSearchImgPositionY") as! CGFloat,
+//            gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
+//            gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
+//        buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
+//        buttonSearch.addTarget(self, action: "navItemSearchClick:", forControlEvents: UIControlEvents.TouchUpInside)
+//        let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
+//        
+//        
+//        
+//        // add multiple right bar button items
+//        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSearch,rightBarButtonItemCart,rightBarButtonItemCall], animated: true)
+//        
+//        // uncomment to add single right bar button item
+//        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
+//    }
+//    
+//    //Navigation Bar
+//    func backToPreviousPage(sender: AnyObject) {
+//        self.navigationController?.popViewControllerAnimated(true)
+//    }
+//    
+//    func navItemFlightClick(sender:UIButton!)
+//    {
+//        self.removeNavigateView()
+//        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+//        flightViewController.showInView(self.view, animated: true)
+//    }
+//    
+//    func navItemCallClick(sender:UIButton!)
+//    {
+//        self.removeNavigateView()
+//        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+//        callAssistanceViewController.showInView(self.view, animated: true)
+//        
+//    }
+//    
+//    
+//    func navItemCartClick(sender:UIButton!)
+//    {
+//        print("navItemCartClick")
+//        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
+//        self.navigationController?.pushViewController(cartViewController!, animated: true)
+//        
+//    }
+//    
+//    func navItemSearchClick(sender:UIButton!)
+//    {
+//        print("navItemSearchClick")
+//        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
+//        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
+//        searchViewController?.modalPresentationStyle = modalStyle
+//        self.presentViewController(searchViewController!, animated: true, completion: nil)
+//    }
     
     func removeNavigateView(){
         if(flightViewController != nil && !flightViewController.view.hidden)

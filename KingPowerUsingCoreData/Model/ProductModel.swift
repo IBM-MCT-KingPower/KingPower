@@ -30,6 +30,7 @@ class ProductModel {
     var prod_bran_id:Int32 = 0
     var prod_prc_id:Int32 = 0
     var prod_rating:Int32 = 0
+    var prod_new_arrival_flag = ""
     var prod_create_date:NSDate = NSDate()
     var prod_update_date:NSDate = NSDate()
     var prod_imageArray:[ProductImageModel] = []

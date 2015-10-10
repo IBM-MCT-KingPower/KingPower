@@ -30,6 +30,21 @@ class KPNavigationBar: NSObject{
             addBackItem(uiView, navBar: navBar, isEdge: true)
         }else if(uiView.isKindOfClass(WelcomeViewController)){
             addBackItem(uiView, navBar: navBar, isEdge: true)
+        }else if(uiView.isKindOfClass(CartViewController)){
+            addBackItem(uiView, navBar: navBar, isEdge: true)
+            addFlightItem(uiView, navBar: navBar, isEdge: false)
+            addSearchItem(uiView, navBar: navBar, isEdge: true)
+            addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+        }else if(uiView.isKindOfClass(CheckoutViewController)){
+            addBackItem(uiView, navBar: navBar, isEdge: true)
+            addFlightItem(uiView, navBar: navBar, isEdge: false)
+            addSearchItem(uiView, navBar: navBar, isEdge: true)
+            addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+        }else if(uiView.isKindOfClass(ThankyouViewController)){
+            addHamburgerItem(uiView, navBar: navBar, isEdge: true)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: true)
         }else{
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addFlightItem(uiView, navBar: navBar, isEdge: false)

@@ -39,6 +39,9 @@
 		3A28219F1BC68D6B00FB3FD3 /* 16_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821811BC68D6B00FB3FD3 /* 16_1.png */; settings = {ASSET_TAGS = (); }; };
 		3A2821A01BC68D6B00FB3FD3 /* 17_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821821BC68D6B00FB3FD3 /* 17_1.png */; settings = {ASSET_TAGS = (); }; };
 		3A2821A11BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821831BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg */; settings = {ASSET_TAGS = (); }; };
+		3A5A01881BC82B16005744C8 /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A01871BC82B16005744C8 /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
+		3A5A018B1BC82B45005744C8 /* ProductRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A01891BC82B45005744C8 /* ProductRecommendModel.swift */; settings = {ASSET_TAGS = (); }; };
+		3A5A018C1BC82B45005744C8 /* ProductRelateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A018A1BC82B45005744C8 /* ProductRelateModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A8D88FD1BB9B07C0036EB82 /* kp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88FC1BB9B07C0036EB82 /* kp.plist */; };
 		3ACEF66F1BC3CEF600707DB5 /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */; };
 		3ACEF6731BC514FC00707DB5 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEF6721BC514FC00707DB5 /* CommonViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -135,7 +138,6 @@
 		A11F14541BC38AE70045B7B6 /* ufonts.com_century-gothic-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD71BC3783D00F1B427 /* ufonts.com_century-gothic-bold.ttf */; };
 		A11F14551BC38AE70045B7B6 /* ufonts.com_century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD81BC3783D00F1B427 /* ufonts.com_century-gothic.ttf */; };
 		A11F14571BC38DA40045B7B6 /* Membership-NAVY.png in Resources */ = {isa = PBXBuildFile; fileRef = A11F14561BC38DA40045B7B6 /* Membership-NAVY.png */; };
-		A156CB431BC4FBA8004DAF5E /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A156CB421BC4FBA8004DAF5E /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
 		A16DDE111BC37A1D00F1B427 /* CallAssistanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE081BC37A1D00F1B427 /* CallAssistanceViewController.xib */; };
 		A16DDE121BC37A1D00F1B427 /* FlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE091BC37A1D00F1B427 /* FlightViewController.xib */; };
 		A16DDE361BC37BE100F1B427 /* btnBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE301BC37BE100F1B427 /* btnBack.png */; };
@@ -339,6 +341,9 @@
 		3A2821811BC68D6B00FB3FD3 /* 16_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 16_1.png; path = KingPowerUsingCoreData/Images/Product/16_1.png; sourceTree = SOURCE_ROOT; };
 		3A2821821BC68D6B00FB3FD3 /* 17_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 17_1.png; path = KingPowerUsingCoreData/Images/Product/17_1.png; sourceTree = SOURCE_ROOT; };
 		3A2821831BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DelightMainBannerENrevised.jpg; path = KingPowerUsingCoreData/Images/Product/DelightMainBannerENrevised.jpg; sourceTree = SOURCE_ROOT; };
+		3A5A01871BC82B16005744C8 /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
+		3A5A01891BC82B45005744C8 /* ProductRecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRecommendModel.swift; sourceTree = "<group>"; };
+		3A5A018A1BC82B45005744C8 /* ProductRelateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRelateModel.swift; sourceTree = "<group>"; };
 		3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
 		3A8D88FC1BB9B07C0036EB82 /* kp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kp.plist; sourceTree = "<group>"; };
 		3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
@@ -366,7 +371,6 @@
 		A11EBE481BBE318100274BB3 /* Currency.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currency.plist; sourceTree = "<group>"; };
 		A11EBE721BBE336F00274BB3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A11F14561BC38DA40045B7B6 /* Membership-NAVY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Membership-NAVY.png"; path = "KingPowerUsingCoreData/Images/Membership-NAVY.png"; sourceTree = SOURCE_ROOT; };
-		A156CB421BC4FBA8004DAF5E /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
 		A16DDD591BC376BB00F1B427 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controller/UserController.swift; sourceTree = "<group>"; };
 		A16DDD5A1BC376BB00F1B427 /* UserGroupMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserGroupMappingController.swift; path = Controller/UserGroupMappingController.swift; sourceTree = "<group>"; };
 		A16DDD5B1BC376BB00F1B427 /* UserPermissionMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPermissionMappingController.swift; path = Controller/UserPermissionMappingController.swift; sourceTree = "<group>"; };
@@ -1001,7 +1005,7 @@
 		A11EBE1C1BBE30C300274BB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				A156CB421BC4FBA8004DAF5E /* kp.sqlite */,
+				3A5A01871BC82B16005744C8 /* kp.sqlite */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -1023,6 +1027,8 @@
 				F930A7761BC7762500758366 /* ProductGroupModel.swift */,
 				F930A7771BC7762500758366 /* ProductImageModel.swift */,
 				F930A7781BC7762500758366 /* ProductModel.swift */,
+				3A5A01891BC82B45005744C8 /* ProductRecommendModel.swift */,
+				3A5A018A1BC82B45005744C8 /* ProductRelateModel.swift */,
 				F930A7791BC7762500758366 /* PromotionImageModel.swift */,
 				F930A77A1BC7762500758366 /* PromotionMapModel.swift */,
 				F930A77B1BC7762500758366 /* PromotionModel.swift */,
@@ -1348,7 +1354,6 @@
 				A16DDEEA1BC37CC700F1B427 /* 571424-L1.jpg in Resources */,
 				A16DDF291BC3860400F1B427 /* KP Logo 890x300.png in Resources */,
 				A16DDED51BC37CC700F1B427 /* 461108-S2.jpg in Resources */,
-				A156CB431BC4FBA8004DAF5E /* kp.sqlite in Resources */,
 				A16DDEF91BC37D6700F1B427 /* infos.png in Resources */,
 				3A2821961BC68D6B00FB3FD3 /* 8_1.jpg in Resources */,
 				A16DDE611BC37C8100F1B427 /* KP_Language_EN.png in Resources */,
@@ -1383,6 +1388,7 @@
 				A16DDEBA1BC37CC700F1B427 /* 233885-L1.jpg in Resources */,
 				A16DDEC81BC37CC700F1B427 /* 461084-L3.jpg in Resources */,
 				A16DDEC31BC37CC700F1B427 /* 233889-S1.jpg in Resources */,
+				3A5A01881BC82B16005744C8 /* kp.sqlite in Resources */,
 				A16DDEFF1BC37E1900F1B427 /* KP_Logo_Title_Bar.png in Resources */,
 				A16DDF1E1BC3860400F1B427 /* king_power_1200x630.jpg in Resources */,
 				A16DDEC51BC37CC700F1B427 /* 233889-S3.jpg in Resources */,
@@ -1541,6 +1547,7 @@
 				F930A78A1BC7762500758366 /* PermissionModel.swift in Sources */,
 				A11F14481BC389CC0045B7B6 /* LoginDetailViewController.swift in Sources */,
 				A11F14491BC389CD0045B7B6 /* LoginMethodViewController.swift in Sources */,
+				3A5A018C1BC82B45005744C8 /* ProductRelateModel.swift in Sources */,
 				F930A78F1BC7762500758366 /* ProductModel.swift in Sources */,
 				A11F144A1BC389CD0045B7B6 /* LoginViewController.swift in Sources */,
 				A11F144B1BC389CD0045B7B6 /* SelectLanguageViewController.swift in Sources */,
@@ -1552,6 +1559,7 @@
 				A11F14341BC389BA0045B7B6 /* CheckoutViewController.swift in Sources */,
 				F930A78D1BC7762500758366 /* ProductGroupModel.swift in Sources */,
 				F930A7961BC7762500758366 /* UserGroupPermissionModel.swift in Sources */,
+				3A5A018B1BC82B45005744C8 /* ProductRecommendModel.swift in Sources */,
 				A11F14351BC389BA0045B7B6 /* CurrencyConvertorPopupViewController.swift in Sources */,
 				A11F14361BC389BA0045B7B6 /* CurrencyTableViewCell.swift in Sources */,
 				A11F14371BC389BA0045B7B6 /* PromotionPopupViewController.swift in Sources */,

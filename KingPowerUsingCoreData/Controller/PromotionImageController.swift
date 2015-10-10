@@ -20,9 +20,10 @@ class PromotionImageController{
     func getPromotionImageById(prmi_id: Int32) -> PromotionImageModel{ //Need return PromotionImageObj
         var promotionImageObj : PromotionImageModel = PromotionImageModel()
         
-        let promotionImageQuery = String("SELECT * FROM PROMOTION_IMAGE WHERE PRMI_ID = \(prmi_id);")
+        let promotionImageQuery :String = String(format: promotionImageObj.queryGetPromotionImageById, prmi_id)
         if let rs = database.executeQuery(promotionImageQuery, withArgumentsInArray: nil){
             while rs.next() {
+                promotionImageObj = PromotionImageModel()
                 promotionImageObj.prmi_id = rs.intForColumn("prmi_id")
                 promotionImageObj.prmi_prom_id = rs.intForColumn("prmi_prom_id")
                 promotionImageObj.prmi_img_path = rs.stringForColumn("prmi_img_path")
@@ -41,16 +42,26 @@ class PromotionImageController{
         var promotionImageArray : [PromotionImageModel] = []
         var promotionImageObj : PromotionImageModel = PromotionImageModel()
         
-        let promotionImageQuery : String = String("SELECT * FROM PROMOTION_IMAGE WHERE PRMI_PROM_ID = \(prmi_prom_id);")
+        let promotionImageQuery = String("SELECT PRMI_ID, PRMI_PROM_ID, PRMI_IMG_SEQ, PRMI_IMG_PATH FROM PROMOTION_IMAGE WHERE PRMI_PROM_ID = \(prmi_prom_id) ORDER BY PRMI_IMG_SEQ")
+        
+//        let promotionImageQuery = String(format: promotionImageObj.queryGetPromotionImageByPromotionId, prmi_prom_id)
+        print("QUERY : \(promotionImageQuery)")
+        
         if let rs = database.executeQuery(promotionImageQuery, withArgumentsInArray: nil){
-            while rs.next(){
-                promotionImageObj.prmi_id = rs.intForColumn("prmi_id")
-                promotionImageObj.prmi_prom_id = rs.intForColumn("prmi_prom_id")
-                promotionImageObj.prmi_img_path = rs.stringForColumn("prmi_img_path")
-                promotionImageObj.prmi_img_seq = rs.intForColumn("prmi_img_seq")
-                promotionImageArray.append(promotionImageObj)
-            }
+            if(rs.hasAnotherRow()){
+                print("Not Found PromotionImage for promotionId : \(prmi_prom_id)")
+                
+            }else{
             
+                while rs.next(){
+                    promotionImageObj = PromotionImageModel()
+                    promotionImageObj.prmi_id = rs.intForColumn("prmi_id")
+                    promotionImageObj.prmi_prom_id = rs.intForColumn("prmi_prom_id")
+                    promotionImageObj.prmi_img_path = rs.stringForColumn("prmi_img_path")
+                    promotionImageObj.prmi_img_seq = rs.intForColumn("prmi_img_seq")
+                    promotionImageArray.append(promotionImageObj)
+                }
+            }
             
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")

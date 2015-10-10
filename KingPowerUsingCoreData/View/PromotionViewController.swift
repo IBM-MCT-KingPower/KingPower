@@ -50,18 +50,30 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         scvPromotion.frame.origin.y = 80
         scvPromotion.frame.size.height = 270
         print("scvPromotion.frame: \(scvPromotion.frame)")
-        var promController : PromotionController = PromotionController()
-        var promObj : PromotionModel = promController.getPromotionById(1, includeExpire: false)
-        print("----- promObj : \(promObj.prom_name)")
-        print("----- promImage: \(promObj.promotionImageArray[0].prmi_img_path)")
-        //Promotion
-        // Set up the image you want to scroll & zoom and add it to the scroll view
-        let imgPromo1 = UIImage(named:"Promo 1.jpg")
-        pageImages = [UIImage(named:"Promo 1.jpg")!,
-            UIImage(named:"Promo 2.jpg")!,
-            UIImage(named:"Promo 1.jpg")!,
-            UIImage(named:"Promo 2.jpg")!]
-        let pageCount = pageImages.count
+        
+        
+        //Get Promotion Image
+        var promotionController : PromotionController = PromotionController()
+        var promotionArray : [PromotionModel] = promotionController.getPromotionAllEffective()
+        
+        let promotionCount = promotionArray.count
+        var pageCount = 0
+        
+        print("No. of Promotion \(promotionArray.count)")
+        if(promotionCount > 0){
+            pageImages = []
+            for i in 0...(promotionCount-1) {
+               
+                if(promotionArray[i].promotionImageArray.count > 0){
+                    pageImages.append(UIImage(named:promotionArray[i].promotionImageArray[0].prmi_img_path)!)
+                    pageCount = pageCount+1
+                }
+            }
+        }else{
+            //No Promotion Image
+            //Need to set promotion default image
+        }
+        
         // Set up the page control
         pcPromotion.currentPage = 0
         pcPromotion.numberOfPages = pageCount
@@ -120,9 +132,14 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             purgePage(index)
         }
         // Load pages in our range
-        for var index = firstPage; index <= lastPage; ++index {
+        for var index = 0; index < pageImages.count; ++index{
+            print("..... \(index)")
             loadPage(index)
         }
+//        for var index = firstPage; index <= lastPage; ++index {
+//            print("....... \(index)")
+//            loadPage(index)
+//        }
         // Purge anything after the last page
         for var index = lastPage+1; index < pageImages.count; ++index {
             purgePage(index)
@@ -144,10 +161,12 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             // If it's outside the range of what you have to display, then do nothing
             return
         }
-        // Load an individual page, first checking if you've already loaded it
+//        // Load an individual page, first checking if you've already loaded it
         if let pageView = pageViews[page] {
             // Do nothing. The view is already loaded.
+            print("HERE >> \(page)")
         } else {
+            print(">>> \(page)")
             var frame = scvPromotion.bounds
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
@@ -163,7 +182,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             btnPromotion.addTarget(self, action: "btnPromotionTapped:", forControlEvents: UIControlEvents.TouchUpInside)
             //btnPromotion.frame = CGRectMake((frame.width * CGFloat(page)) + (frame.width*80/100), frame.height*80/100, frame.width*20/100, frame.height*20/100)
             btnPromotion.frame = CGRectMake(0, 0, frame.width, frame.height)
-            //
+            
+            print("Add Target Button to page \(page)")
+            
             scvPromotion.addSubview(newPageView)
             scvPromotion.addSubview(btnPromotion)
             pageViews[page] = newPageView
@@ -175,9 +196,18 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         vc.id = "aa"
         navigationController?.pushViewController(vc, animated: true)
         */
+        
+        print("BTN PromotionTapped")
+        
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PromotionDetailViewController") as! PromotionDetailViewController
         //print("test = \(vc.id)")
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let product = sender.view
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProductDetailViewController") as! ProductDetailViewController
+//        vc.productDetail = productArray[(product!.tag)]
+//        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         pointNow = scrollView.contentOffset;
