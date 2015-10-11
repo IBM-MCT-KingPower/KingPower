@@ -12,6 +12,10 @@ class LoginByTypeViewController: UIViewController {
     
     var gv = GlobalVariable()
     var setupNav = KPNavigationBar()
+    var commonViewController = CommonViewController()
+    var customer : CustomerModel?
+    
+    @IBOutlet weak var memberIdTextField : UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +70,7 @@ class LoginByTypeViewController: UIViewController {
     
     
     func SignoutMethod(){
-        CommonViewController().signoutMethod(self)
+        commonViewController.signoutMethod(self)
         
     }
     
@@ -80,15 +84,42 @@ class LoginByTypeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func btnSubmitTapped(sender: AnyObject) {
+        
+        //Check required
+        if(self.memberIdTextField!.text == ""){
+            commonViewController.alertView(self, title: gv.getConfigValue("messageMemberValidationFailTitle") as! String, message: gv.getConfigValue("messageMemberRequiredField") as! String)
+        }else{
+        
+            print("Tapped Submit Button with info : \(self.memberIdTextField!.text!)")
+            var customerController = CustomerController()
+        
+            self.customer = customerController.getCustomerByMemberId(self.memberIdTextField!.text!)
+            print(".. \(self.customer?.cust_first_name)")
+            if(customer == nil){
+                commonViewController.alertView(self, title: gv.getConfigValue("messageMemberValidationFailTitle") as! String, message: gv.getConfigValue("messageMemberNotFound") as! String)
+            }else{
+            
+            }
+        }
+    
+    }
 
-    /*
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        print("Prepare for Segue: Navigate to LoginDetailViewController")
+        print("Customer : \(self.customer!.cust_first_name)")
+        (segue.destinationViewController as! LoginDetailViewController).customer = self.customer!
+        
+        
     }
-    */
+    
 
 }

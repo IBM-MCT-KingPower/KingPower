@@ -58,6 +58,15 @@ class CommonViewController: UIViewController {
         uiView.presentViewController(searchViewController!, animated: true, completion: nil)
     }
 
+    func alertView(uiView: UIViewController, title: String, message: String){
+        
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        uiView.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     
     /*
     // MARK: - Navigation

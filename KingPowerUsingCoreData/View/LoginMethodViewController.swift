@@ -12,23 +12,16 @@ class LoginMethodViewController: UIViewController {
 
     var gv = GlobalVariable()
     var setupNav = KPNavigationBar()
+    var commonViewController = CommonViewController()
     
     
     @IBAction func TappedCardReader(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Card Reader Method", message:
-            "Under Implemenation", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        commonViewController.alertView(self, title: gv.getConfigValue("messageCardReaderInputMethodTitle") as! String, message: gv.getConfigValue("messageUnderImplementation") as! String)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
-    
     }
     @IBAction func TappedCamera(sender: AnyObject) {
+        commonViewController.alertView(self, title: gv.getConfigValue("messageCameraInputMethodTitle") as! String, message: gv.getConfigValue("messageUnderImplementation") as! String)
         
-        let alertController = UIAlertController(title: "Camera Method", message:
-            "Under Implemenation", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +64,7 @@ class LoginMethodViewController: UIViewController {
     }
     
     func SignoutMethod(){
-        CommonViewController().signoutMethod(self)
+        commonViewController.signoutMethod(self)
         
     }
     

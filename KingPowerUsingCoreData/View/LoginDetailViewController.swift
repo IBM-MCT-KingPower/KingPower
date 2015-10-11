@@ -12,6 +12,16 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     var gv = GlobalVariable()
     var setupNav = KPNavigationBar()
+    var commonViewController = CommonViewController()
+    
+    var customer : CustomerModel = CustomerModel()
+    
+    @IBOutlet weak var customerNameLabel : UILabel!
+    @IBOutlet weak var memberIdLabel : UILabel!
+//    @IBOutlet weak var cardIdLabel: UILabel!
+    @IBOutlet weak var cardExpireDateLabel : UILabel!
+    @IBOutlet weak var customerPointLabel : UILabel!
+    @IBOutlet weak var customerPointExpireDateLabel : UILabel!
     
     @IBOutlet weak var departAirlineTextField: UITextField!
     @IBOutlet weak var returnAirlineTextField: UITextField!
@@ -28,46 +38,19 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
         
-//        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
-//        let imageTitleView = UIImageView(frame: CGRect(
-//            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
-//            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
-//            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
-//            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
-//        
-//        imageTitleView.contentMode = .ScaleAspectFit
-//        imageTitleView.image = imageTitleItem
-//        
-//        self.navigationItem.titleView = imageTitleView
-//        
-//        var nav = self.navigationController?.navigationBar
-//        nav?.barTintColor = UIColor(hexString: gv.getConfigValue("navigationBarColor") as! String)
-//        
-//        let buttonSignout: UIButton = UIButton(type: UIButtonType.Custom)
-//        buttonSignout.frame = CGRect(
-//            x: gv.getConfigValue("navigationItemSignoutImgPositionX") as! CGFloat,
-//            y: gv.getConfigValue("navigationItemSignoutImgPositionY") as! CGFloat,
-//            width:  gv.getConfigValue("navigationItemSignoutImgWidth") as! CGFloat,
-//            height: gv.getConfigValue("navigationItemSignoutImgHeight") as! CGFloat)
-//        
-//        buttonSignout.setImage(UIImage(named: gv.getConfigValue("navigationItemSignoutImgName") as! String), forState: UIControlState.Normal)
-//        buttonSignout.addTarget(self, action: "SignoutMethod", forControlEvents: UIControlEvents.TouchUpInside)
-//        var rightBarButtonItemSignout: UIBarButtonItem = UIBarButtonItem(customView: buttonSignout)
-//        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSignout], animated: true)
-//        
-//        let buttonBack : UIButton = UIButton(type: UIButtonType.Custom)
-//        buttonBack.frame = CGRect(
-//            x: gv.getConfigValue("navigationItemBackImgPositionX") as! CGFloat,
-//            y: gv.getConfigValue("navigationItemBackImgPositionY") as! CGFloat,
-//            width:  gv.getConfigValue("navigationItemBackImgWidth") as! CGFloat,
-//            height: gv.getConfigValue("navigationItemBackImgHeight") as! CGFloat)
-//        
-//        buttonBack.setImage(UIImage(named: gv.getConfigValue("navigationItemBackImgName") as! String), forState: UIControlState.Normal)
-//        buttonBack.addTarget(self, action: "BackMethod", forControlEvents: UIControlEvents.TouchUpInside)
-//        var leftBarButtonItemBack : UIBarButtonItem = UIBarButtonItem(customView: buttonBack)
-//        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemBack], animated: true)
-//        
-//        self.navigationItem.hidesBackButton = true
+        print("Customer Model FirstName : \(self.customer.cust_first_name)")
+        
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        self.customerNameLabel.text = self.customer.cust_title+" "+self.customer.cust_first_name+" "+self.customer.cust_last_name
+        self.memberIdLabel.text = self.customer.cust_member_id
+//        self.cardIdLabel.text = String(self.customer.cust_card_id)
+        print("CARD EXPIRE DATE: \(self.customer.cust_card_exp_date)")
+        self.cardExpireDateLabel.text = dateFormatter.stringFromDate(self.customer.cust_card_exp_date)
+        self.customerPointLabel.text = String(self.customer.cust_point)
+        self.customerPointExpireDateLabel.text = dateFormatter.stringFromDate(self.customer.cust_point_exp_date)
         
         var pickerViewDepart = UIPickerView()
         var pickerViewReturn = UIPickerView()
@@ -95,7 +78,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func SignoutMethod(){
-        CommonViewController().signoutMethod(self)
+        commonViewController.signoutMethod(self)
         
 
     }
@@ -162,7 +145,22 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         
     }
     
-
+    @IBAction func btnScanBarcodeTapped(sender: AnyObject){
+        commonViewController.alertView(self, title:  gv.getConfigValue("messageScanBoardingPassTitle") as! String, message:  gv.getConfigValue("messageUnderImplementation") as! String)
+        
+    }
+    
+    @IBAction func btnContinueTapped(sender: AnyObject){
+        
+        //Check require
+        
+        
+        //Insert Flight Information
+        
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

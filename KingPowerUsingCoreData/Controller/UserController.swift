@@ -12,14 +12,13 @@ import Foundation
 class UserController {
     
     var database:FMDatabase!
-    var userArray: [UserModel] = []
     
     init(){
         self.database = DatabaseUtil().getDBConnect()
     }
     
     
-    func authentication(username: String, password: String) -> [UserModel] {   //Need return userObj
+    func authentication(username: String, password: String) -> UserModel? {   //Need return userObj
         
         var user = UserModel()
         let query = String(format: user.queryGetUserByUsernamePassword, username, password)
@@ -30,14 +29,14 @@ class UserController {
                 user.user_id = rs.intForColumn("user_id")
                 user.user_username = rs.stringForColumn("user_username")
                 user.user_password = rs.stringForColumn("user_password")
+                return user
                 
-                self.userArray.append(user)
             }
         }else {
             print("select failed: \(database.lastErrorMessage())", terminator: "")
-            
+            return nil
         }
-        return self.userArray
+        return nil
         
     }
     

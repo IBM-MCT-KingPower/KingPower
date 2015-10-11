@@ -16,7 +16,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
+    var gv = GlobalVariable()
     var constat = Constants()
+    var commonViewController = CommonViewController()
     var lol = Locale()
     
     override func viewDidLoad() {
@@ -57,8 +59,23 @@ class LoginViewController: UIViewController {
         let staffId = self.txtStaffId!.text
         let password = self.txtPassword!.text
         
-        //LoginController().login(username!, password: password!, uiView: self)
+        //Validate Required
+        if(staffId=="" || password==""){
+            commonViewController.alertView(self, title: gv.getConfigValue("messageAuthenFailTitle") as! String, message: gv.getConfigValue("messageAuthenRequiredField") as! String)
+            
+        }else{
         
+            var userController = UserController()
+       
+            var userModel : UserModel?
+            userModel = userController.authentication(staffId!, password: password!)
+        
+            if (userModel ==  nil) {
+                commonViewController.alertView(self, title: gv.getConfigValue("messageAuthenFailTitle") as! String, message: gv.getConfigValue("messageAuthenFail") as! String)
+            }else{
+                print("\nAuthentication Passed : [ID: \(userModel!.user_id)] : [USERNAME: \(userModel!.user_username)]")
+            }
+        }
     }
 
     

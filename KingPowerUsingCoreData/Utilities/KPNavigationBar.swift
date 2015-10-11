@@ -13,7 +13,6 @@ class KPNavigationBar: NSObject{
     var gv = GlobalVariable()
     
     func setupNavigationBar(uiView: UIViewController){
-        print("KP Navigation Bar : SetupNavigation Bar")
         
         var navBar:UINavigationBar=UINavigationBar()
         

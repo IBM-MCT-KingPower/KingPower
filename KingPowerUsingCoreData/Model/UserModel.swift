@@ -16,6 +16,6 @@ public class UserModel{
     var user_create_date : NSDate = NSDate()
     var user_update_date : NSDate = NSDate()
     
-    var queryGetUserByUsernamePassword : String = "SELECT USER_ID, USER_USERNAME, USER_PASSWORD, USER_CREATE_DATE, USER_UPDATE_DATE FROM USER WHERE USER_USERNAME = %@ AND USER_PASSWORD = %@;"
+    var queryGetUserByUsernamePassword : String = "SELECT USER_ID, USER_USERNAME, USER_PASSWORD, USER_CREATE_DATE, USER_UPDATE_DATE FROM USER WHERE USER_USERNAME = '%@' AND USER_PASSWORD = '%@';"
     
 }
