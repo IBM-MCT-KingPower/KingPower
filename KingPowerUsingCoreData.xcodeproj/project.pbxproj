@@ -39,7 +39,6 @@
 		3A28219F1BC68D6B00FB3FD3 /* 16_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821811BC68D6B00FB3FD3 /* 16_1.png */; settings = {ASSET_TAGS = (); }; };
 		3A2821A01BC68D6B00FB3FD3 /* 17_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821821BC68D6B00FB3FD3 /* 17_1.png */; settings = {ASSET_TAGS = (); }; };
 		3A2821A11BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A2821831BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg */; settings = {ASSET_TAGS = (); }; };
-		3A5A01881BC82B16005744C8 /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3A5A01871BC82B16005744C8 /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
 		3A5A018B1BC82B45005744C8 /* ProductRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A01891BC82B45005744C8 /* ProductRecommendModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A5A018C1BC82B45005744C8 /* ProductRelateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A018A1BC82B45005744C8 /* ProductRelateModel.swift */; settings = {ASSET_TAGS = (); }; };
 		3A8D88FD1BB9B07C0036EB82 /* kp.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D88FC1BB9B07C0036EB82 /* kp.plist */; };
@@ -284,6 +283,7 @@
 		A16DDF511BC3862700F1B427 /* TH-Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDF431BC3862700F1B427 /* TH-Flag.png */; };
 		A1D1F1871BCABFF5001225F6 /* ProductRecommendedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1F1861BCABFF5001225F6 /* ProductRecommendedController.swift */; settings = {ASSET_TAGS = (); }; };
 		A1D1F1891BCAC015001225F6 /* ProductRelatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1F1881BCAC015001225F6 /* ProductRelatedController.swift */; settings = {ASSET_TAGS = (); }; };
+		A1D1F1911BCB6DDD001225F6 /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A1D1F1901BCB6DDD001225F6 /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
 		A1D880981BC41C2200812A15 /* PromotionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */; };
 		F930A7821BC7762500758366 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76B1BC7762500758366 /* BrandModel.swift */; };
 		F930A7831BC7762500758366 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76C1BC7762500758366 /* CartModel.swift */; };
@@ -343,7 +343,6 @@
 		3A2821811BC68D6B00FB3FD3 /* 16_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 16_1.png; path = KingPowerUsingCoreData/Images/Product/16_1.png; sourceTree = SOURCE_ROOT; };
 		3A2821821BC68D6B00FB3FD3 /* 17_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 17_1.png; path = KingPowerUsingCoreData/Images/Product/17_1.png; sourceTree = SOURCE_ROOT; };
 		3A2821831BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = DelightMainBannerENrevised.jpg; path = KingPowerUsingCoreData/Images/Product/DelightMainBannerENrevised.jpg; sourceTree = SOURCE_ROOT; };
-		3A5A01871BC82B16005744C8 /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
 		3A5A01891BC82B45005744C8 /* ProductRecommendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRecommendModel.swift; sourceTree = "<group>"; };
 		3A5A018A1BC82B45005744C8 /* ProductRelateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRelateModel.swift; sourceTree = "<group>"; };
 		3A8D88FA1BB9B06F0036EB82 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariable.swift; sourceTree = "<group>"; };
@@ -606,6 +605,7 @@
 		A16DDF431BC3862700F1B427 /* TH-Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TH-Flag.png"; path = "Images/Temp/TH-Flag.png"; sourceTree = "<group>"; };
 		A1D1F1861BCABFF5001225F6 /* ProductRecommendedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRecommendedController.swift; path = Controller/ProductRecommendedController.swift; sourceTree = "<group>"; };
 		A1D1F1881BCAC015001225F6 /* ProductRelatedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRelatedController.swift; path = Controller/ProductRelatedController.swift; sourceTree = "<group>"; };
+		A1D1F1901BCB6DDD001225F6 /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
 		A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PromotionPopupViewController.xib; path = View/PromotionPopupViewController.xib; sourceTree = "<group>"; };
 		B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPowerUsingCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930A76B1BC7762500758366 /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandModel.swift; path = Model/BrandModel.swift; sourceTree = "<group>"; };
@@ -1009,7 +1009,7 @@
 		A11EBE1C1BBE30C300274BB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				3A5A01871BC82B16005744C8 /* kp.sqlite */,
+				A1D1F1901BCB6DDD001225F6 /* kp.sqlite */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -1394,7 +1394,7 @@
 				A16DDEBA1BC37CC700F1B427 /* 233885-L1.jpg in Resources */,
 				A16DDEC81BC37CC700F1B427 /* 461084-L3.jpg in Resources */,
 				A16DDEC31BC37CC700F1B427 /* 233889-S1.jpg in Resources */,
-				3A5A01881BC82B16005744C8 /* kp.sqlite in Resources */,
+				A1D1F1911BCB6DDD001225F6 /* kp.sqlite in Resources */,
 				A16DDEFF1BC37E1900F1B427 /* KP_Logo_Title_Bar.png in Resources */,
 				A16DDF1E1BC3860400F1B427 /* king_power_1200x630.jpg in Resources */,
 				A16DDEC51BC37CC700F1B427 /* 233889-S3.jpg in Resources */,

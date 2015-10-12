@@ -100,7 +100,6 @@ class LoginByTypeViewController: UIViewController {
             if(customer == nil){
                 commonViewController.alertView(self, title: gv.getConfigValue("messageMemberValidationFailTitle") as! String, message: gv.getConfigValue("messageMemberNotFound") as! String)
             }else{
-            
             }
         }
     
@@ -117,8 +116,7 @@ class LoginByTypeViewController: UIViewController {
         print("Prepare for Segue: Navigate to LoginDetailViewController")
         print("Customer : \(self.customer!.cust_first_name)")
         (segue.destinationViewController as! LoginDetailViewController).customer = self.customer!
-        
-        
+
     }
     
 

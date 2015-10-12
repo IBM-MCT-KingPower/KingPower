@@ -112,5 +112,21 @@
 	<string>Member ID is required.</string>
 	<key>messageMemberNotFound</key>
 	<string>Member ID is not found.</string>
+	<key>genderMen</key>
+	<string>MEN</string>
+	<key>genderWomen</key>
+	<string>WOMEN</string>
+	<key>genderUnisex</key>
+	<string>UNISEX</string>
+	<key>productGroupFashion</key>
+	<integer>1</integer>
+	<key>productGroupBeauty</key>
+	<integer>2</integer>
+	<key>productGroupElectronics</key>
+	<integer>3</integer>
+	<key>productGroupFood</key>
+	<integer>4</integer>
+	<key>productGroupLiquor</key>
+	<integer>5</integer>
 </dict>
 </plist>

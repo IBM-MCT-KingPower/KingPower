@@ -31,7 +31,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         // Do any additional setup after loading the view, typically from a nib.
         //self.openDB()
         //self.query()
-        productArray = ProductController().getProductByOrder("prod_id", sort: "ASC")
+        //productArray = ProductController().getProductByOrder("prod_id", sort: "ASC")
         
     }
     

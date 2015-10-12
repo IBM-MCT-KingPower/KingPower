@@ -96,7 +96,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         // get product list
         self.productArray.removeAll()
         if selectedGroup == 0 {
-            self.productArray = ProductController().getAllProduct()
+            self.productArray = ProductController().getProductByGender(String(gv.getConfigValue("genderWomen")))//.getAllProduct()
         } else {
             self.productArray = ProductController().getProductByProductGroupID(Int32(selectedGroup))
         }
@@ -174,13 +174,13 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             btnPromotion.titleLabel!.text = String(page)
             btnPromotion.titleLabel?.hidden = true
             btnPromotion.addTarget(self, action: "btnPromotionTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-            //btnPromotion.frame = CGRectMake((frame.width * CGFloat(page)) + (frame.width*80/100), frame.height*80/100, frame.width*20/100, frame.height*20/100)
-            btnPromotion.frame = CGRectMake(0, 0, frame.width, frame.height)
+            btnPromotion.frame = CGRectMake((frame.width * CGFloat(page)) , 0, frame.width, frame.height)
+            //btnPromotion.frame = CGRectMake(0, 0, frame.width, frame.height)
             
             print("Add Target Button to page \(page)")
-            
-            scvPromotion.addSubview(newPageView)
             scvPromotion.addSubview(btnPromotion)
+            scvPromotion.addSubview(newPageView)
+            
             pageViews[page] = newPageView
         }
     }
@@ -195,6 +195,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PromotionDetailViewController") as! PromotionDetailViewController
         //print("test = \(vc.id)")
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
 //        let product = sender.view
@@ -529,19 +530,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         vc.productDetail = self.productArray[(product!.tag)]
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    // MARK: - Navigation
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    //(segue.destinationViewController as! DetailViewController).detailText = String(cell.labelIndex.text)
-    //let cell = sender as! MyCustomCollectionViewCell
-    //print(self.tbv.
-    //print(cell.labelIndex.text)
-    //print(indexPath?.row)
-    }
-    */
+
     //End Catagory
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -729,6 +718,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             button.frame = CGRectMake(CGFloat(22 + (index * 166)), 0, (image?.size.width)!/2, (image?.size.height)!/2)
             //button.frame = CGRectMake(CGFloat(22 + (index * 166)), 362.5, (image?.size.width)!/2, (image?.size.height)!/2)
             button.setImage(image, forState: .Normal)
+            button.tag = select
             button.addTarget(self, action: "tappedProductCatagory:", forControlEvents: UIControlEvents.TouchUpInside)
             buttonList.append(button)
             //self.view.addSubview(buttonList[index])
@@ -761,6 +751,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             else{
                 select = 0
             }
+            buttonList[index].tag = select
             let image = UIImage(named: "tab-\(buttonName[index])\(select).png")
             buttonList[index].setImage(image, forState: .Normal)
         }
@@ -770,10 +761,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         print("Back from thank you page")
     }
     
-    @IBAction func moreProduct(sender: AnyObject) {
-//        if
-        
-    }
+
     
     func swipeProduct(sender:UIGestureRecognizer){
         // do other task
@@ -788,4 +776,33 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
         }
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+        if segue.identifier == "moreProductSegue" {
+            let vc = segue.destinationViewController as! ViewController
+            for var index = 0; index < 6; ++index {
+                if buttonList[index].tag == 1 {
+                    var productAllArray = []
+                    if index == 0 {
+                        productAllArray = ProductController().getProductByGender(String(gv.getConfigValue("genderWomen")))
+                    }else{
+                        productAllArray = ProductController().getProductByProductGroupID(Int32(index))
+                    }
+                    vc.productArray = productAllArray as! [ProductModel]
+                }
+            }
+            
+        }
+    //(segue.destinationViewController as! DetailViewController).detailText = String(cell.labelIndex.text)
+    //let cell = sender as! MyCustomCollectionViewCell
+    //print(self.tbv.
+    //print(cell.labelIndex.text)
+    //print(indexPath?.row)
+    }
+    
 }

@@ -546,8 +546,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="dXU-pZ-vHD"/>
                     <connections>
+                        <outlet property="cardExpireDateLabel" destination="wcT-87-fFM" id="sQ3-Fo-bmB"/>
+                        <outlet property="customerNameLabel" destination="c6q-0l-zg4" id="DsK-lz-ira"/>
+                        <outlet property="customerPointExpireDateLabel" destination="8Wf-7v-bcp" id="yGp-0P-Rij"/>
+                        <outlet property="customerPointLabel" destination="Gdu-dL-fZG" id="5aj-pc-Jfk"/>
                         <outlet property="departAirlineTextField" destination="fZ7-sA-be0" id="Ye2-lC-7hz"/>
                         <outlet property="departDateTextField" destination="UQ2-rt-z9b" id="wXM-qv-Jf8"/>
+                        <outlet property="memberIdLabel" destination="CkL-ei-n4I" id="Qnc-Bv-gba"/>
                         <outlet property="returnAirlineTextField" destination="cPO-Ce-jkz" id="pGr-7w-6HK"/>
                         <outlet property="returnDateTextField" destination="Exw-Be-oVZ" id="F6A-H5-cGt"/>
                     </connections>
@@ -577,7 +582,8 @@
                                     <color key="titleColor" red="0.023529411760000001" green="0.2470588235" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="WF0-CL-5ra" kind="push" id="RmM-T4-INT"/>
+                                    <action selector="btnSubmitTapped:" destination="Zj9-Xs-BXW" eventType="touchUpInside" id="4QY-8A-8m5"/>
+                                    <segue destination="WF0-CL-5ra" kind="push" identifier="submitMemberSegue" id="RmM-T4-INT"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Member Card ID" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="zTb-1p-I9A">
@@ -604,6 +610,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ELa-4v-758"/>
+                    <connections>
+                        <outlet property="memberIdTextField" destination="zTb-1p-I9A" id="wGD-bT-QjR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgN-rV-vKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1892,11 +1901,10 @@
                                 <rect key="frame" x="0.0" y="340" width="1024" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO6-F9-dTg">
-                                        <rect key="frame" x="954" y="28" width="70" height="31"/>
+                                        <rect key="frame" x="962" y="28" width="62" height="31"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                         <state key="normal" title="More"/>
                                         <connections>
-                                            <action selector="moreProduct:" destination="hGX-X8-U4y" eventType="touchUpInside" id="8nL-R0-aAm"/>
                                             <segue destination="a0q-pR-xWB" kind="push" identifier="moreProductSegue" id="58o-OL-eWc"/>
                                         </connections>
                                     </button>
