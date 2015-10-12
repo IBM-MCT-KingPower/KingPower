@@ -282,6 +282,8 @@
 		A16DDF4F1BC3862700F1B427 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDF411BC3862700F1B427 /* search.png */; };
 		A16DDF501BC3862700F1B427 /* takeoff.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDF421BC3862700F1B427 /* takeoff.png */; };
 		A16DDF511BC3862700F1B427 /* TH-Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDF431BC3862700F1B427 /* TH-Flag.png */; };
+		A1D1F1871BCABFF5001225F6 /* ProductRecommendedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1F1861BCABFF5001225F6 /* ProductRecommendedController.swift */; settings = {ASSET_TAGS = (); }; };
+		A1D1F1891BCAC015001225F6 /* ProductRelatedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1F1881BCAC015001225F6 /* ProductRelatedController.swift */; settings = {ASSET_TAGS = (); }; };
 		A1D880981BC41C2200812A15 /* PromotionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */; };
 		F930A7821BC7762500758366 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76B1BC7762500758366 /* BrandModel.swift */; };
 		F930A7831BC7762500758366 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76C1BC7762500758366 /* CartModel.swift */; };
@@ -602,6 +604,8 @@
 		A16DDF411BC3862700F1B427 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = Images/Temp/search.png; sourceTree = "<group>"; };
 		A16DDF421BC3862700F1B427 /* takeoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = takeoff.png; path = Images/Temp/takeoff.png; sourceTree = "<group>"; };
 		A16DDF431BC3862700F1B427 /* TH-Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TH-Flag.png"; path = "Images/Temp/TH-Flag.png"; sourceTree = "<group>"; };
+		A1D1F1861BCABFF5001225F6 /* ProductRecommendedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRecommendedController.swift; path = Controller/ProductRecommendedController.swift; sourceTree = "<group>"; };
+		A1D1F1881BCAC015001225F6 /* ProductRelatedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductRelatedController.swift; path = Controller/ProductRelatedController.swift; sourceTree = "<group>"; };
 		A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PromotionPopupViewController.xib; path = View/PromotionPopupViewController.xib; sourceTree = "<group>"; };
 		B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPowerUsingCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930A76B1BC7762500758366 /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandModel.swift; path = Model/BrandModel.swift; sourceTree = "<group>"; };
@@ -1097,6 +1101,8 @@
 				A16DDD701BC3770C00F1B427 /* ProductImageController.swift */,
 				A16DDD711BC3770C00F1B427 /* ProductMainCategoryController.swift */,
 				A16DDD721BC3770C00F1B427 /* ProductSubCategoryController.swift */,
+				A1D1F1861BCABFF5001225F6 /* ProductRecommendedController.swift */,
+				A1D1F1881BCAC015001225F6 /* ProductRelatedController.swift */,
 			);
 			name = ProductController;
 			sourceTree = "<group>";
@@ -1529,6 +1535,7 @@
 				A11F144E1BC38A630045B7B6 /* FMDatabase.m in Sources */,
 				A11F144F1BC38A630045B7B6 /* FMDatabaseAdditions.m in Sources */,
 				A11F14501BC38A630045B7B6 /* FMDatabasePool.m in Sources */,
+				A1D1F1871BCABFF5001225F6 /* ProductRecommendedController.swift in Sources */,
 				A11F14511BC38A630045B7B6 /* FMDatabaseQueue.m in Sources */,
 				A11F14521BC38A630045B7B6 /* FMResultSet.m in Sources */,
 				A11F14531BC38A630045B7B6 /* SWRevealViewController.m in Sources */,
@@ -1604,6 +1611,7 @@
 				F930A78E1BC7762500758366 /* ProductImageModel.swift in Sources */,
 				A11F13FE1BC389980045B7B6 /* PromotionImageController.swift in Sources */,
 				F930A7921BC7762500758366 /* PromotionModel.swift in Sources */,
+				A1D1F1891BCAC015001225F6 /* ProductRelatedController.swift in Sources */,
 				A11241AB1BC4C1FA008BA9C4 /* MoreImageProductCollectionViewCell.swift in Sources */,
 				F930A7901BC7762500758366 /* PromotionImageModel.swift in Sources */,
 				A11F13FF1BC389980045B7B6 /* DetailPresentationController.swift in Sources */,

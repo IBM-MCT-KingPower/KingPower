@@ -19,7 +19,7 @@ class BrandController{
         let brand = BrandModel()
         //let brandQuery = String("SELECT * FROM BRAND WHERE bran_id = 1")
         let brandQuery = String(format: "SELECT * FROM BRAND WHERE bran_id = %d", bran_id)
-        print(brandQuery)
+        //print(brandQuery)
         if let rs = database.executeQuery(brandQuery, withArgumentsInArray: nil) {
             while rs.next(){
                 brand.bran_id = rs.intForColumn("bran_id")

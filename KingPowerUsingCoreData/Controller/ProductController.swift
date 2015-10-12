@@ -21,7 +21,7 @@ class ProductController {
     func getProductByID(prod_id:Int32) -> ProductModel{
         let product = ProductModel()
         let prodQuery = String("SELECT * FROM PRODUCT where prod_id = \(prod_id) ORDER BY prod_name ASC")
-        print(prodQuery)
+        //print(prodQuery)
         if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
             while rs.next(){
                 product.prod_id = rs.intForColumn("prod_id")
@@ -140,14 +140,16 @@ class ProductController {
     }
     func getProductByProductGroupID(prog_id:Int32) -> [ProductModel]{
         var productArray:[ProductModel] = []
-        let product = ProductModel()
+        var product = ProductModel()
         let prodQuery = String(format: product.queryProductByProductGroupId, prog_id)//String("SELECT * FROM PRODUCT where prod_id = \(prod_id) ORDER BY prod_name ASC")
         print(prodQuery)
         if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
             while rs.next(){
+                product = ProductModel()
                 product.prod_id = rs.intForColumn("prod_id")
                 product.prod_code = rs.stringForColumn("prod_code")
                 product.prod_name = rs.stringForColumn("prod_name")
+                //print("Product Name from Query : \(product.prod_name)")
                 product.prod_type = rs.stringForColumn("prod_type")
                 product.prod_price = rs.doubleForColumn("prod_price")
                 product.prod_discount_price = rs.doubleForColumn("prod_discount_price")
@@ -178,32 +180,4 @@ class ProductController {
         return productArray
     }
 
-    /*
-    func getProductImage(prod_id: Int32)->[ProductImageModel]{
-        var image:[ProductImageModel] = []
-        var prodImagelist = ProductImageModel()
-        let proiQuery = String(format: prodImagelist.queryProductImageByProductId, String(prod_id))
-        if let rs = database.executeQuery(proiQuery, withArgumentsInArray: nil) {
-            
-            while rs.next(){
-                prodImagelist = ProductImageModel()
-                prodImagelist.proi_id = rs.intForColumn("proi_id")
-                prodImagelist.proi_prod_id = rs.intForColumn("proi_id")
-                prodImagelist.proi_prod_image_seq = rs.stringForColumn("proi_prod_image_seq")
-                prodImagelist.proi_image_path = rs.stringForColumn("proi_image_path")
-                image.append(prodImagelist)
-            }
-            if (image.count==0){
-                let prodImagelist = ProductImageModel()
-                prodImagelist.proi_id = 0
-                prodImagelist.proi_prod_id = prod_id
-                prodImagelist.proi_prod_image_seq = ""
-                prodImagelist.proi_image_path = "noimage"
-                image.append(prodImagelist)
-            }
-            
-        }
-        return image
-    }*/
-    
 }

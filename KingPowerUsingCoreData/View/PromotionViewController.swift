@@ -92,25 +92,19 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         self.tbvCatagory.delegate = self
     }
     func getProductList(selectedGroup:Int){
+        print(selectedGroup)
         // get product list
-        /*
+        self.productArray.removeAll()
         if selectedGroup == 0 {
-            productArray = ProductController().getAllProduct()
-        } else if selectedGroup == 1 {
-            productArray = ProductController().getProductByProductGroupID(0)
-        } else if selectedGroup == 2 {
-            productArray = ProductController().getProductByProductGroupID(1)
-        }else if selectedGroup == 3 {
-            productArray = ProductController().getProductByProductGroupID(2)
-        }else if selectedGroup == 4 {
-            productArray = ProductController().getProductByProductGroupID(3)
-        }else if selectedGroup == 5 {
-            productArray = ProductController().getProductByProductGroupID(4)
-        }*/
-        productArray = ProductController().getAllProduct()
-        prodRemain = productArray.count%8
-        prodRow = productArray.count/8
-        prodCount = productArray.count
+            self.productArray = ProductController().getAllProduct()
+        } else {
+            self.productArray = ProductController().getProductByProductGroupID(Int32(selectedGroup))
+        }
+        prodRemain = self.productArray.count%8
+        prodRow = self.productArray.count/8 + 1
+        prodCount = self.productArray.count
+        print("Product Count : \(prodCount)")
+        self.tbvCatagory.reloadData()
     }
     override func viewDidAppear(animated: Bool) {
         // self.setupNavigationBar()
@@ -258,23 +252,50 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             cellIdentify = "Cell2"
         }
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentify) as! Productlayout1TableViewCell!
+        cell.resetProductView()
         let rowIndex = indexPath.row*8
-        let count = productArray.count
+        let count = self.productArray.count
         var curIndex = rowIndex + arrayIndex
+        /*
+        let gesture1 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v1.addGestureRecognizer(gesture1)
+
+        let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v2.addGestureRecognizer(gesture2)
+        
+        let gesture3 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v3.addGestureRecognizer(gesture3)
+        
+        let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v4.addGestureRecognizer(gesture4)
+        
+        let gesture5 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v5.addGestureRecognizer(gesture5)
+        
+        let gesture6 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v6.addGestureRecognizer(gesture6)
+        
+        let gesture7 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v7.addGestureRecognizer(gesture7)
+        
+        let gesture8 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
+        cell.v8.addGestureRecognizer(gesture8)*/
+        print(curIndex)
         if curIndex < count {
-            let product1 = productArray[curIndex]
+            cell.v1.hidden = false
+            let product1 = self.productArray[curIndex]
+            print("Product Name : \(product1.prod_name)")
             let gesture1 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v1.tag = curIndex
             cell.v1.addGestureRecognizer(gesture1)
-            cell.img1Product.layer.borderWidth = 1
-            cell.img1Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v1.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v1_border.layer.borderWidth = 1
+            cell.v1_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img1Product.image = UIImage(named: product1.prod_imageArray[0].proi_image_path)
             cell.img1Product.contentMode = .ScaleAspectFit
             cell.txtv1ProdName.text = product1.prod_name
-            cell.txtv1ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv1ProdName.font = UIFont(name: "Century Gothic", size: 12)//?.bold
             cell.txtv1ProdName.textAlignment = .Center
-            cell.lbl1ProdPrice.text = String(product1.prod_price)
+            cell.lbl1ProdPrice.text = NSDecimalNumber(double: product1.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product1.prod_rating > 3 {
                 cell.img1Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img1Tag.contentMode = .ScaleAspectFit
@@ -285,22 +306,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            print("\(curIndex)")
+            //cell.v1.hidden = true
         }
+        print(curIndex)
         if curIndex < count {
-            let product2 = productArray[curIndex]
+            cell.v2.hidden = false
+            let product2 = self.productArray[curIndex]
+            print("Product Name : \(product2.prod_name)")
             let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v2.tag = curIndex
             cell.v2.addGestureRecognizer(gesture2)
-            cell.img2Product.layer.borderWidth = 1
-            cell.img2Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v2.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v2_border.layer.borderWidth = 1
+            cell.v2_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img2Product.image = UIImage(named: product2.prod_imageArray[0].proi_image_path)
             cell.img2Product.contentMode = .ScaleAspectFit
             cell.txtv2ProdName.text = product2.prod_name
-            cell.txtv2ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv2ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv2ProdName.textAlignment = .Center
-            print("prod name : \(product2.prod_name)")
-            cell.lbl2ProdPrice.text = String(product2.prod_price)
+            cell.lbl2ProdPrice.text = NSDecimalNumber(double:product2.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product2.prod_rating > 3 {
                 cell.img2Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img2Tag.contentMode = .ScaleAspectFit
@@ -311,22 +336,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            print("\(curIndex)")
+            //cell.v2.hidden = true
         }
+        print(curIndex)
         if curIndex < count {
-            let product3 = productArray[curIndex]
+            cell.v3.hidden = false
+            let product3 = self.productArray[curIndex]
+            print("Product Name : \(product3.prod_name)")
             let gesture3 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v3.tag = curIndex
             cell.v3.addGestureRecognizer(gesture3)
-            cell.img3Product.layer.borderWidth = 1
-            cell.img3Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v3.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v3_border.layer.borderWidth = 1
+            cell.v3_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img3Product.image = UIImage(named: product3.prod_imageArray[0].proi_image_path)
             cell.img3Product.contentMode = .ScaleAspectFit
             cell.txtv3ProdName.text = product3.prod_name
-            cell.txtv3ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv3ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv3ProdName.textAlignment = .Center
-            print("prod name : \(product3.prod_name)")
-            cell.lbl3ProdPrice.text = String(product3.prod_price)
+            cell.lbl3ProdPrice.text = NSDecimalNumber(double: product3.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product3.prod_rating > 3 {
                 cell.img3Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img3Tag.contentMode = .ScaleAspectFit
@@ -337,21 +366,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            print("\(curIndex)")
+            //cell.v3.hidden = true
         }
+        print(curIndex)
         if curIndex < count {
-            let product4 = productArray[curIndex]
+            cell.v4.hidden = false
+            let product4 = self.productArray[curIndex]
+            print("Product Name : \(product4.prod_name)")
             let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v4.tag = curIndex
             cell.v4.addGestureRecognizer(gesture4)
-            cell.img4Product.layer.borderWidth = 1
-            cell.img4Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v4.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v4_border.layer.borderWidth = 1
+            cell.v4_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img4Product.image = UIImage(named: product4.prod_imageArray[0].proi_image_path)
             cell.img4Product.contentMode = .ScaleAspectFit
             cell.txtv4ProdName.text = product4.prod_name
-            cell.txtv4ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv4ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv4ProdName.textAlignment = .Center
-            cell.lbl4ProdPrice.text = String(product4.prod_price)
+            cell.lbl4ProdPrice.text = NSDecimalNumber(double: product4.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product4.prod_rating > 3 {
                 cell.img4Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img4Tag.contentMode = .ScaleAspectFit
@@ -362,21 +396,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            print("\(curIndex)")
+            //cell.v4.hidden = true
         }
+        print(curIndex)
         if curIndex < count {
-            let product5 = productArray[curIndex]
+            cell.v5.hidden = false
+            let product5 = self.productArray[curIndex]
+            print("Product Name : \(product5.prod_name)")
             let gesture5 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v5.tag = curIndex
             cell.v5.addGestureRecognizer(gesture5)
-            cell.img5Product.layer.borderWidth = 1
-            cell.img5Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v5.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v5_border.layer.borderWidth = 1
+            cell.v5_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img5Product.image = UIImage(named: product5.prod_imageArray[0].proi_image_path)
             cell.img5Product.contentMode = .ScaleAspectFit
             cell.txtv5ProdName.text = product5.prod_name
-            cell.txtv5ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv5ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv5ProdName.textAlignment = .Center
-            cell.lbl5ProdPrice.text = String(product5.prod_price)
+            cell.lbl5ProdPrice.text = NSDecimalNumber(double: product5.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product5.prod_rating > 3 {
                 cell.img5Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img5Tag.contentMode = .ScaleAspectFit
@@ -387,21 +426,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            //cell.v5.hidden = true
+            print("\(curIndex)")
         }
+        print(curIndex)
         if curIndex < count {
-            let product6 = productArray[curIndex]
+            cell.v6.hidden = false
+            let product6 = self.productArray[curIndex]
+            print("Product Name : \(product6.prod_name)")
             let gesture6 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v6.tag = curIndex
             cell.v6.addGestureRecognizer(gesture6)
-            cell.img6Product.layer.borderWidth = 1
-            cell.img6Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v6.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v6_border.layer.borderWidth = 1
+            cell.v6_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img6Product.image = UIImage(named: product6.prod_imageArray[0].proi_image_path)
             cell.img6Product.contentMode = .ScaleAspectFit
             cell.txtv6ProdName.text = product6.prod_name
-            cell.txtv6ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv6ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv6ProdName.textAlignment = .Center
-            cell.lbl6ProdPrice.text = String(product6.prod_price)
+            cell.lbl6ProdPrice.text = NSDecimalNumber(double: product6.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product6.prod_rating > 3 {
                 cell.img6Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img6Tag.contentMode = .ScaleAspectFit
@@ -412,21 +456,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            //cell.v6.hidden = true
+            print("\(curIndex)")
         }
+        print(curIndex)
         if curIndex < count {
-            let product7 = productArray[curIndex]
+            cell.v7.hidden = false
+            let product7 = self.productArray[curIndex]
+            print("Product Name : \(product7.prod_name)")
             let gesture7 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v7.tag = curIndex
             cell.v7.addGestureRecognizer(gesture7)
-            cell.img7Product.layer.borderWidth = 1
-            cell.img7Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v7.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v7_border.layer.borderWidth = 1
+            cell.v7_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img7Product.image = UIImage(named: product7.prod_imageArray[0].proi_image_path)
             cell.img7Product.contentMode = .ScaleAspectFit
             cell.txtv7ProdName.text = product7.prod_name
-            cell.txtv7ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv7ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv7ProdName.textAlignment = .Center
-            cell.lbl7ProdPrice.text = String(product7.prod_price)
+            cell.lbl7ProdPrice.text = NSDecimalNumber(double: product7.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product7.prod_rating > 3 {
                 cell.img7Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img7Tag.contentMode = .ScaleAspectFit
@@ -437,21 +486,26 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            //cell.v7.hidden = true
+            print("\(curIndex)")
         }
+        print(curIndex)
         if curIndex < count {
-            let product8 = productArray[curIndex]
+            cell.v8.hidden = false
+            let product8 = self.productArray[curIndex]
+            print("Product Name : \(product8.prod_name)")
             let gesture8 = UITapGestureRecognizer(target: self, action: Selector("tappedProduct:"))
             cell.v8.tag = curIndex
             cell.v8.addGestureRecognizer(gesture8)
-            cell.img8Product.layer.borderWidth = 1
-            cell.img8Product.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
-            //cell.v8.restorationIdentifier = arrContainer[indexPath.row][arrayIndex]
+            cell.v8_border.layer.borderWidth = 1
+            cell.v8_border.layer.borderColor = UIColor(hexString: "7FB6E1").CGColor
             cell.img8Product.image = UIImage(named: product8.prod_imageArray[0].proi_image_path)
             cell.img8Product.contentMode = .ScaleAspectFit
             cell.txtv8ProdName.text = product8.prod_name
-            cell.txtv8ProdName.font = UIFont(name: "Century Gothic", size: 12)?.bold
+            cell.txtv8ProdName.font = UIFont(name: "Century Gothic", size: 12)
             cell.txtv8ProdName.textAlignment = .Center
-            cell.lbl8ProdPrice.text = String(product8.prod_price)
+            cell.lbl8ProdPrice.text = NSDecimalNumber(double: product8.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             if product8.prod_rating > 3 {
                 cell.img8Tag.image = UIImage(named: "Best-Seller.png")
                 cell.img8Tag.contentMode = .ScaleAspectFit
@@ -462,6 +516,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
+        }else{
+            //cell.v8.hidden = true
+            print("\(curIndex)")
         }
         return cell
     }
@@ -469,7 +526,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         // do other task
         let product = sender.view
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProductDetailViewController") as! ProductDetailViewController
-        vc.productDetail = productArray[(product!.tag)]
+        vc.productDetail = self.productArray[(product!.tag)]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // MARK: - Navigation
@@ -707,11 +764,17 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             let image = UIImage(named: "tab-\(buttonName[index])\(select).png")
             buttonList[index].setImage(image, forState: .Normal)
         }
-        //tbvCatagory.reloadData()
+       // self.tbvCatagory.reloadData()
     }
     @IBAction func exitFromThankyouPage(segue:UIStoryboardSegue){
         print("Back from thank you page")
     }
+    
+    @IBAction func moreProduct(sender: AnyObject) {
+//        if
+        
+    }
+    
     func swipeProduct(sender:UIGestureRecognizer){
         // do other task
         if let gestureSwipe = sender as? UISwipeGestureRecognizer {
