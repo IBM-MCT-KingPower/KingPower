@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol sortViewDelegate{
+protocol sortDelegate{
     func setSorting(sortIndex : Int)
 }
 
 class sortViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    var delegate:sortViewDelegate?
+    var delegate:sortDelegate?
     var sortDataArray:[String] = ["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGHT","PRICE HIGHT-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
     var markRow:Int = 0
     var indexpath:NSIndexPath = NSIndexPath()

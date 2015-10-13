@@ -53,6 +53,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         
         //Get Promotion Image
+        print("promotionController")
         var promotionController : PromotionController = PromotionController()
         var promotionArray : [PromotionModel] = promotionController.getPromotionAllEffective()
         
@@ -95,10 +96,12 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         print(selectedGroup)
         // get product list
         self.productArray.removeAll()
+        print("ProductController")
         if selectedGroup == 0 {
-            self.productArray = ProductController().getProductByGender(String(gv.getConfigValue("genderWomen")))//.getAllProduct()
+            self.productArray = ProductController().getProductByGenderWithLimit(String(gv.getConfigValue("genderWomen")))//.getAllProduct()
+            
         } else {
-            self.productArray = ProductController().getProductByProductGroupID(Int32(selectedGroup))
+            self.productArray = ProductController().getProductByProductGroupIDWithLimit(Int32(selectedGroup))
         }
         prodRemain = self.productArray.count%8
         prodRow = self.productArray.count/8 + 1
@@ -281,11 +284,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         
         let gesture8 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
         cell.v8.addGestureRecognizer(gesture8)*/
-        print(curIndex)
         if curIndex < count {
             cell.v1.hidden = false
             let product1 = self.productArray[curIndex]
-            print("Product Name : \(product1.prod_name)")
             let gesture1 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v1.tag = curIndex
             cell.v1.addGestureRecognizer(gesture1)
@@ -307,15 +308,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            print("\(curIndex)")
-            //cell.v1.hidden = true
         }
-        print(curIndex)
         if curIndex < count {
             cell.v2.hidden = false
             let product2 = self.productArray[curIndex]
-            print("Product Name : \(product2.prod_name)")
             let gesture2 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v2.tag = curIndex
             cell.v2.addGestureRecognizer(gesture2)
@@ -337,15 +333,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            print("\(curIndex)")
-            //cell.v2.hidden = true
         }
-        print(curIndex)
         if curIndex < count {
             cell.v3.hidden = false
             let product3 = self.productArray[curIndex]
-            print("Product Name : \(product3.prod_name)")
             let gesture3 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v3.tag = curIndex
             cell.v3.addGestureRecognizer(gesture3)
@@ -367,15 +358,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            print("\(curIndex)")
-            //cell.v3.hidden = true
         }
-        print(curIndex)
         if curIndex < count {
             cell.v4.hidden = false
             let product4 = self.productArray[curIndex]
-            print("Product Name : \(product4.prod_name)")
             let gesture4 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v4.tag = curIndex
             cell.v4.addGestureRecognizer(gesture4)
@@ -397,15 +383,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            print("\(curIndex)")
-            //cell.v4.hidden = true
         }
-        print(curIndex)
         if curIndex < count {
             cell.v5.hidden = false
             let product5 = self.productArray[curIndex]
-            print("Product Name : \(product5.prod_name)")
             let gesture5 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v5.tag = curIndex
             cell.v5.addGestureRecognizer(gesture5)
@@ -427,15 +408,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            //cell.v5.hidden = true
-            print("\(curIndex)")
         }
-        print(curIndex)
         if curIndex < count {
             cell.v6.hidden = false
             let product6 = self.productArray[curIndex]
-            print("Product Name : \(product6.prod_name)")
             let gesture6 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v6.tag = curIndex
             cell.v6.addGestureRecognizer(gesture6)
@@ -457,15 +433,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            //cell.v6.hidden = true
-            print("\(curIndex)")
         }
-        print(curIndex)
         if curIndex < count {
             cell.v7.hidden = false
             let product7 = self.productArray[curIndex]
-            print("Product Name : \(product7.prod_name)")
             let gesture7 = UITapGestureRecognizer(target: self, action: "tappedProduct:")
             cell.v7.tag = curIndex
             cell.v7.addGestureRecognizer(gesture7)
@@ -487,15 +458,10 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            //cell.v7.hidden = true
-            print("\(curIndex)")
         }
-        print(curIndex)
         if curIndex < count {
             cell.v8.hidden = false
             let product8 = self.productArray[curIndex]
-            print("Product Name : \(product8.prod_name)")
             let gesture8 = UITapGestureRecognizer(target: self, action: Selector("tappedProduct:"))
             cell.v8.tag = curIndex
             cell.v8.addGestureRecognizer(gesture8)
@@ -517,9 +483,6 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             }
             arrayIndex++
             curIndex = rowIndex + arrayIndex
-        }else{
-            //cell.v8.hidden = true
-            print("\(curIndex)")
         }
         return cell
     }

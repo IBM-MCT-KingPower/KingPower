@@ -16,15 +16,18 @@ class ProductGroupController{
     }
     
     func getProductGroupById(prog_id : Int32) -> ProductGroupModel { //Need return ProductGroupObj
-        let prodGroup = ProductGroupModel()
-        let prodGroupQuery = String(format: "SELECT * FROM PRODUCT_GROUP WHERE prog_id = %@", prog_id)
+        var prodGroup = ProductGroupModel()
+        let prodGroupQuery = String(format: prodGroup.queryGetProductGroupById, prog_id)
         print(prodGroupQuery)
         if let rs = database.executeQuery(prodGroupQuery, withArgumentsInArray: nil) {
             while rs.next(){
+                print("1")
+                prodGroup = ProductGroupModel()
                 prodGroup.prog_id = rs.intForColumn("prog_id")
                 prodGroup.prog_name = rs.stringForColumn("prog_name")
-                prodGroup.prog_create_date = rs.dateForColumn("prog_create_date")
-                prodGroup.prog_update_date = rs.dateForColumn("prog_update_date")
+                print("2")
+          //      prodGroup.prog_create_date = rs.dateForColumn("prog_create_date")
+          //      prodGroup.prog_update_date = rs.dateForColumn("prog_update_date")
                 break;
             }
         } else {
@@ -43,8 +46,8 @@ class ProductGroupController{
                 allProdGrouplist = ProductGroupModel()
                 allProdGrouplist.prog_id = rs.intForColumn("prog_id")
                 allProdGrouplist.prog_name = rs.stringForColumn("prog_name")
-                allProdGrouplist.prog_create_date = rs.dateForColumn("prog_create_date")
-                allProdGrouplist.prog_update_date = rs.dateForColumn("prog_update_date")
+           //     allProdGrouplist.prog_create_date = rs.dateForColumn("prog_create_date")
+           //     allProdGrouplist.prog_update_date = rs.dateForColumn("prog_update_date")
                 productGroupArray.append(allProdGrouplist)
             }
         } else {

@@ -8,15 +8,22 @@
 
 import UIKit
 
-protocol sortDataDelegate{
-    func setSorting(sortIndex : Int)
+protocol filterDelegate {
+    func sendAllFilter(prodcatIndex:Int, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndex:NSMutableArray)
+    //func sendCatList(catList:[ProductCategoryModel])
+    
 }
-
-class popupViewController: UIViewController, sortViewDelegate {
-    var delegate:sortDataDelegate?
+class popupViewController: UIViewController, sortDelegate, filterDetailDelegate {
+    var sDelegate:sortDelegate?
+    var fDelegate:filterDelegate?
     @IBOutlet weak var sortSegment: UIView!
     @IBOutlet weak var filterSegment: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var filterSubCatIndex:Int = -1
+    var filterBrandIndex:NSMutableArray = NSMutableArray()
+    var filterGenderIndex:Int = -1
+    var filterPriceRangeIndex:Int = -1
+    var filterColorIndex:NSMutableArray = NSMutableArray()
     
     var segment:Int = 0
     var sortingIndex:Int = 0
@@ -24,11 +31,13 @@ class popupViewController: UIViewController, sortViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         if (segment==0){
+            //btnApply.hidden = true
             sortSegment.hidden = false
             filterSegment.hidden = true
             segmentedControl.selectedSegmentIndex = segment
         }
         else{
+            //btnApply.hidden = false
             sortSegment.hidden = true
             filterSegment.hidden = false
             segmentedControl.selectedSegmentIndex = segment
@@ -42,8 +51,12 @@ class popupViewController: UIViewController, sortViewDelegate {
     }
     
     @IBAction func applyPopup(sender: AnyObject) {
-        delegate?.setSorting(self.sortingIndex)
-        
+        if (segment==0){
+            sDelegate?.setSorting(self.sortingIndex)
+        }else{
+            fDelegate?.sendAllFilter(filterSubCatIndex, brandIndexList: filterBrandIndex, genderIndex: filterGenderIndex, priceRangeIndex: filterPriceRangeIndex, colorIndex: filterColorIndex)
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func indexChange(sender: AnyObject) {
@@ -65,10 +78,34 @@ class popupViewController: UIViewController, sortViewDelegate {
         print(sortIndex)
     }
     
+    func addSubcat(prodCatIndex: Int) {
+        print("FilterViewController : Add Subcat")
+        filterSubCatIndex = prodCatIndex
+        
+    }
+    func addBrandList (brandIndexList:NSMutableArray){
+        filterBrandIndex = brandIndexList
+    }
+    func addGender (genderIndex:Int){
+        filterGenderIndex = genderIndex
+    }
+    func addPriceRange (rangeIndex:Int){
+        filterPriceRangeIndex = rangeIndex
+    }
+    func addColor (colorIndexList:NSMutableArray){
+        filterColorIndex = colorIndexList
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "sortSegue") {
             (segue.destinationViewController as! sortViewController).markRow = self.sortingIndex
             (segue.destinationViewController as! sortViewController).delegate = self
+        }else if (segue.identifier == "filterSegue") {
+            print("filter segue")
+            (segue.destinationViewController as! filterViewController).delegate = self
+            
+        }else if (segue.identifier == "applySegue") {
+            print("apply segue")
         }
     }
     

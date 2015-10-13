@@ -15,7 +15,7 @@ public class ProductGroupModel{
     var prog_create_date : NSDate = NSDate()
     var prog_update_date : NSDate = NSDate()
     
-    var queryGetProductGroupById : String = "SELECT PROG_ID, PROG_NAME, PROG_CREATE_DATE, PROG_UPDATE_DATE FROM PRODUCT_GROUP WHERE PROG_ID = %@ ORDER BY PROG_NAME;"
+    var queryGetProductGroupById : String = "SELECT PROG_ID, PROG_NAME, PROG_CREATE_DATE, PROG_UPDATE_DATE FROM PRODUCT_GROUP WHERE PROG_ID = %d ORDER BY PROG_NAME;"
     var queryGetProductGroupAll : String = "SELECT PROG_ID, PROG_NAME, PROG_CREATE_DATE, PROG_UPDATE_DATE FROM PRODUCT_GROUP ORDER BY PROG_NAME;"
     
 }

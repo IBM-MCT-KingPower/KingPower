@@ -144,7 +144,7 @@ class ProductController {
     func getProductByProductGroupID(prog_id:Int32) -> [ProductModel]{
         var productArray:[ProductModel] = []
         var product = ProductModel()
-        let prodQuery = String(format: product.queryProductByProductGroupId, prog_id)//String("SELECT * FROM PRODUCT where prod_id = \(prod_id) ORDER BY prod_name ASC")
+        let prodQuery = String(format: product.queryProductByProductGroupId, prog_id, "prod_name", "ASC")//String("SELECT * FROM PRODUCT where prod_id = \(prod_id) ORDER BY prod_name ASC")
         print(prodQuery)
         if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
             while rs.next(){
@@ -184,10 +184,10 @@ class ProductController {
         return productArray
     }
     
-    func getProductByGender(prod_gender:String) -> [ProductModel]{
+    func getProductByProductGroupIDWithLimit(prog_id:Int32) -> [ProductModel]{
         var productArray:[ProductModel] = []
         var product = ProductModel()
-        let prodQuery = String(format: product.queryProductByGender, prod_gender, "prod_name", "ASC")
+        let prodQuery = String(format: product.queryProductByProductGroupId, prog_id, "prod_name", "ASC")//String("SELECT * FROM PRODUCT where prod_id = \(prod_id) ORDER BY prod_name ASC")
         print(prodQuery)
         if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
             while rs.next(){
@@ -216,10 +216,132 @@ class ProductController {
                 product.prod_rating = rs.intForColumn("prod_rating")
                 product.prod_create_date = rs.dateForColumn("prod_create_date")
                 product.prod_update_date = rs.dateForColumn("prod_update_date")
+                product.prod_arrival_flag = rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag")
+                product.prod_imageArray = productImgController.getProductImageByProductId(product.prod_id)
+                product.prod_bran = brandController.getBrandById(product.prod_bran_id)
+                productArray.append(product)
+            }
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+        }
+        return productArray
+    }
+
+    func getProductByGender(prod_gender:String) -> [ProductModel]{
+        var productArray:[ProductModel] = []
+        var product = ProductModel()
+        let prodQuery = String(format: product.queryProductByGenderWithLimit, prod_gender, "prod_name", "ASC")
+        print(prodQuery)
+        if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
+            while rs.next(){
+                product = ProductModel()
+                product.prod_id = rs.intForColumn("prod_id")
+                product.prod_code = rs.stringForColumn("prod_code")
+                product.prod_name = rs.stringForColumn("prod_name")
+                print("Product Name from Query : \(product.prod_name)")
+                product.prod_type = rs.stringForColumn("prod_type")
+                product.prod_price = rs.doubleForColumn("prod_price")
+                product.prod_discount_price = rs.doubleForColumn("prod_discount_price")
+                product.prod_description = rs.stringForColumn("prod_description")
+                product.prod_details = rs.stringForColumn("prod_details")
+                product.prod_remark = rs.stringForColumn("prod_remark") == nil ? "":rs.stringForColumn("prod_remark")
+                product.prod_flight_only = rs.stringForColumn("prod_flight_only")
+                product.prod_in_stock = rs.stringForColumn("prod_in_stock")
+                product.prod_sale = rs.stringForColumn("prod_sale")
+                product.prod_weight = rs.doubleForColumn("prod_weight")
+                product.prod_width = rs.doubleForColumn("prod_width")
+                product.prod_height = rs.doubleForColumn("prod_height")
+                product.prod_depth = rs.doubleForColumn("prod_depth")
+                product.prod_color = String(rs.stringForColumn("prod_color"))
+                product.prod_gender = rs.stringForColumn("prod_gender")
+                product.prod_bran_id = rs.intForColumn("prod_bran_id")
+                product.prod_prc_id = rs.intForColumn("prod_prc_id")
+                product.prod_rating = rs.intForColumn("prod_rating")
+                product.prod_create_date = rs.dateForColumn("prod_create_date")
+                product.prod_update_date = rs.dateForColumn("prod_update_date")
                 product.prod_arrival_flag = rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag")
                 product.prod_imageArray = productImgController.getProductImageByProductId(product.prod_id)
                 product.prod_bran = brandController.getBrandById(product.prod_bran_id)
                 productArray.append(product)
+            }
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+        }
+        return productArray
+    }
+    
+    func getProductByGenderWithLimit(prod_gender:String) -> [ProductModel]{
+        var productArray:[ProductModel] = []
+        var product = ProductModel()
+        let prodQuery = String(format: product.queryProductByGenderWithLimit, prod_gender, "prod_name", "ASC")
+        print(prodQuery)
+        if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
+            while rs.next(){
+                product = ProductModel()
+                product.prod_id = rs.intForColumn("prod_id")
+                product.prod_code = rs.stringForColumn("prod_code")
+                product.prod_name = rs.stringForColumn("prod_name")
+                print("Product Name from Query : \(product.prod_name)")
+                product.prod_type = rs.stringForColumn("prod_type")
+                product.prod_price = rs.doubleForColumn("prod_price")
+                product.prod_discount_price = rs.doubleForColumn("prod_discount_price")
+                product.prod_description = rs.stringForColumn("prod_description")
+                product.prod_details = rs.stringForColumn("prod_details")
+                product.prod_remark = rs.stringForColumn("prod_remark") == nil ? "":rs.stringForColumn("prod_remark")
+                product.prod_flight_only = rs.stringForColumn("prod_flight_only")
+                product.prod_in_stock = rs.stringForColumn("prod_in_stock")
+                product.prod_sale = rs.stringForColumn("prod_sale")
+                product.prod_weight = rs.doubleForColumn("prod_weight")
+                product.prod_width = rs.doubleForColumn("prod_width")
+                product.prod_height = rs.doubleForColumn("prod_height")
+                product.prod_depth = rs.doubleForColumn("prod_depth")
+                product.prod_color = String(rs.stringForColumn("prod_color"))
+                product.prod_gender = rs.stringForColumn("prod_gender")
+                product.prod_bran_id = rs.intForColumn("prod_bran_id")
+                product.prod_prc_id = rs.intForColumn("prod_prc_id")
+                product.prod_rating = rs.intForColumn("prod_rating")
+                product.prod_create_date = rs.dateForColumn("prod_create_date")
+                product.prod_update_date = rs.dateForColumn("prod_update_date")
+                product.prod_arrival_flag = rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag")
+                product.prod_imageArray = productImgController.getProductImageByProductId(product.prod_id)
+                product.prod_bran = brandController.getBrandById(product.prod_bran_id)
+                productArray.append(product)
+            }
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+        }
+        return productArray
+    }
+
+    
+    func getProductRelatedByProdId(prod_id:Int32) -> [ProductModel]{
+        var productArray:[ProductModel] = []
+        var productRelate = ProductRelateModel()
+        let prodRelQuery = String(format: productRelate.queryProductRelateByMainID, prod_id)
+        if let rs = database.executeQuery(prodRelQuery, withArgumentsInArray: nil) {
+            while rs.next(){
+                productRelate = ProductRelateModel()
+                productRelate.pror_relate_prod_id = rs.intForColumn("pror_relate_prod_id")
+                productRelate.pror_relate_prod = self.getProductByID(productRelate.pror_relate_prod_id)
+                productArray.append(productRelate.pror_relate_prod)
+            }
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+        }
+        return productArray
+    }
+
+    
+    func getProductRecommendByProdId(prod_id:Int32) -> [ProductModel]{
+        var productArray:[ProductModel] = []
+        var productRecommend = ProductRecommendModel()
+        let prodRecQuery = String(format: productRecommend.queryProductRecommendByMainID, prod_id)
+        if let rs = database.executeQuery(prodRecQuery, withArgumentsInArray: nil) {
+            while rs.next(){
+                productRecommend = ProductRecommendModel()
+                productRecommend.prre_recom_prod_id = rs.intForColumn("prre_recom_prod_id")
+                productRecommend.prre_recom_prod = self.getProductByID(productRecommend.prre_recom_prod_id)
+                productArray.append(productRecommend.prre_recom_prod)
             }
         } else {
             print("select failed: \(database.lastErrorMessage())", terminator: "")

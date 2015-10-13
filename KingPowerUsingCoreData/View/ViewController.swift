@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDataDelegate {
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDelegate, filterDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var setupNav = KPNavigationBar()
@@ -144,7 +144,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             //detailViewController.modalPresentationStyle = .Custom
             detailViewController.sortingIndex = self.sortingIndex
             detailViewController.segment = 0
-            detailViewController.delegate = self
+            detailViewController.sDelegate = self
           }
           else if (segue.identifier == "filterpopSegue") {
             let detailViewController = segue.destinationViewController as! popupViewController
@@ -152,7 +152,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             //detailViewController.modalPresentationStyle = .Custom
             detailViewController.sortingIndex = self.sortingIndex
             detailViewController.segment = 1
-            detailViewController.delegate = self
+            detailViewController.fDelegate = self
         }
         
     }
@@ -328,6 +328,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         {
             callAssistanceViewController.view.removeFromSuperview()
         }
+    }
+    
+    @IBAction func applyFilterMethod(segue:UIStoryboardSegue){
+        
+    }
+    func sendAllFilter(prodcatIndex: Int, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndex: NSMutableArray) {
+        
     }
 }
 

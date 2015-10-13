@@ -31,7 +31,7 @@ class ProductSubCategoryController{
                 prodCat.prc_create_date = rs.dateForColumn("prc_create_date")
                 prodCat.prc_update_date = rs.dateForColumn("prc_update_date")
                 prodCat.prc_prog =  productGroupController.getProductGroupById(prodCat.prc_prog_id)
-                prodCat.prc_parent_category = productMainCategoryController.getProductMainCategoryByProductMainId(prodCat.prc_parent_category_id)
+         //       prodCat.prc_parent_category = productMainCategoryController.getProductMainCategoryByProductMainId(prodCat.prc_parent_category_id)
                 prodCatArray.append(prodCat)
             }
         } else {

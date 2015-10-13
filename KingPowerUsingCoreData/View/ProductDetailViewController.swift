@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate , collectionDelegate {
 
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImageLabel: UIImageView!
@@ -38,15 +38,13 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
     
+    var recommendedProdArray:[ProductModel] = []
+    var relatedProdArray:[ProductModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.moreImageCollectionView.backgroundColor = UIColor.whiteColor()
         self.initialTabView()
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-//        self.setupNavigationBar()
         
         self.setupNav.setupNavigationBar(self)
         
@@ -58,12 +56,22 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
             self.productImgArray.append(UIImage(named: path.proi_image_path)!)
         }
         self.moreImageCollectionView.reloadData()
-
+        
         self.productPrice.text = NSNumber(double: self.productDetail.prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         self.productDescript.text = self.productDetail.prod_description
         self.productDescript.font = UIFont(name: "Century Gothic", size: 15)
         //self.pickNow.on = self.productDetail.pickup_flag
         self.ratingControl.rating = Int(self.productDetail.prod_rating)
+
+        // recommend
+        self.recommendedProdArray = ProductController().getProductRecommendByProdId(self.productDetail.prod_id)
+        self.relatedProdArray = ProductController().getProductRelatedByProdId(self.productDetail.prod_id)
+        self.relatedProductTableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+//        self.setupNavigationBar()
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -203,9 +211,14 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CatagoryTableViewCell
         if isRelated {
             cell.clvRelated.hidden = false
+            cell.prodRelated = self.relatedProdArray
+            cell.delegate = self
+            cell.clvRelated.reloadData()
             cell.clvRecommended.hidden = true
         } else {
             cell.clvRelated.hidden = true
+            cell.prodRecommend = self.recommendedProdArray
+            cell.clvRecommended.reloadData()
             cell.clvRecommended.hidden = false
         }
         return cell
@@ -218,7 +231,6 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
     
     
     // MARK: - Navigation
@@ -399,6 +411,16 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
 //        searchViewController?.modalPresentationStyle = modalStyle
 //        self.presentViewController(searchViewController!, animated: true, completion: nil)
 //    }
+    
+    func setSelected(isRelated: Bool, index: Int) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProductDetailViewController") as! ProductDetailViewController
+        if isRelated {
+            vc.productDetail = self.relatedProdArray[index]
+        }else{
+            vc.productDetail = self.recommendedProdArray[index]
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func removeNavigateView(){
         if(flightViewController != nil && !flightViewController.view.hidden)

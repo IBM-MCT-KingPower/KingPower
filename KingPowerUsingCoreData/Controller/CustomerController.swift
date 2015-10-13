@@ -17,9 +17,9 @@ class CustomerController{
     }
     
     
-    func getCustomerByMemberId(memberId: String) -> CustomerModel? { //Need return customerObj
+    func getCustomerByMemberId(cardId: String) -> CustomerModel? { //Need return customerObj
         var customer = CustomerModel()
-        let query = String(format: customer.queryGetCustomerByMemberId, memberId)
+        let query = String(format: customer.queryGetCustomerByMemberId, cardId)
         print("\nQUERY: \(query)")
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
             while rs.next() {
@@ -28,12 +28,18 @@ class CustomerController{
                 customer.cust_title = rs.stringForColumn("cust_title")
                 customer.cust_first_name = rs.stringForColumn("cust_first_name")
                 customer.cust_last_name = rs.stringForColumn("cust_last_name")
+                customer.cust_birthdate = rs.dateForColumn("cust_birthdate")
+                print(rs.dateForColumn("cust_birthdate"))
                 customer.cust_member_id = rs.stringForColumn("cust_member_id")
                 customer.cust_gender = rs.stringForColumn("cust_gender")
                 customer.cust_card_id = rs.intForColumn("cust_card_id")
+                customer.cust_card_level = rs.stringForColumn("cust_card_level")
+                customer.cust_card_discount = rs.doubleForColumn("cust_card_discount")
                 customer.cust_card_exp_date = rs.dateForColumn("cust_card_exp_date")
+                print(rs.dateForColumn("cust_card_exp_date"))
                 customer.cust_point = rs.intForColumn("cust_point")
                 customer.cust_point_exp_date = rs.dateForColumn("cust_point_exp_date")
+                print(rs.dateForColumn("cust_point_exp_date"))
                 customer.cust_create_date = rs.dateForColumn("cust_create_date")
                 customer.cust_update_date = rs.dateForColumn("cust_update_date")
                 
@@ -47,5 +53,6 @@ class CustomerController{
         
         return nil
     }
+
     
 }
