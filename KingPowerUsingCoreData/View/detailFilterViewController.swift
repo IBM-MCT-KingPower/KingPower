@@ -46,11 +46,25 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     var filterPriceRangeIndex:Int = -1
     var filterColorIndex:NSMutableArray = NSMutableArray()
     var selectedIndexMain = 0
+    var tmpFilterSubCatIndex:Int = -1
+    var tmpFilterBrandIndex:NSMutableArray = NSMutableArray()
+    var tmpFilterGenderIndex:Int = -1
+    var tmpFilterPriceRangeIndex:Int = -1
+    var tmpFilterColorIndex:NSMutableArray = NSMutableArray()
+    
+    var indexpath:NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    }
+    override func viewDidAppear(animated: Bool) {
+        tmpFilterSubCatIndex = filterSubCatIndex
+        tmpFilterBrandIndex = filterBrandIndex.mutableCopy() as! NSMutableArray
+        tmpFilterGenderIndex = filterGenderIndex
+        tmpFilterPriceRangeIndex = filterPriceRangeIndex
+        tmpFilterColorIndex = filterColorIndex.mutableCopy() as! NSMutableArray
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,10 +74,23 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     
     @IBAction func backAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        if selectedIndexMain == 0 {
+            print("DetailFilterViewController : Done Action \(filterSubCatIndex)")
+            delegate!.addSubcat(tmpFilterSubCatIndex)
+        }else if selectedIndexMain == 1 {
+            delegate!.addBrandList(tmpFilterBrandIndex)
+        }else if selectedIndexMain == 2 {
+            delegate!.addGender(tmpFilterGenderIndex)
+        }else if selectedIndexMain == 3 {
+            delegate!.addPriceRange(tmpFilterPriceRangeIndex)
+        }else if selectedIndexMain == 4 {
+            delegate!.addColor(tmpFilterColorIndex)
+        }
     }
 
     @IBAction func doneAction(sender: AnyObject) {
         if selectedIndexMain == 0 {
+            print("DetailFilterViewController : Done Action \(filterSubCatIndex)")
             delegate!.addSubcat(filterSubCatIndex)
         }else if selectedIndexMain == 1 {
             delegate!.addBrandList(filterBrandIndex)
@@ -100,27 +127,66 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifierID = "detailCell"
-        let cell = filterDetailTable.dequeueReusableCellWithIdentifier(cellIdentifierID) as! filterDetailTableViewCell?
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierID) as! filterDetailTableViewCell?
+        print("DetailViewController : \(filterSubCatIndex), \(filterBrandIndex), \(filterGenderIndex), \(filterPriceRangeIndex), \(filterColorIndex)")
         if selectedIndexMain == 0 {
+            if indexPath.row == filterSubCatIndex {
+                cell?.markImage.image = UIImage(named: "check")
+                self.indexpath = indexPath
+            }
             cell?.detailLabel!.text = self.filterDetailSubCat[indexPath.row].prc_name
         }else if selectedIndexMain == 1 {
+            var ind = 0
+            for index in filterBrandIndex {
+                ind = index as! Int
+                if indexPath.row == ind {
+                    cell?.markImage.image = UIImage(named: "check")
+                    self.indexpath = indexPath
+                    break
+                }
+            }
             cell?.detailLabel!.text = self.filterDetailBrand[indexPath.row].bran_name
         }else if selectedIndexMain == 2 {
+            if indexPath.row == filterGenderIndex {
+                cell?.markImage.image = UIImage(named: "check")
+                self.indexpath = indexPath
+            }
             cell?.detailLabel!.text = self.filterDetailGender[indexPath.row]
         }else if selectedIndexMain == 3 {
+            if indexPath.row == filterPriceRangeIndex {
+                cell?.markImage.image = UIImage(named: "check")
+                self.indexpath = indexPath
+            }
             cell?.detailLabel!.text = self.filterDetailPriceRange[indexPath.row]
         }else if selectedIndexMain == 4 {
+            var ind = 0
+            for index in filterColorIndex {
+                ind = index as! Int
+                if indexPath.row == ind {
+                    cell?.markImage.image = UIImage(named: "check")
+                    self.indexpath = indexPath
+                    break
+                }
+            }
             cell?.detailLabel!.text = self.filterDetailColor[indexPath.row]
         }
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = filterDetailTable.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
+        
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
         if selectedIndexMain == 0 {
             //filterSubCat = filterDetailSubCat[indexPath.row]
             filterSubCatIndex = indexPath.row
+            print("DetailFilterViewController : Add Sub Cat \(filterSubCatIndex)")
             cell?.markImage.image = UIImage(named: "check")
+            if let indexpath1 = indexpath {
+                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
+                oldCell?.markImage.image = nil
+                self.indexpath = nil
+            }
         }else if selectedIndexMain == 1 {
             if cell?.markImage.image == nil {
                 filterBrandIndex.addObject(indexPath.row)
@@ -135,10 +201,20 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
             filterGenderIndex = indexPath.row
             //filterGender = filterDetailGender[indexPath.row]
             cell?.markImage.image = UIImage(named: "check")
+            if let indexpath1 = indexpath {
+                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
+                oldCell?.markImage.image = nil
+                self.indexpath = nil
+            }
         }else if selectedIndexMain == 3 {
             filterPriceRangeIndex = indexPath.row
             //filterPriceRange = filterDetailPriceRange[indexPath.row]
             cell?.markImage.image = UIImage(named: "check")
+            if let indexpath1 = indexpath {
+                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
+                oldCell?.markImage.image = nil
+                self.indexpath = nil
+            }
         }else if selectedIndexMain == 4 {
             if cell?.markImage.image == nil {
                 filterColorIndex.addObject(indexPath.row)
@@ -148,6 +224,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
                 filterColorIndex.removeObject(indexPath.row)
                 //filterColor.removeObject(filterDetailColor[indexPath.row])
                 cell?.markImage.image = nil
+                
             }
         }
 
@@ -158,6 +235,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = filterDetailTable.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
         if selectedIndexMain == 0 {
+            print("deselect")
             filterSubCatIndex = -1
             cell?.markImage.image = nil
         }

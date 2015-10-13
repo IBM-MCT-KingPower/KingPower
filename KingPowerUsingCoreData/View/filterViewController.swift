@@ -19,13 +19,62 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
-    
     var delegate:filterDetailDelegate?
     //let detailTransitioningDelegate: filterdetailManager = filterdetailManager()
+    var filterSubCatIndex:Int = -1
+    var filterBrandIndex:NSMutableArray = NSMutableArray()
+    var filterGenderIndex:Int = -1
+    var filterPriceRangeIndex:Int = -1
+    var filterColorIndex:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if filterSubCatIndex != -1 {
+            self.filterDataDetailArray[0] = filterDetailSubCat[filterSubCatIndex].prc_name
+        }else {
+            self.filterDataDetailArray[0] = "All"
+        }
+        if filterBrandIndex.count == 1 {
+            self.filterDataDetailArray[1] = filterDetailBrand[(filterBrandIndex[0] as! Int)].bran_name
+            //self.filterDataDetailArray[1] = (brandList[0] as! BrandModel).bran_name
+        }else if filterBrandIndex.count > 1 {
+            var str = filterDetailBrand[(filterBrandIndex[0] as! Int)].bran_name
+            var i = 1;
+            while ( i < filterBrandIndex.count ) {
+                str += "," + filterDetailBrand[(filterBrandIndex[i] as! Int)].bran_name
+                i++
+            }
+            self.filterDataDetailArray[1] = str
+        }else{
+            self.filterDataDetailArray[1] = "All"
+        }
+        if filterGenderIndex != -1{
+            self.filterDataDetailArray[2] = filterDetailGender[filterGenderIndex]
+        }else{
+            self.filterDataDetailArray[2] = "All"
+        }
+        if filterPriceRangeIndex != -1 {
+            self.filterDataDetailArray[3] = filterDetailPriceRange[filterPriceRangeIndex]
+        }else {
+            self.filterDataDetailArray[3] = "All"
+            
+        }
+        if filterColorIndex.count == 1 {
+            self.filterDataDetailArray[4] = filterDetailColor[(filterColorIndex[0] as! Int)]
+        }else if filterColorIndex.count > 1 {
+            var str = filterDetailColor[(filterColorIndex[0] as! Int)]
+            var i = 1;
+            while ( i < filterColorIndex.count ) {
+                str += "," + filterDetailColor[(filterColorIndex[i] as! Int)]
+                i++
+            }
+            self.filterDataDetailArray[4] = str
+        }else{
+            self.filterDataDetailArray[4] = "All"
+        }
+        self.filterTableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,13 +108,14 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let detailViewController = segue.destinationViewController as! detailFilterViewController
             let selectedIndex = filterTableView.indexPathForCell(sender as! UITableViewCell)
             let row = (selectedIndex?.row)!
-            if row == 0 {
-                filterDetailSubCat = ProductMainCategoryController().getAllProductMainCategory()
-                detailViewController.filterDetailSubCat = filterDetailSubCat
-            }else if row == 1 {
-                filterDetailBrand =  BrandController().getAllBrand()
-                detailViewController.filterDetailBrand = filterDetailBrand
-            }         
+            detailViewController.filterDetailSubCat = filterDetailSubCat
+            detailViewController.filterDetailBrand = filterDetailBrand
+            detailViewController.filterSubCatIndex = filterSubCatIndex
+            detailViewController.filterBrandIndex = filterBrandIndex
+            detailViewController.filterGenderIndex = filterGenderIndex
+            detailViewController.filterPriceRangeIndex = filterPriceRangeIndex
+            detailViewController.filterColorIndex = filterColorIndex
+            
             detailViewController.selectedIndexMain = (selectedIndex?.row)!
             detailViewController.delegate = self
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
@@ -74,15 +124,20 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     func addSubcat(prodCatIndex: Int) {
-        print("FilterViewController : Add Subcat")
-        self.filterDataDetailArray[0] = filterDetailSubCat[prodCatIndex].prc_name != "" ? filterDetailSubCat[prodCatIndex].prc_name : "All"
-        
+        print("FilterViewController : Add Subcat 1 \(prodCatIndex)")
+        filterSubCatIndex = prodCatIndex
+        if prodCatIndex != -1 {
+            self.filterDataDetailArray[0] = filterDetailSubCat[prodCatIndex].prc_name
+        }else {
+            self.filterDataDetailArray[0] = "All"
+        }
         //self.filterDataDetailArray[0] = prodCat.prc_name != "" ? prodCat.prc_name : "All"
         self.filterTableView.reloadData()
         //self.filterTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         delegate!.addSubcat(prodCatIndex)
     }
     func addBrandList (brandIndexList:NSMutableArray){
+        filterBrandIndex = brandIndexList
         if brandIndexList.count == 1 {
             self.filterDataDetailArray[1] = filterDetailBrand[(brandIndexList[0] as! Int)].bran_name
             //self.filterDataDetailArray[1] = (brandList[0] as! BrandModel).bran_name
@@ -102,17 +157,30 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     func addGender (genderIndex:Int){
-        self.filterDataDetailArray[2] = filterDetailGender[genderIndex] != "" ? filterDetailGender[genderIndex] : "All"
+        filterGenderIndex = genderIndex
+        if genderIndex != -1{
+            self.filterDataDetailArray[2] = filterDetailGender[genderIndex]
+        }else{
+            self.filterDataDetailArray[2] = "All"
+        }
         self.filterTableView.reloadData()
         delegate!.addGender(genderIndex)
         
     }
     func addPriceRange (rangeIndex:Int){
-        self.filterDataDetailArray[3] = filterDetailPriceRange[rangeIndex] != "" ? filterDetailPriceRange[rangeIndex] : "All"
+        filterPriceRangeIndex = rangeIndex
+        if rangeIndex != -1 {
+            self.filterDataDetailArray[3] = filterDetailPriceRange[rangeIndex]
+        }else {
+            self.filterDataDetailArray[3] = "All"
+
+        }
+       
         self.filterTableView.reloadData()
         delegate!.addPriceRange(rangeIndex)
     }
     func addColor (colorIndexList:NSMutableArray){
+        filterColorIndex = colorIndexList
         if colorIndexList.count == 1 {
             self.filterDataDetailArray[4] = filterDetailColor[(colorIndexList[0] as! Int)]
         }else if colorIndexList.count > 1 {

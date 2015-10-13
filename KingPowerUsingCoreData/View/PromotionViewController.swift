@@ -757,6 +757,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
                         productAllArray = ProductController().getProductByProductGroupID(Int32(index))
                     }
                     vc.productArray = productAllArray as! [ProductModel]
+                    vc.groupId = Int32(index)
                 }
             }
             

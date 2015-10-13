@@ -9,8 +9,7 @@
 import UIKit
 
 protocol filterDelegate {
-    func sendAllFilter(prodcatIndex:Int, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndex:NSMutableArray)
-    //func sendCatList(catList:[ProductCategoryModel])
+    func sendAllFilter(prodcatIndex:Int, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndexList:NSMutableArray)
     
 }
 class popupViewController: UIViewController, sortDelegate, filterDetailDelegate {
@@ -19,6 +18,11 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     @IBOutlet weak var sortSegment: UIView!
     @IBOutlet weak var filterSegment: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var btnClearAll: UIButton!
+    
+    var filterDetailSubCat:[ProductCategoryModel] = []
+    var filterDetailBrand:[BrandModel] = []
+    
     var filterSubCatIndex:Int = -1
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
@@ -28,16 +32,18 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     var segment:Int = 0
     var sortingIndex:Int = 0
     
+    var filterVC:filterViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (segment==0){
-            //btnApply.hidden = true
+            btnClearAll.hidden = true
             sortSegment.hidden = false
             filterSegment.hidden = true
             segmentedControl.selectedSegmentIndex = segment
         }
         else{
-            //btnApply.hidden = false
+            btnClearAll.hidden = false
             sortSegment.hidden = true
             filterSegment.hidden = false
             segmentedControl.selectedSegmentIndex = segment
@@ -54,7 +60,8 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
         if (segment==0){
             sDelegate?.setSorting(self.sortingIndex)
         }else{
-            fDelegate?.sendAllFilter(filterSubCatIndex, brandIndexList: filterBrandIndex, genderIndex: filterGenderIndex, priceRangeIndex: filterPriceRangeIndex, colorIndex: filterColorIndex)
+            fDelegate?.sendAllFilter(filterSubCatIndex, brandIndexList: filterBrandIndex, genderIndex: filterGenderIndex, priceRangeIndex: filterPriceRangeIndex, colorIndexList: filterColorIndex)
+            
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -63,9 +70,11 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
+            btnClearAll.hidden = true
             sortSegment.hidden = false
             filterSegment.hidden = true
         case 1:
+            btnClearAll.hidden = false
             sortSegment.hidden = true
             filterSegment.hidden = false
         default:
@@ -79,7 +88,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     }
     
     func addSubcat(prodCatIndex: Int) {
-        print("FilterViewController : Add Subcat")
+        print("FilterViewController : Add Subcat \(prodCatIndex)")
         filterSubCatIndex = prodCatIndex
         
     }
@@ -102,11 +111,24 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
             (segue.destinationViewController as! sortViewController).delegate = self
         }else if (segue.identifier == "filterSegue") {
             print("filter segue")
-            (segue.destinationViewController as! filterViewController).delegate = self
+            filterVC = segue.destinationViewController as! filterViewController
+            filterVC.filterSubCatIndex = filterSubCatIndex
+            filterVC.filterBrandIndex = filterBrandIndex
+            filterVC.filterGenderIndex = filterGenderIndex
+            filterVC.filterPriceRangeIndex = filterPriceRangeIndex
+            filterVC.filterColorIndex = filterColorIndex
+            filterVC.filterDetailSubCat = filterDetailSubCat
+            filterVC.filterDetailBrand = filterDetailBrand
+            filterVC.delegate = self
             
         }else if (segue.identifier == "applySegue") {
             print("apply segue")
         }
+    }
+    
+    @IBAction func clearAllFilter(sender:AnyObject) {
+        fDelegate?.sendAllFilter(-1, brandIndexList: NSMutableArray(), genderIndex: -1, priceRangeIndex: -1, colorIndexList: NSMutableArray())
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     /*

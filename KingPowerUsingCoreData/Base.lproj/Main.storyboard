@@ -209,6 +209,7 @@
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2184,6 +2185,14 @@
                                     <action selector="indexChange:" destination="da4-Fq-9I2" eventType="valueChanged" id="mSG-a2-GhD"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-v0-oZ3">
+                                <rect key="frame" x="15" y="11" width="76" height="30"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <state key="normal" title="Clear All"/>
+                                <connections>
+                                    <action selector="clearAllFilter:" destination="da4-Fq-9I2" eventType="touchUpInside" id="fip-Pq-IQP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2192,6 +2201,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="450"/>
                     <connections>
+                        <outlet property="btnClearAll" destination="fpR-v0-oZ3" id="SUT-8b-VF4"/>
                         <outlet property="filterSegment" destination="SE6-5B-2ko" id="ZPj-bU-XgY"/>
                         <outlet property="segmentedControl" destination="e0h-U4-Y6I" id="yTh-oj-j4o"/>
                         <outlet property="sortSegment" destination="Cl3-xD-gNR" id="CMp-KN-xJZ"/>

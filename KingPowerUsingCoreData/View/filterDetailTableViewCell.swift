@@ -21,6 +21,12 @@ class filterDetailTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+        /*
+        if selected == true {
+            self.markImage.image = UIImage(named: "check")
+        }else{
+            self.markImage.image = nil
+        }
+*/
     }
-
 }

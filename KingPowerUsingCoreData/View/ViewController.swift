@@ -12,22 +12,43 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 
     @IBOutlet weak var collectionView: UICollectionView!
     var setupNav = KPNavigationBar()
+    var tempProductArray:[ProductModel] = []
     var productArray:[ProductModel] = []
     var database:FMDatabase!
     var popViewController : popupViewController!
     let detailTransitioningDelegate: PresentationManager = PresentationManager()
-    var sortingIndex:Int = 0
-    
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
-        var sortDataArray:[String] = ["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGHT","PRICE HIGHT-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
-    
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
+    
+    // Sort : Full List
+    var sortDataArray:[String] = KPVariable.sortDataArray
+    // Sort : Selected Index
+    var sortingIndex:Int = 0
+    var groupId:Int32 = 0
+    
+    // Filter : Full List
+    var filterDetailSubCat:[ProductCategoryModel] = [] // select 1 subcat
+    var filterDetailBrand:[BrandModel] = []             // select more than 1
+    var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
+    var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
+    var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
+    // Filter : Selected Index/List
+    var filterSubCatIndex:Int = -1
+    var filterBrandIndex:NSMutableArray = NSMutableArray()
+    var filterGenderIndex:Int = -1
+    var filterPriceRangeIndex:Int = -1
+    var filterColorIndex:NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
+        tempProductArray.appendContentsOf(productArray)
+        /*
+        for prod in productArray {
+            tempProductArray.append(prod)
+        }*/
         // Do any additional setup after loading the view, typically from a nib.
         //self.openDB()
         //self.query()
@@ -118,17 +139,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         UIView.commitAnimations()
         self.dismissViewControllerAnimated(true, completion: nil)
 */
-        UIView.transitionWithView(collectionView,
-            duration:0.2,
-            options: UIViewAnimationOptions.TransitionCrossDissolve,
-            animations:
-            { () -> Void in
-                self.collectionView.reloadData()
-            },
-        completion: nil)
-        //self.collectionView.reloadData()
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
+        self.reloadWithAnimate()
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -150,7 +162,20 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             let detailViewController = segue.destinationViewController as! popupViewController
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
             //detailViewController.modalPresentationStyle = .Custom
-            detailViewController.sortingIndex = self.sortingIndex
+            detailViewController.filterSubCatIndex = filterSubCatIndex
+            detailViewController.filterBrandIndex = filterBrandIndex
+            detailViewController.filterGenderIndex = filterGenderIndex
+            detailViewController.filterPriceRangeIndex = filterPriceRangeIndex
+            detailViewController.filterColorIndex = filterColorIndex
+            
+            self.filterDetailBrand = BrandController().getAllBrand()
+            if groupId == 0 {
+                self.filterDetailSubCat = ProductMainCategoryController().getAllProductMainCategory()
+            }else {
+                self.filterDetailSubCat = ProductMainCategoryController().getProductMainCategoryByProductGroupId(groupId)
+            }
+            detailViewController.filterDetailBrand = filterDetailBrand
+            detailViewController.filterDetailSubCat = filterDetailSubCat
             detailViewController.segment = 1
             detailViewController.fDelegate = self
         }
@@ -330,11 +355,84 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         }
     }
     
-    @IBAction func applyFilterMethod(segue:UIStoryboardSegue){
+    func sendAllFilter(prodcatIndex: Int, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndexList: NSMutableArray) {
+        print("old \(self.productArray.count)")
+        self.productArray.removeAll()
+        /*for prod in tempProductArray {
+            productArray.append(prod)
+        }*/
+        self.productArray.appendContentsOf(tempProductArray)
+        print("new \(self.productArray.count)")
+        // Filter
+        if prodcatIndex != -1 {
+            self.productArray = productArray.filter({ $0.prod_prc_id == filterDetailSubCat[prodcatIndex].prc_id })
+        }
+        if brandIndexList.count > 0 {
+            var i : Int = 1
+            var ind : Int = 1
+            var tmpProductArray1 = productArray.filter({$0.prod_bran_id == filterDetailBrand[brandIndexList[0] as! Int].bran_id
+            })
+            var tmpProductArray2:[ProductModel] = []
+            for (i=1 ; i < brandIndexList.count ; i++) {
+                ind = brandIndexList[i] as! Int
+                tmpProductArray2 = self.productArray.filter({$0.prod_bran_id == filterDetailBrand[ind].bran_id})
+                tmpProductArray1.appendContentsOf(tmpProductArray2)
+            }
+            self.productArray = tmpProductArray1
+        }
+        if genderIndex != -1 {
+            self.productArray = productArray.filter({ $0.prod_gender ==  filterDetailGender[genderIndex].uppercaseString })
+            
+        }
+        if priceRangeIndex != -1 {
+            //static var priceRangeList = ["< 2,000 THB", "2,000 - 5,000 THB", "5,000 - 10,000 THB", "10,000 - 15,000 THB", "15000 - 20000 THB", "> 20,000 THB"]
+            if priceRangeIndex == 0 {
+                self.productArray = productArray.filter({ $0.prod_price < 2000 })
+            }else if priceRangeIndex == 1 {
+                self.productArray = productArray.filter({ $0.prod_price >= 2000 && $0.prod_price < 5000 })
+            }else if priceRangeIndex == 2 {
+                self.productArray = productArray.filter({ $0.prod_price >= 5000 && $0.prod_price < 10000 })
+            }else if priceRangeIndex == 3 {
+                self.productArray = productArray.filter({ $0.prod_price >= 10000 && $0.prod_price < 15000 })
+            }else if priceRangeIndex == 4 {
+                self.productArray = productArray.filter({ $0.prod_price >= 15000 && $0.prod_price < 20000 })
+            }else if priceRangeIndex == 5 {
+                self.productArray = productArray.filter({ $0.prod_price >= 20000 })
+            }
+        }
+        if colorIndexList.count != 0 {
+            var i : Int = 1
+            var ind : Int = 1
+            var tmpProductArray1 = productArray.filter({ $0.prod_color == filterDetailColor[0] })
+            var tmpProductArray2:[ProductModel] = []
+            for (i=1 ; i < colorIndexList.count ; i++) {
+                ind = colorIndexList[i] as! Int
+                tmpProductArray2 = self.productArray.filter({$0.prod_color == filterDetailColor[ind]})
+                tmpProductArray1.appendContentsOf(tmpProductArray2)
+            }
+            self.productArray = tmpProductArray1
+        }
+        // Keep to temp
+        filterSubCatIndex = prodcatIndex
+        filterBrandIndex = brandIndexList
+        filterGenderIndex = genderIndex
+        filterPriceRangeIndex = priceRangeIndex
+        filterColorIndex = colorIndexList
+        reloadWithAnimate()
+    }
+    
+    func reloadWithAnimate(){
+        UIView.transitionWithView(collectionView,
+            duration:0.2,
+            options: UIViewAnimationOptions.TransitionCrossDissolve,
+            animations:
+            { () -> Void in
+                self.collectionView.reloadData()
+            },
+            completion: nil)
+        //self.collectionView.reloadData()
         
     }
-    func sendAllFilter(prodcatIndex: Int, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndex: NSMutableArray) {
-        
-    }
+    
 }
 
