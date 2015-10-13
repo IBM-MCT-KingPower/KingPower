@@ -13,6 +13,7 @@ class ProductController {
     var database:FMDatabase!
     var productImgController = ProductImageController()
     var brandController = BrandController()
+    var productCategoryController = ProductMainCategoryController()
     
     init(){
         self.database = DatabaseUtil().getDBConnect()
@@ -134,6 +135,7 @@ class ProductController {
                 prodbyOrderlist.prod_arrival_flag = rs.stringForColumn("prod_arrival_flag") == nil ? "":rs.stringForColumn("prod_arrival_flag")
                 prodbyOrderlist.prod_bran = brandController.getBrandById(prodbyOrderlist.prod_bran_id)
                 prodbyOrderlist.prod_imageArray = productImgController.getProductImageByProductId(prodbyOrderlist.prod_id)//getProductImage(prodbyOrderlist.prod_id )
+                prodbyOrderlist.prod_prc = productCategoryController.getProductMainCategoryByProductMainId(prodbyOrderlist.prod_prc_id)
                 productArray.append(prodbyOrderlist)
             }
         } else {

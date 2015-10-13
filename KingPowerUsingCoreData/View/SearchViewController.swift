@@ -12,14 +12,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
+    var productArray:[ProductModel] = []
+    var filterProductArray:[ProductModel] = []
+    var searchTextFilter = ""
     var searchActive : Bool = false
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
-    var filtered:[String] = []
+    //var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
+    //var filtered:[String] = []
     
-    let beautyList = ["SALVATORE FERRAGAMO Acqua","SALVATORE FERRAGAMO Signorina","NARS NIAGARA LIPSTICK","NARS SCHIAP LIPSTICK","NARS VANILLA CREAMY CONCEALER"]
-    let fashionList = ["Wallet","Ruler","Pencil", "Ice Green Tea"]
-    let electronicList = ["Fuji Camera X-A2", "Fuji Camera X-T10", "Macbook Air", "Macbook Pro", "Apple Watch"]
+    //let beautyList = ["SALVATORE FERRAGAMO Acqua","SALVATORE FERRAGAMO Signorina","NARS NIAGARA LIPSTICK","NARS SCHIAP LIPSTICK","NARS VANILLA CREAMY CONCEALER"]
+    //let fashionList = ["Wallet","Ruler","Pencil", "Ice Green Tea"]
+    //let electronicList = ["Fuji Camera X-A2", "Fuji Camera X-T10", "Macbook Air", "Macbook Pro", "Apple Watch"]
     
     var gv = GlobalVariable()
     
@@ -57,37 +59,39 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filtered = data.filter({ (text) -> Bool in
-            let tmp: NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound
-        })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
+        print("Type")
+        if searchText.characters.count > 2 {
+            searchTextFilter = searchText
+            productArray = ProductController().getAllProduct()
+            self.filterProductArray = self.productArray.filter({( prod: ProductModel) -> Bool in
+                let prodName = prod.prod_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+                let branName = prod.prod_bran.bran_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+                let prodCatName = prod.prod_prc.prc_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+                let prodGrpName = prod.prod_prc.prc_prog.prog_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+                return prodName || branName || prodCatName || prodGrpName
+            })
+            if(self.filterProductArray.count == 0){
+                searchActive = false;
+            } else {
+                searchActive = true;
+            }
+        }else{
+            self.filterProductArray.removeAll()
         }
+        
         self.tableView.reloadData()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-        return 3
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(searchActive) {
-            return filtered.count
+            return self.filterProductArray.count
         } else {
-            if section == 0 {
-                return beautyList.count
-            }else if section == 1 {
-                return fashionList.count
-            } else {
-                return electronicList.count
-            }
+            return 0
         }
     }
     
@@ -96,17 +100,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.font = UIFont(name: "Century Gothic", size: 15)
         if(searchActive){
-            cell.textLabel?.text = filtered[indexPath.row]
-        } else {
-            switch indexPath.section {
-            case 0 :
-                cell.textLabel!.text = beautyList[indexPath.row]
-            case 1 :
-                cell.textLabel!.text = fashionList[indexPath.row]
-            case 2 :
-                cell.textLabel!.text = electronicList[indexPath.row]
-            default :
-                break
+            if filterProductArray[indexPath.row].prod_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
+                cell.textLabel?.text = filterProductArray[indexPath.row].prod_name
+            }else if filterProductArray[indexPath.row].prod_bran.bran_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
+                cell.textLabel?.text = filterProductArray[indexPath.row].prod_name + " ("+filterProductArray[indexPath.row].prod_bran.bran_name+")"
+            }else if filterProductArray[indexPath.row].prod_prc.prc_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
+                cell.textLabel?.text = filterProductArray[indexPath.row].prod_name + " ("+filterProductArray[indexPath.row].prod_prc.prc_name + ")"
+            }else if filterProductArray[indexPath.row].prod_prc.prc_prog.prog_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
+                cell.textLabel?.text = filterProductArray[indexPath.row].prod_name + " ("+filterProductArray[indexPath.row].prod_prc.prc_prog.prog_name + ")"
             }
             
         }
@@ -127,7 +128,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+    /*
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
@@ -151,7 +152,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return hView
         
     }
-    
+    */
     /*
     // MARK: - Navigation
 
