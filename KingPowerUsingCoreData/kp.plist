@@ -112,6 +112,16 @@
 	<string>Member ID is required.</string>
 	<key>messageMemberNotFound</key>
 	<string>Member ID is not found.</string>
+	<key>messageFlightFailTitle</key>
+	<string>Flight Information Fail</string>
+	<key>messageFlightRequiredField</key>
+	<string>Some of Depart Flight Information is missing.</string>
+	<key>messageReturnRequiredField</key>
+	<string>Some of Return Flight Information is missing.</string>
+	<key>flagYes</key>
+	<string>Y</string>
+	<key>flagNo</key>
+	<string>N</string>
 	<key>genderMen</key>
 	<string>MEN</string>
 	<key>genderWomen</key>

@@ -19,9 +19,12 @@ public class OrderDetailModel{
     var ordd_pickup_now : String = ""
     var ordd_create_date : NSDate = NSDate()
     var ordd_update_date : NSDate = NSDate()
+    var product = ProductModel()
     
-    var queryInsertOrderDetail : String = "INSERT INTO ORDER_DETAIL (%@) VALUES (%@);"
-    var queryUpdateOrderDetailById : String = "UPDATE ORDER_DETAIL SET %@ WHERE ORDD_ID = %@;"
+    
+    
+    var queryInsertOrderDetail : String = "INSERT INTO ORDER_DETAIL(ORDD_ORDM_ID, ORDD_PROD_ID, ORDD_QUANTITY, ORDD_TOTAL_PRICE, ORDD_REDEEM_ITEM, ORDD_PICKIP_NOW, ORDD_CREATE_DATE, ORDD_UPDATE_DATE) VALUES (%@, %@, %@, %@, '%@', '%@', %@, %@)"
+    
     var queryGetOrderDetailByOrderId : String = "SELECT ORDD_ID, ORDD_ORDM_ID, ORDD_PROD_ID, ORDD_QUANTITY, ORDD_TOTAL_PRICE, ORDD_REDEEM_ITEM, ORDD_PICKUP_NOW, ORDD_CREATE_DATE, ORDD_UPDATE_DATE FROM ORDER_DETAIL WHERE ORDD_ORDM_ID = %@;"
     
 }
