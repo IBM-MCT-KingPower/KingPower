@@ -12,22 +12,33 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var productArray:[ProductModel] = []
-    var filterProductArray:[ProductModel] = []
+    //var productArray:[ProductModel] = []
+    //var filterProductArray:[ProductModel] = []
     var searchTextFilter = ""
     var searchActive : Bool = false
-    //var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
-    //var filtered:[String] = []
-    
-    //let beautyList = ["SALVATORE FERRAGAMO Acqua","SALVATORE FERRAGAMO Signorina","NARS NIAGARA LIPSTICK","NARS SCHIAP LIPSTICK","NARS VANILLA CREAMY CONCEALER"]
-    //let fashionList = ["Wallet","Ruler","Pencil", "Ice Green Tea"]
-    //let electronicList = ["Fuji Camera X-A2", "Fuji Camera X-T10", "Macbook Air", "Macbook Pro", "Apple Watch"]
-    
+    var dataArray:[String] = []
+    var dataFilterArray:[String] = []
     var gv = GlobalVariable()
+    var uiView:UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let brandArray = BrandController().getAllBrand()
+        let prodCatArray = ProductMainCategoryController().getAllProductMainCategory()
+        let prodGrpArray = ProductGroupController().getAllProductGroup()
+        
+        for brand in brandArray {
+            dataArray.append(brand.bran_name)
+        }
+        for prodCat in prodCatArray {
+            dataArray.append(prodCat.prc_name)
+        }
+        for prodGrp in prodGrpArray {
+            dataArray.append(prodGrp.prog_name)
+        }
+        
+        print("data array \(dataArray.count)")
+        
         // Do any additional setup after loading the view.
         /* Setup delegates */
         tableView.delegate = self
@@ -64,8 +75,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         print("Type")
-        if searchText.characters.count > 2 {
+        if searchText.characters.count > 1 {
             searchTextFilter = searchText
+            /*
             productArray = ProductController().getAllProduct()
             self.filterProductArray = self.productArray.filter({( prod: ProductModel) -> Bool in
                 let prodName = prod.prod_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
@@ -74,13 +86,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 let prodGrpName = prod.prod_prc.prc_prog.prog_name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
                 return prodName || branName || prodCatName || prodGrpName
             })
-            if(self.filterProductArray.count == 0){
+*/
+            self.dataFilterArray = self.dataArray.filter({$0.lowercaseString.rangeOfString(searchText.lowercaseString) != nil})
+            
+            if(self.dataFilterArray.count == 0){
                 searchActive = false;
             } else {
                 searchActive = true;
             }
         }else{
-            self.filterProductArray.removeAll()
+            self.dataFilterArray.removeAll()
         }
         
         self.tableView.reloadData()
@@ -93,7 +108,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(searchActive) {
-            return self.filterProductArray.count
+            return self.dataFilterArray.count
         } else {
             return 0
         }
@@ -104,6 +119,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel?.font = UIFont(name: "Century Gothic", size: 15)
         if(searchActive){
+            cell.textLabel?.text = dataFilterArray[indexPath.row]
+            /*
             if filterProductArray[indexPath.row].prod_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
                 cell.textLabel?.text = filterProductArray[indexPath.row].prod_name
             }else if filterProductArray[indexPath.row].prod_bran.bran_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
@@ -113,7 +130,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             }else if filterProductArray[indexPath.row].prod_prc.prc_prog.prog_name.lowercaseString.rangeOfString(searchTextFilter.lowercaseString) != nil {
                 cell.textLabel?.text = filterProductArray[indexPath.row].prod_name + " ("+filterProductArray[indexPath.row].prod_prc.prc_prog.prog_name + ")"
             }
-            
+            */
         }
         
         return cell;
@@ -131,6 +148,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let productListViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProductListViewController") as? ViewController
+        //
+        productListViewController?.productArray = ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row])
+        uiView.navigationController?.pushViewController(productListViewController!, animated: true)
+
     }
     /*
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

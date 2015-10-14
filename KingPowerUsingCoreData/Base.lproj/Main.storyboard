@@ -2214,7 +2214,7 @@
         <!--View Controller-->
         <scene sceneID="7fT-13-5CF">
             <objects>
-                <viewController id="a0q-pR-xWB" customClass="ViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ProductListViewController" storyboardIdentifier="ProductListViewController" id="a0q-pR-xWB" customClass="ViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5J-8Y-HBz"/>
                         <viewControllerLayoutGuide type="bottom" id="6Mq-xY-8hg"/>
@@ -3781,7 +3781,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIa-r4-mGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10407" y="2586"/>
+            <point key="canvasLocation" x="9395" y="-222"/>
         </scene>
         <!--Login Detail View Controller-->
         <scene sceneID="hST-DE-lJh">
