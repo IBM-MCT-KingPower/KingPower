@@ -35,6 +35,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar.delegate = self
         
     }
+    
+    func handleTap(recognizer: UITapGestureRecognizer){
+        print("Tap")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

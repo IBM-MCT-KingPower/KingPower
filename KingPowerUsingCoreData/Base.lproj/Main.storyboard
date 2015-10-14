@@ -2657,7 +2657,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortCell" id="gD0-nO-lDn" customClass="sortTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sortCell" id="gD0-nO-lDn" customClass="sortTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gD0-nO-lDn" id="hwq-EU-ss6">
@@ -2670,7 +2670,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-2q-Zma">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-2q-Zma">
                                                     <rect key="frame" x="541" y="10" width="24" height="24"/>
                                                 </imageView>
                                             </subviews>
@@ -2773,22 +2773,22 @@
                                 <rect key="frame" x="0.0" y="54" width="600" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="CWt-K5-22I" customClass="filterDetailTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="detailCell" id="CWt-K5-22I" customClass="filterDetailTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CWt-K5-22I" id="gGl-sb-x4E">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yXh-k2-0Xy">
-                                                    <rect key="frame" x="541" y="10" width="24" height="24"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG2-s0-pbD">
                                                     <rect key="frame" x="17" y="11" width="511" height="21"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check.png" translatesAutoresizingMaskIntoConstraints="NO" id="yXh-k2-0Xy">
+                                                    <rect key="frame" x="541" y="10" width="24" height="24"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -4105,6 +4105,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="btnTextInput.png" width="510" height="550"/>
         <image name="btnTextInput2.png" width="510" height="550"/>
         <image name="cart.png" width="24" height="21"/>
+        <image name="check.png" width="48" height="48"/>
         <image name="contact.png" width="24" height="24"/>
         <image name="infos.png" width="42" height="42"/>
         <image name="logo.png" width="345" height="91"/>

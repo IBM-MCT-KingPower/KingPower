@@ -15,6 +15,7 @@ class filterDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.markImage.hidden = true
         // Initialization code
     }
 

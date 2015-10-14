@@ -43,7 +43,7 @@ class sortViewController: UIViewController,UITableViewDataSource,UITableViewDele
         cell?.menuLabel.text = self.sortDataArray[indexPath.row]
         cell?.menuLabel.font = UIFont(name: "Century Gothic", size: 15)
         if (indexPath.row==markRow){
-            cell?.markImage.image = UIImage(named: "check")
+            cell?.markImage.hidden = false
             self.indexpath = indexPath
         }
         return cell!
@@ -51,16 +51,16 @@ class sortViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(self.indexpath) as! sortTableViewCell?
-        cell?.markImage.image = nil
+        cell?.markImage.hidden = true
         cell = tableView.cellForRowAtIndexPath(indexPath) as! sortTableViewCell?
-        cell?.markImage.image = UIImage(named: "check")
+        cell?.markImage.hidden = false
         self.markRow = indexPath.row
         delegate?.setSorting(self.markRow)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! sortTableViewCell?
-        cell?.markImage.image = nil
+        cell?.markImage.hidden = true
     }
 
     /*

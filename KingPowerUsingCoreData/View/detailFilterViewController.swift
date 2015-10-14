@@ -10,19 +10,11 @@ import UIKit
 
 
 protocol filterDetailDelegate {
-    /*
-    func addSubcat (prodCat:ProductCategoryModel)
-    func addBrandList (brandList:NSMutableArray)
-    func addGender (gender:String)
-    func addPriceRange (range:String)
-    func addColor (colorList:NSMutableArray)*/
     func addSubcat (prodCatIndex:Int)
     func addBrandList (brandIndexList:NSMutableArray)
     func addGender (genderIndex:Int)
     func addPriceRange (rangeIndex:Int)
     func addColor (colorIndexList:NSMutableArray)
-  //  func getProdCatList(prodCatList : [ProductCategoryModel])
-  //  func getBrandList(brandList : [BrandModel])
 }
 
 class detailFilterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
@@ -33,13 +25,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
-    /*
-    var filterSubCat = ProductCategoryModel()
-    var filterBrand:NSMutableArray = NSMutableArray()
-    var filterGender:String = ""
-    var filterPriceRange:String = ""
-    var filterColor:NSMutableArray = NSMutableArray()
-    */
+
     var filterSubCatIndex:Int = -1
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
@@ -128,45 +114,45 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifierID = "detailCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierID) as! filterDetailTableViewCell?
-        print("DetailViewController : \(filterSubCatIndex), \(filterBrandIndex), \(filterGenderIndex), \(filterPriceRangeIndex), \(filterColorIndex)")
+        print("DetailViewController : \(selectedIndexMain), \(filterSubCatIndex), \(filterBrandIndex), \(filterGenderIndex), \(filterPriceRangeIndex), \(filterColorIndex)")
         if selectedIndexMain == 0 {
             if indexPath.row == filterSubCatIndex {
-                cell?.markImage.image = UIImage(named: "check")
+                cell?.markImage.hidden = false
                 self.indexpath = indexPath
+            }else {
+                cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailSubCat[indexPath.row].prc_name
         }else if selectedIndexMain == 1 {
-            var ind = 0
-            for index in filterBrandIndex {
-                ind = index as! Int
-                if indexPath.row == ind {
-                    cell?.markImage.image = UIImage(named: "check")
-                    self.indexpath = indexPath
-                    break
-                }
+            if filterBrandIndex.filter({ ($0 as! Int)  == indexPath.row }).count > 0 {
+                cell?.markImage.hidden = false
+                self.indexpath = indexPath
+            }else{
+                cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailBrand[indexPath.row].bran_name
         }else if selectedIndexMain == 2 {
             if indexPath.row == filterGenderIndex {
-                cell?.markImage.image = UIImage(named: "check")
+                cell?.markImage.hidden = false
                 self.indexpath = indexPath
+            }else{
+                cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailGender[indexPath.row]
         }else if selectedIndexMain == 3 {
             if indexPath.row == filterPriceRangeIndex {
-                cell?.markImage.image = UIImage(named: "check")
+                cell?.markImage.hidden = false
                 self.indexpath = indexPath
+            }else{
+                cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailPriceRange[indexPath.row]
         }else if selectedIndexMain == 4 {
-            var ind = 0
-            for index in filterColorIndex {
-                ind = index as! Int
-                if indexPath.row == ind {
-                    cell?.markImage.image = UIImage(named: "check")
-                    self.indexpath = indexPath
-                    break
-                }
+            if filterColorIndex.filter({ ($0 as! Int)  == indexPath.row }).count > 0 {
+                cell?.markImage.hidden = false
+                self.indexpath = indexPath
+            }else{
+                cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailColor[indexPath.row]
         }
@@ -175,78 +161,33 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
+        print("Select row \(indexPath.row)")
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
         if selectedIndexMain == 0 {
-            //filterSubCat = filterDetailSubCat[indexPath.row]
             filterSubCatIndex = indexPath.row
             print("DetailFilterViewController : Add Sub Cat \(filterSubCatIndex)")
-            cell?.markImage.image = UIImage(named: "check")
-            if let indexpath1 = indexpath {
-                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
-                oldCell?.markImage.image = nil
-                self.indexpath = nil
-            }
         }else if selectedIndexMain == 1 {
-            if cell?.markImage.image == nil {
+            if cell?.markImage.hidden == true {
                 filterBrandIndex.addObject(indexPath.row)
-                //filterBrand.addObject(filterDetailBrand[indexPath.row])
-                cell?.markImage.image = UIImage(named: "check")
             }else{
                 filterBrandIndex.removeObject(indexPath.row)
-                //filterBrand.removeObject(filterDetailBrand[indexPath.row])
-                cell?.markImage.image = nil
             }
         }else if selectedIndexMain == 2 {
             filterGenderIndex = indexPath.row
-            //filterGender = filterDetailGender[indexPath.row]
-            cell?.markImage.image = UIImage(named: "check")
-            if let indexpath1 = indexpath {
-                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
-                oldCell?.markImage.image = nil
-                self.indexpath = nil
-            }
         }else if selectedIndexMain == 3 {
             filterPriceRangeIndex = indexPath.row
-            //filterPriceRange = filterDetailPriceRange[indexPath.row]
-            cell?.markImage.image = UIImage(named: "check")
-            if let indexpath1 = indexpath {
-                let oldCell = tableView.cellForRowAtIndexPath(indexpath1) as! filterDetailTableViewCell?
-                oldCell?.markImage.image = nil
-                self.indexpath = nil
-            }
         }else if selectedIndexMain == 4 {
-            if cell?.markImage.image == nil {
+            if cell?.markImage.hidden == true {
                 filterColorIndex.addObject(indexPath.row)
-                //filterColor.addObject(filterDetailColor[indexPath.row])
-                cell?.markImage.image = UIImage(named: "check")
             }else{
                 filterColorIndex.removeObject(indexPath.row)
-                //filterColor.removeObject(filterDetailColor[indexPath.row])
-                cell?.markImage.image = nil
-                
             }
         }
 
-        
+        tableView.reloadData()
  
     }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = filterDetailTable.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
-        if selectedIndexMain == 0 {
-            print("deselect")
-            filterSubCatIndex = -1
-            cell?.markImage.image = nil
-        }
-        else if selectedIndexMain == 2 {
-            filterGenderIndex = -1
-             cell?.markImage.image = nil
-        }else if selectedIndexMain == 3 {
-            filterPriceRangeIndex = -1
-            cell?.markImage.image = nil
-        }
-    }
+
     
     /*
     // MARK: - Navigation
