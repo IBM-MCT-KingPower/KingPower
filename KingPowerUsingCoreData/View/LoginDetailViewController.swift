@@ -10,7 +10,6 @@ import UIKit
 
 class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
     
-    
     var gv = GlobalVariable()
     var setupNav = KPNavigationBar()
     var commonViewController = CommonViewController()
@@ -32,6 +31,13 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBOutlet weak var departDateTextField: UITextField!
     @IBOutlet weak var returnDateTextField: UITextField!
+    
+    
+    var dateFormatter = NSDateFormatter()
+    
+    var departFlight : FlightInfoModel? = FlightInfoModel()
+    var returnFlight : FlightInfoModel? = FlightInfoModel()
+    
     
     var departAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
     
@@ -188,49 +194,45 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
         
         var flightInfoController = FlightInfoController()
+        
         if(hasDepartInfo){
             //Insert into FlightInfo Table
-            print("\nInsert into flight info")
             
-            //Format Date
+            var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!)
+            var currentDate = commonViewController.castDateFromDate(NSDate())
             
-            var dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            print("\(self.departDateTextField!.text!)")
-            var flightDate = dateFormatter.dateFromString(self.departDateTextField!.text!)
-            print("Flight Date : \(flightDate)")
-            
-            
-            flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDate!, flii_return_flag: gv.getConfigValue("flagY") as! String, flii_create_date: NSDate())
-            
-            
+            self.departFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String, flii_create_date: currentDate)
         }
+        
         if(hasReturnInfo){
             //Insert into FlightInfo Table
-            print("Insert into flight info")
+            
+            var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!)
+            var currentDate = commonViewController.castDateFromDate(NSDate())
+            
+            self.returnFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String, flii_create_date: currentDate)
+            
         }
-        
-        
-        print(self.departAirlineTextField.text)
-        print(self.departFlightNoTextField.text)
-        print(self.departDateTextField.text)
-        //Check require
-        
-        
-        //Insert Flight Information
-        
         
     }
     
     
-    /*
+    
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        print("CUSTOMER ID :      \(self.customer.cust_id)")
+        print("DEPART FLIGHT ID : \(self.departFlight?.flii_id)")
+        print("RETURN FLIGHT ID : \(self.returnFlight?.flii_id)")
+        (segue.destinationViewController as! WelcomeViewController).customer = self.customer
+        (segue.destinationViewController as! WelcomeViewController).departFlight = self.departFlight
+        (segue.destinationViewController as! WelcomeViewController).returnFlight = self.returnFlight
+        
     }
-    */
+    
     
 }
