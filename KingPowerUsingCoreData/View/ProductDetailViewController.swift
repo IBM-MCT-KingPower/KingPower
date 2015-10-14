@@ -24,7 +24,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var relatedProductTableView: UITableView!
     @IBOutlet weak var tabView: UIView!
     var setupNav = KPNavigationBar()
-    var buttonCart = UIButton()
+    //var buttonCart = UIButton()
     var btnRelatedProduct = UIButton()
     var btnRecommendedProduct = UIButton()
     var isRelated = true
@@ -85,7 +85,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBAction func addToCart(sender: AnyObject) {
         let btnAddToCart = sender as! UIButton
         let startPoint = btnAddToCart.center
-        let endPoint = buttonCart.center
+        let endPoint = setupNav.getButtonCart().center//buttonCart.center
         
         let cartCountView:UIView = UIView(frame: CGRectMake(0, 0, 30, 30))
         let circleView:UIView = UIView(frame: CGRectMake(0,  0, 30, 30))
@@ -107,7 +107,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         pathAnimation.calculationMode = kCAAnimationPaced;
         pathAnimation.fillMode = kCAFillModeForwards;
         pathAnimation.removedOnCompletion = false;
-        pathAnimation.duration=1.0;
+        pathAnimation.duration=0.8;
         pathAnimation.delegate=self;
         
         let path = UIBezierPath()

@@ -11,7 +11,7 @@ import Foundation
 class KPNavigationBar: NSObject{
     
     var gv = GlobalVariable()
-    
+    var buttonCart:UIButton!
     func setupNavigationBar(uiView: UIViewController){
         
         var navBar:UINavigationBar=UINavigationBar()
@@ -81,7 +81,7 @@ class KPNavigationBar: NSObject{
     
     func addCartItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Right Item
         //Cart
-        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
+        buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
         buttonCart.frame = CGRectMake(
             gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
             gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
@@ -236,6 +236,9 @@ class KPNavigationBar: NSObject{
         
     }
     
+    func getButtonCart() -> UIButton {
+        return buttonCart
+    }
     
     
     

@@ -166,8 +166,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             
             self.filterDetailBrand = BrandController().getAllBrand()
             if groupId == 0 {
+               // self.filterDetailBrand = BrandController().getAllBrand()
                 self.filterDetailSubCat = ProductMainCategoryController().getAllProductMainCategory()
             }else {
+                //self.filterDetailBrand = BrandController().getBrandByGroupId(groupId)
                 self.filterDetailSubCat = ProductMainCategoryController().getProductMainCategoryByProductGroupId(groupId)
             }
             detailViewController.filterDetailBrand = filterDetailBrand
