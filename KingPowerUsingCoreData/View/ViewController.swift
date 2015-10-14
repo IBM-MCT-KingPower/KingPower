@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDelegate, filterDelegate {
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDelegate, sendSortFilterDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var setupNav = KPNavigationBar()
@@ -104,6 +104,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 
     func setSorting(sortIndex : Int){
         self.sortingIndex = sortIndex
+        print("SORTING INDEX \(sortingIndex)")
         //["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGHT","PRICE HIGHT-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
         if sortIndex == 0 {
             self.productArray = productArray.sort({ $0.prod_name < $1.prod_name })
@@ -116,11 +117,11 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         }else if sortIndex == 3 {
             self.productArray = productArray.sort({ $0.prod_bran.bran_name > $1.prod_bran.bran_name })
         }else if sortIndex == 4 {
-            self.productArray = productArray.sort({ $0.prod_price > $1.prod_price })
-        }else if sortIndex == 5 {
             self.productArray = productArray.sort({ $0.prod_price < $1.prod_price })
+        }else if sortIndex == 5 {
+            self.productArray = productArray.sort({ $0.prod_price > $1.prod_price })
         }else if sortIndex == 6 {
-            self.productArray = productArray.sort({ $0.prod_rating > $1.prod_rating })
+            self.productArray = productArray.sort({ $0.prod_arrival_flag > $1.prod_arrival_flag })
         }else if sortIndex == 7 {
             self.productArray = productArray.sort({ $0.prod_rating > $1.prod_rating })
         }else if sortIndex == 8 {
@@ -128,17 +129,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             
         }
         
-        /*
-        
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDelegate(self)
-        UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-        UIView.setAnimationDuration(0.5)
-        
-        self.collectionView.reloadData()
-        UIView.commitAnimations()
-        self.dismissViewControllerAnimated(true, completion: nil)
-*/
         self.reloadWithAnimate()
         //self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -155,13 +145,19 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
             //detailViewController.modalPresentationStyle = .Custom
             detailViewController.sortingIndex = self.sortingIndex
+            detailViewController.filterSubCatIndex = filterSubCatIndex
+            detailViewController.filterBrandIndex = filterBrandIndex
+            detailViewController.filterGenderIndex = filterGenderIndex
+            detailViewController.filterPriceRangeIndex = filterPriceRangeIndex
+            detailViewController.filterColorIndex = filterColorIndex
             detailViewController.segment = 0
-            detailViewController.sDelegate = self
+            detailViewController.delegate = self
           }
           else if (segue.identifier == "filterpopSegue") {
             let detailViewController = segue.destinationViewController as! popupViewController
             //detailViewController.transitioningDelegate = detailTransitioningDelegate
             //detailViewController.modalPresentationStyle = .Custom
+            detailViewController.sortingIndex = self.sortingIndex
             detailViewController.filterSubCatIndex = filterSubCatIndex
             detailViewController.filterBrandIndex = filterBrandIndex
             detailViewController.filterGenderIndex = filterGenderIndex
@@ -177,7 +173,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             detailViewController.filterDetailBrand = filterDetailBrand
             detailViewController.filterDetailSubCat = filterDetailSubCat
             detailViewController.segment = 1
-            detailViewController.fDelegate = self
+            detailViewController.delegate = self
         }
         
     }

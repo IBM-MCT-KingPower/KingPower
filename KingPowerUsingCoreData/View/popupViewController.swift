@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol filterDelegate {
+protocol sendSortFilterDelegate {
     func sendAllFilter(prodcatIndex:Int, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndexList:NSMutableArray)
+    func setSorting(sortIndex : Int)
     
 }
 class popupViewController: UIViewController, sortDelegate, filterDetailDelegate {
-    var sDelegate:sortDelegate?
-    var fDelegate:filterDelegate?
+    var delegate:sendSortFilterDelegate?
     @IBOutlet weak var sortSegment: UIView!
     @IBOutlet weak var filterSegment: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -57,12 +57,13 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     }
     
     @IBAction func applyPopup(sender: AnyObject) {
-        if (segment==0){
-            sDelegate?.setSorting(self.sortingIndex)
-        }else{
-            fDelegate?.sendAllFilter(filterSubCatIndex, brandIndexList: filterBrandIndex, genderIndex: filterGenderIndex, priceRangeIndex: filterPriceRangeIndex, colorIndexList: filterColorIndex)
+        //if (segment==0){
+        delegate?.sendAllFilter(filterSubCatIndex, brandIndexList: filterBrandIndex, genderIndex: filterGenderIndex, priceRangeIndex: filterPriceRangeIndex, colorIndexList: filterColorIndex)
+        delegate?.setSorting(self.sortingIndex)
+        //}else{
+        
             
-        }
+        //}
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -127,7 +128,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     }
     
     @IBAction func clearAllFilter(sender:AnyObject) {
-        fDelegate?.sendAllFilter(-1, brandIndexList: NSMutableArray(), genderIndex: -1, priceRangeIndex: -1, colorIndexList: NSMutableArray())
+        delegate?.sendAllFilter(-1, brandIndexList: NSMutableArray(), genderIndex: -1, priceRangeIndex: -1, colorIndexList: NSMutableArray())
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
