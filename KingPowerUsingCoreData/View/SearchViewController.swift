@@ -156,8 +156,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let delegate = uiView as! searchDelegate
             delegate.sendProductList(ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row]))
         }else{
-        let productListViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProductListViewController") as? ViewController
-            productListViewController?.productArray = ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row])
+            let productListViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProductListViewController") as? ViewController
+            let productArray = ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row])
+            productListViewController?.productArray = productArray
+            productListViewController?.searchResult = "Found  \(productArray.count)  items"
             uiView.navigationController?.pushViewController(productListViewController!, animated: true)
         }
     }

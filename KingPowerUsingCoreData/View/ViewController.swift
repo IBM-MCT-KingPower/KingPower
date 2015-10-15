@@ -41,11 +41,18 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     var filterPriceRangeIndex:Int = -1
     var filterColorIndex:NSMutableArray = NSMutableArray()
     
+    // Search
+    var searchResult = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
         tempProductArray.appendContentsOf(productArray)
-        self.lblSearchResults.text = ""
+        if searchResult.characters.count == 0 {
+            self.lblSearchResults.text = ""
+        }else{
+            self.lblSearchResults.text = searchResult
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -420,7 +427,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         self.tempProductArray.appendContentsOf(productArray)
         self.productArray = productArray
         self.reloadWithAnimate()
-        self.lblSearchResults.text = "Founds  \(productArray.count)  items"
+        self.lblSearchResults.text = "Found  \(productArray.count)  items"
     }
 }
 
