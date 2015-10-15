@@ -25,10 +25,13 @@ public class OrderMainModel{
     var ordm_passport_no : String = ""
     var ordm_current_location : String = ""
     var ordm_pickup_location : String = ""
-    var ordm_total_price : NSNumber = NSNumber()
+    var ordm_total_price : Double = 0
     var ordm_submit_date : NSDate = NSDate()
     var ordm_create_date : NSDate = NSDate()
     var ordm_update_date : NSDate = NSDate()
+    var ordm_running_no  : Int32 = 0
+    var ordm_net_total_price : Double = 0
+    
     
     var ordm_ords        : [OrderDetailModel]!
     
