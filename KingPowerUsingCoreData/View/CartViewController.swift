@@ -76,7 +76,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.btnContinueShoppingPopup.layer.borderWidth = 2.0
         self.btnContinueShoppingPopup.layer.borderColor = UIColor.blackColor().CGColor
         self.btnCheckoutPopup.layer.cornerRadius = 5
-        cartTableView.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
+        self.cartTableView.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
     }
     
     

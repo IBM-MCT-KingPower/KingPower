@@ -44,6 +44,7 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         self.btnContinueShopping.layer.borderWidth = 2.0
         self.btnContinueShopping.layer.borderColor = UIColor.blackColor().CGColor
         self.btnConfirmCheckout.layer.cornerRadius = 5
+        self.checkoutTableView.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,14 +66,22 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0 :
-            return self.cartPickNowArray.count
+            if self.cartPickNowArray.count == 0 {
+                return 1
+            }else{
+                return self.cartPickNowArray.count
+            }
+            
         case 1 :
-            return self.cartPickLaterArray.count
+            if self.cartPickNowArray.count == 0 {
+                return 1
+            }else{
+                return self.cartPickNowArray.count
+            }
         default :
-            return self.cartPickNowArray.count
+            return 0
         }
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -97,60 +106,52 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // code
-        let cell = tableView.dequeueReusableCellWithIdentifier("checkoutTableViewCell", forIndexPath: indexPath) as! CheckoutTableViewCell
+
         if indexPath.section == 0 {
-            /*
-            cell.imgGoods.image = UIImage(named: self.goodsNowList[indexPath.row].goodsImageName)
-            cell.lblGoods.text = self.goodsNowList[indexPath.row].goodsName
-            let quantity = NSDecimalNumber(integer: self.goodsNowList[indexPath.row].goodsQuantity)
-            cell.lblQuantity.text = String(quantity)
-            let price = quantity.decimalNumberByMultiplyingBy(self.goodsNowList[indexPath.row].goodsPricePerItem)
-            cell.lblUnitPrice.text = self.goodsNowList[indexPath.row].goodsPricePerItem.currency
-            cell.lblTotalPrice.text = price.currency
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
-*/
-            cell.imgGoods.image = UIImage(named: self.cartPickNowArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
-            cell.lblGoods.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_name
-            cell.lblGoodsDetail.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_description
-            cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
-            let quantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
-            
-            cell.lblQuantity.text = String(quantity)
-            let pricePerProd = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
-            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price))
-            cell.lblUnitPrice.text = pricePerProd.currency
-            cell.lblTotalPrice.text = totalPrice.currency
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
-        }else{
-            /*
-            cell.imgGoods.image = UIImage(named: self.goodsLaterList[indexPath.row].goodsImageName)
-            cell.lblGoods.text = self.goodsLaterList[indexPath.row].goodsName
-            let quantity = NSDecimalNumber(integer: self.goodsLaterList[indexPath.row].goodsQuantity)
-            cell.lblQuantity.text = String(quantity)
-            let price = quantity.decimalNumberByMultiplyingBy(self.goodsLaterList[indexPath.row].goodsPricePerItem)
-            cell.lblUnitPrice.text = self.goodsLaterList[indexPath.row].goodsPricePerItem.currency
-            cell.lblTotalPrice.text = price.currency
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
-            if indexPath.row == self.goodsLaterList.count - 1 {
-                self.lblGrandTotal.text = self.grandTotal.currency
-            }*/
-            cell.imgGoods.image = UIImage(named: self.cartPickLaterArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
-            cell.lblGoods.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_name
-            cell.lblGoodsDetail.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_description
-            cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
-            let quantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
-            cell.lblQuantity.text = String(quantity)
-            let pricePerProd = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
-            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price))
-            cell.lblUnitPrice.text = pricePerProd.currency
-            cell.lblTotalPrice.text = totalPrice.currency
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
-            if indexPath.row == self.cartPickLaterArray.count - 1 {
-                self.lblGrandTotal.text = self.grandTotal.currency
+            if self.cartPickNowArray.count != 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("checkoutTableViewCell", forIndexPath: indexPath) as! CheckoutTableViewCell
+                cell.imgGoods.image = UIImage(named: self.cartPickNowArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+                cell.lblGoods.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_name
+                cell.lblGoodsDetail.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_description
+                cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+                let quantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
+                cell.lblQuantity.text = String(quantity)
+                let pricePerProd = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
+                let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price))
+                cell.lblUnitPrice.text = pricePerProd.currency
+                cell.lblTotalPrice.text = totalPrice.currency
+                self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+                if indexPath.row == self.cartPickNowArray.count - 1 && self.cartPickLaterArray.count == 0 {
+                    self.lblGrandTotal.text = self.grandTotal.currency
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                return cell
             }
-            
+        }else{
+            if self.cartPickLaterArray.count != 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("checkoutTableViewCell", forIndexPath: indexPath) as! CheckoutTableViewCell
+                cell.imgGoods.image = UIImage(named: self.cartPickLaterArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+                cell.lblGoods.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_name
+                cell.lblGoodsDetail.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_description
+                cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+                let quantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
+                cell.lblQuantity.text = String(quantity)
+                let pricePerProd = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
+                let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price))
+                cell.lblUnitPrice.text = pricePerProd.currency
+                cell.lblTotalPrice.text = totalPrice.currency
+                self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+                if indexPath.row == self.cartPickLaterArray.count - 1 {
+                    self.lblGrandTotal.text = self.grandTotal.currency
+                }
+                return cell
+            }else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                return cell
+            }
         }
-        return cell
     }
 
     @IBAction func continueShoppingMethod(sender: AnyObject) {
