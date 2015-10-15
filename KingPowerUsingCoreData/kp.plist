@@ -92,36 +92,36 @@
 	<string>#E5E5E5</string>
 	<key>whiteColor</key>
 	<string>#F5F5F5</string>
-    <key>messageAuthenFailTitle</key>
-    <string>Authentication Fail</string>
-    <key>messageAuthenRequiredField</key>
-    <string>Username/Password is required.</string>
-    <key>messageAuthenFail</key>
-    <string>Username/Password is incorrect.</string>
-    <key>messageCardReaderInputMethodTitle</key>
-    <string>Card Reader Method</string>
-    <key>messageCameraInputMethodTitle</key>
-    <string>Camera Method</string>
-    <key>messageScanBoardingPassTitle</key>
-    <string>Scan Boarding Pass</string>
-    <key>messageUnderImplementation</key>
-    <string>Under Implementation.</string>
-    <key>messageMemberValidationFailTitle</key>
-    <string>Member Validation Fail</string>
-    <key>messageMemberRequiredField</key>
-    <string>Member ID is required.</string>
-    <key>messageMemberNotFound</key>
-    <string>Member ID is not found.</string>
-    <key>messageFlightFailTitle</key>
-    <string>Flight Information Fail</string>
-    <key>messageFlightRequiredField</key>
-    <string>Some of Depart Flight Information is missing.</string>
-    <key>messageReturnRequiredField</key>
-    <string>Some of Return Flight Information is missing.</string>
-    <key>flagYes</key>
-    <string>Y</string>
-    <key>flagNo</key>
-    <string>N</string>
+	<key>messageAuthenFailTitle</key>
+	<string>Authentication Fail</string>
+	<key>messageAuthenRequiredField</key>
+	<string>Username/Password is required.</string>
+	<key>messageAuthenFail</key>
+	<string>Username/Password is incorrect.</string>
+	<key>messageCardReaderInputMethodTitle</key>
+	<string>Card Reader Method</string>
+	<key>messageCameraInputMethodTitle</key>
+	<string>Camera Method</string>
+	<key>messageScanBoardingPassTitle</key>
+	<string>Scan Boarding Pass</string>
+	<key>messageUnderImplementation</key>
+	<string>Under Implementation.</string>
+	<key>messageMemberValidationFailTitle</key>
+	<string>Member Validation Fail</string>
+	<key>messageMemberRequiredField</key>
+	<string>Member ID is required.</string>
+	<key>messageMemberNotFound</key>
+	<string>Member ID is not found.</string>
+	<key>messageFlightFailTitle</key>
+	<string>Flight Information Fail</string>
+	<key>messageFlightRequiredField</key>
+	<string>Some of Depart Flight Information is missing.</string>
+	<key>messageReturnRequiredField</key>
+	<string>Some of Return Flight Information is missing.</string>
+	<key>flagYes</key>
+	<string>Y</string>
+	<key>flagNo</key>
+	<string>N</string>
 	<key>genderMen</key>
 	<string>MEN</string>
 	<key>genderWomen</key>
@@ -138,5 +138,9 @@
 	<integer>4</integer>
 	<key>productGroupLiquor</key>
 	<integer>5</integer>
+	<key>currentUserId</key>
+	<string>CURRENTUSERID</string>
+	<key>currentCustomerId</key>
+	<string>CURRENTCUSTOMERID</string>
 </dict>
 </plist>

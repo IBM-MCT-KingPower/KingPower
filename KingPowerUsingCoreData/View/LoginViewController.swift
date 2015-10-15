@@ -74,6 +74,13 @@ class LoginViewController: UIViewController {
                 commonViewController.alertView(self, title: gv.getConfigValue("messageAuthenFailTitle") as! String, message: gv.getConfigValue("messageAuthenFail") as! String)
             }else{
                 print("\nAuthentication Passed : [ID: \(userModel!.user_id)] : [USERNAME: \(userModel!.user_username)]")
+                
+                let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                prefs.setInteger(userModel!.user_id.hashValue, forKey: gv.getConfigValue("currentUserId") as! String)
+                prefs.synchronize()
+                
+                self.performSegueWithIdentifier("loginSegue", sender: sender)
+                
             }
         }
     }

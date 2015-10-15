@@ -101,6 +101,15 @@ class LoginByTypeViewController: UIViewController {
             if(customer == nil){
                 commonViewController.alertView(self, title: gv.getConfigValue("messageMemberValidationFailTitle") as! String, message: gv.getConfigValue("messageMemberNotFound") as! String)
             }else{
+                let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                
+                prefs.setInteger(self.customer!.cust_id.hashValue, forKey: gv.getConfigValue("currentCustomerId") as! String)
+                prefs.synchronize()
+                
+                //                The way to get currentCustomer
+                //                var test: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+                
+                performSegueWithIdentifier("loginDetailSegue", sender: sender)
                 
             }
         }
@@ -115,10 +124,11 @@ class LoginByTypeViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("Prepare for Segue: Navigate to LoginDetailViewController")
-        print("Customer : \(self.customer!.cust_first_name)")
-        (segue.destinationViewController as! LoginDetailViewController).customer = self.customer!
-        
+        if segue.identifier == "loginDetailSegue" {
+            print("Prepare for Segue: Navigate to LoginDetailViewController")
+            print("Customer : \(self.customer!.cust_first_name)")
+            (segue.destinationViewController as! LoginDetailViewController).customer = self.customer!
+        }
         
     }
     
