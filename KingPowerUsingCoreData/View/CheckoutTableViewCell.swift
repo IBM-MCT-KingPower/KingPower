@@ -12,6 +12,7 @@ class CheckoutTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgGoods: UIImageView!
     @IBOutlet weak var lblGoods: UILabel!
+    @IBOutlet weak var lblGoodsDetail: UITextView!
     @IBOutlet weak var lblQuantity: UILabel!
     @IBOutlet weak var lblUnitPrice: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!

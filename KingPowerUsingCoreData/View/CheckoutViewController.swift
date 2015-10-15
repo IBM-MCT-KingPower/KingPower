@@ -16,8 +16,10 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var setupNav = KPNavigationBar()
     var grandTotal : NSDecimalNumber = 0
-    var goodsNowList = [Goods]()
-    var goodsLaterList = [Goods]()
+    //var goodsNowList = [Goods]()
+    //var goodsLaterList = [Goods]()
+    var cartPickNowArray:[CartModel] = []
+    var cartPickLaterArray:[CartModel] = []
     
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
@@ -29,8 +31,8 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         self.initialPage()
         self.checkoutTableView.backgroundColor = UIColor.whiteColor()
-        print("Now List : \(goodsNowList.count)")
-        print("Later List : \(goodsLaterList.count)")
+        print("Now List : \(cartPickNowArray.count)")
+        print("Later List : \(cartPickLaterArray.count)")
 //        self.setupNavigationBar()
         
         self.setupNav.setupNavigationBar(self)
@@ -66,11 +68,11 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         // #warning Incomplete implementation, return the number of rows
         switch section {
         case 0 :
-            return self.goodsNowList.count
+            return self.cartPickNowArray.count
         case 1 :
-            return self.goodsLaterList.count
+            return self.cartPickLaterArray.count
         default :
-            return self.goodsNowList.count
+            return self.cartPickNowArray.count
         }
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -97,6 +99,7 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         // code
         let cell = tableView.dequeueReusableCellWithIdentifier("checkoutTableViewCell", forIndexPath: indexPath) as! CheckoutTableViewCell
         if indexPath.section == 0 {
+            /*
             cell.imgGoods.image = UIImage(named: self.goodsNowList[indexPath.row].goodsImageName)
             cell.lblGoods.text = self.goodsNowList[indexPath.row].goodsName
             let quantity = NSDecimalNumber(integer: self.goodsNowList[indexPath.row].goodsQuantity)
@@ -105,7 +108,21 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.lblUnitPrice.text = self.goodsNowList[indexPath.row].goodsPricePerItem.currency
             cell.lblTotalPrice.text = price.currency
             self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
+*/
+            cell.imgGoods.image = UIImage(named: self.cartPickNowArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+            cell.lblGoods.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_name
+            cell.lblGoodsDetail.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_description
+            cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+            let quantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
+            
+            cell.lblQuantity.text = String(quantity)
+            let pricePerProd = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
+            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price))
+            cell.lblUnitPrice.text = pricePerProd.currency
+            cell.lblTotalPrice.text = totalPrice.currency
+            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
         }else{
+            /*
             cell.imgGoods.image = UIImage(named: self.goodsLaterList[indexPath.row].goodsImageName)
             cell.lblGoods.text = self.goodsLaterList[indexPath.row].goodsName
             let quantity = NSDecimalNumber(integer: self.goodsLaterList[indexPath.row].goodsQuantity)
@@ -115,6 +132,20 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.lblTotalPrice.text = price.currency
             self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
             if indexPath.row == self.goodsLaterList.count - 1 {
+                self.lblGrandTotal.text = self.grandTotal.currency
+            }*/
+            cell.imgGoods.image = UIImage(named: self.cartPickLaterArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+            cell.lblGoods.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_name
+            cell.lblGoodsDetail.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_description
+            cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+            let quantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
+            cell.lblQuantity.text = String(quantity)
+            let pricePerProd = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
+            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price))
+            cell.lblUnitPrice.text = pricePerProd.currency
+            cell.lblTotalPrice.text = totalPrice.currency
+            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+            if indexPath.row == self.cartPickLaterArray.count - 1 {
                 self.lblGrandTotal.text = self.grandTotal.currency
             }
             

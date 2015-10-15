@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -614,7 +614,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xe-t2-GsW">
-                                                            <rect key="frame" x="0.0" y="2" width="290" height="305"/>
+                                                            <rect key="frame" x="2" y="2" width="285" height="305"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OqI-5D-4nt">
                                                             <rect key="frame" x="267" y="0.5" width="22.5" height="22.5"/>
@@ -1042,7 +1042,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2S5-xG-4aR">
-                                                            <rect key="frame" x="0.0" y="2" width="290" height="305"/>
+                                                            <rect key="frame" x="2" y="2" width="285" height="305"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xat-la-F6h">
                                                             <rect key="frame" x="267" y="0.5" width="22.5" height="22.5"/>
@@ -1078,7 +1078,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lL5-c0-HJB">
-                                                            <rect key="frame" x="0.0" y="23" width="250" height="155"/>
+                                                            <rect key="frame" x="0.0" y="2" width="250" height="155"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7Z-2w-9p7">
                                                             <rect key="frame" x="226.5" y="0.0" width="22.5" height="22.5"/>
@@ -1146,7 +1146,7 @@
                                                     <rect key="frame" x="764" y="10" width="250" height="200"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qty-Dn-aux">
-                                                            <rect key="frame" x="5" y="36" width="240" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rvZ-oq-6Sr">
@@ -1271,9 +1271,9 @@
                                             <outlet property="img6Plan" destination="l4V-vp-KSk" id="dB8-jI-C1Z"/>
                                             <outlet property="img6Product" destination="rvZ-oq-6Sr" id="HMM-ae-jgj"/>
                                             <outlet property="img6Tag" destination="xNb-yu-ccp" id="bc5-CO-Wei"/>
-                                            <outlet property="img7Plan" destination="yHT-cy-2O3" id="iz1-zh-3r3"/>
+                                            <outlet property="img7Plan" destination="l2H-Ny-sPH" id="sEI-LF-sfB"/>
                                             <outlet property="img7Product" destination="IvN-tk-zxX" id="0rT-V0-WUn"/>
-                                            <outlet property="img7Tag" destination="l2H-Ny-sPH" id="P3V-P9-aV5"/>
+                                            <outlet property="img7Tag" destination="yHT-cy-2O3" id="3Q5-d1-KrK"/>
                                             <outlet property="img8Plan" destination="0cP-3o-CZO" id="INg-U0-E78"/>
                                             <outlet property="img8Product" destination="RZg-UQ-M6w" id="Eeh-dO-8X3"/>
                                             <outlet property="img8Tag" destination="fUD-nU-XsW" id="zps-2l-GSV"/>
@@ -1578,7 +1578,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-7Q-8Xd">
-                                                            <rect key="frame" x="0.0" y="2" width="290" height="305"/>
+                                                            <rect key="frame" x="2" y="2" width="285" height="305"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sps-Oj-wOH">
                                                             <rect key="frame" x="267" y="0.5" width="22.5" height="22.5"/>
@@ -2343,8 +2343,8 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Found 0 items " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-Mb-NJI">
                                 <rect key="frame" x="835" y="80" width="169" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -2999,9 +2999,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n0A-Bt-BOg">
-                                                    <rect key="frame" x="16" y="5" width="60" height="70"/>
+                                                    <rect key="frame" x="16" y="5" width="70" height="70"/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fb-18-XFq">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Fb-18-XFq">
                                                     <rect key="frame" x="519" y="22" width="50" height="30"/>
                                                     <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -3039,14 +3039,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZa-7i-cxW">
-                                                    <rect key="frame" x="95" y="9" width="196" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
+                                                    <rect key="frame" x="95" y="8" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyL-nG-YJ3">
-                                                    <rect key="frame" x="90" y="23" width="237" height="56.5"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <rect key="frame" x="90" y="23" width="245" height="50"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -3390,12 +3390,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03q-DF-MNQ">
-                                                    <rect key="frame" x="16" y="5" width="60" height="70"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03q-DF-MNQ">
+                                                    <rect key="frame" x="16" y="5" width="70" height="70"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyl-tR-BU1">
-                                                    <rect key="frame" x="95" y="9" width="196" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="17"/>
+                                                    <rect key="frame" x="95" y="8" width="391" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -3423,9 +3423,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iXK-ZP-7gj">
-                                                    <rect key="frame" x="90" y="23" width="237" height="56.5"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXK-ZP-7gj">
+                                                    <rect key="frame" x="90" y="25" width="390" height="45"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyx-Vq-3pl">
@@ -3440,6 +3440,7 @@
                                             <outlet property="imgGoods" destination="03q-DF-MNQ" id="T0h-re-LV9"/>
                                             <outlet property="lblCurrency" destination="eAm-UP-Ym8" id="jaT-dM-cCb"/>
                                             <outlet property="lblGoods" destination="Vyl-tR-BU1" id="H5w-rt-bqm"/>
+                                            <outlet property="lblGoodsDetail" destination="iXK-ZP-7gj" id="Qbb-Va-Zi4"/>
                                             <outlet property="lblQuantity" destination="uyx-Vq-3pl" id="A0m-eu-gDL"/>
                                             <outlet property="lblTotalPrice" destination="tNA-iE-IC3" id="SNQ-Sw-9Bc"/>
                                             <outlet property="lblUnitPrice" destination="ZE9-bP-ZeN" id="mPN-0e-K9v"/>
@@ -4155,7 +4156,7 @@ with any Estee Lauder purchase of 3,000THB</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2pT-n0-ev4"/>
+        <segue reference="G8Q-RA-lUU"/>
         <segue reference="h9l-HJ-MCb"/>
-        <segue reference="wlp-ut-Mc6"/>
     </inferredMetricsTieBreakers>
 </document>

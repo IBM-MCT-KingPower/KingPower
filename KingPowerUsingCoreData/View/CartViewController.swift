@@ -19,8 +19,10 @@ struct  Goods {
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var constat = Constants()
-    var goodsNowList = [Goods]()
-    var goodsLaterList = [Goods]()
+   // var goodsNowList = [Goods]()
+   // var goodsLaterList = [Goods]()
+    var cartPickNowArray:[CartModel] = []
+    var cartPickLaterArray:[CartModel] = []
     var grandTotal:NSDecimalNumber = 0.0
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var lblGrandTotal: UILabel!
@@ -46,26 +48,21 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialValue()
-        self.customPromotionPopup()
-        self.title  = self.constat.customLocalizedString("cartTitle", comment: "this is comment")as String
+        
+        //self.title  = self.constat.customLocalizedString("cartTitle", comment: "this is comment")as String
         self.cartTableView.backgroundColor = UIColor.whiteColor()
-        let goods1 = Goods(goodsImageName: "557590-L3.jpg", goodsName: "Good1", goodsQuantity: 1, goodsPricePerItem : 1280.0)
-        let goods2 = Goods(goodsImageName: "543709-L1.jpg", goodsName: "Good2", goodsQuantity: 2, goodsPricePerItem : 2430.0)
-        self.goodsNowList.append(goods1)
-        self.goodsNowList.append(goods2)
-        let goods3 = Goods(goodsImageName: "480103-L1.jpg", goodsName: "Good3", goodsQuantity: 3, goodsPricePerItem : 8990.0)
-        let goods4 = Goods(goodsImageName: "461108-M3.jpg", goodsName: "Good4", goodsQuantity: 4, goodsPricePerItem : 14210.0)
-        self.goodsLaterList.append(goods3)
-        self.goodsLaterList.append(goods4)
+        cartPickNowArray = CartController().getCartPickTypeByCustomerId(Int32(1),cart_pickup_now: "Y")!
+        cartPickLaterArray = CartController().getCartPickTypeByCustomerId(Int32(1), cart_pickup_now: "N")!
+
         // Do any additional setup after loading the view.
         self.cartTableView.delegate = self
 //        self.setupNavigationBar()
-        
+        self.cartTableView.reloadData()
         self.setupNav.setupNavigationBar(self)
-        let prod = ProductController().getProductByID(1)
-        print("Product Name = \(prod.prod_name) and Product Image = \(prod.prod_imageArray.count)")
-        //let prodGrp = ProductGroupController().getAllProductGroup()
-        //print("product group = \(prodGrp.count)")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.customPromotionPopup()
     }
     
     func initialValue(){
@@ -79,8 +76,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.btnContinueShoppingPopup.layer.borderWidth = 2.0
         self.btnContinueShoppingPopup.layer.borderColor = UIColor.blackColor().CGColor
         self.btnCheckoutPopup.layer.cornerRadius = 5
-
+        cartTableView.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
     }
+    
+    
     
     func customPromotionPopup(){
         self.popupView.layer.cornerRadius = 20
@@ -105,36 +104,64 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        // code
-        let cell = tableView.dequeueReusableCellWithIdentifier("cartTableViewCell", forIndexPath: indexPath) as! CartTableViewCell
+        print("Cell for row at indexpath")
         if indexPath.section == 0 {
-            cell.imgGoods.image = UIImage(named: self.goodsNowList[indexPath.row].goodsImageName)
-            cell.lblGoods.text = self.goodsNowList[indexPath.row].goodsName
-            let quantity = NSDecimalNumber(integer: self.goodsNowList[indexPath.row].goodsQuantity)
-            cell.txtfQuantity.text = String(quantity)
-            let price = quantity.decimalNumberByMultiplyingBy(self.goodsNowList[indexPath.row].goodsPricePerItem)
-            cell.lblUnitPrice.text = self.goodsNowList[indexPath.row].goodsPricePerItem.currency
-            cell.lblTotalPrice.text = price.currency
-            cell.swtPickupType.on = true
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
+            if self.cartPickNowArray.count != 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("cartTableViewCell", forIndexPath: indexPath) as! CartTableViewCell
+                cell.imgGoods.image = UIImage(named: self.cartPickNowArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+                cell.lblGoods.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_name
+                cell.lblGoodsDetail.text = self.cartPickNowArray[indexPath.row].cart_prod.prod_description
+                cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+                let quantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
+                cell.txtfQuantity.text = String(quantity)
+                let pricePerProd = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
+                let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price))
+                cell.lblUnitPrice.text = pricePerProd.currency
+                cell.lblTotalPrice.text = totalPrice.currency
+                cell.swtPickupType.on = true
+                self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+                if indexPath.row == self.cartPickNowArray.count - 1 && self.cartPickLaterArray.count == 0 {
+                    self.lblGrandTotal.text = self.grandTotal.currency
+                }
+                cell.stpQuantity.value = Double(cell.txtfQuantity.text!)!
+                cell.swtPickupType.addTarget(self, action: Selector("checkSwitchChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+                cell.stpQuantity.addTarget(self, action: Selector("checkQuantityChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                return cell
+                
+            }
         }else{
-            cell.imgGoods.image = UIImage(named: self.goodsLaterList[indexPath.row].goodsImageName)
-            cell.lblGoods.text = self.goodsLaterList[indexPath.row].goodsName
-            let quantity = NSDecimalNumber(integer: self.goodsLaterList[indexPath.row].goodsQuantity)
-            cell.txtfQuantity.text = String(quantity)
-            let price = quantity.decimalNumberByMultiplyingBy(self.goodsLaterList[indexPath.row].goodsPricePerItem)
-            cell.lblUnitPrice.text = self.goodsLaterList[indexPath.row].goodsPricePerItem.currency
-            cell.lblTotalPrice.text = price.currency
-            cell.swtPickupType.on = false
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(price)
-            if indexPath.row == self.goodsLaterList.count - 1 {
-                self.lblGrandTotal.text = self.grandTotal.currency
+            if self.cartPickLaterArray.count != 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("cartTableViewCell", forIndexPath: indexPath) as! CartTableViewCell
+                cell.imgGoods.image = UIImage(named: self.cartPickLaterArray[indexPath.row].cart_prod.prod_imageArray[0].proi_image_path)
+                cell.lblGoods.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_name
+                cell.lblGoodsDetail.text = self.cartPickLaterArray[indexPath.row].cart_prod.prod_description
+                cell.lblGoodsDetail.font = UIFont(name: "Century Gothic", size: 12)
+                let quantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
+                cell.txtfQuantity.text = String(quantity)
+                let pricePerProd = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
+                let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price))
+                cell.lblUnitPrice.text = pricePerProd.currency
+                cell.lblTotalPrice.text = totalPrice.currency
+                cell.swtPickupType.on = false
+                self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+                if indexPath.row == self.cartPickLaterArray.count - 1 {
+                    self.lblGrandTotal.text = self.grandTotal.currency
+                }
+                cell.stpQuantity.value = Double(cell.txtfQuantity.text!)!
+                cell.swtPickupType.addTarget(self, action: Selector("checkSwitchChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+                cell.stpQuantity.addTarget(self, action: Selector("checkQuantityChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                return cell
             }
 
         }
-        cell.stpQuantity.value = Double(cell.txtfQuantity.text!)!
-        cell.swtPickupType.addTarget(self, action: Selector("checkSwitchChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        cell.stpQuantity.addTarget(self, action: Selector("checkQuantityChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        return cell
+        
+        
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
@@ -146,11 +173,21 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection")
         switch section {
         case 0 :
-            return self.goodsNowList.count
+            if self.cartPickNowArray.count == 0 {
+                return 1
+            }else{
+                return self.cartPickNowArray.count
+            }
+            
         case 1 :
-            return self.goodsLaterList.count
+            if self.cartPickNowArray.count == 0 {
+                return 1
+            }else{
+                return self.cartPickNowArray.count
+            }
         default :
             return 0
         }
@@ -190,6 +227,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if (indexPath.section == 0 && self.cartPickNowArray.count == 0) || (indexPath.section == 1 && self.cartPickLaterArray.count == 0) {
+            return false
+        }
         return true
 
     }
@@ -200,17 +240,17 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         if editingStyle == .Delete {
             switch indexPath.section {
             case 0 :
-                oldPrice = self.goodsNowList[indexPath.row].goodsPricePerItem
-                oldQuantity = NSDecimalNumber(integer: self.goodsNowList[indexPath.row].goodsQuantity)
-                self.goodsNowList.removeAtIndex(indexPath.row)
-                self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                //self.cartTableView.reloadData()
+                oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
+                oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
+                //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.cartPickNowArray.removeAtIndex(indexPath.row)
+                self.cartTableView.reloadData()
             case 1 :
-                oldPrice = self.goodsLaterList[indexPath.row].goodsPricePerItem
-                oldQuantity = NSDecimalNumber(integer: self.goodsLaterList[indexPath.row].goodsQuantity)
-                self.goodsLaterList.removeAtIndex(indexPath.row)
-                self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                //self.cartTableView.reloadData()
+                oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
+                oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
+                //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.cartPickLaterArray.removeAtIndex(indexPath.row)
+                self.cartTableView.reloadData()
             default :
                 print("default")
             }
@@ -245,13 +285,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let clickedCell  = switch1.superview?.superview as! UITableViewCell
         let indexPath = self.cartTableView.indexPathForCell(clickedCell) as NSIndexPath?
         if switch1.on == true {
-            let curGoods = self.goodsLaterList[indexPath!.row]
-            self.goodsLaterList.removeAtIndex(indexPath!.row)
-            self.goodsNowList.append(curGoods)
+            let curGoods = self.cartPickLaterArray[indexPath!.row]
+            self.cartPickLaterArray.removeAtIndex(indexPath!.row)
+            self.cartPickNowArray.append(curGoods)
         }else{
-            let curGoods = self.goodsNowList[indexPath!.row]
-            self.goodsNowList.removeAtIndex(indexPath!.row)
-            self.goodsLaterList.append(curGoods)
+            let curGoods = self.cartPickNowArray[indexPath!.row]
+            self.cartPickNowArray.removeAtIndex(indexPath!.row)
+            self.cartPickLaterArray.append(curGoods)
         }
         print("SWITCH : \(switch1.on) SECTION : \(indexPath!.section) ROW : \(indexPath!.row)")
         self.cartTableView.reloadData()
@@ -268,15 +308,19 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         var oldPrice = NSDecimalNumber(int: 0)
         var oldQuantity = NSDecimalNumber(int: 0)
         if indexPath!.section == 0 {
-            oldPrice = self.goodsNowList[indexPath!.row].goodsPricePerItem
-            oldQuantity = NSDecimalNumber(integer: self.goodsNowList[indexPath!.row].goodsQuantity)
-            self.goodsNowList[indexPath!.row].goodsQuantity = Int(stepper.value)
-            pricePerItem = self.goodsNowList[indexPath!.row].goodsPricePerItem
+            oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath!.row].cart_prod.prod_price)
+            oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath!.row].cart_quantity)
+            //self.goodsNowList[indexPath!.row].goodsQuantity = Int(stepper.value)
+            // update quantity
+             self.cartPickNowArray[indexPath!.row].cart_quantity = Int32(stepper.value)
+            pricePerItem = NSDecimalNumber(double: self.cartPickNowArray[indexPath!.row].cart_prod.prod_price)
         }else{
-            oldPrice = self.goodsLaterList[indexPath!.row].goodsPricePerItem
-            oldQuantity = NSDecimalNumber(integer: self.goodsLaterList[indexPath!.row].goodsQuantity)
-            self.goodsLaterList[indexPath!.row].goodsQuantity = Int(stepper.value)
-            pricePerItem = self.goodsLaterList[indexPath!.row].goodsPricePerItem
+            oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath!.row].cart_prod.prod_price)
+            oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath!.row].cart_quantity)
+            //self.goodsNowList[indexPath!.row].goodsQuantity = Int(stepper.value)
+            // update quantity
+            self.cartPickLaterArray[indexPath!.row].cart_quantity = Int32(stepper.value)
+            pricePerItem = NSDecimalNumber(double: self.cartPickLaterArray[indexPath!.row].cart_prod.prod_price)
         }
         clickedCell.txtfQuantity.text = String(Int(stepper.value))
         let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
@@ -303,8 +347,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.popupView.hidden = true
         if segue.identifier == "checkoutSegue" {
             let viewController:CheckoutViewController = segue.destinationViewController as! CheckoutViewController
-            viewController.goodsNowList = goodsNowList
-            viewController.goodsLaterList = goodsLaterList
+            viewController.cartPickNowArray = cartPickNowArray
+            viewController.cartPickLaterArray = cartPickLaterArray
         }else if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
             viewController.grandTotal = self.grandTotal

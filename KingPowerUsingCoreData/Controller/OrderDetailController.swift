@@ -28,7 +28,7 @@ class OrderDetailController{
         }
         
     }
-    
+
     func getOrderDetailByOrderId(ordd_ordm_id: Int32) -> [OrderDetailModel]? { //Need return list of OrderDetailObj
         
         var orderDetail = OrderDetailModel()
@@ -47,7 +47,7 @@ class OrderDetailController{
                 orderDetail.ordd_pickup_now = rs.stringForColumn("ordd_pickup_now")
                 orderDetail.ordd_create_date = rs.dateForColumn("ordd_create_date")
                 orderDetail.ordd_update_date = rs.dateForColumn("ordd_update_date")
-                orderDetail.product = productController.getProductByID(rs.intForColumn("ordd_prod_id"))
+                orderDetail.product = productController.getProductByID(orderDetail.ordd_id)
                 
                 orderDetailArray.append(orderDetail)
                 
@@ -58,7 +58,6 @@ class OrderDetailController{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
             return nil
         }
-        return nil
         
     }
     

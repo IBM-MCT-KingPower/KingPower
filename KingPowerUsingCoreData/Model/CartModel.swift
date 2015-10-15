@@ -20,10 +20,12 @@ public class CartModel{
     var cart_create_date : NSDate = NSDate()
     var cart_update_date : NSDate = NSDate()
     
-    var queryInsertCart : String = "INSERT INTO CART (CART_USER_ID, CART_CUST_ID, CART_PROD_ID, CART_QUANTITY, CART_PICKUP_NOW, CART_CURRENT_LOCATION, CART_CREATE_DATE, CART_UPDATE_DATE) VALUES (%@, %@, %@, %@, '%@', '%@', %@, %@);"
-    var queryUpdatecartById : String = "UPDATE CART SET CART_QUANTITY = %@, CART_PICKUP_NOW = '%@', CART_UPDATE_DATE = %@ WHERE CART_ID = %@;"
-    var queryDeleteCartById : String = "DELETE FROM CART WHERE CART_ID = %@;"
-    var queryGetCartByCustomerId : String = "SELECT CART_ID, CART_USER_ID, CART_CUST_ID, CART_PROD_ID, CART_QUANTITY, CART_PICKUP_NOW, CART_CURRENT_LOCATION, CART_CREATE_DATE, CART_UPDATE_DATE FROM CART WHERE CART_CUST_ID = %@;"
+    var cart_prod       : ProductModel!
     
+    var queryInsertCart : String = "INSERT INTO CART (CART_ID, CART_USER_ID, CART_CUST_ID, CART_PROD_ID, CART_QUANTITY, CART_PICKUP_NOW, CART_CURRENT_LOCATION, CART_CREATE_DATE, CART_UPDATE_DATE) VALUES (%d, %d, %d, %d, %d, '%@', %@, %@, %@);"
+    var queryUpdatecartById : String = "UPDATE CART SET CART_QUANTITY = %d, CART_PICKUP_NOW = '%@', CART_UPDATE_DATE = %@ WHERE CART_ID = %d;"
+    var queryDeleteCartById : String = "DELETE FROM CART WHERE CART_ID = %d;"
+    var queryGetCartByCustomerId : String = "SELECT CART_ID, CART_USER_ID, CART_CUST_ID, CART_PROD_ID, CART_QUANTITY, CART_PICKUP_NOW, CART_CURRENT_LOCATION, CART_CREATE_DATE, CART_UPDATE_DATE FROM CART WHERE CART_CUST_ID = %d;"
     
+    var queryGetCartPickTypeByCustomerId : String = "SELECT CART_ID, CART_USER_ID, CART_CUST_ID, CART_PROD_ID, CART_QUANTITY, CART_PICKUP_NOW, CART_CURRENT_LOCATION, CART_CREATE_DATE, CART_UPDATE_DATE FROM CART WHERE CART_CUST_ID = %d and CART_PICKUP_NOW = '%@';"
 }

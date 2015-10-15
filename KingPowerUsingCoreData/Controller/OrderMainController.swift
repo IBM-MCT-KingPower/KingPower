@@ -11,6 +11,7 @@ import Foundation
 class OrderMainController{
     
     var database:FMDatabase!
+    var orderDetailController = OrderDetailController()
     
     init(){
         self.database = DatabaseUtil().getDBConnect()
@@ -137,9 +138,8 @@ class OrderMainController{
                 orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
                 orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
                 orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
-                
+                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
                 orderMainArray.append(orderMain)
-                
                 
             }
             return orderMainArray
@@ -148,9 +148,6 @@ class OrderMainController{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
             return nil
         }
-        
-        return nil
-        
     }
     
 }

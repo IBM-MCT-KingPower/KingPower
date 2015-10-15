@@ -9,8 +9,8 @@
 import UIKit
 
 class PromotionPopupViewController: UIViewController {
-    var goodsNowList = [Goods]()
-    var goodsLaterList = [Goods]()
+    var cartPickNowArray:[CartModel] = []
+    var cartPickLaterArray:[CartModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +36,8 @@ class PromotionPopupViewController: UIViewController {
             let navigationController:UINavigationController = segue.destinationViewController as! UINavigationController
             let viewController:CheckoutViewController = navigationController.topViewController as! CheckoutViewController
            // let viewController:CheckoutViewController = segue.destinationViewController as! CheckoutViewController
-            viewController.goodsNowList = goodsNowList
-            viewController.goodsLaterList = goodsLaterList
+            viewController.cartPickNowArray = cartPickNowArray
+            viewController.cartPickLaterArray = cartPickLaterArray
         }
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 class CartController{
-    
+    var productController = ProductController()
     var database:FMDatabase!
     
     init(){
@@ -20,7 +20,8 @@ class CartController{
         
         var cartModel = CartModel()
         let query = String(format: cartModel.queryInsertCart, cart_user_id, cart_cust_id, cart_prod_id, cart_quantity, cart_pickup_now, cart_current_location, cart_create_date, cart_update_date)
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if !updateSuccessful {
             print("INSERT CART SUCCESSFULLY")
             
         }else{
@@ -33,7 +34,8 @@ class CartController{
         var cartModel = CartModel()
         let query = String(format: cartModel.queryUpdatecartById, cart_quantity, cart_pickup_now, cart_update_date, cart_id)
         
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if !updateSuccessful {
             print("UPDATE CART SUCCESSFULLY")
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
@@ -44,7 +46,9 @@ class CartController{
     func deleteById(cart_id: Int32){
         var cartModel = CartModel()
         let query = String(format: cartModel.queryDeleteCartById, cart_id)
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
+        
+        let deleteSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if !deleteSuccessful {
             print("DELETE CART SUCCESSFULLY")
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
@@ -69,7 +73,7 @@ class CartController{
                 cartModel.cart_current_location = rs.stringForColumn("cart_current_location")
                 cartModel.cart_create_date = rs.dateForColumn("cart_create_date")
                 cartModel.cart_update_date = rs.dateForColumn("cart_update_date")
-                
+                cartModel.cart_prod = productController.getProductByID(cartModel.cart_prod_id)
                 cartArray.append(cartModel)
             }
             return cartArray
@@ -78,9 +82,38 @@ class CartController{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
             return nil
         }
-        return nil
-        
         
     }
+    
+    func getCartPickTypeByCustomerId(cart_cust_id: Int32, cart_pickup_now: String) -> [CartModel]? { //Need return list of CartObj
+        
+        var cartArray : [CartModel] = []
+        var cartModel = CartModel()
+        let query = String(format: cartModel.queryGetCartPickTypeByCustomerId, cart_cust_id, cart_pickup_now)
+        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
+            while rs.next() {
+                cartModel = CartModel()
+                cartModel.cart_id = rs.intForColumn("cart_id")
+                cartModel.cart_user_id = rs.intForColumn("cart_user_id")
+                cartModel.cart_cust_id = rs.intForColumn("cart_cust_id")
+                cartModel.cart_prod_id = rs.intForColumn("cart_prod_id")
+                cartModel.cart_quantity = rs.intForColumn("cart_quantity")
+                cartModel.cart_pickup_now = rs.stringForColumn("cart_pickup_now")
+                cartModel.cart_current_location = rs.stringForColumn("cart_current_location")
+                cartModel.cart_create_date = rs.dateForColumn("cart_create_date")
+                cartModel.cart_update_date = rs.dateForColumn("cart_update_date")
+                cartModel.cart_prod = productController.getProductByID(cartModel.cart_prod_id)
+                cartArray.append(cartModel)
+            }
+            return cartArray
+            
+        }else{
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+            return nil
+        }
+        
+    }
+
+
     
 }
