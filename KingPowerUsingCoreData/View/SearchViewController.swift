@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol searchDelegate{
+    func sendProductList(productArray:[ProductModel])
+}
+
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -148,12 +152,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        
+        if uiView.isKindOfClass(ViewController){
+            let delegate = uiView as! searchDelegate
+            delegate.sendProductList(ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row]))
+        }else{
         let productListViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ProductListViewController") as? ViewController
-        //
-        productListViewController?.productArray = ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row])
-        uiView.navigationController?.pushViewController(productListViewController!, animated: true)
-
+            productListViewController?.productArray = ProductController().getProductByGorupCatBranName(dataFilterArray[indexPath.row])
+            uiView.navigationController?.pushViewController(productListViewController!, animated: true)
+        }
     }
     /*
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

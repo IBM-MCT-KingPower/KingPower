@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDelegate, sendSortFilterDelegate {
-
+class ViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, sortDelegate, sendSortFilterDelegate, searchDelegate {
+    @IBOutlet weak var lblSearchResults:UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var setupNav = KPNavigationBar()
     var tempProductArray:[ProductModel] = []
@@ -32,8 +32,8 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     var filterDetailSubCat:[ProductCategoryModel] = [] // select 1 subcat
     var filterDetailBrand:[BrandModel] = []             // select more than 1
     var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
-    var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
-    var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
+    var filterDetailPriceRange:[String] = KPVariable.priceRangeList   // select 1 range
+    var filterDetailColor:[String] = KPVariable.colorList             // Select more than 1
     // Filter : Selected Index/List
     var filterSubCatIndex:Int = -1
     var filterBrandIndex:NSMutableArray = NSMutableArray()
@@ -45,15 +45,7 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
         tempProductArray.appendContentsOf(productArray)
-        /*
-        for prod in productArray {
-            tempProductArray.append(prod)
-        }*/
-        // Do any additional setup after loading the view, typically from a nib.
-        //self.openDB()
-        //self.query()
-        //productArray = ProductController().getProductByOrder("prod_id", sort: "ASC")
-        
+        self.lblSearchResults.text = ""
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -100,37 +92,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func backToPreviousPage(sender: AnyObject) {
         print("backtopreviouspage")
         self.navigationController?.popViewControllerAnimated(true)
-    }
-
-    func setSorting(sortIndex : Int){
-        self.sortingIndex = sortIndex
-        print("SORTING INDEX \(sortingIndex)")
-        //["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGHT","PRICE HIGHT-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
-        if sortIndex == 0 {
-            self.productArray = productArray.sort({ $0.prod_name < $1.prod_name })
-            //self.productArray = ProductController().getProductByOrder("prod_name", sort: "ASC")
-        }else if sortIndex == 1 {
-            self.productArray = productArray.sort({ $0.prod_name > $1.prod_name })
-            //self.productArray = ProductController().getProductByOrder("prod_name", sort: "DESC")
-        }else if sortIndex == 2 {
-           self.productArray = productArray.sort({ $0.prod_bran.bran_name < $1.prod_bran.bran_name })
-        }else if sortIndex == 3 {
-            self.productArray = productArray.sort({ $0.prod_bran.bran_name > $1.prod_bran.bran_name })
-        }else if sortIndex == 4 {
-            self.productArray = productArray.sort({ $0.prod_price < $1.prod_price })
-        }else if sortIndex == 5 {
-            self.productArray = productArray.sort({ $0.prod_price > $1.prod_price })
-        }else if sortIndex == 6 {
-            self.productArray = productArray.sort({ $0.prod_arrival_flag > $1.prod_arrival_flag })
-        }else if sortIndex == 7 {
-            self.productArray = productArray.sort({ $0.prod_rating > $1.prod_rating })
-        }else if sortIndex == 8 {
-            self.productArray = productArray.sort({ $0.prod_discount_price > $1.prod_discount_price })
-            
-        }
-        
-        self.reloadWithAnimate()
-        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -353,14 +314,37 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         }
     }
     
+    func setSorting(sortIndex : Int){
+        self.sortingIndex = sortIndex
+        print("SORTING INDEX \(sortingIndex)")
+        //["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGHT","PRICE HIGHT-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
+        if sortIndex == 0 {
+            self.productArray = productArray.sort({ $0.prod_name < $1.prod_name })
+        }else if sortIndex == 1 {
+            self.productArray = productArray.sort({ $0.prod_name > $1.prod_name })
+        }else if sortIndex == 2 {
+            self.productArray = productArray.sort({ $0.prod_bran.bran_name < $1.prod_bran.bran_name })
+        }else if sortIndex == 3 {
+            self.productArray = productArray.sort({ $0.prod_bran.bran_name > $1.prod_bran.bran_name })
+        }else if sortIndex == 4 {
+            self.productArray = productArray.sort({ $0.prod_price < $1.prod_price })
+        }else if sortIndex == 5 {
+            self.productArray = productArray.sort({ $0.prod_price > $1.prod_price })
+        }else if sortIndex == 6 {
+            self.productArray = productArray.sort({ $0.prod_arrival_flag > $1.prod_arrival_flag })
+        }else if sortIndex == 7 {
+            self.productArray = productArray.sort({ $0.prod_rating > $1.prod_rating })
+        }else if sortIndex == 8 {
+            self.productArray = productArray.sort({ $0.prod_discount_price > $1.prod_discount_price })
+            
+        }
+        
+        self.reloadWithAnimate()
+    }
+    
     func sendAllFilter(prodcatIndex: Int, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndexList: NSMutableArray) {
-        print("old \(self.productArray.count)")
         self.productArray.removeAll()
-        /*for prod in tempProductArray {
-            productArray.append(prod)
-        }*/
         self.productArray.appendContentsOf(tempProductArray)
-        print("new \(self.productArray.count)")
         // Filter
         if prodcatIndex != -1 {
             self.productArray = productArray.filter({ $0.prod_prc_id == filterDetailSubCat[prodcatIndex].prc_id })
@@ -428,9 +412,15 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
                 self.collectionView.reloadData()
             },
             completion: nil)
-        //self.collectionView.reloadData()
-        
+        self.lblSearchResults.text = ""
     }
     
+    func sendProductList(productArray: [ProductModel]) {
+        self.tempProductArray.removeAll()
+        self.tempProductArray.appendContentsOf(productArray)
+        self.productArray = productArray
+        self.reloadWithAnimate()
+        self.lblSearchResults.text = "Founds  \(productArray.count)  items"
+    }
 }
 

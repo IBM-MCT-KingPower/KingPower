@@ -56,6 +56,7 @@ class CommonViewController: UIViewController {
         let searchViewController = uiView.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
         let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
         searchViewController?.modalPresentationStyle = modalStyle
+        searchViewController?.uiView = uiView
         uiView.presentViewController(searchViewController!, animated: true, completion: nil)
     }
     
