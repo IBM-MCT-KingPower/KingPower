@@ -21,9 +21,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var constat = Constants()
    // var goodsNowList = [Goods]()
    // var goodsLaterList = [Goods]()
+    var customer:CustomerModel = CustomerModel()
     var cartPickNowArray:[CartModel] = []
     var cartPickLaterArray:[CartModel] = []
     var grandTotal:NSDecimalNumber = 0.0
+    var percentDiscount:NSDecimalNumber = 0.0
+    var discount:NSDecimalNumber = 0.0
+    var netTotal:NSDecimalNumber = 0.0
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var lblGrandTotal: UILabel!
     @IBOutlet weak var allPopupView: UIView!
@@ -34,6 +38,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var btnCheckoutPopup: UIButton!
     @IBOutlet weak var imgPromotion: UIImageView!
     @IBOutlet weak var txtvPromotionDetail: UITextView!
+    @IBOutlet weak var lblPercentDiscount:UILabel!
+    @IBOutlet weak var lblDiscount:UILabel!
+    @IBOutlet weak var lblNetTotal:UILabel!
     var setupNav = KPNavigationBar()
     var btnRelatedProduct = UIButton()
     var btnRecommendedProduct = UIButton()
@@ -51,18 +58,26 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //self.title  = self.constat.customLocalizedString("cartTitle", comment: "this is comment")as String
         self.cartTableView.backgroundColor = UIColor.whiteColor()
-        cartPickNowArray = CartController().getCartPickTypeByCustomerId(Int32(1),cart_pickup_now: "Y")!
-        cartPickLaterArray = CartController().getCartPickTypeByCustomerId(Int32(1), cart_pickup_now: "N")!
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        customer = CustomerController().getCustomerByCustId(custId)!
+        percentDiscount = NSDecimalNumber(int : customer.cust_card_discount)
+        self.lblPercentDiscount.text = "\(percentDiscount) %"
+        cartPickNowArray = CartController().getCartPickTypeByCustomerId(custId,cart_pickup_now: gv.getConfigValue("flagYes") as! String)!
+        cartPickLaterArray = CartController().getCartPickTypeByCustomerId(custId, cart_pickup_now: gv.getConfigValue("flagNo") as! String)!
 
         // Do any additional setup after loading the view.
         self.cartTableView.delegate = self
 //        self.setupNavigationBar()
         self.cartTableView.reloadData()
+        
         self.setupNav.setupNavigationBar(self)
     }
     
     override func viewDidAppear(animated: Bool) {
         self.customPromotionPopup()
+        self.reCalculate()
     }
     
     func initialValue(){
@@ -257,6 +272,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
             self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice)
             self.lblGrandTotal.text = self.grandTotal.currency
+            self.reCalculate()
         }
     }
     // MARK: - Action
@@ -328,6 +344,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         clickedCell.lblTotalPrice.text = newTotalPrice.currency
         self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice).decimalNumberByAdding(newTotalPrice)
         self.lblGrandTotal.text = self.grandTotal.currency
+        self.reCalculate()
     }
     
     
@@ -349,6 +366,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             let viewController:CheckoutViewController = segue.destinationViewController as! CheckoutViewController
             viewController.cartPickNowArray = cartPickNowArray
             viewController.cartPickLaterArray = cartPickLaterArray
+            viewController.discount = discount
+            viewController.percentDiscount = percentDiscount
+            viewController.netTotal = netTotal
+            viewController.grandTotal = grandTotal
         }else if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
             viewController.grandTotal = self.grandTotal
@@ -535,5 +556,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             callAssistanceViewController.view.removeFromSuperview()
         }
     }
-
+    
+    func reCalculate(){
+        discount = grandTotal.decimalNumberByMultiplyingBy(percentDiscount).decimalNumberByDividingBy(100)
+        self.lblDiscount.text = "-\(discount.currency)"
+        //self.lblPercentDiscount.text = "-\(discount)"
+        let netTotal = grandTotal.decimalNumberBySubtracting(discount)
+        self.lblNetTotal.text = "\(netTotal.currency)"
+    }
+    
 }

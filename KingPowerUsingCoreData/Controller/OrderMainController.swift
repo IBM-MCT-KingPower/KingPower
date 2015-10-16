@@ -17,10 +17,10 @@ class OrderMainController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_no: String, ordm_passport_no: String, ordm_currency: String,ordm_total_price: NSNumber, ordm_flight_departure: Int32, ordm_receupt_departure: String, ordm_picknow_flag: String, ordm_current_location:String, ordm_flight_arrival: Int32, ordm_receipt_arrival: String, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: NSDate, ordm_create_date: NSDate, ordm_update_date: NSDate){
+    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_no: String, ordm_passport_no: String, ordm_currency: String,ordm_total_price: Double, ordm_flight_departure: Int32, ordm_receupt_departure: String, ordm_picknow_flag: String, ordm_current_location:String, ordm_flight_arrival: Int32, ordm_receipt_arrival: String, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: NSDate, ordm_create_date: NSDate, ordm_update_date: NSDate, ordm_net_total_number:Double, ordm_running_no:Int32, ordm_card_discount:Int32){
         
         var orderMain = OrderMainModel()
-        let query = String(format: orderMain.queryInsertOrderMain, ordm_ords_id, ordm_user_id, ordm_cust_id, ordm_no, ordm_passport_no, ordm_currency,ordm_total_price, ordm_flight_departure, ordm_receupt_departure, ordm_picknow_flag, ordm_current_location, ordm_flight_arrival, ordm_receipt_arrival, ordm_picklater_flag, ordm_pickup_location, ordm_submit_date, ordm_create_date, ordm_update_date)
+        let query = String(format: orderMain.queryInsertOrderMain, ordm_ords_id, ordm_user_id, ordm_cust_id, ordm_no, ordm_passport_no, ordm_currency,ordm_total_price, ordm_flight_departure, ordm_receupt_departure, ordm_picknow_flag, ordm_current_location, ordm_flight_arrival, ordm_receipt_arrival, ordm_picklater_flag, ordm_pickup_location, ordm_submit_date, ordm_create_date, ordm_update_date, ordm_net_total_number, ordm_running_no, ordm_card_discount)
         
         print("\nQUERY: \(query)")
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
@@ -96,7 +96,10 @@ class OrderMainController{
                 orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
                 orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
                 orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
-                
+                orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
+                orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
+                orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
+                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
                 return orderMain
                 
             }
@@ -138,6 +141,9 @@ class OrderMainController{
                 orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
                 orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
                 orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
+                orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
+                orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
+                orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
                 orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
                 orderMainArray.append(orderMain)
                 

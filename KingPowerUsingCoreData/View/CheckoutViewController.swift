@@ -13,7 +13,13 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var lblGrandTotal: UILabel!
     @IBOutlet weak var btnConfirmCheckout: UIButton!
     @IBOutlet weak var btnContinueShopping: UIButton!
-    
+    @IBOutlet weak var lblPercentDiscount:UILabel!
+    @IBOutlet weak var lblDiscount:UILabel!
+    @IBOutlet weak var lblNetTotal:UILabel!
+
+    var percentDiscount:NSDecimalNumber = 0.0
+    var discount:NSDecimalNumber = 0.0
+    var netTotal:NSDecimalNumber = 0.0
     var setupNav = KPNavigationBar()
     var grandTotal : NSDecimalNumber = 0
     //var goodsNowList = [Goods]()
@@ -33,9 +39,13 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         self.checkoutTableView.backgroundColor = UIColor.whiteColor()
         print("Now List : \(cartPickNowArray.count)")
         print("Later List : \(cartPickLaterArray.count)")
-//        self.setupNavigationBar()
-        
         self.setupNav.setupNavigationBar(self)
+        
+        self.lblGrandTotal.text = self.grandTotal.currency
+        self.lblPercentDiscount.text = "\(percentDiscount) %"
+        self.lblDiscount.text = "-\(discount.currency)"
+        let netTotal = grandTotal.decimalNumberBySubtracting(discount)
+        self.lblNetTotal.text = "\(netTotal.currency)"
         
     }
     
@@ -120,10 +130,11 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
                 let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price))
                 cell.lblUnitPrice.text = pricePerProd.currency
                 cell.lblTotalPrice.text = totalPrice.currency
+                /*
                 self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
                 if indexPath.row == self.cartPickNowArray.count - 1 && self.cartPickLaterArray.count == 0 {
                     self.lblGrandTotal.text = self.grandTotal.currency
-                }
+                }*/
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
@@ -142,10 +153,11 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
                 let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price))
                 cell.lblUnitPrice.text = pricePerProd.currency
                 cell.lblTotalPrice.text = totalPrice.currency
+                /*
                 self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
                 if indexPath.row == self.cartPickLaterArray.count - 1 {
                     self.lblGrandTotal.text = self.grandTotal.currency
-                }
+                }*/
                 return cell
             }else {
                 let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
