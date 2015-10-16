@@ -35,13 +35,11 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     var dateFormatter = NSDateFormatter()
     
+    var departAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
+    var returnAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
+    
     var departFlight : FlightInfoModel? = FlightInfoModel()
     var returnFlight : FlightInfoModel? = FlightInfoModel()
-    
-    
-    var departAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
-    
-    var returnAirlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
     
     override func viewDidLoad() {
         print("LoginDetailViewController")
@@ -75,18 +73,36 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         pickerViewDepartDate.datePickerMode = UIDatePickerMode.Date
         pickerViewReturnDate.datePickerMode = UIDatePickerMode.Date
         
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.Default
+        toolBar.translucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+
+        
         pickerViewDepart.tag = 0
         pickerViewReturn.tag = 1
         pickerViewDepartDate.tag = 2
         pickerViewReturnDate.tag = 3
         
         departAirlineTextField.inputView = pickerViewDepart
-        returnAirlineTextField.inputView = pickerViewReturn
-        departDateTextField.inputView = pickerViewDepartDate
-        returnDateTextField.inputView = pickerViewReturnDate
+        departAirlineTextField.inputAccessoryView = toolBar
         
-        pickerViewDepartDate.addTarget(self, action: Selector("departDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        returnAirlineTextField.inputView = pickerViewReturn
+        returnAirlineTextField.inputAccessoryView = toolBar
+        
+        departDateTextField.inputView = pickerViewDepartDate
+        departDateTextField.inputAccessoryView = toolBar
+        
+        returnDateTextField.inputView = pickerViewReturnDate
+        returnDateTextField.inputAccessoryView = toolBar
+        
+//        pickerViewDepartDate.addTarget(self, action: Selector("departDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+//        pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
     }
     
@@ -137,6 +153,11 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             returnAirlineTextField.text = returnAirlinePickerOption[row]
         }
         self.view.endEditing(true)
+    }
+    
+    func donePicker() {
+        print("DONE PICKER")
+        
     }
     
     func departDatePickerValueChanged(sender:UIDatePicker) {
