@@ -273,7 +273,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLogintapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kac-QJ-GOu"/>
-                                    <segue destination="bBl-8n-ks5" kind="modal" id="Aqe-99-uj7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -287,6 +286,7 @@
                         <outlet property="lblCompanyName" destination="oGp-re-TtL" id="fFq-Eg-6Gh"/>
                         <outlet property="txtPassword" destination="msd-hq-Iei" id="48u-MK-G0g"/>
                         <outlet property="txtStaffId" destination="22p-Dk-K8r" id="CZS-c5-T0t"/>
+                        <segue destination="bBl-8n-ks5" kind="modal" identifier="loginSegue" id="ojR-mU-43F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -4081,7 +4081,6 @@ with any Estee Lauder purchase of 3,000THB</string>
                                 </state>
                                 <connections>
                                     <action selector="btnSubmitTapped:" destination="BYU-Cj-vfI" eventType="touchUpInside" id="weg-Hs-mSh"/>
-                                    <segue destination="tgo-Zm-aOX" kind="push" identifier="loginDetial" id="hDj-Aw-nss"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Member Card ID" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="tT8-US-USO">
@@ -4111,6 +4110,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="cardIdTextField" destination="tT8-US-USO" id="5UU-hK-x5L"/>
+                        <segue destination="tgo-Zm-aOX" kind="push" identifier="loginDetailSegue" id="3Vv-6k-mQo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yot-at-T5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
