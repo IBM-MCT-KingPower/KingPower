@@ -18,10 +18,8 @@ class FlightInfoController{
     
     func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String, flii_create_date: String) -> FlightInfoModel? {
         
-        let query = "INSERT INTO FLIGHT_INFO (FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE) VALUES (\(flii_cust_id), '\(flii_airline)', '\(flii_flight_no)', '\(flii_flight_date)', '\(flii_return_flag)', '\(flii_create_date)')"
-        
         var flightInfo = FlightInfoModel()
-        //        let query = String(format: flightInfo.queryInsertFlight, flii_cust_id, flii_airline, flii_flight_no, testdate, flii_return_flag, testdate)
+        let query = String(format: flightInfo.queryInsertFlight, flii_cust_id, flii_airline, flii_flight_no, flii_flight_date, flii_return_flag, flii_create_date)
         
         print("\nQUERY: \(query)")
         let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
@@ -38,6 +36,18 @@ class FlightInfoController{
                 }
             }
             print("INSERT SUCCESS : ID: \(maxId)")
+            
+            //Get Data
+            let queryGetData = "SELECT * FROM FLIGHT_INFO WHERE flii_id = \(maxId)"
+            if let rs = database.executeQuery(queryGetData, withArgumentsInArray: nil){
+                while rs.next(){
+                    print(rs.stringForColumn("flii_flight_date"))
+                    break
+                }
+                
+            }
+            
+            
             return getFlightById(maxId)
             
         }

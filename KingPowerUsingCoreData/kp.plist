@@ -4,6 +4,8 @@
 <dict>
 	<key>defaultCurrency</key>
 	<string>THB</string>
+	<key>keyboardHeight</key>
+	<integer>167</integer>
 	<key>navigationBarColor</key>
 	<string>#006ECC</string>
 	<key>navigationBarImgName</key>

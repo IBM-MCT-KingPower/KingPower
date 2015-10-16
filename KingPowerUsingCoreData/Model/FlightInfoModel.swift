@@ -18,7 +18,7 @@ public class FlightInfoModel{
     var flii_return_flag : String = ""
     var flii_create_date : NSDate = NSDate()
     
-    var queryInsertFlight : String = "INSERT INTO FLIGHT_INFO (FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE) VALUES (%@, '%@', '%@', '%@', '%@', '%@');"
+    var queryInsertFlight : String = "INSERT INTO FLIGHT_INFO (FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE) VALUES (%d, '%@', '%@', '%@', '%@', '%@');"
     
     var queryUpdateFlightById : String = "UPDATE FLIGHT_INFO SET FLII_CUST_ID = %@, FLII_AIRLINE = '%@', FLII_FLIGHT_NO = '%@', FLII_FLIGHT_DATE = %@, FLII_RETURN_FLAG = '%@' WHERE FLII_ID = %@;"
     

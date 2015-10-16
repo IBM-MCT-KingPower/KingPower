@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var imgPromo: UIImageView!
     @IBOutlet weak var lblCompanyName: UILabel!
     @IBOutlet weak var txtStaffId: UITextField!
@@ -25,12 +25,21 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.decorate()
         // Do any additional setup after loading the view.
-
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
     }
     
     //DIP:: Do view recorating form here
@@ -45,16 +54,13 @@ class LoginViewController: UIViewController {
         self.txtStaffId.placeholder = self.constat.customLocalizedString("loginStaffId", comment: "this is comment")as String
         self.txtPassword.placeholder = self.constat.customLocalizedString("loginStaffPassword", comment: "this is comment") as String
         
-        /*
-        self.btnLogin.setTitle(self.constat.customLocalizedString("loginLogin", comment: "this is comment")as String, forState: .Normal)
-        */
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     @IBAction func btnLogintapped(sender: AnyObject) {
         let staffId = self.txtStaffId!.text
         let password = self.txtPassword!.text
@@ -64,12 +70,12 @@ class LoginViewController: UIViewController {
             commonViewController.alertView(self, title: gv.getConfigValue("messageAuthenFailTitle") as! String, message: gv.getConfigValue("messageAuthenRequiredField") as! String)
             
         }else{
-        
+            
             var userController = UserController()
-       
+            
             var userModel : UserModel?
             userModel = userController.authentication(staffId!, password: password!)
-        
+            
             if (userModel ==  nil) {
                 commonViewController.alertView(self, title: gv.getConfigValue("messageAuthenFailTitle") as! String, message: gv.getConfigValue("messageAuthenFail") as! String)
             }else{
@@ -84,10 +90,10 @@ class LoginViewController: UIViewController {
             }
         }
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -104,7 +110,7 @@ class LoginViewController: UIViewController {
             print("FIRST NAME: \(fname)")
             print("LAST NAME:  \(lname)")
             print("WORK UNIT:  \(workunit)")
-
+            
             let navMainPageVC = segue.destinationViewController as! UINavigationController
             let mainPageVC = navMainPageVC.topViewController as! MainPageViewController
             mainPageVC.vTechnicianName = "\(fname) \(lname)/\(workunit)"
@@ -112,5 +118,5 @@ class LoginViewController: UIViewController {
             */
         }
     }
-
+    
 }
