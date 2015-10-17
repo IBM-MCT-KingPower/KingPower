@@ -115,7 +115,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         path.moveToPoint(CGPointMake(startPoint.x, btnAddToCart.frame.origin.y))
         //print("\(pointTest.frame.origin.x), \(pointTest.frame.origin.y)")
         //path.addQuadCurveToPoint(CGPoint(x: endPoint.x + 12, y: endPoint.y + 2), controlPoint: CGPoint(x:760.0, y:125.0))
-        path.addQuadCurveToPoint(CGPoint(x: endPoint.x + 12, y: endPoint.y + 2), controlPoint: CGPoint(x:630, y:50))
+        path.addQuadCurveToPoint(CGPoint(x: endPoint.x + 12, y: endPoint.y + 8), controlPoint: CGPoint(x:630, y:5))
         pathAnimation.path = path.CGPath
         
         // apply transform animation
@@ -137,6 +137,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         //animation2.autoreverses = false
         cartCountView.layer.addAnimation(animation2, forKey: nil)
 */
+        /*
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDelegate(self)
        // UIView.setAnimationDelay(0.5)
@@ -144,6 +145,20 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         UIView.setAnimationRepeatCount(1)
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
+        UIView.commitAnimations()
+        */
+        UIView.animateWithDuration(2, animations: {
+            cartCountView.alpha = 0
+            cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
+            
+            }, completion: {
+                finished in
+                cartCountView.removeFromSuperview()
+                self.setupNav.addAmountInCart(Int(self.amount.text!)!)
+                print("The subview should be removed now")
+        })
+        //UIView.setAnimationTransition(UIViewAnimationTransition., forView: cartCountView, cache: true)
+        //cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
         UIView.commitAnimations()
         
         let currentDate = commonViewController.castDateFromDate(NSDate())
@@ -157,6 +172,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
             picknowFlag = "N"
         }
         CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: "", cart_create_date: currentDate, cart_update_date: currentDate)
+        
         
     }
     @IBAction func currencyConvertorPopup(sender: AnyObject) {
@@ -449,6 +465,5 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
             callAssistanceViewController.view.removeFromSuperview()
         }
     }
-
 
 }

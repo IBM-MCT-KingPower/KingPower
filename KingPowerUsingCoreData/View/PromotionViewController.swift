@@ -113,6 +113,11 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     override func viewDidAppear(animated: Bool) {
         // self.setupNavigationBar()
         //setupNav.setupNavigationBar(self)
+        //setupNav.setAmountInCart()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setupNav.setAmountInCart()
     }
     //Start - Promotion
     func loadVisiblePages() {

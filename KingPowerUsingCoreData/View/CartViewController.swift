@@ -71,16 +71,23 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         self.cartTableView.delegate = self
 //        self.setupNavigationBar()
-        self.cartTableView.reloadData()
+        
         
         self.setupNav.setupNavigationBar(self)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         self.customPromotionPopup()
-        self.reCalculate()
+        grandTotal = 0
+
+        self.cartTableView.reloadData()
+        
         print("Now List : \(cartPickNowArray.count)")
         print("Later List : \(cartPickLaterArray.count)")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.reCalculate()
     }
     
     func initialValue(){

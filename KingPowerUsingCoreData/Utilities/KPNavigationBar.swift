@@ -12,6 +12,7 @@ class KPNavigationBar: NSObject{
     
     var gv = GlobalVariable()
     var buttonCart:UIButton!
+    var lblCartCount:UILabel!
     func setupNavigationBar(uiView: UIViewController){
         var navBar:UINavigationBar=UINavigationBar()
         
@@ -110,8 +111,26 @@ class KPNavigationBar: NSObject{
         }else{
             uiView.navigationItem.rightBarButtonItems?.append(rightBarButtonItemCart)
         }
+        var circleView:UIView = UIView(frame: CGRectMake(20,-3, 20, 20))
+        circleView.layer.cornerRadius = circleView.frame.size.width/2
+        circleView.clipsToBounds = true
+        circleView.backgroundColor = UIColor.redColor()
         
+        lblCartCount = UILabel(frame: CGRectMake(0, 0, 20, 20))
+        lblCartCount.font = UIFont.boldSystemFontOfSize(12)
+        lblCartCount.textAlignment = .Center;
+        setAmountInCart()
+        //lblCartCount.font = UIFont(name: "Century Gothic", size: 18)
+        lblCartCount.textColor = UIColor.whiteColor()
+        circleView.addSubview(lblCartCount)
+        //cartCountView.addSubview(circleView)
+        //let cur:UIWindow? = UIApplication.sharedApplication().keyWindow
+        //cur?.addSubview(circleView)
+        buttonCart.addSubview(circleView)
         
+//        var result = KPVariable.addAmountInCart(4)
+//        KPVariable.addAmountInCart(6)
+//        print("Navigate \(KPVariable.getAmountInCart())")
     }
     
     func addCallAssistItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Right Item
@@ -250,6 +269,26 @@ class KPNavigationBar: NSObject{
     func getButtonCart() -> UIButton {
         return buttonCart
     }
+    
+    func addAmountInCart(b: Int) -> Int {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let amount: Int = Int(prefs.integerForKey(gv.getConfigValue("currentAmountInCart") as! String))
+        prefs.synchronize()
+        let totalAmount = b + amount
+        lblCartCount.text = "\(totalAmount)"
+        prefs.setInteger(totalAmount, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        return totalAmount
+        
+    }
+    
+    func setAmountInCart() -> Int {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let amount: Int = Int(prefs.integerForKey(gv.getConfigValue("currentAmountInCart") as! String))
+        print("Amount \(amount)")
+        lblCartCount.text = "\(amount)"
+        return amount
+    }
+    
     
     
     

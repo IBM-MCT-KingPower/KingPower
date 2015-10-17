@@ -144,5 +144,7 @@
 	<string>CURRENTUSERID</string>
 	<key>currentCustomerId</key>
 	<string>CURRENTCUSTOMERID</string>
+	<key>currentAmountInCart</key>
+	<string>CURRENTAMOUNTINCART</string>
 </dict>
 </plist>
