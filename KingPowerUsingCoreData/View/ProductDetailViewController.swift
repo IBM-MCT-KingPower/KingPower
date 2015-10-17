@@ -35,6 +35,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var productImgArray:[UIImage] = []
     var database:FMDatabase!
     
+    var commonViewController = CommonViewController()
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
     
@@ -144,6 +145,18 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
         cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
         UIView.commitAnimations()
+        
+        let currentDate = commonViewController.castDateFromDate(NSDate())
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+        var picknowFlag = "Y"
+        if pickNow.on {
+            picknowFlag = "Y"
+        }else{
+            picknowFlag = "N"
+        }
+        CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: "", cart_create_date: currentDate, cart_update_date: currentDate)
         
     }
     @IBAction func currencyConvertorPopup(sender: AnyObject) {

@@ -49,6 +49,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
     
+    var cartController = CartController()
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
     
@@ -78,6 +79,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(animated: Bool) {
         self.customPromotionPopup()
         self.reCalculate()
+        print("Now List : \(cartPickNowArray.count)")
+        print("Later List : \(cartPickLaterArray.count)")
     }
     
     func initialValue(){
@@ -119,7 +122,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        // code
-        print("Cell for row at indexpath")
         if indexPath.section == 0 {
             if self.cartPickNowArray.count != 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("cartTableViewCell", forIndexPath: indexPath) as! CartTableViewCell
@@ -188,7 +190,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection")
         switch section {
         case 0 :
             if self.cartPickNowArray.count == 0 {
@@ -198,10 +199,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
         case 1 :
-            if self.cartPickNowArray.count == 0 {
+            if self.cartPickLaterArray.count == 0 {
                 return 1
             }else{
-                return self.cartPickNowArray.count
+                return self.cartPickLaterArray.count
             }
         default :
             return 0
@@ -309,7 +310,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.cartPickNowArray.removeAtIndex(indexPath!.row)
             self.cartPickLaterArray.append(curGoods)
         }
-        print("SWITCH : \(switch1.on) SECTION : \(indexPath!.section) ROW : \(indexPath!.row)")
         self.cartTableView.reloadData()
     }
     
@@ -563,6 +563,18 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         //self.lblPercentDiscount.text = "-\(discount)"
         let netTotal = grandTotal.decimalNumberBySubtracting(discount)
         self.lblNetTotal.text = "\(netTotal.currency)"
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        let yFlag = gv.getConfigValue("flagYes") as! String
+        let nFlag = gv.getConfigValue("flagNo") as! String
+        let currentDate = CommonViewController().castDateFromDate(NSDate())
+        for cart in cartPickNowArray {
+            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: yFlag, cart_update_date: currentDate)
+        }
+        for cart in cartPickLaterArray {
+            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: nFlag , cart_update_date: currentDate)
+        }
     }
     
 }

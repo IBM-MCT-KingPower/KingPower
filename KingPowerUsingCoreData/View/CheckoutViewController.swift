@@ -85,10 +85,10 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
         case 1 :
-            if self.cartPickNowArray.count == 0 {
+            if self.cartPickLaterArray.count == 0 {
                 return 1
             }else{
-                return self.cartPickNowArray.count
+                return self.cartPickLaterArray.count
             }
         default :
             return 0
