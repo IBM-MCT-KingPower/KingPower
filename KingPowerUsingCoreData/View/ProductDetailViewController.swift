@@ -422,6 +422,10 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func BackMethod(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     func removeNavigateView(){
         if(flightViewController != nil && !flightViewController.view.hidden)
         {

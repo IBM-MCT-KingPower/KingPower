@@ -13,7 +13,6 @@ class KPNavigationBar: NSObject{
     var gv = GlobalVariable()
     var buttonCart:UIButton!
     func setupNavigationBar(uiView: UIViewController){
-        
         var navBar:UINavigationBar=UINavigationBar()
         
         //Default
@@ -44,7 +43,19 @@ class KPNavigationBar: NSObject{
         }else if(uiView.isKindOfClass(ThankyouViewController)){
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addCallAssistItem(uiView, navBar: navBar, isEdge: true)
-        }else{
+        }else if(uiView.isKindOfClass(PromotionDetailViewController)){
+            addBackItem(uiView, navBar: navBar, isEdge: true)
+            addFlightItem(uiView, navBar: navBar, isEdge: false)
+            addSearchItem(uiView, navBar: navBar, isEdge: true)
+            addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+        }else if(uiView.isKindOfClass(ProductDetailViewController)){
+            addBackItem(uiView, navBar: navBar, isEdge: true)
+            addFlightItem(uiView, navBar: navBar, isEdge: false)
+            addSearchItem(uiView, navBar: navBar, isEdge: true)
+            addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+        }else {
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addFlightItem(uiView, navBar: navBar, isEdge: false)
             addSearchItem(uiView, navBar: navBar, isEdge: true)

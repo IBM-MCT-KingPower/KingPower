@@ -35,6 +35,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var arrayIndex=0;
     var pointNow: CGPoint!
     var lastDirection:String!
+    var promotionArray:[PromotionModel] = []
     var productArray:[ProductModel] = []
     var prodRemain:Int = 0
     var prodRow:Int = 0
@@ -55,7 +56,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         //Get Promotion Image
         print("promotionController")
         var promotionController : PromotionController = PromotionController()
-        var promotionArray : [PromotionModel] = promotionController.getPromotionAllEffective()
+        promotionArray = promotionController.getPromotionAllEffective()
         
         let promotionCount = promotionArray.count
         var pageCount = 0
@@ -130,13 +131,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         }
         // Load pages in our range
         for var index = 0; index < pageImages.count; ++index{
-            print("..... \(index)")
             loadPage(index)
         }
-//        for var index = firstPage; index <= lastPage; ++index {
-//            print("....... \(index)")
-//            loadPage(index)
-//        }
+
         // Purge anything after the last page
         for var index = lastPage+1; index < pageImages.count; ++index {
             purgePage(index)
@@ -161,9 +158,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
 //        // Load an individual page, first checking if you've already loaded it
         if let pageView = pageViews[page] {
             // Do nothing. The view is already loaded.
-            print("HERE >> \(page)")
         } else {
-            print(">>> \(page)")
             var frame = scvPromotion.bounds
             frame.origin.x = frame.size.width * CGFloat(page)
             frame.origin.y = 0.0
@@ -180,7 +175,6 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             btnPromotion.frame = CGRectMake((frame.width * CGFloat(page)) , 0, frame.width, frame.height)
             //btnPromotion.frame = CGRectMake(0, 0, frame.width, frame.height)
             
-            print("Add Target Button to page \(page)")
             scvPromotion.addSubview(btnPromotion)
             scvPromotion.addSubview(newPageView)
             
@@ -194,11 +188,13 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         navigationController?.pushViewController(vc, animated: true)
         */
         
-        print("BTN PromotionTapped")
+        print("BTN PromotionTapped \(pcPromotion.currentPage)")
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("PromotionDetailViewController") as! PromotionDetailViewController
         //print("test = \(vc.id)")
-        
+        var test = promotionArray[pcPromotion.currentPage]
+        print("SELECTED ID: \(test.prom_id)")
+        vc.selectedPromotion = promotionArray[pcPromotion.currentPage]
         self.navigationController?.pushViewController(vc, animated: true)
         
 //        let product = sender.view

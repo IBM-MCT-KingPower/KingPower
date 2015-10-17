@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KingPowerUsingCoreData/View/PromotionViewController.swift"
-            timestampString = "466112947.10181"
+            timestampString = "466760322.747657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "PromotionViewController"
             landmarkType = "3">
          </BreakpointContent>

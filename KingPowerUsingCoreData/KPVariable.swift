@@ -9,6 +9,7 @@
 import Foundation
 struct KPVariable {
     
+    
     static var sortDataArray = ["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGH","PRICE HIGH-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
     static var genderList = ["Men", "Women", "Unisex"]
     static var priceRangeList = ["< 2,000 THB", "2,000 - 5,000 THB", "5,000 - 10,000 THB", "10,000 - 15,000 THB", "15000 - 20000 THB", "> 20,000 THB"]
@@ -36,4 +37,32 @@ struct KPVariable {
         
     }
     
+    var amountInCart : Int = 0
+    
+    func addAmountInCart(b: Int) -> Int {
+        var totalAmount = b + self.amountInCart
+        return totalAmount
+        
+    }
+    
+    func getAmountInCart() -> Int{
+        return self.amountInCart
+    }
+    
+    //The way to use
+//    var kpVar = KPVariable()
+//    var currentAmount = kpVar.getAmountInCart()
+//    print("Current Amount In Cart : \(currentAmount)")
+//    
+//    var addMore : Int = 4
+//    print("New Amount In Cart: \(kpVar.addAmountInCart(addMore))")
+    
+    
+    
 }
+
+
+
+
+
+
