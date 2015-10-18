@@ -171,7 +171,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         }else{
             picknowFlag = "N"
         }
-        CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: "", cart_create_date: currentDate, cart_update_date: currentDate)
+        
+        CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: gv.getConfigValue("locationSuvarnabhumiAirport") as! String, cart_create_date: currentDate, cart_update_date: currentDate)
         
         
     }

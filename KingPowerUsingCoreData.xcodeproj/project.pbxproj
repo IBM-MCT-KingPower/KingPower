@@ -304,6 +304,7 @@
 		A11F14531BC38A630045B7B6 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDD51BC3782A00F1B427 /* SWRevealViewController.m */; };
 		A11F14541BC38AE70045B7B6 /* ufonts.com_century-gothic-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD71BC3783D00F1B427 /* ufonts.com_century-gothic-bold.ttf */; };
 		A11F14551BC38AE70045B7B6 /* ufonts.com_century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD81BC3783D00F1B427 /* ufonts.com_century-gothic.ttf */; };
+		A16043661BD39D94007CCC38 /* FlightInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A16DDE111BC37A1D00F1B427 /* CallAssistanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE081BC37A1D00F1B427 /* CallAssistanceViewController.xib */; };
 		A16DDE121BC37A1D00F1B427 /* FlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE091BC37A1D00F1B427 /* FlightViewController.xib */; };
 		A16DDE361BC37BE100F1B427 /* btnBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE301BC37BE100F1B427 /* btnBack.png */; };
@@ -711,6 +712,7 @@
 		A11EBE351BBE314700274BB3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A11EBE481BBE318100274BB3 /* Currency.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currency.plist; sourceTree = "<group>"; };
 		A11EBE721BBE336F00274BB3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlightInfoViewController.swift; path = View/FlightInfoViewController.swift; sourceTree = "<group>"; };
 		A16DDD591BC376BB00F1B427 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controller/UserController.swift; sourceTree = "<group>"; };
 		A16DDD5A1BC376BB00F1B427 /* UserGroupMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserGroupMappingController.swift; path = Controller/UserGroupMappingController.swift; sourceTree = "<group>"; };
 		A16DDD5B1BC376BB00F1B427 /* UserPermissionMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPermissionMappingController.swift; path = Controller/UserPermissionMappingController.swift; sourceTree = "<group>"; };
@@ -2335,6 +2337,7 @@
 				A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */,
 				A10F39D21BCF7F1500E2744D /* NoItemFoundCell.swift */,
 				A10F39D41BCF887800E2744D /* NoItemFoundCell.xib */,
+				A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */,
 			);
 			name = Cart;
 			sourceTree = "<group>";
@@ -3146,6 +3149,7 @@
 				A11F13F81BC389980045B7B6 /* ProductGroupController.swift in Sources */,
 				A11F13F91BC389980045B7B6 /* ProductImageController.swift in Sources */,
 				A11F13FA1BC389980045B7B6 /* ProductMainCategoryController.swift in Sources */,
+				A16043661BD39D94007CCC38 /* FlightInfoViewController.swift in Sources */,
 				A11F13FB1BC389980045B7B6 /* ProductSubCategoryController.swift in Sources */,
 				F930A7971BC7762500758366 /* UserModel.swift in Sources */,
 				A11F13FC1BC389980045B7B6 /* PromotionController.swift in Sources */,
