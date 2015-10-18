@@ -194,15 +194,67 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        /*
+        //var ordm_id         : Int32 = 0
+        //var ordm_ords_id    : Int32 = 0
+        //var ordm_user_id    : Int32 = 0
+        //var ordm_cust_id    : Int32 = 0
+        //var ordm_no : String = ""
+        //var ordm_currency   : String = ""
+        var ordm_flight_departure : Int32 = 0
+        var ordm_receipt_departure : String = ""
+        //var ordm_picknow_flag : String = ""
+        var ordm_flight_arrival : Int32 = 0
+        var ordm_receipt_arrival : String = ""
+        //var ordm_picklater_flag : String = ""
+        var ordm_passport_no : String = ""
+        //var ordm_current_location : String = ""
+        var ordm_pickup_location : String = ""
+        //var ordm_total_price : Double = 0
+        var ordm_submit_date : NSDate = NSDate()
+        var ordm_create_date : NSDate = NSDate()
+        var ordm_update_date : NSDate = NSDate()
+        //var ordm_running_no  : Int32 = 0
+        //var ordm_net_total_price : Double = 0
+        //var ordm_card_discount : Int32 = 0
+*/
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        
+        // The way to get currentCustomer
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+        let currentLocation = gv.getConfigValue("locationSuvarnabhumiAirport") as! String
+        let orderMain  = OrderMainModel()
+        orderMain.ordm_ords_id = 1
+        orderMain.ordm_user_id = userId
+        orderMain.ordm_cust_id = custId
+        if cartPickNowArray.count == 0 {
+            orderMain.ordm_picknow_flag = "N"
+        }else{
+            orderMain.ordm_picknow_flag = "Y"
+        }
+        if cartPickLaterArray.count == 0 {
+            orderMain.ordm_picklater_flag = "N"
+        }else{
+            orderMain.ordm_picklater_flag = "Y"
+        }
+        orderMain.ordm_current_location = currentLocation
+        orderMain.ordm_total_price = grandTotal.doubleValue
+        orderMain.ordm_net_total_price = netTotal.doubleValue
+        orderMain.ordm_card_discount = percentDiscount.intValue
+        
+        
     }
-    */
+    
     
 //    func setupNavigationBar(){
 //        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")

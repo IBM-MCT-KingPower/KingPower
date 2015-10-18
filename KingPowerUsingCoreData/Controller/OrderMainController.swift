@@ -17,21 +17,22 @@ class OrderMainController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: String, ordm_create_date: String, ordm_update_date: String, ordm_net_total_number:Double, ordm_running_no:Int32, ordm_card_discount:Int32) -> OrderMainModel {
+    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: String, ordm_create_date: String, ordm_update_date: String, ordm_net_total_number:Double, ordm_card_discount:Int32) -> OrderMainModel {
         var orderMain = OrderMainModel()
-        let max_running_no = getMaxOrderRunningNo() + 1
+        let cur_running_no = getMaxOrderRunningNo() + 1
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Year, .Month, .Day], fromDate: date)
         let day = String(format: "%02d", components.day)
         let month = String(format: "%02d", components.month)
         let year = String(format: "%02d", components.year)
-        let running = String(format: "%025", max_running_no)
+        let running = String(format: "%025", cur_running_no)
         
         let orderNo = "KP\(day)\(month)\(year)\(running)"
         let ordm_receipt_departure = ""
         let ordm_receipt_arrival = ""
         let ordm_currency =  "THB"
+        let ordm_running_no = cur_running_no
         var query = String(format: orderMain.queryInsertOrderMain, ordm_ords_id, ordm_user_id, ordm_cust_id, orderNo, ordm_passport_no, ordm_currency,ordm_total_price, ordm_flight_departure, ordm_receipt_departure, ordm_picknow_flag, ordm_current_location, ordm_flight_arrival, ordm_receipt_arrival, ordm_picklater_flag, ordm_pickup_location, ordm_submit_date, ordm_create_date, ordm_update_date, ordm_net_total_number, ordm_running_no, ordm_card_discount)
         
         print("\nQUERY: \(query)")
@@ -41,7 +42,7 @@ class OrderMainController{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
         }
         
-       return getOrderByMaxRunningNo(max_running_no)!
+       return getOrderByMaxRunningNo(cur_running_no)!
         
     }
     
