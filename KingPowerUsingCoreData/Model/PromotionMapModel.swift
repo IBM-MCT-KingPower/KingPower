@@ -20,6 +20,6 @@ public class PromotionMapModel{
     var prma_update_date : NSDate = NSDate()
     
     
-    var queryGetPromotionMapByPromotionId : String = "SELECT PRMA_ID, PRMA_PROM_ID, PRMA_BRAN_ID, PRMA_PROG_ID, PRMA_PRC_ID, PRMA_PROD_ID, PRMA_CREATE_DATE, PRMA_UPDATE_DATE FROM PROMOTION_MAP WHERE PRMA_PROM_ID = %@;"
+    var queryGetPromotionMapByPromotionId : String = "SELECT PRMA_ID, PRMA_PROM_ID, PRMA_BRAN_ID, PRMA_PROG_ID, PRMA_PRC_ID, PRMA_PROD_ID, PRMA_CREATE_DATE, PRMA_UPDATE_DATE FROM PROMOTION_MAP WHERE PRMA_PROM_ID = %d;"
     
 }

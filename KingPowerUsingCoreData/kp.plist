@@ -148,5 +148,7 @@
 	<string>CURRENTAMOUNTINCART</string>
 	<key>locationSuvarnabhumiAirport</key>
 	<string>Suvarnabhumi Airport</string>
+	<key>promotionImgTimer</key>
+	<integer>4</integer>
 </dict>
 </plist>

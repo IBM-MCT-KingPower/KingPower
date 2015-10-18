@@ -15,14 +15,14 @@ public class CustomerModel{
     var cust_first_name : String = ""
     var cust_last_name  : String = ""
     var cust_gender : String = ""
-    var cust_birthdate : NSDate = NSDate()
+    var cust_birthdate : String = ""
     var cust_member_id  : String = ""
     var cust_card_id    : Int32 = 0
     var cust_card_level : String = ""
     var cust_card_discount : Int32 = 0
-    var cust_card_exp_date : NSDate = NSDate()
+    var cust_card_exp_date : String = ""
     var cust_point      : Int32 = 0
-    var cust_point_exp_date : NSDate = NSDate()
+    var cust_point_exp_date : String = ""
     var cust_create_date : NSDate = NSDate()
     var cust_update_date : NSDate = NSDate()
     

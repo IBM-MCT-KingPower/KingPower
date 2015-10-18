@@ -40,6 +40,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var prodRemain:Int = 0
     var prodRow:Int = 0
     var prodCount:Int = 0
+    var myTimer : NSTimer = NSTimer()
+    var countTimer:Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
@@ -114,8 +117,27 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         // self.setupNavigationBar()
         //setupNav.setupNavigationBar(self)
         //setupNav.setAmountInCart()
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(gv.getConfigValue("promotionImgTimer") as! Double, target: self, selector: Selector("autoSlidePromotionImg"), userInfo: nil, repeats: true)
     }
     
+    func autoSlidePromotionImg(){
+        if (countTimer < pcPromotion.numberOfPages) {
+            scvPromotion.setContentOffset(CGPointMake(CGFloat(countTimer*1024), 0), animated: false)
+            
+        }else{
+            countTimer = 0
+            scvPromotion.setContentOffset(CGPointMake(CGFloat(countTimer*1024), 0), animated: false)
+        }
+        countTimer++
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+            countTimer = 0
+            myTimer.invalidate()
+        
+        
+    
+    }
     override func viewWillAppear(animated: Bool) {
         setupNav.setAmountInCart()
     }

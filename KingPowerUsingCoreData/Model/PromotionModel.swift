@@ -15,8 +15,8 @@ public class PromotionModel{
     var prom_name       : String = ""
     var prom_content1   : String = ""
     var prom_content2   : String = ""
-    var prom_effective_date : NSDate = NSDate()
-    var prom_expire_date : NSDate = NSDate()
+    var prom_effective_date : String = ""
+    var prom_expire_date : String = ""
     var prom_expire_flag : String = ""
     var prom_create_date : NSDate = NSDate()
     var prom_update_date : NSDate = NSDate()

@@ -85,6 +85,32 @@ class CommonViewController: UIViewController {
     }
     
     
+    func kpDateTimeFormat(oriString: String, dateOnly: Bool) -> String{
+        print("")
+        var stringArray : [String] = ["","","",""]
+        
+        let rangeOfYear = Range(start: oriString.startIndex, end: oriString.startIndex.advancedBy(4))
+        let rangeOfMonth = Range(start: oriString.startIndex.advancedBy(5), end: oriString.startIndex.advancedBy(7))
+        let rangeOfDate = Range(start: oriString.startIndex.advancedBy(8), end: oriString.startIndex.advancedBy(10))
+        
+        
+        stringArray[0] = oriString.substringWithRange(rangeOfYear)
+        stringArray[1] = oriString.substringWithRange(rangeOfMonth)
+        stringArray[2] = oriString.substringWithRange(rangeOfDate)
+        if(dateOnly){
+            //Date Format (Cast from 2016-10-23 to 23/10/2016)
+            return stringArray[2]+"/"+stringArray[1]+"/"+stringArray[0]
+        }else{
+            //Date Time Format (Cast from 2016-10-23 10:30:22 to 23/10/2016 10:30:22)
+            let rangeOfTime = Range(start: oriString.endIndex.advancedBy(-8), end: oriString.endIndex)
+            stringArray[3] = oriString.substringWithRange(rangeOfTime)
+            return stringArray[2]+"/"+stringArray[1]+"/"+stringArray[0]+" "+stringArray[3]
+        }
+        return ""
+    }
+
+    
+    
     /*
     // MARK: - Navigation
     

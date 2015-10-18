@@ -65,7 +65,7 @@ class FlightInfoController{
                 flightInfo.flii_cust_id = rs.intForColumn("flii_cust_id")
                 flightInfo.flii_airline = rs.stringForColumn("flii_airline")
                 flightInfo.flii_flight_no = rs.stringForColumn("flii_flight_no")
-                flightInfo.flii_flight_date = rs.dateForColumn("flii_flight_date")
+                flightInfo.flii_flight_date = rs.stringForColumn("flii_flight_date")
                 flightInfo.flii_return_flag = rs.stringForColumn("flii_return_flag")
                 flightInfo.flii_create_date = rs.dateForColumn("flii_create_date")
                 return flightInfo
@@ -102,7 +102,7 @@ class FlightInfoController{
                 flightObj.flii_cust_id = rs.intForColumn("flii_cust_id")
                 flightObj.flii_airline = rs.stringForColumn("flii_airline")
                 flightObj.flii_flight_no = rs.stringForColumn("flii_flight_no")
-                flightObj.flii_flight_date = rs.dateForColumn("flii_flight_date")
+                flightObj.flii_flight_date = rs.stringForColumn("flii_flight_date")
                 flightObj.flii_return_flag = rs.stringForColumn("flii_return_flag")
                 flightObj.flii_create_date = rs.dateForColumn("flii_create_date")
                 

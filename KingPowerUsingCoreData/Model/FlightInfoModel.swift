@@ -14,7 +14,7 @@ public class FlightInfoModel{
     var flii_cust_id    : Int32 = 0
     var flii_airline : String = ""
     var flii_flight_no  : String = ""
-    var flii_flight_date : NSDate = NSDate()
+    var flii_flight_date : String = ""
     var flii_return_flag : String = ""
     var flii_create_date : NSDate = NSDate()
     

@@ -238,7 +238,7 @@
 		A11F13FA1BC389980045B7B6 /* ProductMainCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD711BC3770C00F1B427 /* ProductMainCategoryController.swift */; };
 		A11F13FB1BC389980045B7B6 /* ProductSubCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD721BC3770C00F1B427 /* ProductSubCategoryController.swift */; };
 		A11F13FC1BC389980045B7B6 /* PromotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD7B1BC3772100F1B427 /* PromotionController.swift */; };
-		A11F13FD1BC389980045B7B6 /* PromotionMappingContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD7C1BC3772100F1B427 /* PromotionMappingContoller.swift */; };
+		A11F13FD1BC389980045B7B6 /* PromotionMappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD7C1BC3772100F1B427 /* PromotionMappingController.swift */; };
 		A11F13FE1BC389980045B7B6 /* PromotionImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD7D1BC3772100F1B427 /* PromotionImageController.swift */; };
 		A11F13FF1BC389980045B7B6 /* DetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD911BC3779900F1B427 /* DetailPresentationController.swift */; };
 		A11F14001BC389980045B7B6 /* filterdetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDD921BC3779900F1B427 /* filterdetailManager.swift */; };
@@ -731,7 +731,7 @@
 		A16DDD711BC3770C00F1B427 /* ProductMainCategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductMainCategoryController.swift; path = Controller/ProductMainCategoryController.swift; sourceTree = "<group>"; };
 		A16DDD721BC3770C00F1B427 /* ProductSubCategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductSubCategoryController.swift; path = Controller/ProductSubCategoryController.swift; sourceTree = "<group>"; };
 		A16DDD7B1BC3772100F1B427 /* PromotionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionController.swift; path = Controller/PromotionController.swift; sourceTree = "<group>"; };
-		A16DDD7C1BC3772100F1B427 /* PromotionMappingContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionMappingContoller.swift; path = Controller/PromotionMappingContoller.swift; sourceTree = "<group>"; };
+		A16DDD7C1BC3772100F1B427 /* PromotionMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionMappingController.swift; path = Controller/PromotionMappingController.swift; sourceTree = "<group>"; };
 		A16DDD7D1BC3772100F1B427 /* PromotionImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionImageController.swift; path = Controller/PromotionImageController.swift; sourceTree = "<group>"; };
 		A16DDD811BC3778400F1B427 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = Framework/FMDB/FMDatabase.h; sourceTree = "<group>"; };
 		A16DDD821BC3778400F1B427 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = Framework/FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -2458,7 +2458,7 @@
 			isa = PBXGroup;
 			children = (
 				A16DDD7B1BC3772100F1B427 /* PromotionController.swift */,
-				A16DDD7C1BC3772100F1B427 /* PromotionMappingContoller.swift */,
+				A16DDD7C1BC3772100F1B427 /* PromotionMappingController.swift */,
 				A16DDD7D1BC3772100F1B427 /* PromotionImageController.swift */,
 				3A1C8D8A1BC6132700A64F43 /* PromotionUpSaleLevelController.swift */,
 			);
@@ -3153,7 +3153,7 @@
 				A11F13FB1BC389980045B7B6 /* ProductSubCategoryController.swift in Sources */,
 				F930A7971BC7762500758366 /* UserModel.swift in Sources */,
 				A11F13FC1BC389980045B7B6 /* PromotionController.swift in Sources */,
-				A11F13FD1BC389980045B7B6 /* PromotionMappingContoller.swift in Sources */,
+				A11F13FD1BC389980045B7B6 /* PromotionMappingController.swift in Sources */,
 				F930A78E1BC7762500758366 /* ProductImageModel.swift in Sources */,
 				A11F13FE1BC389980045B7B6 /* PromotionImageController.swift in Sources */,
 				F930A7921BC7762500758366 /* PromotionModel.swift in Sources */,

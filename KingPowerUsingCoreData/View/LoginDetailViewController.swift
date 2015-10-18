@@ -63,11 +63,11 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
         self.customerNameLabel.text = self.customer.cust_title+". "+self.customer.cust_first_name+" "+self.customer.cust_last_name
-        self.customerBirthdateLabel.text = dateFormatter.stringFromDate(self.customer.cust_birthdate)
+        self.customerBirthdateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_birthdate, dateOnly: true)
         self.cardIdLabel.text = String(self.customer.cust_card_id)
-        self.cardExpireDateLabel.text = dateFormatter.stringFromDate(self.customer.cust_card_exp_date)
+        self.cardExpireDateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_card_exp_date, dateOnly: true)
         self.customerPointLabel.text = String(self.customer.cust_point)
-        self.customerPointExpireDateLabel.text = dateFormatter.stringFromDate(self.customer.cust_point_exp_date)
+        self.customerPointExpireDateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_point_exp_date, dateOnly: true)
         
         var cardImage = UIImage(named: self.customer.cust_card_level+".png")
         self.customerCardImage.image = cardImage

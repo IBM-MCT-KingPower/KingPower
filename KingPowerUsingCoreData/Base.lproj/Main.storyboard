@@ -227,6 +227,10 @@
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -3867,15 +3871,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvA-MY-6U2">
-                                <rect key="frame" x="20" y="377" width="974" height="131"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.
-Proin gravida sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate.
+                                <rect key="frame" x="20" y="379" width="974" height="101"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Online Exclusive
-Receive a 3-pice travel sized gift set
 with any Estee Lauder purchase of 3,000THB</string>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Effective on " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eon-pv-Aba">
+                                <rect key="frame" x="20" y="481" width="103" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-K1-8OT">
+                                <rect key="frame" x="131" y="481" width="86" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-Ps-N9b">
+                                <rect key="frame" x="214" y="481" width="35" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRw-FU-2PF">
+                                <rect key="frame" x="250" y="481" width="86" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -3887,6 +3913,10 @@ with any Estee Lauder purchase of 3,000THB</string>
                     <connections>
                         <outlet property="labelDetail" destination="YvA-MY-6U2" id="jXn-vz-zQ6"/>
                         <outlet property="labelHeader" destination="GX5-XT-JEV" id="AL2-2X-X8m"/>
+                        <outlet property="promotionEffectiveDate" destination="9yf-K1-8OT" id="ktu-4U-rKi"/>
+                        <outlet property="promotionExpireDate" destination="ZRw-FU-2PF" id="v1h-tj-8Ab"/>
+                        <outlet property="promotionImage" destination="SNe-SI-4P9" id="TeV-DJ-KRw"/>
+                        <outlet property="relatedProductTableView" destination="ibd-Bl-Zgz" id="pJi-EK-ikE"/>
                         <outlet property="relatedTableView" destination="ibd-Bl-Zgz" id="anW-Xi-rdv"/>
                         <outlet property="tabView" destination="2Iq-YI-KD5" id="liP-MC-AAy"/>
                     </connections>

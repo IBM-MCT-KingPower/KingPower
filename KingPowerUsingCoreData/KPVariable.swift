@@ -49,16 +49,6 @@ struct KPVariable {
         return self.amountInCart
     }
     
-    //The way to use
-//    var kpVar = KPVariable()
-//    var currentAmount = kpVar.getAmountInCart()
-//    print("Current Amount In Cart : \(currentAmount)")
-//    
-//    var addMore : Int = 4
-//    print("New Amount In Cart: \(kpVar.addAmountInCart(addMore))")
-    
-    
-    
 }
 
 
