@@ -16,8 +16,8 @@ class OrderDetailController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordd_ordm_id: Int32, ordd_prod_id: Int32, ordd_quantity: Int32, ordd_total_price: NSNumber, ordd_redeem_item: String, ordd_pickup_now: String, ordd_create_date: NSDate, ordd_update_date: NSDate){
-        
+    func insert(ordd_ordm_id: Int32, ordd_prod_id: Int32, ordd_quantity: Int32, ordd_total_price: Double, ordd_pickup_now: String, ordd_create_date: String, ordd_update_date: String){
+        let ordd_redeem_item = "N"
         var orderDetail = OrderDetailModel()
         let query = String(format: orderDetail.queryInsertOrderDetail, ordd_ordm_id, ordd_prod_id, ordd_quantity, ordd_total_price, ordd_redeem_item, ordd_pickup_now, ordd_create_date, ordd_update_date)
         

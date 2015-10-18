@@ -15,6 +15,6 @@ public class OrderStatusModel{
     var ords_create_date : NSDate = NSDate()
     var ords_update_date : NSDate = NSDate()
     
-    var queryGetOrderStatusById : String = "SELECT ORDS_ID, ORDS_NAME FROM ORDER_STATUS WHERE ORDS_ID = %@ ORDER BY ORDS_ID;"
+    var queryGetOrderStatusById : String = "SELECT ORDS_ID, ORDS_NAME FROM ORDER_STATUS WHERE ORDS_ID = %d ORDER BY ORDS_ID;"
     
 }
