@@ -146,5 +146,7 @@
 	<string>CURRENTCUSTOMERID</string>
 	<key>currentAmountInCart</key>
 	<string>CURRENTAMOUNTINCART</string>
+	<key>locationSuvarnabhumiAirport</key>
+	<string>Suvarnabhumi Airport</string>
 </dict>
 </plist>
