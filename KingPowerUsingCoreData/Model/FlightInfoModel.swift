@@ -16,7 +16,7 @@ public class FlightInfoModel{
     var flii_flight_no  : String = ""
     var flii_flight_date : String = ""
     var flii_return_flag : String = ""
-    var flii_create_date : NSDate = NSDate()
+    var flii_create_date : String = ""
     
     var queryInsertFlight : String = "INSERT INTO FLIGHT_INFO (FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE) VALUES (%d, '%@', '%@', '%@', '%@', '%@');"
     
@@ -26,7 +26,7 @@ public class FlightInfoModel{
     
     var queryGetFlightById : String = "SELECT FLII_ID, FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE FROM FLIGHT_INFO WHERE FLII_ID = %@"
     
-    var queryGetFlightByCustomerIdAndCurrentDate : String = "SELECT FLII_ID, FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE FROM FLIGHT_INFO WHERE FLII_CUST_ID = %@ AND FLII_CREATE_DATE-CURRENT_TIMESTAMP <= 1;"
+    var queryGetFlightByCustomerIdAndCurrentDate : String = "SELECT FLII_ID, FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE FROM FLIGHT_INFO WHERE FLII_CUST_ID = %d AND FLII_FLIGHT_DATE >= CURRENT_TIMESTAMP ORDER BY FLII_CREATE_DATE;"
     
     
 }

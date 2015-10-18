@@ -15,7 +15,6 @@ class FlightInfoController{
     init(){
         self.database = DatabaseUtil().getDBConnect()
     }
-    
     func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String, flii_create_date: String) -> FlightInfoModel? {
         
         var flightInfo = FlightInfoModel()
@@ -67,7 +66,7 @@ class FlightInfoController{
                 flightInfo.flii_flight_no = rs.stringForColumn("flii_flight_no")
                 flightInfo.flii_flight_date = rs.stringForColumn("flii_flight_date")
                 flightInfo.flii_return_flag = rs.stringForColumn("flii_return_flag")
-                flightInfo.flii_create_date = rs.dateForColumn("flii_create_date")
+                flightInfo.flii_create_date = rs.stringForColumn("flii_create_date")
                 return flightInfo
             }
         }else{
@@ -97,16 +96,16 @@ class FlightInfoController{
             
             var flightArray : [FlightInfoModel] = []
             while(rs.next()){
-                var flightObj : FlightInfoModel = FlightInfoModel()
-                flightObj.flii_id = rs.intForColumn("flii_id")
-                flightObj.flii_cust_id = rs.intForColumn("flii_cust_id")
-                flightObj.flii_airline = rs.stringForColumn("flii_airline")
-                flightObj.flii_flight_no = rs.stringForColumn("flii_flight_no")
-                flightObj.flii_flight_date = rs.stringForColumn("flii_flight_date")
-                flightObj.flii_return_flag = rs.stringForColumn("flii_return_flag")
-                flightObj.flii_create_date = rs.dateForColumn("flii_create_date")
+                flightInfo = FlightInfoModel()
+                flightInfo.flii_id = rs.intForColumn("flii_id")
+                flightInfo.flii_cust_id = rs.intForColumn("flii_cust_id")
+                flightInfo.flii_airline = rs.stringForColumn("flii_airline")
+                flightInfo.flii_flight_no = rs.stringForColumn("flii_flight_no")
+                flightInfo.flii_flight_date = rs.stringForColumn("flii_flight_date")
+                flightInfo.flii_return_flag = rs.stringForColumn("flii_return_flag")
+                flightInfo.flii_create_date = rs.stringForColumn("flii_create_date")
                 
-                flightArray.append(flightObj)
+                flightArray.append(flightInfo)
             }
             return flightArray
             

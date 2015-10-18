@@ -41,6 +41,12 @@ class KPNavigationBar: NSObject{
             addSearchItem(uiView, navBar: navBar, isEdge: true)
             addCartItem(uiView, navBar: navBar, isEdge: false)
             addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+        }else if(uiView.isKindOfClass(FlightInfoViewController)){
+            addBackItem(uiView, navBar: navBar, isEdge: true)
+            addFlightItem(uiView, navBar: navBar, isEdge: false)
+            addSearchItem(uiView, navBar: navBar, isEdge: true)
+            addCartItem(uiView, navBar: navBar, isEdge: false)
+            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
         }else if(uiView.isKindOfClass(ThankyouViewController)){
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addCallAssistItem(uiView, navBar: navBar, isEdge: true)
@@ -128,9 +134,9 @@ class KPNavigationBar: NSObject{
         //cur?.addSubview(circleView)
         buttonCart.addSubview(circleView)
         
-//        var result = KPVariable.addAmountInCart(4)
-//        KPVariable.addAmountInCart(6)
-//        print("Navigate \(KPVariable.getAmountInCart())")
+        //        var result = KPVariable.addAmountInCart(4)
+        //        KPVariable.addAmountInCart(6)
+        //        print("Navigate \(KPVariable.getAmountInCart())")
     }
     
     func addCallAssistItem(uiView: UIViewController, navBar: UINavigationBar, isEdge: Bool){ //Right Item
@@ -273,10 +279,10 @@ class KPNavigationBar: NSObject{
     func addAmountInCart(b: Int) -> Int {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let amount: Int = Int(prefs.integerForKey(gv.getConfigValue("currentAmountInCart") as! String))
-        prefs.synchronize()
         let totalAmount = b + amount
         lblCartCount.text = "\(totalAmount)"
         prefs.setInteger(totalAmount, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        prefs.synchronize()
         return totalAmount
         
     }

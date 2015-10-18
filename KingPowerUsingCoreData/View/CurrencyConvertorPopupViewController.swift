@@ -29,7 +29,7 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
         var i = 0
         let count = currencyArray.count / 2
         for currency in currencyArray {
-            if i <=  count {
+            if i <  count {
                 self.currencyArray1.addObject(currency)
             }else{
                 self.currencyArray2.addObject(currency)

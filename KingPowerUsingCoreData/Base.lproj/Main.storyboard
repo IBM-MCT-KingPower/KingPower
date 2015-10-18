@@ -85,8 +85,34 @@
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
         </mutableArray>
         <mutableArray key="ufonts.com_century-gothic.ttf">
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
@@ -2475,7 +2501,7 @@
                                 <state key="normal" title="Button" image="infos.png"/>
                                 <connections>
                                     <action selector="currencyConvertorPopup:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="5JS-Z8-fcI"/>
-                                    <segue destination="wjn-pv-gl5" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="wlp-ut-Mc6"/>
+                                    <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="Tr9-cY-tqw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Related Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w84-vI-d4s">
@@ -3014,7 +3040,7 @@
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="wjn-pv-gl5" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="G8Q-RA-lUU"/>
+                                                        <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="MW8-Cy-umH"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grand Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vao-sA-9Lr">
@@ -3231,131 +3257,6 @@
             </objects>
             <point key="canvasLocation" x="9588" y="1690"/>
         </scene>
-        <!--Currency Convertor Popup View Controller-->
-        <scene sceneID="vYl-bj-usX">
-            <objects>
-                <viewController modalPresentationStyle="pageSheet" id="wjn-pv-gl5" customClass="CurrencyConvertorPopupViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dpt-gq-NAX"/>
-                        <viewControllerLayoutGuide type="bottom" id="dGr-8Q-Sef"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nQz-By-VAq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AvI-kS-gkQ">
-                                <rect key="frame" x="59" y="32" width="215" height="320"/>
-                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currencyTableViewCell" id="hA3-7q-rqn" customClass="CurrencyTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="215" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hA3-7q-rqn" id="0Rr-ep-HFU">
-                                            <rect key="frame" x="0.0" y="0.0" width="215" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-m5-MEQ">
-                                                    <rect key="frame" x="10" y="4" width="40" height="35"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjE-CP-b3V">
-                                                    <rect key="frame" x="60" y="11" width="55" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbf-7R-d7W">
-                                                    <rect key="frame" x="135" y="11" width="65" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgNation" destination="5ET-m5-MEQ" id="XOx-iN-lzc"/>
-                                            <outlet property="lblCurrency" destination="Kbf-7R-d7W" id="2iC-jk-kdK"/>
-                                            <outlet property="lblNationName" destination="zjE-CP-b3V" id="Fic-Bf-eXb"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="wjn-pv-gl5" id="1Dv-aj-n8R"/>
-                                    <outlet property="delegate" destination="wjn-pv-gl5" id="KI4-Tz-qDB"/>
-                                </connections>
-                            </tableView>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7k6-Zq-GO6">
-                                <rect key="frame" x="327" y="32" width="215" height="320"/>
-                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currencyTableViewCell" id="L1z-42-n5h" customClass="CurrencyTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="215" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L1z-42-n5h" id="rbN-0M-ouM">
-                                            <rect key="frame" x="0.0" y="0.0" width="215" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IXC-FL-h5s">
-                                                    <rect key="frame" x="10" y="4" width="40" height="35"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0u-3w-eSH">
-                                                    <rect key="frame" x="60" y="11" width="55" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JkF-Jv-Tdg">
-                                                    <rect key="frame" x="135" y="11" width="65" height="21"/>
-                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgNation" destination="IXC-FL-h5s" id="sPI-Gc-xMA"/>
-                                            <outlet property="lblCurrency" destination="JkF-Jv-Tdg" id="GXO-Qn-UEg"/>
-                                            <outlet property="lblNationName" destination="e0u-3w-eSH" id="lNu-2n-pLD"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="wjn-pv-gl5" id="T6w-SZ-I8o"/>
-                                    <outlet property="delegate" destination="wjn-pv-gl5" id="3ch-g7-i9s"/>
-                                </connections>
-                            </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="The rate of exchange shown here is valid taday only. The actual payment amount can therefore deviate" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gd7-Up-12y">
-                                <rect key="frame" x="59" y="360" width="483" height="56"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqF-Tl-5z7">
-                                <rect key="frame" x="230" y="450" width="141" height="30"/>
-                                <color key="backgroundColor" red="0.098039215690000001" green="0.36470588240000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="okClicked:" destination="wjn-pv-gl5" eventType="touchUpInside" id="JGh-l2-wZt"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="500"/>
-                    <connections>
-                        <outlet property="btnOk" destination="aqF-Tl-5z7" id="CeV-mF-7qR"/>
-                        <outlet property="tbvCurrency1" destination="AvI-kS-gkQ" id="iGA-PW-QlM"/>
-                        <outlet property="tbvCurrency2" destination="7k6-Zq-GO6" id="I21-qQ-V5o"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qpO-KN-1qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9036" y="2606"/>
-        </scene>
         <!--Checkout View Controller-->
         <scene sceneID="rfA-1w-WHK">
             <objects>
@@ -3565,7 +3466,6 @@
                                         <connections>
                                             <action selector="ConfirmCheckoutMethod:" destination="igJ-2c-uRp" eventType="touchUpInside" id="G4c-5g-eSB"/>
                                             <action selector="checkOutClicked:" destination="Uwx-1Q-Xi7" eventType="touchUpInside" id="bpu-el-533"/>
-                                            <segue destination="e3c-hr-Fqk" kind="push" identifier="confirmShoppingSegue" id="i6h-PG-QPh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3618,96 +3518,12 @@
                         <outlet property="lblGrandTotal" destination="PKP-1M-BOu" id="NXn-Af-VSX"/>
                         <outlet property="lblNetTotal" destination="Ohj-vp-brU" id="lKb-mD-ZzV"/>
                         <outlet property="lblPercentDiscount" destination="tSf-JR-Evt" id="tYf-Fh-aMf"/>
+                        <segue destination="Jks-a1-Sw4" kind="push" identifier="confirmShoppingSegue" id="PCp-Fu-5YI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9NS-wd-0sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10773" y="1690"/>
-        </scene>
-        <!--Thankyou View Controller-->
-        <scene sceneID="JjN-Pt-SKM">
-            <objects>
-                <viewController id="e3c-hr-Fqk" customClass="ThankyouViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kVG-jP-ykV"/>
-                        <viewControllerLayoutGuide type="bottom" id="G2f-sI-BQF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hI7-Ye-qSb">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="THANK YOU FOR SHOPPING WITH US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQX-UA-6Vi">
-                                <rect key="frame" x="329" y="228" width="366" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLEASE WAIT WHILE WE ARE PROCESSING YOUR ORDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drC-Dv-wxr">
-                                <rect key="frame" x="288" y="315" width="448" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR ORDER NO. IS KP000000000004" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJW-KY-LM0">
-                                <rect key="frame" x="358" y="344" width="309" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAt-gi-Nsj">
-                                <rect key="frame" x="0.0" y="621" width="1024" height="147"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.1215686275" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqK-nX-3I3">
-                                <rect key="frame" x="462" y="451" width="101" height="30"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="OK"/>
-                                <connections>
-                                    <action selector="okMethod:" destination="e3c-hr-Fqk" eventType="touchUpInside" id="Cjy-le-5GM"/>
-                                    <segue destination="9Zv-0e-iaE" kind="unwind" unwindAction="exitFromThankyouPage:" id="ig9-kj-7aI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20392156859999999" green="0.17254901959999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="4ww-Il-eWr">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title=" " id="Jcd-db-O8U"/>
-                        <leftBarButtonItems>
-                            <barButtonItem title=" " id="i4b-4Q-t8r">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="backToCartMethod:" destination="igJ-2c-uRp" id="3ME-ka-vNU"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="takeoff.png" id="FZr-c6-cya">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <view key="titleView" contentMode="scaleToFill" id="mpd-gp-lKj">
-                            <rect key="frame" x="452.5" y="5.5" width="119" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gca-2Y-NjC">
-                                    <rect key="frame" x="0.0" y="0.0" width="119" height="33"/>
-                                </imageView>
-                            </subviews>
-                        </view>
-                        <barButtonItem key="rightBarButtonItem" image="contact.png" id="x7j-6G-aNm">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="btnOk" destination="IqK-nX-3I3" id="pgX-xF-OT1"/>
-                        <outlet property="lblOrderNo" destination="gJW-KY-LM0" id="rh9-E9-j5T"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NGA-IY-oi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="9Zv-0e-iaE" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="11954" y="1690"/>
         </scene>
         <!--Promotion Detail View Controller-->
         <scene sceneID="gbl-Bn-AwZ">
@@ -4265,6 +4081,482 @@ with any Estee Lauder purchase of 3,000THB</string>
             </objects>
             <point key="canvasLocation" x="1086" y="120"/>
         </scene>
+        <!--Currency Convertor Popup View Controller-->
+        <scene sceneID="wMk-JI-Jjt">
+            <objects>
+                <viewController modalPresentationStyle="pageSheet" id="lod-gu-85z" customClass="CurrencyConvertorPopupViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CeQ-Te-Pht"/>
+                        <viewControllerLayoutGuide type="bottom" id="MxU-7X-gDF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZjX-tK-g0h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bMM-ti-8KP">
+                                <rect key="frame" x="51" y="32" width="230" height="320"/>
+                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currencyTableViewCell" id="GJH-a8-15d" customClass="CurrencyTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="230" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GJH-a8-15d" id="eNU-qG-sG2">
+                                            <rect key="frame" x="0.0" y="0.0" width="230" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJd-cy-vIr">
+                                                    <rect key="frame" x="10" y="4" width="40" height="35"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cH-cY-yJz">
+                                                    <rect key="frame" x="70" y="11" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0QW-nM-QWL">
+                                                    <rect key="frame" x="120" y="11" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgNation" destination="EJd-cy-vIr" id="Dn5-ON-S2N"/>
+                                            <outlet property="lblCurrency" destination="0QW-nM-QWL" id="TiH-H8-5X9"/>
+                                            <outlet property="lblNationName" destination="1cH-cY-yJz" id="ViP-TI-ni7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lod-gu-85z" id="TG4-GG-b6c"/>
+                                    <outlet property="delegate" destination="lod-gu-85z" id="ukl-Nc-GYd"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7ht-T5-bS0">
+                                <rect key="frame" x="319" y="32" width="230" height="320"/>
+                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="currencyTableViewCell" id="kcJ-2y-oqy" customClass="CurrencyTableViewCell" customModule="KingPowerUsingCoreData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="230" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kcJ-2y-oqy" id="a8A-oT-3dL">
+                                            <rect key="frame" x="0.0" y="0.0" width="230" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kVj-NC-RkN">
+                                                    <rect key="frame" x="10" y="4" width="40" height="35"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BR-cu-lzA">
+                                                    <rect key="frame" x="70" y="11" width="55" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIt-Rr-AF5">
+                                                    <rect key="frame" x="120" y="11" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgNation" destination="kVj-NC-RkN" id="9WW-oe-If0"/>
+                                            <outlet property="lblCurrency" destination="JIt-Rr-AF5" id="EH0-sA-BMy"/>
+                                            <outlet property="lblNationName" destination="7BR-cu-lzA" id="Le9-wz-uQQ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lod-gu-85z" id="NcM-ix-pxZ"/>
+                                    <outlet property="delegate" destination="lod-gu-85z" id="qTq-Fp-FVb"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9f-Hi-SEk">
+                                <rect key="frame" x="230" y="450" width="141" height="30"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.36470588240000001" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okClicked:" destination="lod-gu-85z" eventType="touchUpInside" id="IEX-3I-cqt"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="The rate of exchange shown here is valid taday only. The actual payment amount can therefore deviate" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6sg-61-C5G">
+                                <rect key="frame" x="59" y="386" width="483" height="56"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="500"/>
+                    <connections>
+                        <outlet property="btnOk" destination="J9f-Hi-SEk" id="lqB-zw-kHn"/>
+                        <outlet property="tbvCurrency1" destination="bMM-ti-8KP" id="vof-20-WeC"/>
+                        <outlet property="tbvCurrency2" destination="7ht-T5-bS0" id="rtn-St-8ad"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Wr-BS-bOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9029" y="2516"/>
+        </scene>
+        <!--Flight Info View Controller-->
+        <scene sceneID="AYs-BU-vo5">
+            <objects>
+                <viewController id="Jks-a1-Sw4" customClass="FlightInfoViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5BR-XU-EcB"/>
+                        <viewControllerLayoutGuide type="bottom" id="opu-U9-OzG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kBa-jS-Mjm">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Return Flight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgw-cJ-7Nu">
+                                <rect key="frame" x="86" y="401" width="148" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Flight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1of-O7-M2K">
+                                <rect key="frame" x="86" y="351" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MEMBER INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMh-sq-lHf">
+                                <rect key="frame" x="60" y="135" width="308" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCB-Z3-QBG">
+                                <rect key="frame" x="302" y="347" width="640" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FLIGHT INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-wz-kSX">
+                                <rect key="frame" x="60" y="291" width="344" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passport No.:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkM-gA-cH6">
+                                <rect key="frame" x="78" y="189" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="bO2-or-Q7v">
+                                <rect key="frame" x="302" y="185" width="640" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xx6-sB-DdO">
+                                <rect key="frame" x="784" y="676" width="180" height="31"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.44705882349999998" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <color key="tintColor" red="0.9450981021" green="0.96470594409999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="pF9-Py-aPM" kind="push" id="8bf-25-p2f"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="5rf-TK-dNH">
+                                <rect key="frame" x="302" y="397" width="640" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26m-eW-0pH">
+                                <rect key="frame" x="466" y="494" width="103" height="82"/>
+                                <state key="normal" title="Button" image="flight_add.png"/>
+                                <connections>
+                                    <segue destination="hkk-lI-OIe" kind="modal" identifier="addNewFlightSegue" modalPresentationStyle="formSheet" id="Vbi-O2-e0M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8b7-fv-c1f"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="btnDone" destination="xx6-sB-DdO" id="0fd-xV-fXF"/>
+                        <outlet property="departAirlineTextField" destination="wCB-Z3-QBG" id="L7d-Eo-ceP"/>
+                        <outlet property="returnAirlineTextField" destination="5rf-TK-dNH" id="5Oo-aM-oFB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJN-55-wxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11926" y="1684"/>
+        </scene>
+        <!--Add New Flight View Controller-->
+        <scene sceneID="SpZ-VH-8uy">
+            <objects>
+                <viewController id="hkk-lI-OIe" customClass="AddNewFlightViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cCB-XI-88N"/>
+                        <viewControllerLayoutGuide type="bottom" id="TYb-zP-DZu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tji-B0-RIu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Flight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-VG-gBS">
+                                <rect key="frame" x="104" y="113" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Flight No:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lna-kg-mbz">
+                                <rect key="frame" x="104" y="200" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZh-5U-bfT">
+                                <rect key="frame" x="104" y="242" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="9xr-Cc-y7K">
+                                <rect key="frame" x="295" y="402" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Airline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqu-Mb-FqC">
+                                <rect key="frame" x="104" y="157" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Return Flight:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnL-eI-NKE">
+                                <rect key="frame" x="104" y="318" width="148" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Return Flight No:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yec-nu-H0q">
+                                <rect key="frame" x="104" y="404" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Return Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tz-XY-Xc9">
+                                <rect key="frame" x="104" y="446" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Airline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1M3-Gi-gmP">
+                                <rect key="frame" x="104" y="361" width="193" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD FLIGHT INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kq-xG-1gU">
+                                <rect key="frame" x="55" y="39" width="344" height="27"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="aVf-QY-Rks">
+                                <rect key="frame" x="295" y="359" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="8rX-QZ-sLU">
+                                <rect key="frame" x="295" y="444" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZG-q9-hDL">
+                                <rect key="frame" x="295" y="109" width="29" height="29"/>
+                                <state key="normal" image="KP_Scan_Barcode.png"/>
+                                <connections>
+                                    <action selector="btnScanBarcodeTapped:" destination="hkk-lI-OIe" eventType="touchUpInside" id="NPl-Xx-glx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulf-9S-2ft">
+                                <rect key="frame" x="295" y="314" width="29" height="29"/>
+                                <state key="normal" image="KP_Scan_Barcode.png"/>
+                                <connections>
+                                    <action selector="btnScanBarcodeTapped:" destination="hkk-lI-OIe" eventType="touchUpInside" id="ajO-rg-hf8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="qjF-Z8-Zh5">
+                                <rect key="frame" x="295" y="196" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eyy-7w-19M">
+                                <rect key="frame" x="295" y="153" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="Textbox-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="XDX-3Q-a8t">
+                                <rect key="frame" x="295" y="238" width="200" height="25"/>
+                                <color key="textColor" red="0.0" green="0.43137254899999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-rh-dnC">
+                                <rect key="frame" x="344" y="515" width="128" height="31"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.44705882349999998" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <color key="tintColor" red="0.9450981021" green="0.96470594409999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="btnAddTapped:" destination="hkk-lI-OIe" eventType="touchUpInside" id="h0o-ki-3L5"/>
+                                    <segue destination="LtX-OD-xi3" kind="modal" identifier="addFlightSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Jc5-Ej-6rG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAE-fQ-bAw">
+                                <rect key="frame" x="128" y="515" width="128" height="31"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <color key="tintColor" red="0.9450981021" green="0.96470594409999999" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelTapped:" destination="hkk-lI-OIe" eventType="touchUpInside" id="SDy-2R-rTt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="btnCancel" destination="wAE-fQ-bAw" id="WgG-5u-acr"/>
+                        <outlet property="btnDone" destination="nD0-rh-dnC" id="Iv5-f1-KaS"/>
+                        <outlet property="departAirlineTextField" destination="Eyy-7w-19M" id="Tyh-6j-nYy"/>
+                        <outlet property="departDateTextField" destination="XDX-3Q-a8t" id="atm-eF-vOc"/>
+                        <outlet property="departFlightNoTextField" destination="qjF-Z8-Zh5" id="qWW-Ct-aPG"/>
+                        <outlet property="returnAirlineTextField" destination="aVf-QY-Rks" id="gkT-6Y-tnh"/>
+                        <outlet property="returnDateTextField" destination="8rX-QZ-sLU" id="v8u-xQ-tiP"/>
+                        <outlet property="returnFlightNoTextField" destination="9xr-Cc-y7K" id="wiv-Zt-tXs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyc-DG-oMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12902" y="1690"/>
+        </scene>
+        <!--Thankyou View Controller-->
+        <scene sceneID="pMT-tN-AE1">
+            <objects>
+                <viewController id="pF9-Py-aPM" customClass="ThankyouViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G4E-Rd-Vju"/>
+                        <viewControllerLayoutGuide type="bottom" id="UOf-07-BdR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="biE-2P-h0G">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="THANK YOU FOR SHOPPING WITH US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gif-Au-j8i">
+                                <rect key="frame" x="329" y="228" width="366" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLEASE WAIT WHILE WE ARE PROCESSING YOUR ORDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jx5-dZ-7eK">
+                                <rect key="frame" x="288" y="315" width="448" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR ORDER NO. IS KP000000000004" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBo-pz-Wve">
+                                <rect key="frame" x="358" y="344" width="309" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-Mn-RuJ">
+                                <rect key="frame" x="0.0" y="621" width="1024" height="147"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1215686275" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-zd-8sy">
+                                <rect key="frame" x="462" y="451" width="101" height="30"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="okMethod:" destination="pF9-Py-aPM" eventType="touchUpInside" id="Te8-GF-svb"/>
+                                    <segue destination="gB2-k4-rnY" kind="unwind" unwindAction="exitFromThankyouPage:" id="S6j-DH-6b2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20392156859999999" green="0.17254901959999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jBe-xe-K6A">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="OxF-qh-Qfn"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title=" " id="DfH-nz-KiX">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                            <barButtonItem image="takeoff.png" id="LaR-x2-bmn">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <view key="titleView" contentMode="scaleToFill" id="qXu-Vw-MXz">
+                            <rect key="frame" x="452.5" y="5.5" width="119" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9DT-QO-tU1">
+                                    <rect key="frame" x="0.0" y="0.0" width="119" height="33"/>
+                                </imageView>
+                            </subviews>
+                        </view>
+                        <barButtonItem key="rightBarButtonItem" image="contact.png" id="aU5-3Z-izp">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="btnOk" destination="jMD-zd-8sy" id="kiK-fp-JMt"/>
+                        <outlet property="lblOrderNo" destination="RBo-pz-Wve" id="4Iz-1o-cK5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IIL-EX-TLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gB2-k4-rnY" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="15381" y="1690"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Iqs-ld-9DK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LtX-OD-xi3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ndi-FQ-aA0">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pF9-Py-aPM" kind="relationship" relationship="rootViewController" id="5UZ-3M-B2Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEW-33-CcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14145" y="1690"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BG_Default.jpg" width="2048" height="1536"/>
@@ -4295,6 +4587,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="cart.png" width="24" height="21"/>
         <image name="check.png" width="48" height="48"/>
         <image name="contact.png" width="24" height="24"/>
+        <image name="flight_add.png" width="198" height="153"/>
         <image name="infos.png" width="42" height="42"/>
         <image name="logo.png" width="345" height="91"/>
         <image name="menu" width="22" height="22"/>
@@ -4304,7 +4597,8 @@ with any Estee Lauder purchase of 3,000THB</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2pT-n0-ev4"/>
+        <segue reference="MW8-Cy-umH"/>
         <segue reference="h9l-HJ-MCb"/>
-        <segue reference="G8Q-RA-lUU"/>
+        <segue reference="5UZ-3M-B2Q"/>
     </inferredMetricsTieBreakers>
 </document>

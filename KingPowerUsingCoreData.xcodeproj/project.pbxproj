@@ -304,7 +304,21 @@
 		A11F14531BC38A630045B7B6 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDD51BC3782A00F1B427 /* SWRevealViewController.m */; };
 		A11F14541BC38AE70045B7B6 /* ufonts.com_century-gothic-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD71BC3783D00F1B427 /* ufonts.com_century-gothic-bold.ttf */; };
 		A11F14551BC38AE70045B7B6 /* ufonts.com_century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A16DDDD81BC3783D00F1B427 /* ufonts.com_century-gothic.ttf */; };
-		A16043661BD39D94007CCC38 /* FlightInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A1598C5A1BD41ABA0062032A /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A1598C591BD41ABA0062032A /* kp.sqlite */; };
+		A1598C5C1BD41D4B0062032A /* FlightInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1598C5B1BD41D4B0062032A /* FlightInfoViewController.swift */; };
+		A1598C5E1BD41D720062032A /* AddNewFlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1598C5D1BD41D720062032A /* AddNewFlightViewController.swift */; };
+		A1598C6A1BD41DDC0062032A /* SGD.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C5F1BD41DDC0062032A /* SGD.png */; };
+		A1598C6B1BD41DDC0062032A /* AUD.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C601BD41DDC0062032A /* AUD.png */; };
+		A1598C6C1BD41DDC0062032A /* CHF.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C611BD41DDC0062032A /* CHF.png */; };
+		A1598C6D1BD41DDC0062032A /* CNY.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C621BD41DDC0062032A /* CNY.png */; };
+		A1598C6E1BD41DDC0062032A /* GBP.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C631BD41DDC0062032A /* GBP.png */; };
+		A1598C6F1BD41DDC0062032A /* HKB.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C641BD41DDC0062032A /* HKB.png */; };
+		A1598C701BD41DDC0062032A /* JPY.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C651BD41DDC0062032A /* JPY.png */; };
+		A1598C711BD41DDC0062032A /* KRW.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C661BD41DDC0062032A /* KRW.png */; };
+		A1598C721BD41DDC0062032A /* MYR.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C671BD41DDC0062032A /* MYR.png */; };
+		A1598C731BD41DDC0062032A /* RUB.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C681BD41DDC0062032A /* RUB.png */; };
+		A1598C741BD41DDC0062032A /* TWD.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C691BD41DDC0062032A /* TWD.png */; };
+		A1598C761BD41DFF0062032A /* flight_add.png in Resources */ = {isa = PBXBuildFile; fileRef = A1598C751BD41DFF0062032A /* flight_add.png */; };
 		A16DDE111BC37A1D00F1B427 /* CallAssistanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE081BC37A1D00F1B427 /* CallAssistanceViewController.xib */; };
 		A16DDE121BC37A1D00F1B427 /* FlightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE091BC37A1D00F1B427 /* FlightViewController.xib */; };
 		A16DDE361BC37BE100F1B427 /* btnBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A16DDE301BC37BE100F1B427 /* btnBack.png */; };
@@ -457,7 +471,6 @@
 		A1D3CF1D1BCCB5D3009D468E /* KPVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3CF1C1BCCB5D3009D468E /* KPVariable.swift */; };
 		A1D880981BC41C2200812A15 /* PromotionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */; };
 		A1E00FD41BD0F3D900133F8D /* Icon_Calculator.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */; };
-		A1E00FD61BD1432B00133F8D /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A1E00FD51BD1432B00133F8D /* kp.sqlite */; };
 		F930A7821BC7762500758366 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76B1BC7762500758366 /* BrandModel.swift */; };
 		F930A7831BC7762500758366 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76C1BC7762500758366 /* CartModel.swift */; };
 		F930A7841BC7762500758366 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76D1BC7762500758366 /* CustomerModel.swift */; };
@@ -712,7 +725,21 @@
 		A11EBE351BBE314700274BB3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A11EBE481BBE318100274BB3 /* Currency.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currency.plist; sourceTree = "<group>"; };
 		A11EBE721BBE336F00274BB3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlightInfoViewController.swift; path = View/FlightInfoViewController.swift; sourceTree = "<group>"; };
+		A1598C591BD41ABA0062032A /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
+		A1598C5B1BD41D4B0062032A /* FlightInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightInfoViewController.swift; sourceTree = "<group>"; };
+		A1598C5D1BD41D720062032A /* AddNewFlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewFlightViewController.swift; sourceTree = "<group>"; };
+		A1598C5F1BD41DDC0062032A /* SGD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SGD.png; sourceTree = "<group>"; };
+		A1598C601BD41DDC0062032A /* AUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AUD.png; sourceTree = "<group>"; };
+		A1598C611BD41DDC0062032A /* CHF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CHF.png; sourceTree = "<group>"; };
+		A1598C621BD41DDC0062032A /* CNY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CNY.png; sourceTree = "<group>"; };
+		A1598C631BD41DDC0062032A /* GBP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBP.png; sourceTree = "<group>"; };
+		A1598C641BD41DDC0062032A /* HKB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HKB.png; sourceTree = "<group>"; };
+		A1598C651BD41DDC0062032A /* JPY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JPY.png; sourceTree = "<group>"; };
+		A1598C661BD41DDC0062032A /* KRW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KRW.png; sourceTree = "<group>"; };
+		A1598C671BD41DDC0062032A /* MYR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MYR.png; sourceTree = "<group>"; };
+		A1598C681BD41DDC0062032A /* RUB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RUB.png; sourceTree = "<group>"; };
+		A1598C691BD41DDC0062032A /* TWD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TWD.png; sourceTree = "<group>"; };
+		A1598C751BD41DFF0062032A /* flight_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flight_add.png; sourceTree = "<group>"; };
 		A16DDD591BC376BB00F1B427 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controller/UserController.swift; sourceTree = "<group>"; };
 		A16DDD5A1BC376BB00F1B427 /* UserGroupMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserGroupMappingController.swift; path = Controller/UserGroupMappingController.swift; sourceTree = "<group>"; };
 		A16DDD5B1BC376BB00F1B427 /* UserPermissionMappingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPermissionMappingController.swift; path = Controller/UserPermissionMappingController.swift; sourceTree = "<group>"; };
@@ -952,7 +979,6 @@
 		A1D3CF1C1BCCB5D3009D468E /* KPVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPVariable.swift; sourceTree = "<group>"; };
 		A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PromotionPopupViewController.xib; path = View/PromotionPopupViewController.xib; sourceTree = "<group>"; };
 		A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Icon_Calculator.jpg; path = KingPowerUsingCoreData/Images/Icon_Calculator.jpg; sourceTree = SOURCE_ROOT; };
-		A1E00FD51BD1432B00133F8D /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
 		B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPowerUsingCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930A76B1BC7762500758366 /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandModel.swift; path = Model/BrandModel.swift; sourceTree = "<group>"; };
 		F930A76C1BC7762500758366 /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartModel.swift; path = Model/CartModel.swift; sourceTree = "<group>"; };
@@ -1958,9 +1984,9 @@
 		78B31B9F1B96F7F7008873AC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A16DDE1F1BC37B7500F1B427 /* LoginByCardViewController.swift */,
 				A16DDE1D1BC37B7500F1B427 /* LanguageViewController.swift */,
 				A16DDE1E1BC37B7500F1B427 /* LoginByCameraViewController.swift */,
-				A16DDE1F1BC37B7500F1B427 /* LoginByCardViewController.swift */,
 				A16DDE201BC37B7500F1B427 /* LoginByTypeViewController.swift */,
 				A16DDE211BC37B7500F1B427 /* LoginDetailViewController.swift */,
 				A16DDE221BC37B7500F1B427 /* LoginMethodViewController.swift */,
@@ -2337,7 +2363,8 @@
 				A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */,
 				A10F39D21BCF7F1500E2744D /* NoItemFoundCell.swift */,
 				A10F39D41BCF887800E2744D /* NoItemFoundCell.xib */,
-				A16043651BD39D94007CCC38 /* FlightInfoViewController.swift */,
+				A1598C5B1BD41D4B0062032A /* FlightInfoViewController.swift */,
+				A1598C5D1BD41D720062032A /* AddNewFlightViewController.swift */,
 			);
 			name = Cart;
 			sourceTree = "<group>";
@@ -2384,7 +2411,7 @@
 		A11EBE1C1BBE30C300274BB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				A1E00FD51BD1432B00133F8D /* kp.sqlite */,
+				A1598C591BD41ABA0062032A /* kp.sqlite */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -2520,6 +2547,7 @@
 		A16DDE3E1BC37C4600F1B427 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				A1598C751BD41DFF0062032A /* flight_add.png */,
 				A16DDEFA1BC37D9200F1B427 /* Continue-button1.png */,
 				A16DDEFB1BC37D9200F1B427 /* Continue-button1(1).png */,
 				A16DDE3F1BC37C5A00F1B427 /* btnCamera.png */,
@@ -2541,6 +2569,17 @@
 		A16DDE571BC37C6D00F1B427 /* CountryFlag */ = {
 			isa = PBXGroup;
 			children = (
+				A1598C5F1BD41DDC0062032A /* SGD.png */,
+				A1598C601BD41DDC0062032A /* AUD.png */,
+				A1598C611BD41DDC0062032A /* CHF.png */,
+				A1598C621BD41DDC0062032A /* CNY.png */,
+				A1598C631BD41DDC0062032A /* GBP.png */,
+				A1598C641BD41DDC0062032A /* HKB.png */,
+				A1598C651BD41DDC0062032A /* JPY.png */,
+				A1598C661BD41DDC0062032A /* KRW.png */,
+				A1598C671BD41DDC0062032A /* MYR.png */,
+				A1598C681BD41DDC0062032A /* RUB.png */,
+				A1598C691BD41DDC0062032A /* TWD.png */,
 				A16DDE581BC37C8100F1B427 /* CAD.png */,
 				A16DDE591BC37C8100F1B427 /* EUR.png */,
 				A16DDE5A1BC37C8100F1B427 /* KP_Language_CH.png */,
@@ -2757,6 +2796,7 @@
 				A16DDEC71BC37CC700F1B427 /* 461084-L2.jpg in Resources */,
 				3A1F7E4D1BD0D3DE0077BF0C /* 31_3.png in Resources */,
 				3A2821A11BC68D6B00FB3FD3 /* DelightMainBannerENrevised.jpg in Resources */,
+				A1598C711BD41DDC0062032A /* KRW.png in Resources */,
 				A16DDEBC1BC37CC700F1B427 /* 233885-L3.jpg in Resources */,
 				3A1F7E871BD0D4B00077BF0C /* 15_1.png in Resources */,
 				3A1F7D751BD0D2BE0077BF0C /* 40_4.png in Resources */,
@@ -2827,7 +2867,7 @@
 				A16DDEFC1BC37D9200F1B427 /* Continue-button1.png in Resources */,
 				3A1F7EEB1BD0D5190077BF0C /* 69_5.png in Resources */,
 				3A1F7E6C1BD0D4930077BF0C /* 55_1.png in Resources */,
-				A1E00FD61BD1432B00133F8D /* kp.sqlite in Resources */,
+				A1598C5A1BD41ABA0062032A /* kp.sqlite in Resources */,
 				3A1F7EB61BD0D4D00077BF0C /* 61_1.png in Resources */,
 				3A1F7EEF1BD0D5190077BF0C /* 70_4.png in Resources */,
 				A16DDF511BC3862700F1B427 /* TH-Flag.png in Resources */,
@@ -2839,6 +2879,7 @@
 				A16DDE501BC37C5A00F1B427 /* KP_InputMethod_Camera.png in Resources */,
 				3A1F7F051BD0D5330077BF0C /* 73_1.png in Resources */,
 				A16DDE561BC37C5A00F1B427 /* Submit-button1.png in Resources */,
+				A1598C761BD41DFF0062032A /* flight_add.png in Resources */,
 				3A1F7EE41BD0D5190077BF0C /* 68_2.png in Resources */,
 				3A1F7EF31BD0D5190077BF0C /* 71_3.png in Resources */,
 				3A1F7F2C1BD0D57B0077BF0C /* 65_2.png in Resources */,
@@ -2898,6 +2939,7 @@
 				A16DDF351BC3860400F1B427 /* Textbox-White.png in Resources */,
 				3A1F7E051BD0D3A20077BF0C /* 7_1.jpg in Resources */,
 				3A1F7DE41BD0D3A10077BF0C /* 18_1.png in Resources */,
+				A1598C6E1BD41DDC0062032A /* GBP.png in Resources */,
 				3A1F7D991BD0D34B0077BF0C /* 35_4.png in Resources */,
 				3A1F7E501BD0D3DE0077BF0C /* 32_3.png in Resources */,
 				A16DDEED1BC37CC700F1B427 /* 8143264-L1.jpg in Resources */,
@@ -2918,6 +2960,7 @@
 				3A1F7DA91BD0D3740077BF0C /* 37_4.png in Resources */,
 				3A1F7EB11BD0D4D00077BF0C /* 59_2.png in Resources */,
 				A16DDECA1BC37CC700F1B427 /* 461084-M3.jpg in Resources */,
+				A1598C731BD41DDC0062032A /* RUB.png in Resources */,
 				3A1F7EBA1BD0D4D00077BF0C /* 62_2.png in Resources */,
 				A16DDEC01BC37CC700F1B427 /* 233889-L1.jpg in Resources */,
 				A16DDE3A1BC37BE100F1B427 /* Flight-WH80x80.png in Resources */,
@@ -2926,6 +2969,7 @@
 				A16DDE761BC37CA800F1B427 /* tab-Electronics1.png in Resources */,
 				3A1F7E2D1BD0D3C90077BF0C /* 27_2.png in Resources */,
 				3A1F7EB01BD0D4D00077BF0C /* 59_1.png in Resources */,
+				A1598C701BD41DDC0062032A /* JPY.png in Resources */,
 				3A1F7E491BD0D3DE0077BF0C /* 30_2.png in Resources */,
 				3A1F7F081BD0D5330077BF0C /* 76_1.png in Resources */,
 				3A1F7D6B1BD0D2AA0077BF0C /* 39_1.png in Resources */,
@@ -2943,6 +2987,7 @@
 				A16DDF211BC3860400F1B427 /* 05.png in Resources */,
 				A16DDEDD1BC37CC700F1B427 /* 543709-L3.jpg in Resources */,
 				3A1F7EB71BD0D4D00077BF0C /* 61_2.png in Resources */,
+				A1598C6A1BD41DDC0062032A /* SGD.png in Resources */,
 				3A1F7EAD1BD0D4D00077BF0C /* 58_2.png in Resources */,
 				A16DDEE01BC37CC700F1B427 /* 543709-S3.jpg in Resources */,
 				3A1F7D861BD0D3280077BF0C /* 33_1.png in Resources */,
@@ -3002,16 +3047,21 @@
 				A16DDEC11BC37CC700F1B427 /* 233889-L2.jpg in Resources */,
 				3A1F7E451BD0D3DE0077BF0C /* 29_1.png in Resources */,
 				3A1F7F1A1BD0D5590077BF0C /* 82_1.png in Resources */,
+				A1598C6F1BD41DDC0062032A /* HKB.png in Resources */,
 				3A1F7DF31BD0D3A10077BF0C /* 21_1.png in Resources */,
 				A1943B921BCCF719000A69F8 /* CROWN.png in Resources */,
 				3A1F7EE31BD0D5190077BF0C /* 68_1.png in Resources */,
 				3A1F7EF71BD0D5190077BF0C /* 72_2.png in Resources */,
 				3A1F7DA01BD0D3600077BF0C /* 36_3.png in Resources */,
 				3A1F7EB81BD0D4D00077BF0C /* 61_3.png in Resources */,
+				A1598C6B1BD41DDC0062032A /* AUD.png in Resources */,
+				A1598C741BD41DDC0062032A /* TWD.png in Resources */,
 				3A1F7DFB1BD0D3A10077BF0C /* 22_4.png in Resources */,
 				A16DDF221BC3860400F1B427 /* check.png in Resources */,
 				3A1F7D801BD0D2E40077BF0C /* 42_2.png in Resources */,
+				A1598C6D1BD41DDC0062032A /* CNY.png in Resources */,
 				A16DDF2B1BC3860400F1B427 /* KP_Airplane_Icon.png in Resources */,
+				A1598C6C1BD41DDC0062032A /* CHF.png in Resources */,
 				3A1F7EBE1BD0D4D00077BF0C /* 62_6.png in Resources */,
 				A16DDECB1BC37CC700F1B427 /* 461084-S1.jpg in Resources */,
 				A16DDE551BC37C5A00F1B427 /* sort.png in Resources */,
@@ -3019,6 +3069,7 @@
 				3A1F7DE51BD0D3A10077BF0C /* 18_2.png in Resources */,
 				A16DDE111BC37A1D00F1B427 /* CallAssistanceViewController.xib in Resources */,
 				A16DDEE91BC37CC700F1B427 /* 557590-S4.jpg in Resources */,
+				A1598C721BD41DDC0062032A /* MYR.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3127,6 +3178,7 @@
 				F930A7831BC7762500758366 /* CartModel.swift in Sources */,
 				3ACEF66F1BC3CEF600707DB5 /* DatabaseUtil.swift in Sources */,
 				A11F142D1BC389A50045B7B6 /* sortTableViewCell.swift in Sources */,
+				A1598C5E1BD41D720062032A /* AddNewFlightViewController.swift in Sources */,
 				3A1C8D8B1BC6132700A64F43 /* PromotionUpSaleLevelController.swift in Sources */,
 				A11F142E1BC389A50045B7B6 /* sortViewController.swift in Sources */,
 				A11F142F1BC389A50045B7B6 /* ViewController.swift in Sources */,
@@ -3149,7 +3201,7 @@
 				A11F13F81BC389980045B7B6 /* ProductGroupController.swift in Sources */,
 				A11F13F91BC389980045B7B6 /* ProductImageController.swift in Sources */,
 				A11F13FA1BC389980045B7B6 /* ProductMainCategoryController.swift in Sources */,
-				A16043661BD39D94007CCC38 /* FlightInfoViewController.swift in Sources */,
+				A1598C5C1BD41D4B0062032A /* FlightInfoViewController.swift in Sources */,
 				A11F13FB1BC389980045B7B6 /* ProductSubCategoryController.swift in Sources */,
 				F930A7971BC7762500758366 /* UserModel.swift in Sources */,
 				A11F13FC1BC389980045B7B6 /* PromotionController.swift in Sources */,

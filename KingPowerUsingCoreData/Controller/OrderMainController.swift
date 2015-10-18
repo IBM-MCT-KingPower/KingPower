@@ -42,7 +42,7 @@ class OrderMainController{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
         }
         
-       return getOrderByMaxRunningNo(cur_running_no)!
+        return getOrderByMaxRunningNo(cur_running_no)!
         
     }
     
@@ -108,9 +108,9 @@ class OrderMainController{
                 orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
                 orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
                 orderMain.ordm_total_price = rs.doubleForColumn("ordm_total_price")
-                orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
-                orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
-                orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
+                orderMain.ordm_submit_date = rs.stringForColumn("ordm_submit_date")
+                orderMain.ordm_create_date = rs.stringForColumn("ordm_create_date")
+                orderMain.ordm_update_date = rs.stringForColumn("ordm_update_date")
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
@@ -153,9 +153,9 @@ class OrderMainController{
                 orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
                 orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
                 orderMain.ordm_total_price = rs.doubleForColumn("ordm_total_price")
-                orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
-                orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
-                orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
+                orderMain.ordm_submit_date = rs.stringForColumn("ordm_submit_date")
+                orderMain.ordm_create_date = rs.stringForColumn("ordm_create_date")
+                orderMain.ordm_update_date = rs.stringForColumn("ordm_update_date")
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
@@ -196,9 +196,9 @@ class OrderMainController{
                 orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
                 orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
                 orderMain.ordm_total_price = rs.doubleForColumn("ordm_total_price")
-                orderMain.ordm_submit_date = rs.dateForColumn("ordm_submit_date")
-                orderMain.ordm_create_date = rs.dateForColumn("ordm_create_date")
-                orderMain.ordm_update_date = rs.dateForColumn("ordm_update_date")
+                orderMain.ordm_submit_date = rs.stringForColumn("ordm_submit_date")
+                orderMain.ordm_create_date = rs.stringForColumn("ordm_create_date")
+                orderMain.ordm_update_date = rs.stringForColumn("ordm_update_date")
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")

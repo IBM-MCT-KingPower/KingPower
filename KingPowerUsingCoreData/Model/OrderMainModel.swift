@@ -26,9 +26,12 @@ public class OrderMainModel{
     var ordm_current_location : String = ""
     var ordm_pickup_location : String = ""
     var ordm_total_price : Double = 0
-    var ordm_submit_date : NSDate = NSDate()
-    var ordm_create_date : NSDate = NSDate()
-    var ordm_update_date : NSDate = NSDate()
+    var ordm_submit_date : String = ""
+    var ordm_create_date : String = ""
+    var ordm_update_date : String = ""
+    //    var ordm_submit_date : NSDate = NSDate()
+    //    var ordm_create_date : NSDate = NSDate()
+    //    var ordm_update_date : NSDate = NSDate()
     var ordm_running_no  : Int32 = 0
     var ordm_net_total_price : Double = 0
     var ordm_card_discount : Int32 = 0

@@ -28,7 +28,7 @@ class CartController{
             
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
-        
+            
         }
     }
     
@@ -45,10 +45,10 @@ class CartController{
         
     }
     
-    func deleteById(cart_id: Int32){
+    func deleteByCustomerId(cust_id: Int32, user_id : Int32){
         var cartModel = CartModel()
-        let query = String(format: cartModel.queryDeleteCartById, cart_id)
         
+        let query = String(format: cartModel.queryDeleteCartById, cust_id, user_id)
         let deleteSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
         if !deleteSuccessful {
             print("DELETE CART SUCCESSFULLY")
@@ -59,7 +59,7 @@ class CartController{
     }
     
     func getCartByCustomerId(cart_cust_id: Int32) -> [CartModel]? { //Need return list of CartObj
-            
+        
         var cartArray : [CartModel] = []
         var cartModel = CartModel()
         let query = String(format: cartModel.queryGetCartByCustomerId, cart_cust_id)
@@ -128,6 +128,5 @@ class CartController{
         }
         return maxId
     }
-
     
 }
