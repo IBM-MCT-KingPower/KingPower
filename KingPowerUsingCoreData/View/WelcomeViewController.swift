@@ -67,13 +67,13 @@ class WelcomeViewController: UIViewController {
             self.departFlightNoLable.text = "-"
         }else{
             self.departFlightNoLable.text = self.departFlight!.flii_flight_no
-            self.departDateLabel.text = CommonViewController().castDateFromString(self.departFlight!.flii_flight_date)
+            self.departDateLabel.text = CommonViewController().kpDateTimeFormat(self.departFlight!.flii_flight_date, dateOnly: true)
         }
         if(self.returnFlight!.flii_id == 0){
             self.returnFlightNoLable.text = "-"
         }else{
             self.returnFlightNoLable.text = self.returnFlight!.flii_flight_no
-            self.returnDateLabel.text = CommonViewController().castDateFromString(self.returnFlight!.flii_flight_date)
+            self.returnDateLabel.text = CommonViewController().kpDateTimeFormat(self.returnFlight!.flii_flight_date, dateOnly: true)
         }
         
         

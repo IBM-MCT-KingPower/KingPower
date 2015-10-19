@@ -70,6 +70,7 @@ class CommonViewController: UIViewController {
     }
     
     func castDateFromString(oriDate: String) -> String {
+        print("FLIGHT DATE: \(oriDate) ")
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         var dateObj = dateFormatter.dateFromString(oriDate)!
         dateFormatter.dateFormat = "yyyy-MM-dd"

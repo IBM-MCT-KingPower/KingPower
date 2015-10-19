@@ -88,6 +88,7 @@
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
             <string>CenturyGothic-Bold</string>
+            <string>CenturyGothic-Bold</string>
         </mutableArray>
         <mutableArray key="ufonts.com_century-gothic.ttf">
             <string>CenturyGothic</string>
@@ -3144,6 +3145,7 @@
                                         <state key="normal" title="Continue Shopping"/>
                                         <connections>
                                             <action selector="continueShoppingClicked:" destination="Uwx-1Q-Xi7" eventType="touchUpInside" id="kXe-3x-Fad"/>
+                                            <segue destination="WZo-Ri-dZJ" kind="unwind" unwindAction="exitFromThankyouPage:" id="Gha-vj-RMC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOo-WU-xHg">
@@ -3173,6 +3175,7 @@
                                         <state key="normal" title="CONTINUE SHOPPING"/>
                                         <connections>
                                             <action selector="continueShoppingClicked:" destination="Uwx-1Q-Xi7" eventType="touchUpInside" id="kKr-uA-7Xy"/>
+                                            <segue destination="WZo-Ri-dZJ" kind="unwind" unwindAction="exitFromThankyouPage:" id="33g-EK-ktd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrP-wQ-LcR">
@@ -3254,6 +3257,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJf-Ks-GKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WZo-Ri-dZJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="9588" y="1690"/>
         </scene>
@@ -3455,6 +3459,7 @@
                                         <connections>
                                             <action selector="continueShoppingClicked:" destination="Uwx-1Q-Xi7" eventType="touchUpInside" id="zgS-Iz-iAn"/>
                                             <action selector="continueShoppingMethod:" destination="igJ-2c-uRp" eventType="touchUpInside" id="sqY-Dc-Ouz"/>
+                                            <segue destination="ifg-BX-oKY" kind="unwind" unwindAction="exitFromThankyouPage:" id="rI1-ec-vpf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHH-Qn-5K7">
@@ -3522,6 +3527,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9NS-wd-0sr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ifg-BX-oKY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="10773" y="1690"/>
         </scene>
@@ -3698,25 +3704,25 @@ with any Estee Lauder purchase of 3,000THB</string>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Effective on " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eon-pv-Aba">
                                 <rect key="frame" x="20" y="481" width="103" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-K1-8OT">
-                                <rect key="frame" x="131" y="481" width="86" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yf-K1-8OT">
+                                <rect key="frame" x="131" y="481" width="113" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRw-FU-2PF">
+                                <rect key="frame" x="286" y="481" width="125" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-Ps-N9b">
-                                <rect key="frame" x="214" y="481" width="35" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRw-FU-2PF">
-                                <rect key="frame" x="250" y="481" width="86" height="21"/>
-                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
+                                <rect key="frame" x="252" y="481" width="32" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -4480,7 +4486,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR ORDER NO. IS KP000000000004" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBo-pz-Wve">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR ORDER NO. IS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBo-pz-Wve">
                                 <rect key="frame" x="358" y="344" width="309" height="21"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4491,7 +4497,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1215686275" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMD-zd-8sy">
-                                <rect key="frame" x="462" y="451" width="101" height="30"/>
+                                <rect key="frame" x="462" y="488" width="101" height="30"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="OK"/>
@@ -4500,6 +4506,12 @@ with any Estee Lauder purchase of 3,000THB</string>
                                     <segue destination="gB2-k4-rnY" kind="unwind" unwindAction="exitFromThankyouPage:" id="S6j-DH-6b2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KP2015101900001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl5-Hf-49f">
+                                <rect key="frame" x="401" y="401" width="223" height="21"/>
+                                <fontDescription key="fontDescription" name="CenturyGothic-Bold" family="Century Gothic" pointSize="24"/>
+                                <color key="textColor" red="1" green="0.94534727417630837" blue="0.65850353333193623" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.17254901959999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -4598,7 +4610,7 @@ with any Estee Lauder purchase of 3,000THB</string>
     <inferredMetricsTieBreakers>
         <segue reference="2pT-n0-ev4"/>
         <segue reference="MW8-Cy-umH"/>
+        <segue reference="8bf-25-p2f"/>
         <segue reference="h9l-HJ-MCb"/>
-        <segue reference="5UZ-3M-B2Q"/>
     </inferredMetricsTieBreakers>
 </document>

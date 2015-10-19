@@ -272,7 +272,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
             print("\(productPrice.text)")
-            viewController.grandTotal = NSDecimalNumber(double: self.productDetail.prod_price)
+            viewController.netTotal = NSDecimalNumber(double: self.productDetail.prod_price)
             
         }
     }

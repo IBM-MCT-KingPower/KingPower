@@ -16,14 +16,11 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
     var currencyArray = NSArray()
     var currencyArray1 = NSMutableArray()
     var currencyArray2 = NSMutableArray()
-    var grandTotal:NSDecimalNumber = 0
+    var netTotal:NSDecimalNumber = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.btnOk.layer.cornerRadius = 5
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         let currencyFilePath = NSBundle.mainBundle().pathForResource("Currency", ofType: "plist")
         currencyArray = NSArray(contentsOfFile: currencyFilePath!)!
         var i = 0
@@ -41,8 +38,8 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
         print("\(self.currencyArray2.count)")
         self.tbvCurrency1.reloadData()
         self.tbvCurrency2.reloadData()
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,14 +66,14 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
             cell.imgNation.image = UIImage(named: String(currencyArray1[indexPath.row].objectForKey("nation")!))
             cell.lblNationName.text = String(currencyArray1[indexPath.row].objectForKey("nation")!)
             let rate : NSNumber = currencyArray1[indexPath.row].objectForKey("rate") as! NSNumber!
-            cell.lblCurrency.text = String((NSNumber(float: grandTotal.floatValue / rate.floatValue).currency))
+            cell.lblCurrency.text = String((NSNumber(float: netTotal.floatValue / rate.floatValue).currency))
             
         }else{
             cell = self.tbvCurrency2.dequeueReusableCellWithIdentifier("currencyTableViewCell", forIndexPath: indexPath) as! CurrencyTableViewCell
             cell.imgNation.image = UIImage(named: String(currencyArray2[indexPath.row].objectForKey("nation")!))
             cell.lblNationName.text = String(currencyArray2[indexPath.row].objectForKey("nation")!)
             let rate : NSNumber = currencyArray2[indexPath.row].objectForKey("rate") as! NSNumber!
-            cell.lblCurrency.text = String((NSNumber(float: grandTotal.floatValue / rate.floatValue).currency))
+            cell.lblCurrency.text = String((NSNumber(float: netTotal.floatValue / rate.floatValue).currency))
             
         }
         return cell

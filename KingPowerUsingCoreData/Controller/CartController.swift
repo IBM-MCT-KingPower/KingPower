@@ -57,6 +57,18 @@ class CartController{
         }
         
     }
+    func deleteByCartId(cart_id : Int32){
+        var cartModel = CartModel()
+        
+        let query = String(format: cartModel.queryDeleteCartByCartId, cart_id)
+        let deleteSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if !deleteSuccessful {
+            print("DELETE CART SUCCESSFULLY")
+        }else{
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+        }
+        
+    }
     
     func getCartByCustomerId(cart_cust_id: Int32) -> [CartModel]? { //Need return list of CartObj
         

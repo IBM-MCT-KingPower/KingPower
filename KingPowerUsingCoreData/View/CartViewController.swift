@@ -266,17 +266,23 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
                 oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
                 //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                let cart = self.cartPickNowArray[indexPath.row]
+                CartController().deleteByCartId(cart.cart_id)
                 self.cartPickNowArray.removeAtIndex(indexPath.row)
+                
                 self.cartTableView.reloadData()
             case 1 :
                 oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
                 oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
                 //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                let cart = self.cartPickLaterArray[indexPath.row]
+                CartController().deleteByCartId(cart.cart_id)
                 self.cartPickLaterArray.removeAtIndex(indexPath.row)
                 self.cartTableView.reloadData()
             default :
                 print("default")
             }
+            self.setupNav.addAmountInCart((-1))
             let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
             self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice)
             self.lblGrandTotal.text = self.grandTotal.currency
@@ -291,7 +297,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let promotionUpsaleArray = PromotionUpSaleLevelController().getPromotionUpSaleLevelByPromotionId(promotion.prom_id)
         print("promotion upsale list \(promotionUpsaleArray!.count)")
         let matchPromotion = promotionUpsaleArray!.filter({
-            $0.prup_max_amount > grandTotal.doubleValue
+            $0.prup_max_amount > netTotal.doubleValue
         })
         let promotionUpsale = matchPromotion[0]
         
@@ -391,7 +397,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             viewController.grandTotal = grandTotal
         }else if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
-            viewController.grandTotal = self.grandTotal
+            viewController.netTotal = self.netTotal
             
         }
     }

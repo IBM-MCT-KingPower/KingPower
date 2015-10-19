@@ -69,7 +69,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.customerPointLabel.text = String(self.customer.cust_point)
         self.customerPointExpireDateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_point_exp_date, dateOnly: true)
         
-        var cardImage = UIImage(named: self.customer.cust_card_level+".png")
+        var cardImage = UIImage(named: self.customer.cust_card_level.uppercaseString+".png")
         self.customerCardImage.image = cardImage
         
         var pickerViewDepart = UIPickerView()
