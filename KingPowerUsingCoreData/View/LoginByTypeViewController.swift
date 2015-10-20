@@ -14,6 +14,8 @@ class LoginByTypeViewController: UIViewController {
     var setupNav = KPNavigationBar()
     var commonViewController = CommonViewController()
     var customer : CustomerModel?
+    var originY : CGFloat = 0.0
+    
     
     @IBOutlet weak var cardIdTextField : UITextField!
     
@@ -28,13 +30,25 @@ class LoginByTypeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y >= originY){
+            self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
+        }
+        
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y < originY){
+            self.view.frame.origin.y = 0.0
+        }else{
+            self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
+            
+        }
     }
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)

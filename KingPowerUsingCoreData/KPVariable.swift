@@ -15,7 +15,7 @@ struct KPVariable {
     static var priceRangeList = ["< 2,000 THB", "2,000 - 5,000 THB", "5,000 - 10,000 THB", "10,000 - 15,000 THB", "15000 - 20000 THB", "> 20,000 THB"]
     static var colorList = ["N/A", "White", "Brown", "Pink", "Purple", "Orange", "Green", "Silver", "Yellow", "Red", "Black", "Gold", "Blue", "Gray"]
     
-    static var airlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Etihad Airways", "KLM", "Lufthansa", "Qantas", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
+    static var airlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Etihad Airways", "Japan Airline", "KLM", "Lufthansa", "Qantas", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
     
     static func getFlightNoByAirline(airline: String) -> [String]{
         
@@ -24,6 +24,7 @@ struct KPVariable {
         case "Cathay Pacific": return ["CX2013", "CX3024", "CX3500", "CX6948", "CX6991", "CX8995", "CX9184", "CX9092"]
         case "Emirates": return ["EK203", "EK294", "EK440", "EK495", "EK568", "EK849", "EK850", "EK909", "EK1034"]
         case "Etihad Airways": return ["EY240", "EY304", "EY408", "EY409", "EY429", "EY536", "EY891", "EY941"]
+        case "Japan Airline": return ["JL012", "JL308", "JL455", "JL731", "JL853", "JL946", "JL1039", "JL1040"]
         case "KLM": return ["KL004", "KL122", "KL590", "KL630", "KL731", "KL856", "KL0521", "KL0879", "KL4812"]
         case "Lufthansa": return ["LH048", "LH223", "LH497", "LH561", "LH812", "LH0294", "LH3023", "LH5209"]
         case "Qantas": return ["QF020", "QF045", "QF193", "QF302", "QF411", "QF580", "QF794", "QF830", "QF918"]

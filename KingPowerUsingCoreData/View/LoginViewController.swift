@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
     var commonViewController = CommonViewController()
     var lol = Locale()
     
+    var originY : CGFloat = 0.0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.decorate()
@@ -35,11 +38,21 @@ class LoginViewController: UIViewController {
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y >= originY){
+            self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
+        }
+        
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y < originY){
+            self.view.frame.origin.y = 0.0
+        }else{
+            self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
+            
+        }
     }
     
     //DIP:: Do view recorating form here

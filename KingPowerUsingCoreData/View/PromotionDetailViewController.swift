@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PromotionDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PromotionDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, collectionDelegate {
     
     @IBOutlet weak var tableCategory: UITableView!
     @IBOutlet weak var labelHeader: UILabel!
@@ -35,6 +35,7 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
     var flightViewController : FlightViewController!
     var commonViewController = CommonViewController()
     var relatedProductArray : [ProductModel] = []
+    var finalRelatedProductArray : [ProductModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,8 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
         self.promotionImage.image = promotionImage
         self.labelHeader.text = selectedPromotion.prom_name
         self.labelDetail.text = selectedPromotion.prom_content1+"\n\n"+selectedPromotion.prom_content2
-        self.promotionEffectiveDate.text = selectedPromotion.prom_effective_date
-        self.promotionExpireDate.text = selectedPromotion.prom_expire_date
+        self.promotionEffectiveDate.text = commonViewController.kpDateTimeFormat(selectedPromotion.prom_effective_date, dateOnly: true)
+        self.promotionExpireDate.text = commonViewController.kpDateTimeFormat(selectedPromotion.prom_expire_date, dateOnly: true)
         
         var promotionMapController = PromotionMappingContoller()
         var productController = ProductController()
@@ -100,7 +101,18 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
             
             
         }
+        
+        if(relatedProductArray.count > gv.getConfigValue("maximumRelatedProductAmount") as! Int){
+            print("LIMITED FUNC")
+            //Limited
+            for i in 0...(gv.getConfigValue("maximumRelatedProductAmount") as! Int){
+                self.finalRelatedProductArray.append(self.relatedProductArray[i])
+            }
+            print("LIMITED COUNT : \(self.finalRelatedProductArray.count)")
+            
+        }
         self.relatedProductTableView.reloadData()
+        
         
         //Promotion
         // Set up the image you want to scroll & zoom and add it to the scroll view
@@ -151,8 +163,8 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
         if isRelated {
             cell.clvRelated.hidden = false
             cell.clvRecommended.hidden = true
-            cell.prodRelated = self.relatedProductArray
-            //            cell.delegate = self
+            cell.prodRelated = self.finalRelatedProductArray
+            cell.delegate = self
             cell.clvRelated.reloadData()
             
         } else {
@@ -175,16 +187,35 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
         // Dispose of any resources that can be recreated.
     }
     
+    func setSelected(isRelated: Bool, index: Int) {
+        print("Index \(index)")
+        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProductDetailViewController") as! ProductDetailViewController
+        
+        vc.productDetail = self.finalRelatedProductArray[index]
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     
-    /*
+    
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
+        if segue.identifier == "moreProductSegue" {
+            let vc = segue.destinationViewController as! ViewController
+            vc.productArray = self.relatedProductArray
+            vc.searchResult = "Found  \(relatedProductArray.count)  items"
+
+        }
+
+        
+        
     }
-    */
+    
     
     func BackMethod(){
         navigationController?.popViewControllerAnimated(true)

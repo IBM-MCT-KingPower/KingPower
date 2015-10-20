@@ -22,8 +22,10 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var cardIdLabel: UILabel!
     @IBOutlet weak var cardLevelLabel: UILabel!
     @IBOutlet weak var cardExpireDateLabel: UILabel!
+    @IBOutlet weak var departAirlineLabel: UILabel!
     @IBOutlet weak var departFlightNoLable: UILabel!
     @IBOutlet weak var departDateLabel: UILabel!
+    @IBOutlet weak var returnAirlineLabel: UILabel!
     @IBOutlet weak var returnFlightNoLable: UILabel!
     @IBOutlet weak var returnDateLabel: UILabel!
     
@@ -67,13 +69,15 @@ class WelcomeViewController: UIViewController {
             self.departFlightNoLable.text = "-"
         }else{
             self.departFlightNoLable.text = self.departFlight!.flii_flight_no
-            self.departDateLabel.text = CommonViewController().kpDateTimeFormat(self.departFlight!.flii_flight_date, dateOnly: true)
+            self.departDateLabel.text = commonViewController.kpDateTimeFormat(self.departFlight!.flii_flight_date, dateOnly: false)
+            self.departAirlineLabel.text = self.departFlight!.flii_airline
         }
         if(self.returnFlight!.flii_id == 0){
             self.returnFlightNoLable.text = "-"
         }else{
             self.returnFlightNoLable.text = self.returnFlight!.flii_flight_no
-            self.returnDateLabel.text = CommonViewController().kpDateTimeFormat(self.returnFlight!.flii_flight_date, dateOnly: true)
+            self.returnDateLabel.text = commonViewController.kpDateTimeFormat(self.returnFlight!.flii_flight_date, dateOnly: false)
+            self.returnAirlineLabel.text = self.returnFlight!.flii_airline
         }
         
         

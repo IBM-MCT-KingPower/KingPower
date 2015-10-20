@@ -48,6 +48,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var textColor = UIColor(red: 0/255, green: 110/255, blue: 204/255, alpha: 1)
     var pickerBgColor = UIColor(red: 230/255, green: 240/255, blue: 250/255, alpha:1)
     var toolBarBgColor = UIColor(red: 204/255, green: 226/255, blue: 245/255, alpha: 0.65)
+    var originY : CGFloat = 0.0
     
     override func viewDidLoad() {
         print("LoginDetailViewController")
@@ -84,8 +85,8 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         pickerViewReturn.delegate = self
         pickerViewDepartFlight.delegate = self
         pickerViewReturnFlight.delegate = self
-        pickerViewDepartDate.datePickerMode = UIDatePickerMode.Date
-        pickerViewReturnDate.datePickerMode = UIDatePickerMode.Date
+        pickerViewDepartDate.datePickerMode = UIDatePickerMode.DateAndTime
+        pickerViewReturnDate.datePickerMode = UIDatePickerMode.DateAndTime
         
         pickerViewDepart.backgroundColor = self.pickerBgColor
         pickerViewReturn.backgroundColor = self.pickerBgColor
@@ -97,6 +98,8 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         pickerViewReturnDate.setValue(self.textColor, forKeyPath: "textColor")
         
         
+        let testToolBar = UIToolbar.init(frame: CGRectMake(0, self.view.frame.size.height-44, 320, 44))
+        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.frame = CGRectMake(20, 20, 20, 20)
@@ -105,10 +108,14 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         toolBar.barTintColor = self.toolBarBgColor
         toolBar.sizeToFit()
         
+        let fixedItemSpaceWidth = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        fixedItemSpaceWidth.width = 880
+        
+        
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         
-        toolBar.setItems([cancelButton, doneButton], animated: false)
+        toolBar.setItems([cancelButton, fixedItemSpaceWidth, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         
         pickerViewDepart.tag = 0
@@ -142,14 +149,24 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Do any additional setup after loading the view.
     }
     
+    
     func keyboardWillShow(sender: NSNotification) {
-        //        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y -= 205
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        
+        if(self.view.frame.origin.y >= originY){
+            self.view.frame.origin.y -= 205
+        }
+        
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        //        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y += 205
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y < originY){
+            self.view.frame.origin.y = 0.0
+        }else{
+            self.view.frame.origin.y += 205
+            
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -260,14 +277,14 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     func departDatePickerValueChanged(sender:UIDatePicker) {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         departDateTextField.text = dateFormatter.stringFromDate(sender.date)
     }
     
     func returnDatePickerValueChanged(sender:UIDatePicker) {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         returnDateTextField.text = dateFormatter.stringFromDate(sender.date)
     }
     
@@ -311,7 +328,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         if(hasDepartInfo){
             //Insert into FlightInfo Table
             
-            var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!)
+            var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
             self.departFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String, flii_create_date: currentDate)
@@ -320,7 +337,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         if(hasReturnInfo){
             //Insert into FlightInfo Table
             
-            var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!)
+            var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
             self.returnFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String, flii_create_date: currentDate)

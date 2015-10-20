@@ -59,7 +59,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         //Get Promotion Image
         print("promotionController")
         var promotionController : PromotionController = PromotionController()
-        promotionArray = promotionController.getPromotionAllEffective()
+        promotionArray = promotionController.getPromotionTypeInfoEffective()
         
         let promotionCount = promotionArray.count
         var pageCount = 0

@@ -69,18 +69,24 @@ class CommonViewController: UIViewController {
         uiView.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func castDateFromString(oriDate: String) -> String {
+    func castDateFromString(oriDate: String, dateOnly: Bool) -> String {
         print("FLIGHT DATE: \(oriDate) ")
+        var format : String = "yyyy-MM-dd"
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        if(!dateOnly){
+            dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+            format = "yyyy-MM-dd hh:mm:ss a"
+        }
+        
         var dateObj = dateFormatter.dateFromString(oriDate)!
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = format
         
         return dateFormatter.stringFromDate(dateObj)
     }
     
     func castDateFromDate(oriDate: NSDate) -> String {
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
         return dateFormatter.stringFromDate(oriDate)
         
     }

@@ -150,5 +150,7 @@
 	<string>Suvarnabhumi Airport</string>
 	<key>promotionImgTimer</key>
 	<integer>4</integer>
+	<key>maximumRelatedProductAmount</key>
+	<integer>10</integer>
 </dict>
 </plist>
