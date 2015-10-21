@@ -9,18 +9,9 @@
 import UIKit
 import Foundation
 
-struct  Goods {
-    var goodsImageName : String
-    var goodsName : String
-    var goodsQuantity : Int
-    var goodsPricePerItem : NSDecimalNumber
-    
-}
 
 class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var constat = Constants()
-   // var goodsNowList = [Goods]()
-   // var goodsLaterList = [Goods]()
     var customer:CustomerModel = CustomerModel()
     var cartPickNowArray:[CartModel] = []
     var cartPickLaterArray:[CartModel] = []
@@ -52,6 +43,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var cartController = CartController()
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
+    var isCalledFromMenu = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +64,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.cartTableView.delegate = self
 //        self.setupNavigationBar()
         
-        
+        self.setupNav.isCalledFromMenu = isCalledFromMenu
         self.setupNav.setupNavigationBar(self)
     }
     

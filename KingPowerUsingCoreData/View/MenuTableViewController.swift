@@ -74,6 +74,9 @@ class MenuTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("menu : select row \(indexPath.row)")
+    }
 /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -130,14 +133,30 @@ class MenuTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "menuCartSegue" {
+            print("Call cart from menu")
+            let navVC = segue.destinationViewController as! UINavigationController
+            let cartVC = navVC.topViewController as! CartViewController
+            cartVC.isCalledFromMenu = true
+        }else if segue.identifier == "menuOrderListSegue" {
+            print("Call order list from menu")
+        }else if segue.identifier == "logoutFromCustomer" {
+            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            
+            prefs.setInteger(0, forKey: gv.getConfigValue("currentCustomerId") as! String)
+            prefs.setInteger(0, forKey: gv.getConfigValue("currentUserId") as! String)
+            prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+            prefs.setObject("", forKey: gv.getConfigValue("currentLocation") as! String)
+            prefs.synchronize()
+        }
     }
-    */
+    
 
 }

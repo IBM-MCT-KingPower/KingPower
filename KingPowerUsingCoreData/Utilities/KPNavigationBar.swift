@@ -13,6 +13,7 @@ class KPNavigationBar: NSObject{
     var gv = GlobalVariable()
     var buttonCart:UIButton!
     var lblCartCount:UILabel!
+    var isCalledFromMenu = false
     func setupNavigationBar(uiView: UIViewController){
         var navBar:UINavigationBar=UINavigationBar()
         print(uiView)
@@ -30,11 +31,19 @@ class KPNavigationBar: NSObject{
         }else if(uiView.isKindOfClass(WelcomeViewController)){
             addBackItem(uiView, navBar: navBar, isEdge: true)
         }else if(uiView.isKindOfClass(CartViewController)){
-            addBackItem(uiView, navBar: navBar, isEdge: true)
-            addFlightItem(uiView, navBar: navBar, isEdge: false)
-            addSearchItem(uiView, navBar: navBar, isEdge: true)
-            addCartItem(uiView, navBar: navBar, isEdge: false)
-            addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+            if isCalledFromMenu {
+                addHamburgerItem(uiView, navBar: navBar, isEdge: true)
+                addFlightItem(uiView, navBar: navBar, isEdge: false)
+                addSearchItem(uiView, navBar: navBar, isEdge: true)
+                addCartItem(uiView, navBar: navBar, isEdge: false)
+                addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+            }else{
+                addBackItem(uiView, navBar: navBar, isEdge: true)
+                addFlightItem(uiView, navBar: navBar, isEdge: false)
+                addSearchItem(uiView, navBar: navBar, isEdge: true)
+                addCartItem(uiView, navBar: navBar, isEdge: false)
+                addCallAssistItem(uiView, navBar: navBar, isEdge: false)
+            }
         }else if(uiView.isKindOfClass(CheckoutViewController)){
             addBackItem(uiView, navBar: navBar, isEdge: true)
             addFlightItem(uiView, navBar: navBar, isEdge: false)

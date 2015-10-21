@@ -21,13 +21,13 @@ class OrderStatusController{
         var orderStatus = OrderStatusModel()
         let query = String(format: orderStatus.queryGetOrderStatusById, ords_id)
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
-            orderStatus = OrderStatusModel()
-            orderStatus.ords_id = rs.intForColumn("ords_id")
-            orderStatus.ords_name = rs.stringForColumn("ords_name")
-            orderStatus.ords_create_date = rs.dateForColumn("ords_create_date")
-            orderStatus.ords_update_date = rs.dateForColumn("ords_update_date")
-            
-            return orderStatus
+            while rs.next(){
+                orderStatus = OrderStatusModel()
+                orderStatus.ords_id = rs.intForColumn("ords_id")
+                orderStatus.ords_name = rs.stringForColumn("ords_name")
+                
+                return orderStatus
+            }
             
         }else{
             

@@ -260,4 +260,91 @@ class OrderMainController{
         }
         return maxId
     }
+    
+    func getOrderByCurrentDate(ordm_cust_id: Int32) -> [OrderMainModel]? {
+        var orderMainArray : [OrderMainModel] = []
+        var orderMain = OrderMainModel()
+        
+        let query = String(format: orderMain.queryGetOrderMainByCurrentDate, ordm_cust_id, "ORDM_NO")
+        
+        if let rs = database.executeQuery(query, withArgumentsInArray: nil) {
+            while rs.next(){
+                
+                orderMain = OrderMainModel()
+                orderMain.ordm_id = rs.intForColumn("ordm_id")
+                orderMain.ordm_ords_id = rs.intForColumn("ordm_ords_id")
+                orderMain.ordm_user_id = rs.intForColumn("ordm_user_id")
+                orderMain.ordm_cust_id = rs.intForColumn("ordm_cust_id")
+                orderMain.ordm_no = rs.stringForColumn("ordm_no")
+                orderMain.ordm_currency = rs.stringForColumn("ordm_currency")
+                orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure") == nil ? "": rs.stringForColumn("ordm_receipt_departure")
+                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_picknow_flag")
+                orderMain.ordm_flight_arrival = rs.intForColumn("ordm_flight_arrival")
+                orderMain.ordm_receipt_arrival = rs.stringForColumn("ordm_receipt_arrival") == nil ? "": rs.stringForColumn("ordm_receipt_arrival")
+                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_picklater_flag")
+                orderMain.ordm_passport_no = rs.stringForColumn("ordm_passport_no")
+                orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
+                orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
+                orderMain.ordm_total_price = rs.doubleForColumn("ordm_total_price")
+                orderMain.ordm_submit_date = rs.stringForColumn("ordm_submit_date")
+                orderMain.ordm_create_date = rs.stringForColumn("ordm_create_date")
+                orderMain.ordm_update_date = rs.stringForColumn("ordm_update_date")
+                orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
+                orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
+                orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
+                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMainArray.append(orderMain)
+                
+            }
+            return orderMainArray
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+            return nil
+        }
+    }
+    
+    func getOrderByHistoryDate(ordm_cust_id: Int32) -> [OrderMainModel]? {
+        var orderMainArray : [OrderMainModel] = []
+        var orderMain = OrderMainModel()
+        
+        let query = String(format: orderMain.queryGetOrderMainByHistoryDate, ordm_cust_id, "ORDM_NO")
+        
+        if let rs = database.executeQuery(query, withArgumentsInArray: nil) {
+            while rs.next(){
+                
+                orderMain = OrderMainModel()
+                orderMain.ordm_id = rs.intForColumn("ordm_id")
+                orderMain.ordm_ords_id = rs.intForColumn("ordm_ords_id")
+                orderMain.ordm_user_id = rs.intForColumn("ordm_user_id")
+                orderMain.ordm_cust_id = rs.intForColumn("ordm_cust_id")
+                orderMain.ordm_no = rs.stringForColumn("ordm_no")
+                orderMain.ordm_currency = rs.stringForColumn("ordm_currency")
+                orderMain.ordm_flight_departure = rs.intForColumn("ordm_flight_departure")
+                orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure") == nil ? "": rs.stringForColumn("ordm_receipt_departure")
+                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_picknow_flag")
+                orderMain.ordm_flight_arrival = rs.intForColumn("ordm_flight_arrival")
+                orderMain.ordm_receipt_arrival = rs.stringForColumn("ordm_receipt_arrival") == nil ? "": rs.stringForColumn("ordm_receipt_arrival")
+                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_picklater_flag")
+                orderMain.ordm_passport_no = rs.stringForColumn("ordm_passport_no")
+                orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
+                orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
+                orderMain.ordm_total_price = rs.doubleForColumn("ordm_total_price")
+                orderMain.ordm_submit_date = rs.stringForColumn("ordm_submit_date")
+                orderMain.ordm_create_date = rs.stringForColumn("ordm_create_date")
+                orderMain.ordm_update_date = rs.stringForColumn("ordm_update_date")
+                orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
+                orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
+                orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
+                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMainArray.append(orderMain)
+                
+            }
+            return orderMainArray
+        } else {
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+            return nil
+        }
+        
+    }
+
 }
