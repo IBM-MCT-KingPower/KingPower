@@ -393,6 +393,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             viewController.cartPickLaterArray = cartPickLaterArray
             viewController.discount = discount
             viewController.percentDiscount = percentDiscount
+            print("NETTOTAL1 : \(netTotal)")
             viewController.netTotal = netTotal
             viewController.grandTotal = grandTotal
         }else if segue.identifier == "currencyConvertorSegue"{
@@ -586,7 +587,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         discount = grandTotal.decimalNumberByMultiplyingBy(percentDiscount).decimalNumberByDividingBy(100)
         self.lblDiscount.text = "-\(discount.currency)"
         //self.lblPercentDiscount.text = "-\(discount)"
-        let netTotal = grandTotal.decimalNumberBySubtracting(discount)
+        netTotal = grandTotal.decimalNumberBySubtracting(discount)
         self.lblNetTotal.text = "\(netTotal.currency)"
     }
     

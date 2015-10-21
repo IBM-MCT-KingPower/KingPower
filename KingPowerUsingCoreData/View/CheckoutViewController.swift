@@ -44,7 +44,8 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         self.lblGrandTotal.text = self.grandTotal.currency
         self.lblPercentDiscount.text = "\(percentDiscount) %"
         self.lblDiscount.text = "-\(discount.currency)"
-        let netTotal = grandTotal.decimalNumberBySubtracting(discount)
+//        let netTotal = grandTotal.decimalNumberBySubtracting(discount)
+        print("NETTOTAL1 : \(netTotal)")
         self.lblNetTotal.text = "\(netTotal.currency)"
         
     }
@@ -209,15 +210,15 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         //var ordm_cust_id    : Int32 = 0
         //var ordm_no : String = ""
         //var ordm_currency   : String = ""
-        var ordm_flight_departure : Int32 = 0
+        /var ordm_flight_departure : Int32 = 0
         var ordm_receipt_departure : String = ""
         //var ordm_picknow_flag : String = ""
-        var ordm_flight_arrival : Int32 = 0
+        /var ordm_flight_arrival : Int32 = 0
         var ordm_receipt_arrival : String = ""
         //var ordm_picklater_flag : String = ""
-        var ordm_passport_no : String = ""
+        /var ordm_passport_no : String = ""
         //var ordm_current_location : String = ""
-        var ordm_pickup_location : String = ""
+        //var ordm_pickup_location : String = ""
         //var ordm_total_price : Double = 0
         var ordm_submit_date : NSDate = NSDate()
         var ordm_create_date : NSDate = NSDate()
@@ -229,27 +230,31 @@ class CheckoutViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "confirmShoppingSegue" {
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             
-            
             // The way to get currentCustomer
             let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
             let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
-            let currentLocation = gv.getConfigValue("locationSuvarnabhumiAirport") as! String
+            let currentLocation = prefs.objectForKey(gv.getConfigValue("currentLocation") as! String) as! String
+            print("Current Location \(currentLocation)")
+            let yFlag = gv.getConfigValue("flagYes") as! String
+            let nFlag = gv.getConfigValue("flagNo") as! String
             let orderMain  = OrderMainModel()
             orderMain.ordm_ords_id = 1
             orderMain.ordm_user_id = userId
             orderMain.ordm_cust_id = custId
             if cartPickNowArray.count == 0 {
-                orderMain.ordm_picknow_flag = "N"
+                orderMain.ordm_picknow_flag = nFlag
             }else{
-                orderMain.ordm_picknow_flag = "Y"
+                orderMain.ordm_picknow_flag = yFlag
             }
             if cartPickLaterArray.count == 0 {
-                orderMain.ordm_picklater_flag = "N"
+                orderMain.ordm_picklater_flag = nFlag
             }else{
-                orderMain.ordm_picklater_flag = "Y"
+                orderMain.ordm_picklater_flag = yFlag
             }
             orderMain.ordm_current_location = currentLocation
+            orderMain.ordm_pickup_location = currentLocation
             orderMain.ordm_total_price = grandTotal.doubleValue
+            print("NETTOTAL \(netTotal.doubleValue)")
             orderMain.ordm_net_total_price = netTotal.doubleValue
             orderMain.ordm_card_discount = percentDiscount.intValue
             let viewController:FlightInfoViewController = segue.destinationViewController as! FlightInfoViewController

@@ -146,6 +146,8 @@
 	<string>CURRENTCUSTOMERID</string>
 	<key>currentAmountInCart</key>
 	<string>CURRENTAMOUNTINCART</string>
+	<key>currentLocation</key>
+	<string>CURRENTLOCATION</string>
 	<key>locationSuvarnabhumiAirport</key>
 	<string>Suvarnabhumi Airport</string>
 	<key>promotionImgTimer</key>

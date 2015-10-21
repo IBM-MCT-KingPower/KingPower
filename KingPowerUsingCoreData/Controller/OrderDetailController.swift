@@ -16,16 +16,19 @@ class OrderDetailController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordd_ordm_id: Int32, ordd_prod_id: Int32, ordd_quantity: Int32, ordd_total_price: Double, ordd_pickup_now: String, ordd_create_date: String, ordd_update_date: String){
+    func insert(ordd_ordm_id: Int32, ordd_prod_id: Int32, ordd_quantity: Int32, ordd_total_price: Double, ordd_pickup_now: String){
         let ordd_redeem_item = "N"
-        var orderDetail = OrderDetailModel()
-        let query = String(format: orderDetail.queryInsertOrderDetail, ordd_ordm_id, ordd_prod_id, ordd_quantity, ordd_total_price, ordd_redeem_item, ordd_pickup_now, ordd_create_date, ordd_update_date)
-        
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
-            print("INSERT ORDER DETAIL SUCCESSFULLY")
+        let orderDetail = OrderDetailModel()
+        let query = String(format: orderDetail.queryInsertOrderDetail, ordd_ordm_id, ordd_prod_id, ordd_quantity, ordd_total_price, ordd_redeem_item, ordd_pickup_now)
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if updateSuccessful {
+            print("INSERT ORDERDETAIL SUCCESSFULLY")
+            
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
+            
         }
+        
         
     }
 
@@ -60,5 +63,7 @@ class OrderDetailController{
         }
         
     }
+
+
     
 }

@@ -15,7 +15,7 @@ class KPNavigationBar: NSObject{
     var lblCartCount:UILabel!
     func setupNavigationBar(uiView: UIViewController){
         var navBar:UINavigationBar=UINavigationBar()
-        
+        print(uiView)
         //Default
         addKPLogo(uiView, navBar: navBar)
         
@@ -62,7 +62,7 @@ class KPNavigationBar: NSObject{
             addSearchItem(uiView, navBar: navBar, isEdge: true)
             addCartItem(uiView, navBar: navBar, isEdge: false)
             addCallAssistItem(uiView, navBar: navBar, isEdge: false)
-        }else {
+        }else{
             addHamburgerItem(uiView, navBar: navBar, isEdge: true)
             addFlightItem(uiView, navBar: navBar, isEdge: false)
             addSearchItem(uiView, navBar: navBar, isEdge: true)

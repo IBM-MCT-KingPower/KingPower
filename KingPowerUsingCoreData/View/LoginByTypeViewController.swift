@@ -89,6 +89,7 @@ class LoginByTypeViewController: UIViewController {
                 let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                 
                 prefs.setInteger(self.customer!.cust_id.hashValue, forKey: gv.getConfigValue("currentCustomerId") as! String)
+                prefs.setObject(gv.getConfigValue("locationSuvarnabhumiAirport") as! String, forKey: gv.getConfigValue("currentLocation") as! String)
                 prefs.synchronize()
                 
                 //                The way to get currentCustomer

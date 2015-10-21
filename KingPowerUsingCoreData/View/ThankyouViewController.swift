@@ -13,13 +13,14 @@ class ThankyouViewController: UIViewController {
     @IBOutlet weak var lblOrderNo: UILabel!
     @IBOutlet weak var btnOk: UIButton!
     
-    
     var setupNav = KPNavigationBar()
     var navBar:UINavigationBar=UINavigationBar()
     var gv = GlobalVariable()
     
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
+    
+    var orderNo = ""
     
     override func viewDidLoad() {
         print("ThankyouViewController")
@@ -28,6 +29,7 @@ class ThankyouViewController: UIViewController {
         self.btnOk.layer.borderColor = UIColor.whiteColor().CGColor
         self.btnOk.layer.borderWidth = 1.0
         // Do any additional setup after loading the view.
+        self.lblOrderNo.text = orderNo
         
         self.setupNav.setupNavigationBar(self)
     }
@@ -43,6 +45,7 @@ class ThankyouViewController: UIViewController {
     }
     
     @IBAction func okMethod(sender: AnyObject) {
+        
         //self.dismissViewControllerAnimated(false, completion: nil)
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)

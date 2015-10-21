@@ -17,7 +17,7 @@ class OrderMainController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: String, ordm_create_date: String, ordm_update_date: String, ordm_net_total_number:Double, ordm_card_discount:Int32) -> OrderMainModel {
+    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: String, ordm_create_date: String, ordm_update_date: String, ordm_net_total_price:Double, ordm_card_discount:Int32, cartPickNowArray:[CartModel], cartPickLaterArray:[CartModel]) -> OrderMainModel {
         var orderMain = OrderMainModel()
         let cur_running_no = getMaxOrderRunningNo() + 1
         let date = NSDate()
@@ -26,37 +26,72 @@ class OrderMainController{
         let day = String(format: "%02d", components.day)
         let month = String(format: "%02d", components.month)
         let year = String(format: "%02d", components.year)
-        let running = String(format: "%025", cur_running_no)
+        let running = String(format: "%05d", cur_running_no)
         
-        let orderNo = "KP\(day)\(month)\(year)\(running)"
+        let orderNo = "KP\(year)\(month)\(day)\(running)"
         let ordm_receipt_departure = ""
         let ordm_receipt_arrival = ""
         let ordm_currency =  "THB"
         let ordm_running_no = cur_running_no
-        var query = String(format: orderMain.queryInsertOrderMain, ordm_ords_id, ordm_user_id, ordm_cust_id, orderNo, ordm_passport_no, ordm_currency,ordm_total_price, ordm_flight_departure, ordm_receipt_departure, ordm_picknow_flag, ordm_current_location, ordm_flight_arrival, ordm_receipt_arrival, ordm_picklater_flag, ordm_pickup_location, ordm_submit_date, ordm_create_date, ordm_update_date, ordm_net_total_number, ordm_running_no, ordm_card_discount)
-        
+
+        let query = String(format: orderMain.queryInsertOrderMain, ordm_ords_id, ordm_user_id, ordm_cust_id, orderNo, ordm_passport_no, ordm_currency,ordm_total_price, ordm_flight_departure, ordm_receipt_departure, ordm_picknow_flag, ordm_current_location, ordm_flight_arrival, ordm_receipt_arrival, ordm_picklater_flag, ordm_pickup_location, ordm_running_no, ordm_net_total_price, ordm_card_discount)
         print("\nQUERY: \(query)")
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
-            print("CREATE ORDER SUCCESSFULLY")
+        
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if updateSuccessful {
+            print("UPDATE ORDERMAIN SUCCESSFULLY")
+            
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
+            
         }
         
-        return getOrderByMaxRunningNo(cur_running_no)!
+        orderMain = getOrderByMaxRunningNo(orderNo)!
+        let yFlag = GlobalVariable().getConfigValue("flagYes") as! String
+        let nFlag = GlobalVariable().getConfigValue("flagNo") as! String
+        for pickNow in cartPickNowArray {
+            print("PICKNOW \(pickNow.cart_id)")
+            self.insertDetail(orderMain.ordm_id, ordd_prod_id: pickNow.cart_prod_id , ordd_quantity: pickNow.cart_quantity, ordd_total_price: Double(pickNow.cart_quantity) * pickNow.cart_prod.prod_price, ordd_pickup_now: yFlag)
+        }
+        for pickLater in cartPickLaterArray {
+            print("PICKLATER \(pickLater.cart_id)")
+            insertDetail(orderMain.ordm_id, ordd_prod_id: pickLater.cart_prod_id , ordd_quantity: pickLater.cart_quantity, ordd_total_price: Double(pickLater.cart_quantity) * pickLater.cart_prod.prod_price, ordd_pickup_now: nFlag)
+        }
+        
+        return orderMain
         
     }
+    
+    func insertDetail(ordd_ordm_id: Int32, ordd_prod_id: Int32, ordd_quantity: Int32, ordd_total_price: Double, ordd_pickup_now: String){
+        let ordd_redeem_item = "N"
+        let orderDetail = OrderDetailModel()
+        let query = String(format: orderDetail.queryInsertOrderDetail, ordd_ordm_id, ordd_prod_id, ordd_quantity, ordd_total_price, ordd_redeem_item, ordd_pickup_now)
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if updateSuccessful {
+            print("INSERT ORDERDETAIL SUCCESSFULLY")
+            
+        }else{
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+            
+        }
+        
+        
+    }
+
     
     func updateOrderStatusByOrderId(ordm_id: Int32, ordm_ords_id: Int32){
         var orderMain = OrderMainModel()
         let query = String(format: orderMain.queryUpdateOrderStatusById, ordm_ords_id, NSDate(), ordm_id)
         
         print("\nQUERY: \(query)")
-        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
-            print("UPDATE ORDER SUCCESSFULLY")
+        let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
+        if updateSuccessful {
+            print("INSERT ORDERMAIN SUCCESSFULLY")
+            
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")
+            
         }
-        
     }
     
     func updateReceiptDepartureByOrderId(ordm_id: Int32, ordm_receipt_departure: String){
@@ -144,11 +179,11 @@ class OrderMainController{
                 orderMain.ordm_no = rs.stringForColumn("ordm_no")
                 orderMain.ordm_currency = rs.stringForColumn("ordm_currency")
                 orderMain.ordm_flight_departure = rs.intForColumn("ordm_flight_departure")
-                orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure")
-                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_pickup_flag")
+                orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure") == nil ? "": rs.stringForColumn("ordm_receipt_departure")
+                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_picknow_flag")
                 orderMain.ordm_flight_arrival = rs.intForColumn("ordm_flight_arrival")
-                orderMain.ordm_receipt_arrival = rs.stringForColumn("ordm_receipt_arrival")
-                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_pickerlater_flag")
+                orderMain.ordm_receipt_arrival = rs.stringForColumn("ordm_receipt_arrival") == nil ? "": rs.stringForColumn("ordm_receipt_arrival")
+                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_picklater_flag")
                 orderMain.ordm_passport_no = rs.stringForColumn("ordm_passport_no")
                 orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
                 orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
@@ -170,10 +205,10 @@ class OrderMainController{
             return nil
         }
     }
-    func getOrderByMaxRunningNo(ordm_running_no: Int32) -> OrderMainModel? { //Need return list of Order
+    func getOrderByMaxRunningNo(ordm_no: String) -> OrderMainModel? { //Need return list of Order
         
         var orderMain = OrderMainModel()
-        let query = String(format: orderMain.queryGetOrderMainByMaxRunnningNo, ordm_running_no)
+        let query = String(format: orderMain.queryGetOrderMainByMaxRunningNo, ordm_no)
         
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
             
@@ -188,10 +223,10 @@ class OrderMainController{
                 orderMain.ordm_currency = rs.stringForColumn("ordm_currency")
                 orderMain.ordm_flight_departure = rs.intForColumn("ordm_flight_departure")
                 orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure")
-                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_pickup_flag")
+                orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_picknow_flag")
                 orderMain.ordm_flight_arrival = rs.intForColumn("ordm_flight_arrival")
                 orderMain.ordm_receipt_arrival = rs.stringForColumn("ordm_receipt_arrival")
-                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_pickerlater_flag")
+                orderMain.ordm_picklater_flag = rs.stringForColumn("ordm_picklater_flag")
                 orderMain.ordm_passport_no = rs.stringForColumn("ordm_passport_no")
                 orderMain.ordm_current_location = rs.stringForColumn("ordm_current_location")
                 orderMain.ordm_pickup_location = rs.stringForColumn("ordm_pickup_location")
@@ -212,7 +247,7 @@ class OrderMainController{
             return nil
         }
     }
-    func getMaxOrderRunningNo() -> Int32{
+    func getMaxOrderRunningNo() -> Int32 {
         var orderMainModel = OrderMainModel()
         var maxId : Int32 = 0
         let queryGetMaxId = String(format: orderMainModel.queryGetMaxTodayRunningNo)
