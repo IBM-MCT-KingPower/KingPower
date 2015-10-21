@@ -115,6 +115,31 @@ class CommonViewController: UIViewController {
         }
         return ""
     }
+    
+    func kpDateTimeDBFormat(oriString: String, dateOnly: Bool) -> String{
+        print("")
+        var stringArray : [String] = ["","","",""]
+        
+        let rangeOfYear = Range(start: oriString.startIndex.advancedBy(6), end: oriString.startIndex.advancedBy(10))
+        let rangeOfMonth = Range(start: oriString.startIndex.advancedBy(3), end: oriString.startIndex.advancedBy(5))
+        let rangeOfDate = Range(start: oriString.startIndex, end: oriString.startIndex.advancedBy(2))
+        
+        
+        stringArray[0] = oriString.substringWithRange(rangeOfYear)
+        stringArray[1] = oriString.substringWithRange(rangeOfMonth)
+        stringArray[2] = oriString.substringWithRange(rangeOfDate)
+        if(dateOnly){
+            //Date Format (Cast from 23/10/2016 to 2016-10-23 10:47:10 AM)
+            return stringArray[0]+"-"+stringArray[1]+"-"+stringArray[2]
+        }else{
+            //Date Time Format (Cast from 23/10/2016 10:30:22 to 2016-10-10 10:30:22)
+            let rangeOfTime = Range(start: oriString.endIndex.advancedBy(-8), end: oriString.endIndex)
+            stringArray[3] = oriString.substringWithRange(rangeOfTime)
+            return stringArray[1]+"-"+stringArray[1]+"-"+stringArray[2]+" "+stringArray[3]
+        }
+        return ""
+    }
+
 
     
     

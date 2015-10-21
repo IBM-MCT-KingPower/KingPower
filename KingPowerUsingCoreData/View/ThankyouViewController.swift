@@ -34,6 +34,15 @@ class ThankyouViewController: UIViewController {
         self.setupNav.setupNavigationBar(self)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+        CartController().deleteByCustomerId(custId,user_id: userId)
+        prefs.synchronize()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         //        self.setupNavigationBar()
         
@@ -47,12 +56,7 @@ class ThankyouViewController: UIViewController {
     @IBAction func okMethod(sender: AnyObject) {
         
         //self.dismissViewControllerAnimated(false, completion: nil)
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
-        var custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
-        var userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
-        CartController().deleteByCustomerId(custId,user_id: userId)
-        prefs.synchronize()
+
     }
     
     /*

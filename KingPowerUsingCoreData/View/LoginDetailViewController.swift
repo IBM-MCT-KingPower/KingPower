@@ -331,7 +331,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
-            self.departFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String, flii_create_date: currentDate)
+            self.departFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
         }
         
         if(hasReturnInfo){
@@ -340,7 +340,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
-            self.returnFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String, flii_create_date: currentDate)
+            self.returnFlight = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
             
         }
         

@@ -258,6 +258,9 @@
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
             <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
+            <string>CenturyGothic</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -453,19 +456,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EO-GQ-rTS">
-                                        <rect key="frame" x="216" y="27" width="108" height="21"/>
+                                        <rect key="frame" x="396" y="27" width="108" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEP-te-aZK">
-                                        <rect key="frame" x="322" y="27" width="112" height="21"/>
+                                        <rect key="frame" x="502" y="27" width="216" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QO9-qw-pjt">
-                                        <rect key="frame" x="216" y="62" width="108" height="21"/>
+                                        <rect key="frame" x="396" y="62" width="108" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -474,7 +477,19 @@
                                         <rect key="frame" x="30" y="28" width="64" height="64"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-L0-KyD">
-                                        <rect key="frame" x="322" y="62" width="112" height="21"/>
+                                        <rect key="frame" x="502" y="62" width="216" height="21"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-OK-PKI">
+                                        <rect key="frame" x="257" y="27" width="131" height="21"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaM-Jz-t7U">
+                                        <rect key="frame" x="257" y="62" width="131" height="21"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -586,10 +601,12 @@
                         <outlet property="cardIdLabel" destination="fEK-VH-9PB" id="FM1-Je-qnw"/>
                         <outlet property="cardLevelLabel" destination="AGY-Cv-rdB" id="dxi-tm-C0Q"/>
                         <outlet property="customerNameLabel" destination="w8a-xK-4qY" id="aP4-n8-EaU"/>
+                        <outlet property="departAirlineLabel" destination="2Qp-OK-PKI" id="8LC-mK-qBc"/>
                         <outlet property="departDateLabel" destination="ZEP-te-aZK" id="Vqi-16-SxE"/>
                         <outlet property="departFlightNoLable" destination="5EO-GQ-rTS" id="igV-MY-ckS"/>
                         <outlet property="pointExpireDateLabel" destination="Mr6-gM-cmg" id="gdN-yX-dmG"/>
                         <outlet property="pointLabel" destination="ZJ5-Ut-idd" id="dZr-gd-jbu"/>
+                        <outlet property="returnAirlineLabel" destination="yaM-Jz-t7U" id="nSj-Uw-ycL"/>
                         <outlet property="returnDateLabel" destination="SxR-L0-KyD" id="lYe-4A-jLg"/>
                         <outlet property="returnFlightNoLable" destination="QO9-qw-pjt" id="vJ1-aZ-awC"/>
                     </connections>
@@ -2091,9 +2108,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Uwx-1Q-Xi7" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="VFO-Xm-m1l"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="T4F-do-292">
                                         <rect key="frame" x="0.0" y="379" width="260" height="44"/>
@@ -3685,6 +3699,16 @@
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Iq-YI-KD5">
                                 <rect key="frame" x="0.0" y="510" width="1024" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97V-gY-GzY">
+                                        <rect key="frame" x="948" y="9" width="62" height="31"/>
+                                        <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
+                                        <state key="normal" title="More"/>
+                                        <connections>
+                                            <segue destination="a0q-pR-xWB" kind="push" identifier="moreProductSegue" id="SCn-A0-t9Z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Promotion Name or Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX5-XT-JEV">
@@ -3746,7 +3770,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="591-Kc-9br" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7231" y="1696"/>
+            <point key="canvasLocation" x="7231" y="1650"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="GIR-yK-XMW">
@@ -4613,8 +4637,9 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="takeoff.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zFl-Py-B5k"/>
+        <segue reference="SCn-A0-t9Z"/>
         <segue reference="h9l-HJ-MCb"/>
+        <segue reference="2pT-n0-ev4"/>
         <segue reference="MW8-Cy-umH"/>
         <segue reference="7jD-gU-2QY"/>
     </inferredMetricsTieBreakers>

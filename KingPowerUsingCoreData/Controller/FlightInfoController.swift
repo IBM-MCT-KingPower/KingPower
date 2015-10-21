@@ -15,13 +15,13 @@ class FlightInfoController{
     init(){
         self.database = DatabaseUtil().getDBConnect()
     }
-    func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String, flii_create_date: String) -> FlightInfoModel? {
+    func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String) -> FlightInfoModel? {
         
-        let existFlightInfo = self.checkFlightByAirlineFlightNoDate(flii_cust_id, airline: flii_airline, flightNo: flii_flight_no, flightDate: flii_flight_date, returnFlag: flii_return_flag)
+        //let existFlightInfo = self.checkFlightByAirlineFlightNoDate(flii_cust_id, airline: flii_airline, flightNo: flii_flight_no, flightDate: flii_flight_date, returnFlag: flii_return_flag)
         
-        if existFlightInfo?.flii_id == 0 {
+        //if existFlightInfo?.flii_id == 0 {
             var flightInfo = FlightInfoModel()
-            let query = String(format: flightInfo.queryInsertFlight, flii_cust_id, flii_airline, flii_flight_no, flii_flight_date, flii_return_flag, flii_create_date)
+            let query = String(format: flightInfo.queryInsertFlight, flii_cust_id, flii_airline, flii_flight_no, flii_flight_date, flii_return_flag)
         
             print("\nQUERY: \(query)")
             let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
@@ -51,9 +51,9 @@ class FlightInfoController{
                 return getFlightById(maxId)
             
             }
-        }
-        return existFlightInfo
-        
+        //}
+        //return existFlightInfo
+        return nil
     }
     
     func getFlightById(flii_id: Int32) -> FlightInfoModel? {

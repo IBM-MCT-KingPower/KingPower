@@ -17,7 +17,7 @@ class OrderMainController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_submit_date: String, ordm_create_date: String, ordm_update_date: String, ordm_net_total_price:Double, ordm_card_discount:Int32, cartPickNowArray:[CartModel], cartPickLaterArray:[CartModel]) -> OrderMainModel {
+    func insert(ordm_ords_id: Int32, ordm_user_id: Int32, ordm_cust_id: Int32, ordm_passport_no: String, ordm_total_price: Double, ordm_flight_departure: Int32,  ordm_picknow_flag: String,ordm_current_location:String, ordm_flight_arrival: Int32, ordm_picklater_flag: String, ordm_pickup_location: String, ordm_net_total_price:Double, ordm_card_discount:Int32, cartPickNowArray:[CartModel], cartPickLaterArray:[CartModel]) -> OrderMainModel {
         var orderMain = OrderMainModel()
         let cur_running_no = getMaxOrderRunningNo() + 1
         let date = NSDate()
@@ -49,6 +49,7 @@ class OrderMainController{
         orderMain = getOrderByMaxRunningNo(orderNo)!
         let yFlag = GlobalVariable().getConfigValue("flagYes") as! String
         let nFlag = GlobalVariable().getConfigValue("flagNo") as! String
+        
         for pickNow in cartPickNowArray {
             print("PICKNOW \(pickNow.cart_id)")
             self.insertDetail(orderMain.ordm_id, ordd_prod_id: pickNow.cart_prod_id , ordd_quantity: pickNow.cart_quantity, ordd_total_price: Double(pickNow.cart_quantity) * pickNow.cart_prod.prod_price, ordd_pickup_now: yFlag)
