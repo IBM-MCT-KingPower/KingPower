@@ -271,7 +271,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
         print(dateFormatter.stringFromDate(sender.date))
         let oriDate = dateFormatter.stringFromDate(sender.date)
-        let date = commonViewController.castDateFromString(oriDate)
+        let date = commonViewController.castDateFromString(oriDate, dateOnly:true)
         departDateTextField.text = commonViewController.kpDateTimeFormat(date, dateOnly:true)
     }
     
@@ -280,7 +280,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
         let oriDate = dateFormatter.stringFromDate(sender.date)
-        let date = commonViewController.castDateFromString(oriDate)
+        let date = commonViewController.castDateFromString(oriDate, dateOnly:true)
         returnDateTextField.text = commonViewController.kpDateTimeFormat(date, dateOnly:true)
     }
     

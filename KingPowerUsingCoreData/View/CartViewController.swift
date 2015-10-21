@@ -596,10 +596,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let nFlag = gv.getConfigValue("flagNo") as! String
         let currentDate = CommonViewController().castDateFromDate(NSDate())
         for cart in cartPickNowArray {
-            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: yFlag, cart_update_date: currentDate)
+            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: yFlag)
         }
         for cart in cartPickLaterArray {
-            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: nFlag , cart_update_date: currentDate)
+            cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: nFlag)
         }
     }
     

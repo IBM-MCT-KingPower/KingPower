@@ -127,41 +127,34 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         cartCountView.layer.addAnimation(pathAnimation, forKey: "curveAnimation")
         cartCountView.layer.addAnimation(animation, forKey: "transform")
-        /*
-        let animation2 = CABasicAnimation(keyPath: "transform.scale")
-        animation2.toValue = NSNumber(float: 0.5)
-        animation2.duration = 1.5
-        
-        //animation2.
-        //animation2.repeatCount = 1.0
-        //animation2.autoreverses = false
-        cartCountView.layer.addAnimation(animation2, forKey: nil)
-        */
-        /*
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDelegate(self)
-        // UIView.setAnimationDelay(0.5)
-        UIView.setAnimationDuration(1.0)
-        UIView.setAnimationRepeatCount(1)
-        UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-        cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
-        UIView.commitAnimations()
+/*
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            // do your task
+            dispatch_async(dispatch_get_main_queue()) {
+                UIView.animateWithDuration(2, animations: {
+                    cartCountView.alpha = 0
+                    cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
+                    
+                    }, completion: {
+                        finished in
+                        cartCountView.removeFromSuperview()
+                })
+                
+            }
+        }
         */
         UIView.animateWithDuration(2, animations: {
             cartCountView.alpha = 0
             cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
-            
+            self.setupNav.addAmountInCart(Int(self.amount.text!)!)
             }, completion: {
                 finished in
                 cartCountView.removeFromSuperview()
-                self.setupNav.addAmountInCart(Int(self.amount.text!)!)
-                print("The subview should be removed now")
+                
         })
-        //UIView.setAnimationTransition(UIViewAnimationTransition., forView: cartCountView, cache: true)
-        //cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
-        UIView.commitAnimations()
+        //UIView.animateWithDuration(0.1, delay: 1.5, options: [.CurveEaseInOut], animations: {self.setupNav.addAmountInCart(Int(self.amount.text!)!)}, completion: nil)
+
         
-        let currentDate = commonViewController.castDateFromDate(NSDate())
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
         let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
@@ -173,7 +166,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         }
         let currentLocation = prefs.objectForKey(gv.getConfigValue("currentLocation") as! String) as! String
         print("Current Location \(currentLocation)")
-        CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: currentLocation, cart_create_date: currentDate, cart_update_date: currentDate)
+        CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: currentLocation)
         
         
     }

@@ -16,12 +16,12 @@ class CartController{
         self.database = DatabaseUtil().getDBConnect()
     }
     
-    func insert(cart_user_id: Int32, cart_cust_id: Int32, cart_prod_id: Int32, cart_quantity: Int32, cart_pickup_now: String, cart_current_location: String, cart_create_date: String, cart_update_date: String){
+    func insert(cart_user_id: Int32, cart_cust_id: Int32, cart_prod_id: Int32, cart_quantity: Int32, cart_pickup_now: String, cart_current_location: String){
         
         var cartModel = CartModel()
         let cartId = getMaxCartId() + 1
         
-        let query = String(format: cartModel.queryInsertCart, cartId, cart_user_id, cart_cust_id, cart_prod_id, cart_quantity, cart_pickup_now, cart_current_location, cart_create_date, cart_update_date)
+        let query = String(format: cartModel.queryInsertCart, cartId, cart_user_id, cart_cust_id, cart_prod_id, cart_quantity, cart_pickup_now, cart_current_location)
         let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
         if updateSuccessful {
             print("UPDATE CART SUCCESSFULLY")
@@ -32,9 +32,9 @@ class CartController{
         }
     }
     
-    func updateById(cart_id: Int32, cart_quantity: Int32, cart_pickup_now: String, cart_update_date: String){ //Need
+    func updateById(cart_id: Int32, cart_quantity: Int32, cart_pickup_now: String){ //Need
         var cartModel = CartModel()
-        let query = String(format: cartModel.queryUpdatecartById, cart_quantity, cart_pickup_now, cart_update_date, cart_id)
+        let query = String(format: cartModel.queryUpdatecartById, cart_quantity, cart_pickup_now, cart_id)
         
         let updateSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
         if updateSuccessful {
