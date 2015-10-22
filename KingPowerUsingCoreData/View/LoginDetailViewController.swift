@@ -50,6 +50,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var toolBarBgColor = UIColor(red: 204/255, green: 226/255, blue: 245/255, alpha: 0.65)
     var originY : CGFloat = 0.0
     
+    
     override func viewDidLoad() {
         print("LoginDetailViewController")
         super.viewDidLoad()
@@ -60,8 +61,8 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
         
         //Prepare the customer information
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        self.dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        self.dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         
         self.customerNameLabel.text = self.customer.cust_title+". "+self.customer.cust_first_name+" "+self.customer.cust_last_name
         self.customerBirthdateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_birthdate, dateOnly: true)
@@ -97,9 +98,6 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         pickerViewDepartDate.setValue(self.textColor, forKeyPath: "textColor")
         pickerViewReturnDate.setValue(self.textColor, forKeyPath: "textColor")
         
-        
-        let testToolBar = UIToolbar.init(frame: CGRectMake(0, self.view.frame.size.height-44, 320, 44))
-        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
         toolBar.frame = CGRectMake(20, 20, 20, 20)
@@ -110,7 +108,6 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         let fixedItemSpaceWidth = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
         fixedItemSpaceWidth.width = 880
-        
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
@@ -125,30 +122,41 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         pickerViewDepartFlight.tag = 4
         pickerViewReturnFlight.tag = 5
         
+        departAirlineTextField.tag = 6
+        departFlightNoTextField.tag = 7
+        departDateTextField.tag = 8
+        returnAirlineTextField.tag = 9
+        returnFlightNoTextField.tag = 10
+        returnDateTextField.tag = 11
+        
         departAirlineTextField.inputView = pickerViewDepart
         departAirlineTextField.inputAccessoryView = toolBar
-        departAirlineTextField.autocapitalizationType = UITextAutocapitalizationType.None
+        departAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         returnAirlineTextField.inputView = pickerViewReturn
         returnAirlineTextField.inputAccessoryView = toolBar
+        returnAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         departDateTextField.inputView = pickerViewDepartDate
         departDateTextField.inputAccessoryView = toolBar
+        departDateTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         returnDateTextField.inputView = pickerViewReturnDate
         returnDateTextField.inputAccessoryView = toolBar
+        returnDateTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         departFlightNoTextField.inputView = pickerViewDepartFlight
         departFlightNoTextField.inputAccessoryView = toolBar
+        departFlightNoTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         returnFlightNoTextField.inputView = pickerViewReturnFlight
         returnFlightNoTextField.inputAccessoryView = toolBar
+        returnFlightNoTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         pickerViewDepartDate.addTarget(self, action: Selector("departDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
     }
-    
     
     func keyboardWillShow(sender: NSNotification) {
         originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
@@ -226,30 +234,40 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         return myTitle
     }
     
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func setDefaultValue(sender: UITextField){
         
-        if(pickerView.tag == 0){
-            return departAirlinePickerOption[row]
+        if(sender.tag == 6){
+            print("TEST")
+            //Depart Airline
+            self.departAirlineTextField!.text = self.departAirlinePickerOption[0]
+            self.departFlightPickerOption = KPVariable.getFlightNoByAirline(self.departAirlinePickerOption[0])
+        }else if(sender.tag == 7){
+            //Depart Flight
+            self.departFlightNoTextField!.text = self.departFlightPickerOption[0]
             
-        }else if(pickerView.tag == 1){
-            return returnAirlinePickerOption[row]
+        }else if(sender.tag == 8){
+            //Depart Date
+            self.departDateTextField.text = self.dateFormatter.stringFromDate(NSDate())
             
-        }else if(pickerView.tag == 4){
-            return departFlightPickerOption[row]
+        }else if(sender.tag == 9){
+            //Return Airline
+            self.returnAirlineTextField!.text = self.returnAirlinePickerOption[0]
+            self.returnFlightPickerOption = KPVariable.getFlightNoByAirline(self.returnAirlinePickerOption[0])
             
-        }else if(pickerView.tag == 5){
-            return returnFlightPickerOption[row]
+        }else if(sender.tag == 10){
+            //Return Flight
+            self.returnFlightNoTextField!.text = self.returnFlightPickerOption[0]
             
-        }else{
-            return ""
+        }else if(sender.tag == 11){
+            //Return Date
+            self.returnDateTextField.text = self.dateFormatter.stringFromDate(NSDate())
+            
         }
         
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         var selectedAirline : String = ""
-        
         if(pickerView.tag == 0){
             selectedAirline = departAirlinePickerOption[row]
             departAirlineTextField.text = selectedAirline
@@ -275,17 +293,13 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func departDatePickerValueChanged(sender:UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-        departDateTextField.text = dateFormatter.stringFromDate(sender.date)
+        
+        departDateTextField.text = self.dateFormatter.stringFromDate(sender.date)
     }
     
     func returnDatePickerValueChanged(sender:UIDatePicker) {
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-        returnDateTextField.text = dateFormatter.stringFromDate(sender.date)
+        
+        returnDateTextField.text = self.dateFormatter.stringFromDate(sender.date)
     }
     
     @IBAction func btnScanBarcodeTapped(sender: AnyObject){
@@ -331,12 +345,12 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
-            var departFlightId : Int32! = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
-            
+            var departFlightId = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
             
             self.departFlight?.flii_airline = self.departAirlineTextField!.text!
             self.departFlight?.flii_flight_no = self.departFlightNoTextField!.text!
             self.departFlight?.flii_flight_date = flightDateAsString
+            
         }
         
         if(hasReturnInfo){
@@ -345,12 +359,13 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
             
-            var returnFlightId : Int32! = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
+            var returnFlightId = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
+            
+            
             
             self.returnFlight?.flii_airline = self.returnAirlineTextField!.text!
             self.returnFlight?.flii_flight_no = self.returnFlightNoTextField!.text!
             self.returnFlight?.flii_flight_date = flightDateAsString
-            
             
         }
         

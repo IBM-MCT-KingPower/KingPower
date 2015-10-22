@@ -4817,11 +4817,11 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="takeoff.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="58o-OL-eWc"/>
-        <segue reference="pnm-Tf-TdP"/>
-        <segue reference="aGC-u9-46o"/>
-        <segue reference="7jD-gU-2QY"/>
+        <segue reference="SCn-A0-t9Z"/>
         <segue reference="h9l-HJ-MCb"/>
         <segue reference="Tr9-cY-tqw"/>
+        <segue reference="aGC-u9-46o"/>
+        <segue reference="pnm-Tf-TdP"/>
+        <segue reference="7jD-gU-2QY"/>
     </inferredMetricsTieBreakers>
 </document>
