@@ -38,6 +38,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var commonViewController = CommonViewController()
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
+    let detailTransitioningDelegate: PresentationManager = PresentationManager()
     
     var recommendedProdArray:[ProductModel] = []
     var relatedProdArray:[ProductModel] = []
@@ -265,7 +266,10 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         // Pass the selected object to the new view controller.
         if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
-            print("\(productPrice.text)")
+            detailTransitioningDelegate.height = 500
+            detailTransitioningDelegate.width = 600
+            viewController.transitioningDelegate = detailTransitioningDelegate
+            viewController.modalPresentationStyle = .Custom
             viewController.netTotal = NSDecimalNumber(double: self.productDetail.prod_price)
             
         }

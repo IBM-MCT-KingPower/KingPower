@@ -2117,7 +2117,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g7J-9E-CAz" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="6df-UM-FY6"/>
+                                            <segue destination="js1-ZU-wqq" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pnm-Tf-TdP"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="8ak-GH-qtE">
@@ -2174,7 +2174,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Pbx-KC-Fmu" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="WKf-oP-bUV"/>
+                                            <segue destination="js1-ZU-wqq" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="kzi-Lh-1Fy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="eob-Hr-vRP">
@@ -2229,6 +2229,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pbx-KC-Fmu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4ej-XI-Icw"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DtC-jw-zws">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2247,6 +2248,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g7J-9E-CAz" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UXq-IY-G8w">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2569,7 +2571,7 @@
                                 <state key="normal" title="Button" image="infos.png"/>
                                 <connections>
                                     <action selector="currencyConvertorPopup:" destination="zCF-dZ-XYh" eventType="touchUpInside" id="5JS-Z8-fcI"/>
-                                    <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="Tr9-cY-tqw"/>
+                                    <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalTransitionStyle="coverVertical" id="Tr9-cY-tqw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Related Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w84-vI-d4s">
@@ -3108,7 +3110,7 @@
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalPresentationStyle="formSheet" id="MW8-Cy-umH"/>
+                                                        <segue destination="lod-gu-85z" kind="modal" identifier="currencyConvertorSegue" modalTransitionStyle="coverVertical" id="MW8-Cy-umH"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grand Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vao-sA-9Lr">
@@ -4167,7 +4169,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <!--Currency Convertor Popup View Controller-->
         <scene sceneID="wMk-JI-Jjt">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="lod-gu-85z" customClass="CurrencyConvertorPopupViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="formSheet" id="lod-gu-85z" customClass="CurrencyConvertorPopupViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CeQ-Te-Pht"/>
                         <viewControllerLayoutGuide type="bottom" id="MxU-7X-gDF"/>
@@ -4268,7 +4270,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                                     <action selector="okClicked:" destination="lod-gu-85z" eventType="touchUpInside" id="IEX-3I-cqt"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="The rate of exchange shown here is valid taday only. The actual payment amount can therefore deviate" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6sg-61-C5G">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The rate of exchange shown here is valid taday only. The actual payment amount can therefore deviate" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sg-61-C5G">
                                 <rect key="frame" x="59" y="386" width="483" height="56"/>
                                 <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -4816,7 +4818,7 @@ with any Estee Lauder purchase of 3,000THB</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="58o-OL-eWc"/>
-        <segue reference="2pT-n0-ev4"/>
+        <segue reference="pnm-Tf-TdP"/>
         <segue reference="aGC-u9-46o"/>
         <segue reference="7jD-gU-2QY"/>
         <segue reference="kvJ-0a-NwA"/>

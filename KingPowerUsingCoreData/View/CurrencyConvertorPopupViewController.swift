@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tbvCurrency1: UITableView!
     @IBOutlet weak var tbvCurrency2: UITableView!
@@ -17,6 +17,9 @@ class CurrencyConvertorPopupViewController: UIViewController, UITableViewDataSou
     var currencyArray1 = NSMutableArray()
     var currencyArray2 = NSMutableArray()
     var netTotal:NSDecimalNumber = 0
+    //var tapBehindGesture : UITapGestureRecognizer!
+    var tapOutsideRecognizer : UITapGestureRecognizer!
+    let cur:UIWindow? = UIApplication.sharedApplication().keyWindow
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

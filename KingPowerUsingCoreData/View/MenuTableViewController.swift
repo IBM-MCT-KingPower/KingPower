@@ -24,6 +24,7 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet weak var btnLanguage: UIButton!
     
+    let commonViewController = CommonViewController()
     var gv = GlobalVariable()
     var constat = Constants()
     var lol = Locale()
@@ -76,6 +77,11 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("menu : select row \(indexPath.row)")
+        if indexPath.row == 1 {
+            commonViewController.alertView(self, title: gv.getConfigValue("messageProfileMenuTitle") as! String, message: gv.getConfigValue("messageUnderImplementation") as! String)
+        }else if indexPath.row == 4 {
+            commonViewController.alertView(self, title: gv.getConfigValue("messageSettingMenuTitle") as! String, message: gv.getConfigValue("messageUnderImplementation") as! String)
+        }
     }
 /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

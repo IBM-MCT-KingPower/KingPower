@@ -15,7 +15,7 @@ class FlightInfoController{
     init(){
         self.database = DatabaseUtil().getDBConnect()
     }
-    func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String) -> FlightInfoModel? {
+    func insertFlight(flii_cust_id: Int32, flii_airline: String, flii_flight_no: String, flii_flight_date: String, flii_return_flag: String) -> Int32? {
         
         //let existFlightInfo = self.checkFlightByAirlineFlightNoDate(flii_cust_id, airline: flii_airline, flightNo: flii_flight_no, flightDate: flii_flight_date, returnFlag: flii_return_flag)
         
@@ -29,26 +29,27 @@ class FlightInfoController{
             print("update failed: \(database.lastErrorMessage())")
             
             }else{
-                var maxId : Int32 = 0
-                let queryGetMaxId = String(format: flightInfo.queryGetMaxId)
-                if let rs = database.executeQuery(queryGetMaxId, withArgumentsInArray: nil){
-                    while rs.next() {
-                        maxId = rs.intForColumn("max_col")
-                        break;
-                    }
-                }
-                print("INSERT SUCCESS : ID: \(maxId)")
-            
-                //Get Data
-                let queryGetData = "SELECT * FROM FLIGHT_INFO WHERE flii_id = \(maxId)"
-                if let rs = database.executeQuery(queryGetData, withArgumentsInArray: nil){
-                    while rs.next(){
-                        print(rs.stringForColumn("flii_flight_date"))
-                        break
-                    }
+//                var maxId : Int32 = 0
+//                let queryGetMaxId = String(format: flightInfo.queryGetMaxId)
+//                if let rs = database.executeQuery(queryGetMaxId, withArgumentsInArray: nil){
+//                    while rs.next() {
+//                        maxId = rs.intForColumn("max_col")
+//                        break;
+//                    }
+//                }
+//                print("INSERT SUCCESS : ID: \(maxId)")
+//            
+//                //Get Data
+//                let queryGetData = "SELECT * FROM FLIGHT_INFO WHERE flii_id = \(maxId)"
+//                if let rs = database.executeQuery(queryGetData, withArgumentsInArray: nil){
+//                    while rs.next(){
+//                        print(rs.stringForColumn("flii_flight_date"))
+//                        break
+//                    }
+//                
+//                }
                 
-                }
-                return getFlightById(maxId)
+                return Int32(database.lastInsertRowId())
             
             }
         //}

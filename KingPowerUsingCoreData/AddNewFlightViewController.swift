@@ -294,7 +294,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     }
     
     @IBAction func btnAddTapped(sender: AnyObject){
-        /*
+        
         var hasDepartInfo = false
         var hasReturnInfo = false
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -333,9 +333,9 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             print("before : \(self.departDateTextField!.text!)")
             let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.departDateTextField!.text!, dateOnly: true)
             print("after : \(flightDateAsString)")
-            self.departFlight = flightInfoController.insertFlight(custId, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
+            var departFlightId : Int32! = flightInfoController.insertFlight(custId, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
             
-            orderMain.ordm_flight_departure = (self.departFlight?.flii_id)!
+            orderMain.ordm_flight_departure = departFlightId
             
         }
         
@@ -343,9 +343,9 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             //Insert into FlightInfo Table
             
             let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.returnDateTextField!.text!, dateOnly: true)
-            self.returnFlight = flightInfoController.insertFlight(custId, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
+            var returnFlightId : Int32! = flightInfoController.insertFlight(custId, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
             
-            orderMain.ordm_flight_arrival = (self.returnFlight?.flii_id)!
+            orderMain.ordm_flight_arrival = returnFlightId
         }
 /*
         // Add new Order main and detail
@@ -355,15 +355,13 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             print("\(flight.flii_id) \(flight.flii_flight_no) \(flight.flii_airline) \(flight.flii_flight_date) \(flight.flii_return_flag) \(flight.flii_create_date)")
         }
 */
-        NSThread.sleepForTimeInterval(1)
 
 //        time.in
         if orderMain.ordm_passport_no != "" || (cartPickNowArray.count > 0 && self.departAirlineTextField!.text! == "" || (cartPickLaterArray.count > 0 && self.returnAirlineTextField!.text! == "")){
             let insertedOrderMain = OrderMainController().insert(orderMain.ordm_ords_id, ordm_user_id: orderMain.ordm_user_id, ordm_cust_id: orderMain.ordm_cust_id, ordm_passport_no: orderMain.ordm_passport_no, ordm_total_price: orderMain.ordm_total_price, ordm_flight_departure: orderMain.ordm_flight_departure, ordm_picknow_flag: orderMain.ordm_picknow_flag, ordm_current_location: orderMain.ordm_current_location, ordm_flight_arrival: orderMain.ordm_flight_arrival, ordm_picklater_flag: orderMain.ordm_picklater_flag, ordm_pickup_location: orderMain.ordm_pickup_location, ordm_net_total_price: orderMain.ordm_net_total_price, ordm_card_discount: orderMain.ordm_card_discount, cartPickNowArray: cartPickNowArray, cartPickLaterArray: cartPickNowArray)
             //self.addOrderDetail(insertedOrderMain)
             performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
-        }*/
-        performSegueWithIdentifier("submitOrderSegue", sender: nil)
+        }
     }
     
 
@@ -378,8 +376,8 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         if segue.identifier == "submitOrderSegue" {
             let navThankyouVC = segue.destinationViewController as! UINavigationController
             let thankyouVC = navThankyouVC.topViewController as! ThankyouViewController
-            //let insertedOrderMain = sender as! OrderMainModel
-            //thankyouVC.orderNo = insertedOrderMain.ordm_no
+            let insertedOrderMain = sender as! OrderMainModel
+            thankyouVC.orderNo = insertedOrderMain.ordm_no
             
         }
     }

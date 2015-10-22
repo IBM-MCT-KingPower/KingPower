@@ -12,6 +12,7 @@ class CommonViewController: UIViewController {
     
     var flightViewController : FlightViewController!
     var callAssistanceViewController : CallAssistanceViewController!
+    let detailTransitioningDelegate: PresentationManager = PresentationManager()
     var dateFormatter = NSDateFormatter()
     
     override func viewDidLoad() {
@@ -54,8 +55,12 @@ class CommonViewController: UIViewController {
     func searchMethod(uiView: UIViewController){
         print("CommonViewController: Search Method")
         let searchViewController = uiView.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
-        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
-        searchViewController?.modalPresentationStyle = modalStyle
+        //let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
+        //searchViewController?.modalPresentationStyle = modalStyle
+        detailTransitioningDelegate.height = 600
+        detailTransitioningDelegate.width = 500
+        searchViewController?.transitioningDelegate = detailTransitioningDelegate
+        searchViewController?.modalPresentationStyle = .Custom
         searchViewController?.uiView = uiView
         uiView.presentViewController(searchViewController!, animated: true, completion: nil)
     }

@@ -120,6 +120,10 @@
 	<string>Some of Depart Flight Information is missing.</string>
 	<key>messageReturnRequiredField</key>
 	<string>Some of Return Flight Information is missing.</string>
+	<key>messageProfileMenuTitle</key>
+	<string>Profile Menu</string>
+	<key>messageSettingMenuTitle</key>
+	<string>Setting Menu</string>
 	<key>flagYes</key>
 	<string>Y</string>
 	<key>flagNo</key>

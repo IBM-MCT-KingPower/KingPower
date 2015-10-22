@@ -12,7 +12,7 @@ class DetailPresentationController: UIPresentationController {
     
     var dimmingView: UIView!
     var width:CGFloat = 600
-    var height:CGFloat = 450
+    var height:CGFloat = 500
     var screenWidth:CGFloat = 0
     var screenHeight:CGFloat = 0
     
@@ -24,11 +24,14 @@ class DetailPresentationController: UIPresentationController {
     func setupDimmingView() {
         dimmingView = UIView(frame: presentingViewController.view.bounds)
         
-        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
-        visualEffectView.frame = dimmingView.bounds
-        visualEffectView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        dimmingView = UIView(frame: presentingViewController.view.bounds)
+        dimmingView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        
+        //var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        //visualEffectView.frame = dimmingView.bounds
+        //visualEffectView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         //visualEffectView.autoresizingMask = .FlexibleHeight | .FlexibleWidth
-        dimmingView.addSubview(visualEffectView)
+        //dimmingView.addSubview(visualEffectView)
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "dimmingViewTapped:")
         dimmingView.addGestureRecognizer(tapRecognizer)
@@ -76,8 +79,8 @@ class DetailPresentationController: UIPresentationController {
         
         let contentContainer = presentedViewController
         presentedViewFrame.size = sizeForChildContentContainer(contentContainer, withParentContainerSize: containerBounds.size)
-        //print(self.screenWidth/2)
-        //print(width/2)
+        print(self.screenWidth/2)
+        print(width/2)
         presentedViewFrame.origin.x = (self.screenWidth/2)-(width/2)
         presentedViewFrame.origin.y = (self.screenHeight/2)-(height/2)
         

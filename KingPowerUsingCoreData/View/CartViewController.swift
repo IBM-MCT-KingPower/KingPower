@@ -45,6 +45,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     var flightViewController : FlightViewController!
     var isCalledFromMenu = false
     
+     let detailTransitioningDelegate: PresentationManager = PresentationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialValue()
@@ -66,8 +68,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.setupNav.isCalledFromMenu = isCalledFromMenu
         self.setupNav.setupNavigationBar(self)
+        
     }
-    
     override func viewWillAppear(animated: Bool) {
         self.customPromotionPopup()
         grandTotal = 0
@@ -390,6 +392,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             viewController.grandTotal = grandTotal
         }else if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
+            detailTransitioningDelegate.height = 500
+            detailTransitioningDelegate.width = 600
+            viewController.transitioningDelegate = detailTransitioningDelegate
+            viewController.modalPresentationStyle = .Custom
             viewController.netTotal = self.netTotal
             
         }

@@ -9,9 +9,12 @@
 import UIKit
 
 class PresentationManager: NSObject, UIViewControllerTransitioningDelegate {
-    
+    var width:CGFloat = 600
+    var height:CGFloat = 500
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController!, sourceViewController source: UIViewController) -> UIPresentationController? {
         let presentationController = DetailPresentationController(presentedViewController: presented, presentingViewController: source)
+        presentationController.height = height
+        presentationController.width = width
         return presentationController;
     }
     
