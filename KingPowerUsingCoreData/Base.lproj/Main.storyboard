@@ -2441,7 +2441,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="da4-Fq-9I2" kind="modal" identifier="popSegue" modalPresentationStyle="formSheet" id="kvJ-0a-NwA"/>
+                                    <segue destination="da4-Fq-9I2" kind="modal" identifier="popSegue" id="kvJ-0a-NwA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaQ-q1-B7Q">
@@ -2451,7 +2451,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="da4-Fq-9I2" kind="modal" identifier="filterpopSegue" modalPresentationStyle="formSheet" id="h9l-HJ-MCb"/>
+                                    <segue destination="da4-Fq-9I2" kind="modal" identifier="filterpopSegue" id="h9l-HJ-MCb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Found 0 items " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqh-Mb-NJI">
@@ -2889,7 +2889,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="DRa-TO-dMq" kind="modal" identifier="filterdetailCell" modalPresentationStyle="currentContext" id="lsK-ar-tTP"/>
+                                            <segue destination="DRa-TO-dMq" kind="modal" identifier="filterdetailCell" id="lsK-ar-tTP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3829,7 +3829,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <!--Search View Controller-->
         <scene sceneID="GIR-yK-XMW">
             <objects>
-                <viewController restorationIdentifier="SearchViewController" storyboardIdentifier="SearchViewController" id="Lws-Cz-f2M" customClass="SearchViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SearchViewController" storyboardIdentifier="SearchViewController" modalPresentationStyle="formSheet" id="Lws-Cz-f2M" customClass="SearchViewController" customModule="KingPowerUsingCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4eX-aA-UuK"/>
                         <viewControllerLayoutGuide type="bottom" id="dRN-82-oE9"/>
@@ -4821,7 +4821,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <segue reference="pnm-Tf-TdP"/>
         <segue reference="aGC-u9-46o"/>
         <segue reference="7jD-gU-2QY"/>
-        <segue reference="kvJ-0a-NwA"/>
+        <segue reference="h9l-HJ-MCb"/>
         <segue reference="Tr9-cY-tqw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,7 +20,7 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
     var delegate:filterDetailDelegate?
-    //let detailTransitioningDelegate: filterdetailManager = filterdetailManager()
+    let detailTransitioningDelegate: filterdetailManager = filterdetailManager()
     var filterSubCatIndex:Int = -1
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
@@ -118,8 +118,10 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             detailViewController.selectedIndexMain = (selectedIndex?.row)!
             detailViewController.delegate = self
-            //detailViewController.transitioningDelegate = detailTransitioningDelegate
-            //detailViewController.modalPresentationStyle = .Custom
+            detailTransitioningDelegate.height = 450
+            detailTransitioningDelegate.width = 600
+            detailViewController.transitioningDelegate = detailTransitioningDelegate
+            detailViewController.modalPresentationStyle = .Custom
         }
         
     }

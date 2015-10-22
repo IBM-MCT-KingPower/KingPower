@@ -23,10 +23,10 @@ class filterDetailPresentationController: UIPresentationController {
     
     func setupDimmingView() {
         dimmingView = UIView(frame: presentingViewController.view.bounds)
-        
+        /*
         var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
         visualEffectView.frame = dimmingView.bounds
-        visualEffectView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        visualEffectView.autoresizingMask = UIViewAutoresizing.FlexibleWidth*/
         //visualEffectView.autoresizingMask = .FlexibleHeight | .FlexibleWidth
         //dimmingView.addSubview(visualEffectView)
         

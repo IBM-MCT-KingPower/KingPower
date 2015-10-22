@@ -110,21 +110,36 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
           }
           else if (segue.identifier == "popSegue") {
             let detailViewController = segue.destinationViewController as! popupViewController
-            //detailViewController.transitioningDelegate = detailTransitioningDelegate
-            //detailViewController.modalPresentationStyle = .Custom
+            detailTransitioningDelegate.height = 450
+            detailTransitioningDelegate.width = 600
+            detailViewController.transitioningDelegate = detailTransitioningDelegate
+            detailViewController.modalPresentationStyle = .Custom
             detailViewController.sortingIndex = self.sortingIndex
             detailViewController.filterSubCatIndex = filterSubCatIndex
             detailViewController.filterBrandIndex = filterBrandIndex
             detailViewController.filterGenderIndex = filterGenderIndex
             detailViewController.filterPriceRangeIndex = filterPriceRangeIndex
             detailViewController.filterColorIndex = filterColorIndex
+            
+            self.filterDetailBrand = BrandController().getAllBrand()
+            if groupId == 0 {
+                // self.filterDetailBrand = BrandController().getAllBrand()
+                self.filterDetailSubCat = ProductMainCategoryController().getAllProductMainCategory()
+            }else {
+                //self.filterDetailBrand = BrandController().getBrandByGroupId(groupId)
+                self.filterDetailSubCat = ProductMainCategoryController().getProductMainCategoryByProductGroupId(groupId)
+            }
+            detailViewController.filterDetailBrand = filterDetailBrand
+            detailViewController.filterDetailSubCat = filterDetailSubCat
             detailViewController.segment = 0
             detailViewController.delegate = self
           }
           else if (segue.identifier == "filterpopSegue") {
             let detailViewController = segue.destinationViewController as! popupViewController
-            //detailViewController.transitioningDelegate = detailTransitioningDelegate
-            //detailViewController.modalPresentationStyle = .Custom
+            detailTransitioningDelegate.height = 450
+            detailTransitioningDelegate.width = 600
+            detailViewController.transitioningDelegate = detailTransitioningDelegate
+            detailViewController.modalPresentationStyle = .Custom
             detailViewController.sortingIndex = self.sortingIndex
             detailViewController.filterSubCatIndex = filterSubCatIndex
             detailViewController.filterBrandIndex = filterBrandIndex
