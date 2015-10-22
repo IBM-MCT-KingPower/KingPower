@@ -237,7 +237,6 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     func setDefaultValue(sender: UITextField){
         
         if(sender.tag == 6){
-            print("TEST")
             //Depart Airline
             self.departAirlineTextField!.text = self.departAirlinePickerOption[0]
             self.departFlightPickerOption = KPVariable.getFlightNoByAirline(self.departAirlinePickerOption[0])

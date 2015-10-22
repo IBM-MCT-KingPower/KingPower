@@ -49,14 +49,19 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     var selectedReturnAirline = ""
     var selectedReturnFlightNo = ""
     var selectedReturnDate = ""
-   
+    var originY : CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        
+        
+        self.PassportNoTextField.tag = 10
+        self.departAirlineTextField.tag = 11
+        
+        self.PassportNoTextField.addTarget(self, action: "showhide:", forControlEvents: UIControlEvents.EditingDidBegin)
+        self.departAirlineTextField.addTarget(self, action: "showhide:", forControlEvents: UIControlEvents.EditingDidBegin)
         
         //Prepare the customer information
         let dateFormatter = NSDateFormatter()
@@ -97,6 +102,22 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         //pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         initButtonStyle()
+    }
+    
+    func showhide(sender: AnyObject){
+        var castSender = sender as! UITextField
+        
+        print("sender tag : \(castSender.tag)")
+        
+        if(castSender.tag == 10){
+            //Do Nothing
+                print("DO NOTHING")
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }else if(castSender.tag == 11){
+            print("PREPARE TO SHOW HIDE KEYBOARD")
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        }
     }
     
     func initButtonStyle(){
@@ -140,14 +161,19 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        //        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y -= 205
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        
+        if(self.view.frame.origin.y >= originY){
+            self.view.frame.origin.y -= 205
+        }
+        
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        //        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y += 205
+        self.view.frame.origin.y = 0.0
+
     }
+    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
