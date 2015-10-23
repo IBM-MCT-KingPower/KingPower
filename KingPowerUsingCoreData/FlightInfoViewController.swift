@@ -21,6 +21,8 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     var callAssistanceViewController : CallAssistanceViewController!
     var flightViewController : FlightViewController!
     
+    @IBOutlet weak var lblRequiredDepart: UILabel!
+    @IBOutlet weak var lblRequiredReturn: UILabel!
     @IBOutlet weak var btnDone:UIButton!
     @IBOutlet weak var departAirlineTextField: UITextField!
     @IBOutlet weak var returnAirlineTextField: UITextField!
@@ -39,6 +41,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     var textColor = UIColor(red: 0/255, green: 110/255, blue: 204/255, alpha: 1)
     var pickerBgColor = UIColor(red: 230/255, green: 240/255, blue: 250/255, alpha:1)
     var toolBarBgColor = UIColor(red: 204/255, green: 226/255, blue: 245/255, alpha: 0.65)
+    var originY : CGFloat = 0.0
     
     let pickerViewDepart = UIPickerView()
     let pickerViewReturn = UIPickerView()
@@ -49,11 +52,18 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     var selectedReturnAirline = ""
     var selectedReturnFlightNo = ""
     var selectedReturnDate = ""
-    var originY : CGFloat = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
+        if cartPickNowArray.count > 0 {
+            lblRequiredDepart.hidden = false
+        }
+        if cartPickLaterArray.count > 0 {
+            lblRequiredReturn.hidden = false
+        }
+        
         // Do any additional setup after loading the view.
         
         
@@ -111,7 +121,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         if(castSender.tag == 10){
             //Do Nothing
-                print("DO NOTHING")
+            print("DO NOTHING")
             NSNotificationCenter.defaultCenter().removeObserver(self)
         }else if(castSender.tag == 11){
             print("PREPARE TO SHOW HIDE KEYBOARD")
@@ -141,7 +151,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             selectedDepartDate = commonViewController.kpDateTimeFormat(departFlightArray[countDepart-1].flii_flight_date, dateOnly:true)
             departAirlineTextField.text = selectedDepartFlightNo + " (" + selectedDepartAirline + ") " + selectedDepartDate
             self.pickerViewDepart.selectRow(countDepart-1, inComponent: 0, animated: true)
-
+            
             orderMain.ordm_flight_departure = departFlightArray[countDepart-1].flii_id
             
         }
@@ -171,9 +181,8 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func keyboardWillHide(sender: NSNotification) {
         self.view.frame.origin.y = 0.0
-
+        
     }
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -244,12 +253,12 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             
         }
     }
-
+    
     @IBAction func btnScanBarcodeTapped(sender: AnyObject){
         commonViewController.alertView(self, title:  gv.getConfigValue("messageScanBoardingPassTitle") as! String, message:  gv.getConfigValue("messageUnderImplementation") as! String)
         
     }
-
+    
     @IBAction func addNewFlightTapped(sender:AnyObject){
         orderMain.ordm_passport_no = self.PassportNoTextField!.text!
         performSegueWithIdentifier("addNewFlightSegue", sender: nil)
@@ -257,27 +266,35 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     @IBAction func submitOrderTapped(sender:AnyObject){
         // Add new ordermain and detail
-        let orderMainController = OrderMainController()
-
-        if self.PassportNoTextField!.text! != "" || (cartPickNowArray.count > 0 && self.departAirlineTextField!.text! == "" || (cartPickLaterArray.count > 0 && self.returnAirlineTextField!.text! == "")){
-        orderMain.ordm_passport_no = self.PassportNoTextField!.text!
-            
-            let insertedOrderMain = orderMainController.insert(orderMain.ordm_ords_id, ordm_user_id: orderMain.ordm_user_id, ordm_cust_id: orderMain.ordm_cust_id, ordm_passport_no: orderMain.ordm_passport_no, ordm_total_price: orderMain.ordm_total_price, ordm_flight_departure: orderMain.ordm_flight_departure, ordm_picknow_flag: orderMain.ordm_picknow_flag, ordm_current_location: orderMain.ordm_current_location, ordm_flight_arrival: orderMain.ordm_flight_arrival, ordm_picklater_flag: orderMain.ordm_picklater_flag, ordm_pickup_location: orderMain.ordm_pickup_location, ordm_net_total_price: orderMain.ordm_net_total_price, ordm_card_discount: orderMain.ordm_card_discount, cartPickNowArray: cartPickNowArray, cartPickLaterArray: cartPickLaterArray)
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let currentLocation = prefs.objectForKey(gv.getConfigValue("currentLocation") as! String) as! String
+        let suvarnabhumi = gv.getConfigValue("locationSuvarnabhumiAirport") as! String
+        let passport = self.PassportNoTextField!.text!
+        let departAirline = self.departAirlineTextField!.text!
+        let returnAirline = self.returnAirlineTextField!.text!
+        
+        if currentLocation == suvarnabhumi && passport != "" && ((cartPickNowArray.count > 0 && departAirline != "") || cartPickNowArray.count == 0) && ((cartPickLaterArray.count > 0 && returnAirline != "") || cartPickLaterArray.count == 0){
+            orderMain.ordm_passport_no = passport
+            let insertedOrderMain = OrderMainController().insert(orderMain.ordm_ords_id, ordm_user_id: orderMain.ordm_user_id, ordm_cust_id: orderMain.ordm_cust_id, ordm_passport_no: orderMain.ordm_passport_no, ordm_total_price: orderMain.ordm_total_price, ordm_flight_departure: orderMain.ordm_flight_departure, ordm_picknow_flag: orderMain.ordm_picknow_flag, ordm_current_location: orderMain.ordm_current_location, ordm_flight_arrival: orderMain.ordm_flight_arrival, ordm_picklater_flag: orderMain.ordm_picklater_flag, ordm_pickup_location: orderMain.ordm_pickup_location, ordm_net_total_price: orderMain.ordm_net_total_price, ordm_card_discount: orderMain.ordm_card_discount, cartPickNowArray: cartPickNowArray, cartPickLaterArray: cartPickLaterArray)
             
             //self.addOrderDetail(insertedOrderMain)
             performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
+        }else{
+            commonViewController.alertView(self, title: gv.getConfigValue("messageFlightInfoRequiredTitle") as! String, message: gv.getConfigValue("messageFlightInfoRequiredField") as! String)
         }
+        /*
         let orderlist = orderMainController.getOrderByCustomerId(1)
         for order in orderlist! {
-            print("order \(order.ordm_id) \(order.ordm_no) \(order.ordm_running_no)")
-        }
+        print("order \(order.ordm_id) \(order.ordm_no) \(order.ordm_running_no)")
+        }*/
     }
     /*
     func addOrderDetail(insertOrderMain:OrderMainModel!){
-         print("Order Main Insert \(insertOrderMain.ordm_no) id \(insertOrderMain.ordm_id)" )
-        
-        
-
+    print("Order Main Insert \(insertOrderMain.ordm_no) id \(insertOrderMain.ordm_id)" )
+    
+    
+    
     }*/
     
     func donePicker() {
@@ -315,7 +332,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -332,6 +349,8 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             addNewFlightVC.selectedReturnAirline = selectedReturnAirline
             addNewFlightVC.selectedReturnFlightNo = selectedReturnFlightNo
             addNewFlightVC.selectedReturnDate = selectedReturnDate
+            addNewFlightVC.departFlightArray = departFlightArray
+            addNewFlightVC.returnFlightArray = returnFlightArray
             
         }else if segue.identifier == "submitOrderSegue" {
             let insertedOrderMain = sender as! OrderMainModel
@@ -340,6 +359,6 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             
         }
     }
-
-
+    
+    
 }

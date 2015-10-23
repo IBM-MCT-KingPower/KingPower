@@ -124,6 +124,14 @@
 	<string>Profile Menu</string>
 	<key>messageSettingMenuTitle</key>
 	<string>Setting Menu</string>
+    <key>messageFlightInfoRequiredTitle</key>
+    <string>Requires your information</string>
+    <key>messageFlightInfoRequiredField</key>
+    <string>Please insert all required field.</string>
+    <key>messageCartTitle</key>
+    <string>Cart</string>
+    <key>messageCartRequireProduct</key>
+    <string>Cannot found any items in your cart.</string>
 	<key>flagYes</key>
 	<string>Y</string>
 	<key>flagNo</key>

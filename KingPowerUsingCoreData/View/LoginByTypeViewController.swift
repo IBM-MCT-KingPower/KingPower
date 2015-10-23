@@ -91,11 +91,21 @@ class LoginByTypeViewController: UIViewController {
                 prefs.setInteger(self.customer!.cust_id.hashValue, forKey: gv.getConfigValue("currentCustomerId") as! String)
                 prefs.setObject(gv.getConfigValue("locationSuvarnabhumiAirport") as! String, forKey: gv.getConfigValue("currentLocation") as! String)
                 prefs.synchronize()
+                let userid = prefs.integerForKey(gv.getConfigValue("currentUserId") as! String)
                 
                 //                The way to get currentCustomer
                 //                var test: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
-                
+                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                    CartController().deleteByCustomerId(self.customer!.cust_id, user_id: Int32(userid))
+                    dispatch_async(dispatch_get_main_queue()) {
+                        // update some UI
+                    }
+                }
                 performSegueWithIdentifier("loginDetailSegue", sender: sender)
+                
+                
+
                 
             }
         }

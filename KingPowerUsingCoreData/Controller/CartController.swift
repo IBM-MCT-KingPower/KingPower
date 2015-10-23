@@ -50,7 +50,7 @@ class CartController{
         
         let query = String(format: cartModel.queryDeleteCartById, cust_id, user_id)
         let deleteSuccessful = database.executeUpdate(query, withArgumentsInArray: nil)
-        if !deleteSuccessful {
+        if deleteSuccessful {
             print("DELETE CART SUCCESSFULLY")
         }else{
             print("select failed: \(database.lastErrorMessage())", terminator: "")

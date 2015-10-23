@@ -19,6 +19,9 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     @IBOutlet weak var departDateTextField: UITextField!
     @IBOutlet weak var returnDateTextField: UITextField!
     
+    @IBOutlet weak var lblRequiredDepart: UILabel!
+    @IBOutlet weak var lblRequiredReturn: UILabel!
+    
     var dateFormatter = NSDateFormatter()
     
     var departAirlinePickerOption : [String] = KPVariable.airlinePickerOption
@@ -34,6 +37,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     var textColor = UIColor(red: 0/255, green: 110/255, blue: 204/255, alpha: 1)
     var pickerBgColor = UIColor(red: 230/255, green: 240/255, blue: 250/255, alpha:1)
     var toolBarBgColor = UIColor(red: 204/255, green: 226/255, blue: 245/255, alpha: 0.65)
+    var originY : CGFloat = 0.0
     
     var gv = GlobalVariable()
     var commonViewController = CommonViewController()
@@ -46,24 +50,34 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     var orderMain:OrderMainModel!
     var cartPickNowArray:[CartModel]!
     var cartPickLaterArray:[CartModel]!
+    var departFlightArray:[FlightInfoModel]!
+    var returnFlightArray:[FlightInfoModel]!
     
     var selectedDepartAirline = ""
     var selectedDepartFlightNo = ""
     var selectedDepartDate = ""
+    var selectedDepartDateFormat:NSDate!
     var selectedReturnAirline = ""
     var selectedReturnFlightNo = ""
     var selectedReturnDate = ""
+    var selectedReturnDateFormat:NSDate!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if cartPickNowArray.count > 0 {
+            lblRequiredDepart.hidden = false
+        }
+        if cartPickLaterArray.count > 0 {
+            lblRequiredReturn.hidden = false
+        }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
         
         //Prepare the customer information
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-
+        
         // Do any additional setup after loading the view.
         var pickerViewDepart = UIPickerView()
         var pickerViewReturn = UIPickerView()
@@ -130,6 +144,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         returnFlightNoTextField.inputView = pickerViewReturnFlight
         returnFlightNoTextField.inputAccessoryView = toolBar
         
+        // Set default information from FlightInfoViewController
         departAirlineTextField.text = selectedDepartAirline
         departFlightNoTextField.text = selectedDepartFlightNo
         departDateTextField.text = selectedDepartDate
@@ -137,16 +152,43 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         returnFlightNoTextField.text = selectedReturnFlightNo
         returnDateTextField.text = selectedReturnDate
         
+        if selectedDepartAirline != "" {
+            var index = departAirlinePickerOption.indexOf(selectedDepartAirline)
+            pickerViewDepart.selectRow(index!, inComponent: 0, animated: true)
+            departFlightPickerOption = KPVariable.getFlightNoByAirline(selectedDepartAirline)
+            print("departFlightPickerOption : \(departFlightPickerOption.count)")
+            index = departFlightPickerOption.indexOf(selectedDepartFlightNo)
+            print("index : \(index)")
+            pickerViewDepartFlight.selectRow(index!, inComponent: 0, animated: true)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let date = dateFormatter.dateFromString(selectedDepartDate)
+            pickerViewDepartDate.setDate(date!, animated: false)
+            
+        }
+        if selectedReturnAirline != "" {
+            var index = returnAirlinePickerOption.indexOf(selectedReturnAirline)
+            pickerViewReturn.selectRow(index!, inComponent: 0, animated: true)
+            returnFlightPickerOption = KPVariable.getFlightNoByAirline(selectedReturnAirline)
+            index = returnFlightPickerOption.indexOf(selectedReturnFlightNo)
+            pickerViewReturnFlight.selectRow(index!, inComponent: 0, animated: true)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let date = dateFormatter.dateFromString(selectedReturnDate)
+            pickerViewReturnDate.setDate(date!, animated: false)
+        }
+        
         pickerViewDepartDate.addTarget(self, action: Selector("departDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         initButtonStyle()
-
+        
     }
     override func viewDidAppear(animated: Bool) {
         print("View Did Appear")
     }
     override func viewWillAppear(animated: Bool) {
         print("View Will Appear")
+        
     }
     func initButtonStyle(){
         self.btnCancel.layer.cornerRadius = 5
@@ -154,21 +196,30 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         self.btnCancel.layer.borderColor = UIColor.blackColor().CGColor
         self.btnDone.layer.cornerRadius = 5
     }
-
+    
     func keyboardWillShow(sender: NSNotification) {
-        //        self.view.frame.origin.y -= gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y -= 205
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        
+        if(self.view.frame.origin.y >= originY){
+            self.view.frame.origin.y -= 205
+        }
+        
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        //        self.view.frame.origin.y += gv.getConfigValue("keyboardHeight") as! CGFloat
-        self.view.frame.origin.y += 205
+        originY = (gv.getConfigValue("keyboardHeight") as! CGFloat)*(-1)
+        if(self.view.frame.origin.y < originY){
+            self.view.frame.origin.y = 0.0
+        }else{
+            self.view.frame.origin.y += 205
+            
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -294,81 +345,123 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     }
     
     @IBAction func btnAddTapped(sender: AnyObject){
-        
-        var hasDepartInfo = false
-        var hasReturnInfo = false
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
-        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
-
-       // OrderDetailController().getOrderDetailByOrderId(<#T##ordd_ordm_id: Int32##Int32#>)
-    
-        if(self.departAirlineTextField!.text != "" || self.departFlightNoTextField!.text != "" || self.departDateTextField!.text != ""){
+        let currentLocation = prefs.objectForKey(gv.getConfigValue("currentLocation") as! String) as! String
+        let suvarnabhumi = gv.getConfigValue("locationSuvarnabhumiAirport") as! String
+        let passport = orderMain.ordm_passport_no
+        let departAirline = self.departAirlineTextField!.text!
+        let returnAirline = self.returnAirlineTextField!.text!
+        let departFlightNo = self.departFlightNoTextField!.text!
+        let returnFlightNo = self.returnFlightNoTextField!.text!
+        let departDate = self.departDateTextField!.text!
+        let returnDate = self.returnDateTextField!.text!
+        print("passport \(passport)")
+        print("departAirline \(departAirline)")
+        print("returnAirline \(returnAirline)")
+        print("departFlightNo \(departFlightNo)")
+        print("returnFlightNo \(returnFlightNo)")
+        print("departDate \(departDate)")
+        print("returnDate \(returnDate)")
+        let bool1 = cartPickNowArray.count > 0 && departAirline != "" && departFlightNo != "" && departDate != ""
+        print("pick now > 0 \(bool1)")
+        let bool2 = cartPickNowArray.count == 0
+        print("pick now == 0 \(bool2)")
+        let bool3 = cartPickLaterArray.count > 0 && returnAirline != "" && returnFlightNo != "" && returnDate != ""
+        print("pick later > 0 \(bool3)")
+        let bool4 = cartPickLaterArray.count == 0
+        print("pick later == 0 \(bool4)")
+        
+        
+        if currentLocation == suvarnabhumi && passport != "" && ((cartPickNowArray.count > 0 && departAirline != "" && departFlightNo != "" && departDate != "") || cartPickNowArray.count == 0) && ((cartPickLaterArray.count > 0 && returnAirline != "" && returnFlightNo != "" && returnDate != "") || cartPickLaterArray.count == 0){
             
-            //If one of these fields has value --> Need to check required for other 2 fields
-            if(self.departAirlineTextField!.text == "" || self.departFlightNoTextField!.text == "" || self.departDateTextField!.text == ""){
-                commonViewController.alertView(self, title: gv.getConfigValue("messageFlightFailTitle") as! String, message: gv.getConfigValue("messageFlightRequiredField") as! String)
+            var hasDepartInfo = false
+            var hasReturnInfo = false
+            let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+            let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+            
+            // OrderDetailController().getOrderDetailByOrderId(<#T##ordd_ordm_id: Int32##Int32#>)
+            
+            if(self.departAirlineTextField!.text != "" || self.departFlightNoTextField!.text != "" || self.departDateTextField!.text != ""){
                 
-            }else{
-                hasDepartInfo = true
-                if(self.returnAirlineTextField!.text != "" || self.returnFlightNoTextField!.text != "" || self.returnDateTextField!.text != ""){
-                    //If one of these fields has value --> Need to check required for other 2 fields
-                    if(self.returnAirlineTextField!.text == "" || self.returnFlightNoTextField!.text == "" || self.returnDateTextField!.text == ""){
-                        commonViewController.alertView(self, title: gv.getConfigValue("messageFlightFailTitle") as! String, message: gv.getConfigValue("messageReturnRequiredField") as! String)
-                    }else{
-                        //Validate Pass
-                        hasReturnInfo = true
+                //If one of these fields has value --> Need to check required for other 2 fields
+                if(self.departAirlineTextField!.text == "" || self.departFlightNoTextField!.text == "" || self.departDateTextField!.text == ""){
+                    // commonViewController.alertView(self, title: gv.getConfigValue("messageFlightFailTitle") as! String, message: gv.getConfigValue("messageFlightRequiredField") as! String)
+                    
+                }else{
+                    hasDepartInfo = true
+                    if(self.returnAirlineTextField!.text != "" || self.returnFlightNoTextField!.text != "" || self.returnDateTextField!.text != ""){
+                        //If one of these fields has value --> Need to check required for other 2 fields
+                        if(self.returnAirlineTextField!.text == "" || self.returnFlightNoTextField!.text == "" || self.returnDateTextField!.text == ""){
+                            //commonViewController.alertView(self, title: gv.getConfigValue("messageFlightFailTitle") as! String, message: gv.getConfigValue("messageReturnRequiredField") as! String)
+                        }else{
+                            //Validate Pass
+                            hasReturnInfo = true
+                        }
+                        
                     }
                     
                 }
                 
             }
             
-        }
-        
-        let flightInfoController = FlightInfoController()
-        
-        if(hasDepartInfo){
-            //Insert into FlightInfo Table
-            print("before : \(self.departDateTextField!.text!)")
-            let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.departDateTextField!.text!, dateOnly: true)
-            print("after : \(flightDateAsString)")
-            var departFlightId : Int32! = flightInfoController.insertFlight(custId, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
+            let flightInfoController = FlightInfoController()
             
-            orderMain.ordm_flight_departure = departFlightId
+            if(hasDepartInfo){
+                //Insert into FlightInfo Table
+                print("before : \(self.departDateTextField!.text!)")
+                let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.departDateTextField!.text!, dateOnly: true)
+                print("after : \(flightDateAsString)")
+                var departFlightId : Int32!
+                let existDepartFlight = departFlightArray.filter({$0.flii_airline == self.departAirlineTextField!.text! && $0.flii_flight_no == self.departFlightNoTextField!.text! && $0.flii_flight_date == flightDateAsString})
+                
+                if existDepartFlight.count > 0 {
+                    print("Depart : isExist")
+                    departFlightId = existDepartFlight[0].flii_id
+                }else{
+                    departFlightId = flightInfoController.insertFlight(custId, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
+                }
+                orderMain.ordm_flight_departure = departFlightId
+                
+            }
             
-        }
-        
-        if(hasReturnInfo){
-            //Insert into FlightInfo Table
-            
-            let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.returnDateTextField!.text!, dateOnly: true)
-            var returnFlightId : Int32! = flightInfoController.insertFlight(custId, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
-            
-            orderMain.ordm_flight_arrival = returnFlightId
-        }
-/*
-        // Add new Order main and detail
-        let flightList:[FlightInfoModel]? = FlightInfoController().getFlightByCustomerIdOnly(custId)
-        for flight in flightList! {
+            if(hasReturnInfo){
+                //Insert into FlightInfo Table
+                let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.returnDateTextField!.text!, dateOnly: true)
+                
+                var returnFlightId : Int32!
+                let existReturnFlight = returnFlightArray.filter({$0.flii_airline == self.returnAirlineTextField!.text! && $0.flii_flight_no == self.returnFlightNoTextField!.text! && $0.flii_flight_date == flightDateAsString})
+                if existReturnFlight.count > 0 {
+                    print("Return : isExist")
+                    returnFlightId = existReturnFlight[0].flii_id
+                }else{
+                    returnFlightId = flightInfoController.insertFlight(custId, flii_airline: self.returnAirlineTextField!.text!, flii_flight_no: self.returnFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagYes") as! String)
+                }
+                orderMain.ordm_flight_arrival = returnFlightId
+            }
+            /*
+            // Add new Order main and detail
+            let flightList:[FlightInfoModel]? = FlightInfoController().getFlightByCustomerIdOnly(custId)
+            for flight in flightList! {
             
             print("\(flight.flii_id) \(flight.flii_flight_no) \(flight.flii_airline) \(flight.flii_flight_date) \(flight.flii_return_flag) \(flight.flii_create_date)")
-        }
-*/
-
-//        time.in
-        if orderMain.ordm_passport_no != "" || (cartPickNowArray.count > 0 && self.departAirlineTextField!.text! == "" || (cartPickLaterArray.count > 0 && self.returnAirlineTextField!.text! == "")){
+            }
+            */
+            
+            //        time.in
             let insertedOrderMain = OrderMainController().insert(orderMain.ordm_ords_id, ordm_user_id: orderMain.ordm_user_id, ordm_cust_id: orderMain.ordm_cust_id, ordm_passport_no: orderMain.ordm_passport_no, ordm_total_price: orderMain.ordm_total_price, ordm_flight_departure: orderMain.ordm_flight_departure, ordm_picknow_flag: orderMain.ordm_picknow_flag, ordm_current_location: orderMain.ordm_current_location, ordm_flight_arrival: orderMain.ordm_flight_arrival, ordm_picklater_flag: orderMain.ordm_picklater_flag, ordm_pickup_location: orderMain.ordm_pickup_location, ordm_net_total_price: orderMain.ordm_net_total_price, ordm_card_discount: orderMain.ordm_card_discount, cartPickNowArray: cartPickNowArray, cartPickLaterArray: cartPickNowArray)
             //self.addOrderDetail(insertedOrderMain)
             performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
+        }else{
+            commonViewController.alertView(self, title: gv.getConfigValue("messageFlightInfoRequiredTitle") as! String, message: gv.getConfigValue("messageFlightInfoRequiredField") as! String)
         }
+        
     }
     
-
-
+    
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -382,5 +475,5 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         }
     }
     
-
+    
 }
