@@ -48,11 +48,45 @@ class OrderDetailController{
                 orderDetail.ordd_total_price = rs.doubleForColumn("ordd_total_price")
                 orderDetail.ordd_redeem_item = rs.stringForColumn("ordd_redeem_item")
                 orderDetail.ordd_pickup_now = rs.stringForColumn("ordd_pickup_now")
-                orderDetail.ordd_create_date = rs.dateForColumn("ordd_create_date")
-                orderDetail.ordd_update_date = rs.dateForColumn("ordd_update_date")
+                orderDetail.ordd_create_date = rs.stringForColumn("ordd_create_date")
+                orderDetail.ordd_update_date = rs.stringForColumn("ordd_update_date")
                 orderDetail.product = productController.getProductByID(orderDetail.ordd_id)
                 
                 orderDetailArray.append(orderDetail)
+                
+            }
+            return orderDetailArray
+            
+        }else{
+            print("select failed: \(database.lastErrorMessage())", terminator: "")
+            return nil
+        }
+        
+    }
+    func getOrderDetailPickTypeByOrderId(ordd_ordm_id: Int32, ordd_pickup_now: String) -> [OrderDetailModel]? { //Need return list of OrderDetailObj
+        
+        var orderDetail = OrderDetailModel()
+        var orderDetailArray : [OrderDetailModel] = []
+        let query = String(format: orderDetail.queryGetOrderDetailPickTypeByOrderId, ordd_ordm_id, ordd_pickup_now)
+        
+        if let rs = database.executeQuery(query, withArgumentsInArray: nil){
+            while rs.next(){
+                
+                orderDetail = OrderDetailModel()
+                orderDetail.ordd_id = rs.intForColumn("ordd_id")
+                orderDetail.ordd_ordm_id = rs.intForColumn("ordd_ordm_id")
+                orderDetail.ordd_prod_id = rs.intForColumn("ordd_prod_id")
+                orderDetail.ordd_quantity = rs.intForColumn("ordd_quantity")
+                orderDetail.ordd_total_price = rs.doubleForColumn("ordd_total_price")
+                orderDetail.ordd_redeem_item = rs.stringForColumn("ordd_redeem_item")
+                orderDetail.ordd_pickup_now = rs.stringForColumn("ordd_pickup_now")
+                orderDetail.ordd_create_date = rs.stringForColumn("ordd_create_date")
+                orderDetail.ordd_update_date = rs.stringForColumn("ordd_update_date")
+                orderDetail.product = productController.getProductByID(orderDetail.ordd_prod_id)
+                
+                orderDetailArray.append(orderDetail)
+                
+                print("ordd_prod_id is \(orderDetail.ordd_prod_id) naka")
                 
             }
             return orderDetailArray

@@ -475,6 +475,8 @@
 		A1E00FD41BD0F3D900133F8D /* Icon_Calculator.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */; };
 		A1EB8FD31BDA3697005DA11A /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A1EB8FD21BDA3697005DA11A /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
 		A1EB8FD71BDA9424005DA11A /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB8FD61BDA9424005DA11A /* AddToCartView.swift */; settings = {ASSET_TAGS = (); }; };
+		A1EB8FDF1BDBB3CE005DA11A /* OrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB8FDD1BDBB3CE005DA11A /* OrderDetailTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		A1EB8FE01BDBB3CE005DA11A /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB8FDE1BDBB3CE005DA11A /* OrderDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F930A7821BC7762500758366 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76B1BC7762500758366 /* BrandModel.swift */; };
 		F930A7831BC7762500758366 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76C1BC7762500758366 /* CartModel.swift */; };
 		F930A7841BC7762500758366 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76D1BC7762500758366 /* CustomerModel.swift */; };
@@ -987,6 +989,8 @@
 		A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Icon_Calculator.jpg; path = KingPowerUsingCoreData/Images/Icon_Calculator.jpg; sourceTree = SOURCE_ROOT; };
 		A1EB8FD21BDA3697005DA11A /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
 		A1EB8FD61BDA9424005DA11A /* AddToCartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToCartView.swift; path = View/AddToCartView.swift; sourceTree = "<group>"; };
+		A1EB8FDD1BDBB3CE005DA11A /* OrderDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A1EB8FDE1BDBB3CE005DA11A /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPowerUsingCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930A76B1BC7762500758366 /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandModel.swift; path = Model/BrandModel.swift; sourceTree = "<group>"; };
 		F930A76C1BC7762500758366 /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartModel.swift; path = Model/CartModel.swift; sourceTree = "<group>"; };
@@ -2636,6 +2640,8 @@
 			children = (
 				A1762D891BD7886C0045F9D4 /* OrderListViewController.swift */,
 				A1762D861BD7852A0045F9D4 /* OrderListTableViewCell.swift */,
+				A1EB8FDD1BDBB3CE005DA11A /* OrderDetailTableViewCell.swift */,
+				A1EB8FDE1BDBB3CE005DA11A /* OrderDetailViewController.swift */,
 			);
 			name = Order;
 			sourceTree = "<group>";
@@ -3159,6 +3165,7 @@
 				A11F14401BC389CC0045B7B6 /* ContentViewController.swift in Sources */,
 				A11F14411BC389CC0045B7B6 /* Productlayout1TableViewCell.swift in Sources */,
 				A11F14421BC389CC0045B7B6 /* PromotionDetailViewController.swift in Sources */,
+				A1EB8FDF1BDBB3CE005DA11A /* OrderDetailTableViewCell.swift in Sources */,
 				F930A7941BC7762500758366 /* UserGroupMapModel.swift in Sources */,
 				A11F14431BC389CC0045B7B6 /* PromotionTableViewController.swift in Sources */,
 				F930A7931BC7762500758366 /* PromotionUpsaleLevelModel.swift in Sources */,
@@ -3228,6 +3235,7 @@
 				A11F13FB1BC389980045B7B6 /* ProductSubCategoryController.swift in Sources */,
 				F930A7971BC7762500758366 /* UserModel.swift in Sources */,
 				A11F13FC1BC389980045B7B6 /* PromotionController.swift in Sources */,
+				A1EB8FE01BDBB3CE005DA11A /* OrderDetailViewController.swift in Sources */,
 				A11F13FD1BC389980045B7B6 /* PromotionMappingController.swift in Sources */,
 				F930A78E1BC7762500758366 /* ProductImageModel.swift in Sources */,
 				A11F13FE1BC389980045B7B6 /* PromotionImageController.swift in Sources */,

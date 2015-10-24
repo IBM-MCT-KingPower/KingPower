@@ -27,12 +27,15 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.TableViewOrder.backgroundColor = UIColor.whiteColor()
         self.setupNav.setupNavigationBar(self)
+        self.TableViewOrder.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
         
         self.orderCurrentDateArray = OrderMainController().getOrderByCurrentDate(custId)
         self.orderHistoryDateArray = OrderMainController().getOrderByHistoryDate(custId)
+        
+        
 
     }
 
@@ -88,16 +91,19 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         var orderstatus : String?
         var orderstatusid : Int32
-        let cell = tableView.dequeueReusableCellWithIdentifier("orderlistcell", forIndexPath: indexPath) as! OrderListTableViewCell
         
         if indexPath.section == 0 {
             if self.orderCurrentDateArray?.count == 0 {
-                cell.mOrderNo.text = "No Order"
-                cell.mOrderAmt.text = ""
-                cell.mOrderTotal.text = ""
-                cell.mOrderDateTime.text = ""
-                cell.mOrderStatus.text = ""
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                
+                return cell
+                
+                
             } else {
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("orderlistcell", forIndexPath: indexPath) as! OrderListTableViewCell
+                
                 orderstatusid = (self.orderCurrentDateArray?[indexPath.row].ordm_ords_id)!
                 orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
@@ -117,16 +123,22 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 } else {
                     cell.mOrderStatus.textColor = UIColor.orangeColor()
                 }
+                
+                return cell
             }
             
         } else {
             if self.orderHistoryDateArray?.count == 0 {
-                cell.mOrderNo.text = "No Order"
-                cell.mOrderAmt.text = ""
-                cell.mOrderTotal.text = ""
-                cell.mOrderDateTime.text = ""
-                cell.mOrderStatus.text = ""
+                
+                let cell = tableView.dequeueReusableCellWithIdentifier("noItemFoundCell", forIndexPath: indexPath) as! NoItemFoundCell
+                
+                return cell
+                
+                
             } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("orderlistcell", forIndexPath: indexPath) as! OrderListTableViewCell
+                
+                
                 orderstatusid = (self.orderHistoryDateArray?[indexPath.row].ordm_ords_id)!
                 orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
@@ -145,10 +157,22 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 } else {
                     cell.mOrderStatus.textColor = UIColor.orangeColor()
                 }
+                
+                return cell
             }
         }
-        return cell
+        
     }
+    
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let hView = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 30))
+        hView.backgroundColor = UIColor.whiteColor()
+        
+        return hView
+    }
+
     func viewFlightMethod(){
         self.removeNavigateView()
         CommonViewController().viewFlightMethod(self)
@@ -175,14 +199,27 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "selectedOrderSegue" {
+            if let indexPath = self.TableViewOrder.indexPathForSelectedRow {
+                
+                if self.TableViewOrder.indexPathForSelectedRow?.section == 0 {
+                    
+                    let selectedOrderId = self.orderCurrentDateArray![indexPath.row].ordm_ords_id
+                    let selectedCurrency = self.orderCurrentDateArray![indexPath.row].ordm_currency
+                    (segue.destinationViewController as! OrderDetailViewController).orderMain = self.orderCurrentDateArray![indexPath.row]
+                    (segue.destinationViewController as! OrderDetailViewController).orderId = selectedOrderId
+                    (segue.destinationViewController as! OrderDetailViewController).currencyOrder = selectedCurrency
+                } else {
+                    let selectedOrderId = self.orderHistoryDateArray![indexPath.row].ordm_ords_id
+                    let selectedCurrency = self.orderHistoryDateArray![indexPath.row].ordm_currency
+                    (segue.destinationViewController as! OrderDetailViewController).orderMain = self.orderHistoryDateArray![indexPath.row]
+                    (segue.destinationViewController as! OrderDetailViewController).orderId = selectedOrderId
+                    (segue.destinationViewController as! OrderDetailViewController).currencyOrder = selectedCurrency
+                    
+                }
+            }
+        }
     }
-    */
 
 }
