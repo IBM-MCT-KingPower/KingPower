@@ -4643,12 +4643,11 @@ with any Estee Lauder purchase of 3,000THB</string>
                         <outlet property="returnAirlineTextField" destination="aVf-QY-Rks" id="gkT-6Y-tnh"/>
                         <outlet property="returnDateTextField" destination="8rX-QZ-sLU" id="v8u-xQ-tiP"/>
                         <outlet property="returnFlightNoTextField" destination="9xr-Cc-y7K" id="wiv-Zt-tXs"/>
-                        <segue destination="LtX-OD-xi3" kind="modal" identifier="submitOrderSegue" modalPresentationStyle="fullScreen" id="vXc-OS-uZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyc-DG-oMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14281" y="-327"/>
+            <point key="canvasLocation" x="13937" y="-142"/>
         </scene>
         <!--Thankyou View Controller-->
         <scene sceneID="pMT-tN-AE1">
@@ -4737,26 +4736,7 @@ with any Estee Lauder purchase of 3,000THB</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIL-EX-TLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gB2-k4-rnY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="15517" y="677"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Iqs-ld-9DK">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LtX-OD-xi3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="z5r-zY-BUV"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ndi-FQ-aA0">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="pF9-Py-aPM" kind="relationship" relationship="rootViewController" id="5UZ-3M-B2Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rEW-33-CcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="14281" y="677"/>
+            <point key="canvasLocation" x="14149" y="677"/>
         </scene>
         <!--Order List View Controller-->
         <scene sceneID="vKw-Ct-nZo">
@@ -5130,11 +5110,10 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="takeoff.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Tr9-cY-tqw"/>
         <segue reference="SCn-A0-t9Z"/>
         <segue reference="h9l-HJ-MCb"/>
-        <segue reference="Tr9-cY-tqw"/>
-        <segue reference="aGC-u9-46o"/>
         <segue reference="pnm-Tf-TdP"/>
-        <segue reference="7jD-gU-2QY"/>
+        <segue reference="aGC-u9-46o"/>
     </inferredMetricsTieBreakers>
 </document>

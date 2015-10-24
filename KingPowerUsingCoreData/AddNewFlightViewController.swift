@@ -7,8 +7,12 @@
 //
 
 import UIKit
+protocol thankyouDelegate{
+    func forwardToThankyou(insertedOrderMain: OrderMainModel)
+}
 
 class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIPickerViewDelegate  {
+    var delegate:thankyouDelegate?
     @IBOutlet weak var btnDone:UIButton!
     @IBOutlet weak var btnCancel:UIButton!
     @IBOutlet weak var departAirlineTextField: UITextField!
@@ -450,7 +454,8 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             //        time.in
             let insertedOrderMain = OrderMainController().insert(orderMain.ordm_ords_id, ordm_user_id: orderMain.ordm_user_id, ordm_cust_id: orderMain.ordm_cust_id, ordm_passport_no: orderMain.ordm_passport_no, ordm_total_price: orderMain.ordm_total_price, ordm_flight_departure: orderMain.ordm_flight_departure, ordm_picknow_flag: orderMain.ordm_picknow_flag, ordm_current_location: orderMain.ordm_current_location, ordm_flight_arrival: orderMain.ordm_flight_arrival, ordm_picklater_flag: orderMain.ordm_picklater_flag, ordm_pickup_location: orderMain.ordm_pickup_location, ordm_net_total_price: orderMain.ordm_net_total_price, ordm_card_discount: orderMain.ordm_card_discount, cartPickNowArray: cartPickNowArray, cartPickLaterArray: cartPickNowArray)
             //self.addOrderDetail(insertedOrderMain)
-            performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
+            //performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
+             delegate?.forwardToThankyou(insertedOrderMain)
         }else{
             commonViewController.alertView(self, title: gv.getConfigValue("messageFlightInfoRequiredTitle") as! String, message: gv.getConfigValue("messageFlightInfoRequiredField") as! String)
         }
@@ -461,7 +466,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     
     
     // MARK: - Navigation
-    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -473,7 +478,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             thankyouVC.orderNo = insertedOrderMain.ordm_no
             
         }
-    }
+    }*/
     
     
 }

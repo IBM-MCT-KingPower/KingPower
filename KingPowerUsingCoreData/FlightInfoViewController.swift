@@ -8,8 +8,8 @@
 
 import UIKit
 
-class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    
+class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, thankyouDelegate {
+
     var orderMain: OrderMainModel!
     var cartPickNowArray:[CartModel] = []
     var cartPickLaterArray:[CartModel] = []
@@ -351,6 +351,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             addNewFlightVC.selectedReturnDate = selectedReturnDate
             addNewFlightVC.departFlightArray = departFlightArray
             addNewFlightVC.returnFlightArray = returnFlightArray
+            addNewFlightVC.delegate = self
             
         }else if segue.identifier == "submitOrderSegue" {
             let insertedOrderMain = sender as! OrderMainModel
@@ -360,5 +361,9 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
     
+    func forwardToThankyou(insertedOrderMain: OrderMainModel){
+        self.dismissViewControllerAnimated(false, completion: nil)
+        performSegueWithIdentifier("submitOrderSegue", sender: insertedOrderMain)
+    }
     
 }
