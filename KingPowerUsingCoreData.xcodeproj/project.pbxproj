@@ -474,6 +474,7 @@
 		A1D880981BC41C2200812A15 /* PromotionPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */; };
 		A1E00FD41BD0F3D900133F8D /* Icon_Calculator.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */; };
 		A1EB8FD31BDA3697005DA11A /* kp.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A1EB8FD21BDA3697005DA11A /* kp.sqlite */; settings = {ASSET_TAGS = (); }; };
+		A1EB8FD71BDA9424005DA11A /* AddToCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EB8FD61BDA9424005DA11A /* AddToCartView.swift */; settings = {ASSET_TAGS = (); }; };
 		F930A7821BC7762500758366 /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76B1BC7762500758366 /* BrandModel.swift */; };
 		F930A7831BC7762500758366 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76C1BC7762500758366 /* CartModel.swift */; };
 		F930A7841BC7762500758366 /* CustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F930A76D1BC7762500758366 /* CustomerModel.swift */; };
@@ -985,6 +986,7 @@
 		A1D880971BC41C2200812A15 /* PromotionPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PromotionPopupViewController.xib; path = View/PromotionPopupViewController.xib; sourceTree = "<group>"; };
 		A1E00FD31BD0F3D900133F8D /* Icon_Calculator.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Icon_Calculator.jpg; path = KingPowerUsingCoreData/Images/Icon_Calculator.jpg; sourceTree = SOURCE_ROOT; };
 		A1EB8FD21BDA3697005DA11A /* kp.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = kp.sqlite; sourceTree = "<group>"; };
+		A1EB8FD61BDA9424005DA11A /* AddToCartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToCartView.swift; path = View/AddToCartView.swift; sourceTree = "<group>"; };
 		B598BE11298FAFF3A0BC5F02 /* Pods_KingPowerUsingCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPowerUsingCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F930A76B1BC7762500758366 /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrandModel.swift; path = Model/BrandModel.swift; sourceTree = "<group>"; };
 		F930A76C1BC7762500758366 /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartModel.swift; path = Model/CartModel.swift; sourceTree = "<group>"; };
@@ -2386,6 +2388,7 @@
 				A16DDDDB1BC3791100F1B427 /* filterViewController.swift */,
 				A16DDDDC1BC3791100F1B427 /* popupViewController.swift */,
 				A16DDDDD1BC3791100F1B427 /* ProductCollectionViewCell.swift */,
+				A1EB8FD61BDA9424005DA11A /* AddToCartView.swift */,
 				A16DDDDE1BC3791100F1B427 /* ProductDetailViewController.swift */,
 				A16DDDE01BC3791100F1B427 /* SearchViewController.swift */,
 				A16DDDE11BC3791100F1B427 /* sortTableViewCell.swift */,
@@ -3175,6 +3178,7 @@
 				A11F14301BC389BA0045B7B6 /* CartTableViewCell.swift in Sources */,
 				A11F14311BC389BA0045B7B6 /* CartViewController.swift in Sources */,
 				A11F14321BC389BA0045B7B6 /* CatagoryCollectionViewCell.swift in Sources */,
+				A1EB8FD71BDA9424005DA11A /* AddToCartView.swift in Sources */,
 				A1D3CF1D1BCCB5D3009D468E /* KPVariable.swift in Sources */,
 				A1762D881BD7852B0045F9D4 /* OrderListTableViewCell.swift in Sources */,
 				A11F14331BC389BA0045B7B6 /* CheckoutTableViewCell.swift in Sources */,

@@ -23,6 +23,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var moreImageCollectionView: UICollectionView!
     @IBOutlet weak var relatedProductTableView: UITableView!
     @IBOutlet weak var tabView: UIView!
+    @IBOutlet weak var addToCartPopupView: AddToCartView!
     var setupNav = KPNavigationBar()
     //var buttonCart = UIButton()
     var btnRelatedProduct = UIButton()
@@ -128,22 +129,9 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         
         cartCountView.layer.addAnimation(pathAnimation, forKey: "curveAnimation")
         cartCountView.layer.addAnimation(animation, forKey: "transform")
-/*
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            // do your task
-            dispatch_async(dispatch_get_main_queue()) {
-                UIView.animateWithDuration(2, animations: {
-                    cartCountView.alpha = 0
-                    cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
-                    
-                    }, completion: {
-                        finished in
-                        cartCountView.removeFromSuperview()
-                })
-                
-            }
-        }
-        */
+
+
+        
         UIView.animateWithDuration(2, animations: {
             cartCountView.alpha = 0
             cartCountView.transform = CGAffineTransformMakeScale(0.7, 0.7)
@@ -168,7 +156,24 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         let currentLocation = prefs.objectForKey(gv.getConfigValue("currentLocation") as! String) as! String
         print("Current Location \(currentLocation)")
         CartController().insert(userId, cart_cust_id: custId, cart_prod_id: productDetail.prod_id, cart_quantity: Int32(self.amount.text!)!, cart_pickup_now: picknowFlag, cart_current_location: currentLocation)
+        addToCartPopupView.backgroundColor = UIColor.whiteColor()
         
+        addToCartPopupView.imgProduct.image = UIImage(named: productDetail.prod_imageArray[0].proi_image_path)
+        addToCartPopupView.txtProductName.text = productDetail.prod_name
+        addToCartPopupView.txtProductName.font = UIFont(name: "Century Gothic", size: 12)
+        addToCartPopupView.lblQuantity.text = "\(self.amount.text!)"
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            // do your task
+            dispatch_async(dispatch_get_main_queue()) {
+                UIView.animateWithDuration(2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.addToCartPopupView.alpha = 1.0 }, completion: nil)
+                UIView.animateWithDuration(1, delay: 3.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                    self.addToCartPopupView.alpha = 0.0 }, completion: nil)
+                
+                
+            }
+        }
+
         
     }
     @IBAction func currencyConvertorPopup(sender: AnyObject) {
