@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="ufonts.com_century-gothic.ttf">
@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="btnOk" destination="fsw-Eg-8kK" id="N2F-BY-Ke0"/>
                 <outlet property="lblFlight" destination="2Z0-rz-Ee0" id="Njl-Vr-hRs"/>
+                <outlet property="lblTime" destination="DGO-hf-jGk" id="lwv-rG-0L0"/>
                 <outlet property="vContainer" destination="7fE-zb-4St" id="sdi-c1-5mM"/>
                 <outlet property="vMain" destination="xl2-X0-ne2" id="tsB-y9-TQC"/>
                 <outlet property="view" destination="7ZY-ab-6y6" id="sF5-Mk-T5K"/>
@@ -32,14 +33,23 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xl2-X0-ne2">
                     <rect key="frame" x="0.0" y="64" width="1024" height="200"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU HAVE          MINUTES LEFT BEFORE BOARDING GATE CLOSED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z0-rz-Ee0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOU HAVE          MINUTES LEFT BEFORE BOARDING GATE CLOSED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Z0-rz-Ee0">
                             <rect key="frame" x="331" y="58" width="615" height="21"/>
                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGO-hf-jGk">
+                            <rect key="frame" x="331" y="89" width="615" height="36"/>
+                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="30"/>
+                            <color key="textColor" red="1" green="0.93980580036504002" blue="0.049668140002299799" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flight.png" translatesAutoresizingMaskIntoConstraints="NO" id="mAL-PL-Khz">
+                            <rect key="frame" x="133" y="43" width="203" height="128"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsw-Eg-8kK">
-                            <rect key="frame" x="556" y="124" width="98" height="30"/>
+                            <rect key="frame" x="589" y="128" width="98" height="30"/>
                             <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="15"/>
                             <state key="normal" title="OK">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,15 +58,6 @@
                                 <action selector="okTapped:" destination="-1" eventType="touchUpInside" id="RBr-AD-Ax9"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGO-hf-jGk">
-                            <rect key="frame" x="422" y="46" width="36" height="36"/>
-                            <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="30"/>
-                            <color key="textColor" red="1" green="0.93980580036504002" blue="0.049668140002299799" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flight.png" translatesAutoresizingMaskIntoConstraints="NO" id="mAL-PL-Khz">
-                            <rect key="frame" x="133" y="43" width="203" height="128"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
