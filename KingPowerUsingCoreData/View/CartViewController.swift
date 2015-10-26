@@ -293,14 +293,18 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let matchPromotion = promotionUpsaleArray!.filter({
             $0.prup_max_amount > netTotal.doubleValue
         })
-        let promotionUpsale = matchPromotion[0]
+        if matchPromotion.count != 0 {
+            let promotionUpsale = matchPromotion[0]
         
-        self.txtvPromotionDetail.text = "Special offers \(promotionUpsale.prup_max_content) when puschase more than \(NSDecimalNumber(double:promotionUpsale.prup_max_amount).currency) baht"
-        self.allPopupView.hidden = false
-        self.popupView.hidden = false
-        UIView.animateWithDuration(0.5, animations: {
-            self.popupView.alpha = 1.0
-        })
+            self.txtvPromotionDetail.text = "Special offers \(promotionUpsale.prup_max_content) when puschase more than \(NSDecimalNumber(double:promotionUpsale.prup_max_amount).currency) baht"
+            self.allPopupView.hidden = false
+            self.popupView.hidden = false
+            UIView.animateWithDuration(0.5, animations: {
+                self.popupView.alpha = 1.0
+            })
+        }else{
+            performSegueWithIdentifier("checkoutSegue", sender: nil)
+        }
         
     }
     
@@ -593,12 +597,19 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let yFlag = gv.getConfigValue("flagYes") as! String
         let nFlag = gv.getConfigValue("flagNo") as! String
         let currentDate = CommonViewController().castDateFromDate(NSDate())
+        var totalAmount:Int32 = 0
         for cart in cartPickNowArray {
+            totalAmount += cart.cart_quantity
             cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: yFlag)
         }
         for cart in cartPickLaterArray {
+            totalAmount += cart.cart_quantity
             cartController.updateById(cart.cart_id, cart_quantity: cart.cart_quantity, cart_pickup_now: nFlag)
         }
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        prefs.setInteger(totalAmount.hashValue, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        prefs.synchronize()
+        
     }
     
 }

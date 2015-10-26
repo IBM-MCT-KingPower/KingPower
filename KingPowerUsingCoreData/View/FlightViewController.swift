@@ -35,6 +35,7 @@ class FlightViewController: UIViewController {
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let customDate = dateFormatter.dateFromString(i.flii_flight_date)
+            print("Date format :\(customDate!)")
             /*
             let elapsedTime = customDate!.timeIntervalSinceDate(nowDate)
             print("patis elapsedTime " +  String(elapsedTime));
@@ -51,11 +52,12 @@ class FlightViewController: UIViewController {
                 fromDate: nowDate,
                 toDate: customDate!,
                 options: [])
-            
+            print("difference day : \(difference.day) min : \(difference.minute)")
             if difference.day > 2 || difference.day < 0 || difference.hour < 0 || difference.minute < 0 || difference.second < 0 {
                 hasMinFlight = false
             }
             else{
+                print("has in flight")
                 var recordNew:Bool = false
                 if hasMinFlight == false {
                     hasMinFlight = true
@@ -105,6 +107,14 @@ class FlightViewController: UIViewController {
         }
         lblFlight.text = message
         lblTime.text = messageTime
+        let flightArray1 = FlightInfoController().getFlightByCustomerIdOnly(custId)
+        for flight in flightArray1! {
+            print("All Flight date : \(flight.flii_flight_date)")
+        }
+        
+        for flight in flightArray! {
+            print("Flight date : \(flight.flii_flight_date)")
+        }
     }
     override func viewDidAppear(animated: Bool) {
         //self.vMain.frame = CGRectMake(0, 80, 1024, 500)

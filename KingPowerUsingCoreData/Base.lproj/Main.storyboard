@@ -5110,10 +5110,10 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="takeoff.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tr9-cY-tqw"/>
-        <segue reference="SCn-A0-t9Z"/>
-        <segue reference="h9l-HJ-MCb"/>
-        <segue reference="pnm-Tf-TdP"/>
         <segue reference="aGC-u9-46o"/>
+        <segue reference="pnm-Tf-TdP"/>
+        <segue reference="MW8-Cy-umH"/>
+        <segue reference="h9l-HJ-MCb"/>
+        <segue reference="SCn-A0-t9Z"/>
     </inferredMetricsTieBreakers>
 </document>

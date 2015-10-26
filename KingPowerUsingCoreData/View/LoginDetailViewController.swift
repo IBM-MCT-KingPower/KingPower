@@ -343,7 +343,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             
             var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!, dateOnly: false)
             var currentDate = commonViewController.castDateFromDate(NSDate())
-            
+            print("insert Flight")
             var departFlightId = flightInfoController.insertFlight(self.customer.cust_id, flii_airline: self.departAirlineTextField!.text!, flii_flight_no: self.departFlightNoTextField!.text!, flii_flight_date: flightDateAsString, flii_return_flag: gv.getConfigValue("flagNo") as! String)
             
             self.departFlight?.flii_airline = self.departAirlineTextField!.text!
