@@ -72,9 +72,13 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.relatedProductTableView.reloadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.setupNav.setAmountInCart()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         //        self.setupNavigationBar()
-        self.setupNav.setAmountInCart()
+        
         
     }
     override func didReceiveMemoryWarning() {

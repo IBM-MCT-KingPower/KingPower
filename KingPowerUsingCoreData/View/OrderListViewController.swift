@@ -108,9 +108,13 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
                 cell.mOrderNo.text = self.orderCurrentDateArray?[indexPath.row].ordm_no
+                var amount:Int32 = 0
+                for orderDetail in (self.orderCurrentDateArray?[indexPath.row].ordm_ords)!{
+                    amount += orderDetail.ordd_quantity
+                }
+                //let amount = self.orderCurrentDateArray?[indexPath.row].ordm_ords.count
                 
-                let amount = self.orderCurrentDateArray?[indexPath.row].ordm_ords.count
-                cell.mOrderAmt.text = String(amount!)
+                cell.mOrderAmt.text = String(amount)
                 
                 let total = NSDecimalNumber(double:(self.orderCurrentDateArray?[indexPath.row].ordm_net_total_price)!)
                 cell.mOrderTotal.text = total.currency + " " + (self.orderCurrentDateArray?[indexPath.row].ordm_currency)!
@@ -143,9 +147,12 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
                 cell.mOrderNo.text = self.orderHistoryDateArray?[indexPath.row].ordm_no
-                
-                let amount = self.orderHistoryDateArray?[indexPath.row].ordm_ords.count
-                cell.mOrderAmt.text = String(amount!)
+                var amount:Int32 = 0
+                for orderDetail in (self.orderHistoryDateArray?[indexPath.row].ordm_ords)!{
+                    amount += orderDetail.ordd_quantity
+                }
+                //let amount = self.orderHistoryDateArray?[indexPath.row].ordm_ords.count
+                cell.mOrderAmt.text = String(amount)
                 
                 let total = NSDecimalNumber(double:(self.orderHistoryDateArray?[indexPath.row].ordm_net_total_price)!)
                 cell.mOrderTotal.text = total.currency + " " + (self.orderHistoryDateArray?[indexPath.row].ordm_currency)!
@@ -202,16 +209,16 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectedOrderSegue" {
             if let indexPath = self.TableViewOrder.indexPathForSelectedRow {
-                
+                print("index path : \(indexPath.row)")
                 if self.TableViewOrder.indexPathForSelectedRow?.section == 0 {
-                    
-                    let selectedOrderId = self.orderCurrentDateArray![indexPath.row].ordm_ords_id
+                
+                    let selectedOrderId = self.orderCurrentDateArray![indexPath.row].ordm_id
                     let selectedCurrency = self.orderCurrentDateArray![indexPath.row].ordm_currency
                     (segue.destinationViewController as! OrderDetailViewController).orderMain = self.orderCurrentDateArray![indexPath.row]
                     (segue.destinationViewController as! OrderDetailViewController).orderId = selectedOrderId
                     (segue.destinationViewController as! OrderDetailViewController).currencyOrder = selectedCurrency
                 } else {
-                    let selectedOrderId = self.orderHistoryDateArray![indexPath.row].ordm_ords_id
+                    let selectedOrderId = self.orderHistoryDateArray![indexPath.row].ordm_id
                     let selectedCurrency = self.orderHistoryDateArray![indexPath.row].ordm_currency
                     (segue.destinationViewController as! OrderDetailViewController).orderMain = self.orderHistoryDateArray![indexPath.row]
                     (segue.destinationViewController as! OrderDetailViewController).orderId = selectedOrderId

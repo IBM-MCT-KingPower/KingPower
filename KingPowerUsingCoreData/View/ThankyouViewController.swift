@@ -30,21 +30,26 @@ class ThankyouViewController: UIViewController {
         self.btnOk.layer.borderWidth = 1.0
         // Do any additional setup after loading the view.
         self.lblOrderNo.text = orderNo
-        
         self.setupNav.setupNavigationBar(self)
+        print("1")
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        print("2")
+        prefs.synchronize()
+        print("3")
+        CartController().deleteByCustomerId(custId,user_id: userId)
+        print("4")
     }
     
     override func viewWillAppear(animated: Bool) {
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
-        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
-        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
-        CartController().deleteByCustomerId(custId,user_id: userId)
-        prefs.synchronize()
+
     }
     
     override func viewDidAppear(animated: Bool) {
         //        self.setupNavigationBar()
+        
         
     }
     
@@ -68,23 +73,11 @@ class ThankyouViewController: UIViewController {
     // Pass the selected object to the new view controller.
     }
     */
-    func BackMethod(){
-        navigationController?.popViewControllerAnimated(true)
-    }
     
-    func viewFlightMethod(){
-        self.removeNavigateView()
-        CommonViewController().viewFlightMethod(self)
-    }
+
     func callAssistMethod(){
         self.removeNavigateView()
         CommonViewController().callAssistMethod(self)
-    }
-    func searchMethod(){
-        CommonViewController().searchMethod(self)
-    }
-    func viewCartMethod(){
-        CommonViewController().viewCartMethod(self)
     }
     
     //    func setupNavigationBar(){

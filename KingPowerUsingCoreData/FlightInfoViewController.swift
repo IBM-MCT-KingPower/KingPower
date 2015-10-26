@@ -63,6 +63,12 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         if cartPickLaterArray.count > 0 {
             lblRequiredReturn.hidden = false
         }
+        for cart in cartPickNowArray {
+            print("Pick now \(cart.cart_id)")
+        }
+        for cart in cartPickLaterArray {
+            print("Pick later \(cart.cart_id)")
+        }
         
         // Do any additional setup after loading the view.
         
@@ -156,12 +162,12 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             
         }
         if countReturn >= 1 {
-            selectedReturnAirline = returnFlightArray[countDepart-1].flii_airline
-            selectedReturnFlightNo = returnFlightArray[countDepart-1].flii_flight_no
-            selectedReturnDate = commonViewController.kpDateTimeFormat(returnFlightArray[countDepart-1].flii_flight_date, dateOnly:true)
+            selectedReturnAirline = returnFlightArray[countReturn-1].flii_airline
+            selectedReturnFlightNo = returnFlightArray[countReturn-1].flii_flight_no
+            selectedReturnDate = commonViewController.kpDateTimeFormat(returnFlightArray[countReturn-1].flii_flight_date, dateOnly:true)
             returnAirlineTextField.text = selectedReturnFlightNo + " (" + selectedReturnAirline + ") " + selectedReturnDate
             self.pickerViewReturn.selectRow(countReturn-1, inComponent: 0, animated: true)
-            orderMain.ordm_flight_arrival = returnFlightArray[countDepart-1].flii_id
+            orderMain.ordm_flight_arrival = returnFlightArray[countReturn-1].flii_id
         }
     }
     

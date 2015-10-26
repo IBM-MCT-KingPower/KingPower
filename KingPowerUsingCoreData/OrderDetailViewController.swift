@@ -35,7 +35,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.setupNav.setupNavigationBar(self)
         self.detailtableview.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
         //orderId = 2
-        
+        print("order id \(orderId)")
         self.orderDetailPickNowArray = OrderDetailController().getOrderDetailPickTypeByOrderId(orderId, ordd_pickup_now: "Y")!
         self.orderDetailPickLaterArray = OrderDetailController().getOrderDetailPickTypeByOrderId(orderId, ordd_pickup_now: "N")!
         /*

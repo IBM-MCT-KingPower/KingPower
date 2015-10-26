@@ -47,6 +47,7 @@ class OrderMainController{
         }
         
         orderMain = getOrderByMaxRunningNo(orderNo)!
+        print("Get max id \(orderMain.ordm_id)")
         let yFlag = GlobalVariable().getConfigValue("flagYes") as! String
         let nFlag = GlobalVariable().getConfigValue("flagNo") as! String
         

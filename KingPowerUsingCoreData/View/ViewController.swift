@@ -55,6 +55,10 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.setupNav.setAmountInCart()
+    }
+    
     override func viewDidAppear(animated: Bool) {
 //        self.setupNavigationBar()
         
