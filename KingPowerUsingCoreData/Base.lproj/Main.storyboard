@@ -2804,7 +2804,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.84999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dt-EB-2UO">
                                         <rect key="frame" x="8" y="34" width="79" height="79"/>
@@ -2828,6 +2828,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="0.96129587155963314" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="imgProduct" destination="6dt-EB-2UO" id="Oal-6X-1vt"/>
                                     <outlet property="lblQuantity" destination="ORX-TR-jOc" id="s6C-MY-6Yn"/>
@@ -5112,8 +5113,8 @@ with any Estee Lauder purchase of 3,000THB</string>
     <inferredMetricsTieBreakers>
         <segue reference="aGC-u9-46o"/>
         <segue reference="pnm-Tf-TdP"/>
-        <segue reference="MW8-Cy-umH"/>
         <segue reference="h9l-HJ-MCb"/>
         <segue reference="SCn-A0-t9Z"/>
+        <segue reference="Tr9-cY-tqw"/>
     </inferredMetricsTieBreakers>
 </document>

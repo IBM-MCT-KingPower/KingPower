@@ -18,10 +18,9 @@ class AddToCartView: UIView {
     override func drawRect(rect: CGRect) {
         // Drawing code
         self.layer.shadowColor = UIColor.grayColor().CGColor
-        self.layer.shadowOffset =  CGSize(width: 10.0, height: 10.0)
-        self.layer.shadowRadius = 5
+        self.layer.shadowOffset =  CGSize(width: 5.0, height: 5.0)
+        self.layer.shadowRadius = 2
         self.layer.shadowOpacity = 0.7
- //       self.layer.backgroundColor = UIColor.whiteColor().CGColor
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
 
