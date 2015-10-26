@@ -77,16 +77,60 @@ class CommonViewController: UIViewController {
     func castDateFromString(oriDate: String, dateOnly: Bool) -> String {
         print("FLIGHT DATE: \(oriDate) ")
         var format : String = "yyyy-MM-dd"
+        var amPm : String = ""
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         if(!dateOnly){
+            
+            //Validate AM or PM?
+            let rangeOfAmPm = Range(start: oriDate.endIndex.advancedBy(-2), end: oriDate.endIndex)
+            amPm = oriDate.substringWithRange(rangeOfAmPm)
+            
             dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-            format = "yyyy-MM-dd hh:mm:ss a"
+            format = "yyyy-MM-dd hh:mm:ss"
+            
         }
         
         var dateObj = dateFormatter.dateFromString(oriDate)!
         dateFormatter.dateFormat = format
         
-        return dateFormatter.stringFromDate(dateObj)
+        
+        var tmp = dateFormatter.stringFromDate(dateObj)
+        if(!dateOnly){
+            //Cast AM/PM to 24 hours
+            let rangeOfHours = Range(start: oriDate.startIndex.advancedBy(11), end: oriDate.startIndex.advancedBy(13))
+            var hourString : String = tmp.substringWithRange(rangeOfHours)
+            var hourInt : Int = Int(hourString)!
+            
+            if(amPm == "AM"){
+                //AM
+                //if time == 12 (12:30 AM) --> -12
+                //00:30 (at night)
+                //other (10:30 AM) --> do nothing
+                if(hourInt == 12){
+                    //replace with 00
+                    tmp.replaceRange(rangeOfHours, with: "00")
+                    
+                }
+                
+            }else {
+                //PM
+                //if time == 12 (12:30 PM) --> do nothing
+                //12:30 (at noon)
+                //other (3:30 PM) --> +12
+                //15:30
+                if(hourInt < 12){
+                    //Add 12
+                    hourInt = hourInt + 12
+                    tmp.replaceRange(rangeOfHours, with: String(hourInt))
+                }
+                
+            }
+            
+        }
+        
+        print("Date Format 24 hours: \(tmp)")
+        
+        return tmp
     }
     
     func castDateFromDate(oriDate: NSDate) -> String {
@@ -142,8 +186,8 @@ class CommonViewController: UIViewController {
             return stringArray[1]+"-"+stringArray[1]+"-"+stringArray[2]+" "+stringArray[3]
         }
     }
-
-
+    
+    
     
     
     /*

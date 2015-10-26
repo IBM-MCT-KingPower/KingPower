@@ -379,9 +379,6 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("CUSTOMER ID :      \(self.customer.cust_id)")
-        print("DEPART FLIGHT ID : \(self.departFlight?.flii_id)")
-        print("RETURN FLIGHT ID : \(self.returnFlight?.flii_id)")
         (segue.destinationViewController as! WelcomeViewController).customer = self.customer
         (segue.destinationViewController as! WelcomeViewController).departFlight = self.departFlight
         (segue.destinationViewController as! WelcomeViewController).returnFlight = self.returnFlight

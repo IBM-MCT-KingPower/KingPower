@@ -36,7 +36,7 @@ class WelcomeViewController: UIViewController {
     var dateFormatter = NSDateFormatter()
     var departFlight : FlightInfoModel? = FlightInfoModel()
     var returnFlight : FlightInfoModel? = FlightInfoModel()
-        var commonViewController = CommonViewController()
+    var commonViewController = CommonViewController()
     
     var constat = Constants()
     var lol = Locale()
@@ -46,8 +46,6 @@ class WelcomeViewController: UIViewController {
         
         print("WelcomeViewController")
         print("CUST ID : \(self.customer.cust_id)")
-        print("CUST FIST NAME : \(self.customer.cust_first_name)")
-        print("CUST LAST NAME : \(self.customer.cust_last_name)")
         //        print("CUST ID : \(self.customer.cust)")
         
         
@@ -64,15 +62,15 @@ class WelcomeViewController: UIViewController {
         self.cardIdLabel.text = String(self.customer.cust_card_id)
         self.cardLevelLabel.text = self.customer.cust_card_level
         self.cardExpireDateLabel.text = commonViewController.kpDateTimeFormat(self.customer.cust_card_exp_date, dateOnly: true)
-
-        if(self.departFlight!.flii_id == 0){
+        
+        if(self.departFlight!.flii_airline == ""){
             self.departFlightNoLable.text = "-"
         }else{
             self.departFlightNoLable.text = self.departFlight!.flii_flight_no
             self.departDateLabel.text = commonViewController.kpDateTimeFormat(self.departFlight!.flii_flight_date, dateOnly: false)
             self.departAirlineLabel.text = self.departFlight!.flii_airline
         }
-        if(self.returnFlight!.flii_id == 0){
+        if(self.returnFlight!.flii_airline == ""){
             self.returnFlightNoLable.text = "-"
         }else{
             self.returnFlightNoLable.text = self.returnFlight!.flii_flight_no
