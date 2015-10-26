@@ -185,6 +185,7 @@ class CommonViewController: UIViewController {
             stringArray[3] = oriString.substringWithRange(rangeOfTime)
             return stringArray[1]+"-"+stringArray[1]+"-"+stringArray[2]+" "+stringArray[3]
         }
+        return ""
     }
     
     

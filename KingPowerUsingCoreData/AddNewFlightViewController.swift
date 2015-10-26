@@ -413,10 +413,12 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             if(hasDepartInfo){
                 //Insert into FlightInfo Table
                 print("before : \(self.departDateTextField!.text!)")
+                
                 let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.departDateTextField!.text!, dateOnly: true)
+                
                 print("after : \(flightDateAsString)")
                 var departFlightId : Int32!
-                let existDepartFlight = departFlightArray.filter({$0.flii_airline == self.departAirlineTextField!.text! && $0.flii_flight_no == self.departFlightNoTextField!.text! && $0.flii_flight_date == flightDateAsString})
+                let existDepartFlight = departFlightArray.filter({$0.flii_airline == self.departAirlineTextField!.text! && $0.flii_flight_no == self.departFlightNoTextField!.text! && $0.flii_flight_date.substringWithRange(Range(start: $0.flii_flight_date.startIndex, end:  $0.flii_flight_date.startIndex.advancedBy(11))) == flightDateAsString.substringWithRange(Range(start: flightDateAsString.startIndex, end:  flightDateAsString.startIndex.advancedBy(11)))})
                 
                 if existDepartFlight.count > 0 {
                     print("Depart : isExist")
@@ -433,7 +435,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
                 let flightDateAsString = commonViewController.kpDateTimeDBFormat(self.returnDateTextField!.text!, dateOnly: true)
                 
                 var returnFlightId : Int32!
-                let existReturnFlight = returnFlightArray.filter({$0.flii_airline == self.returnAirlineTextField!.text! && $0.flii_flight_no == self.returnFlightNoTextField!.text! && $0.flii_flight_date == flightDateAsString})
+                let existReturnFlight = returnFlightArray.filter({$0.flii_airline == self.returnAirlineTextField!.text! && $0.flii_flight_no == self.returnFlightNoTextField!.text! && $0.flii_flight_date.substringWithRange(Range(start: $0.flii_flight_date.startIndex, end:  $0.flii_flight_date.startIndex.advancedBy(11))) == flightDateAsString.substringWithRange(Range(start: flightDateAsString.startIndex, end:  flightDateAsString.startIndex.advancedBy(11)))})
                 if existReturnFlight.count > 0 {
                     print("Return : isExist")
                     returnFlightId = existReturnFlight[0].flii_id

@@ -72,15 +72,15 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewWillAppear(animated: Bool) {
         self.customPromotionPopup()
-        grandTotal = 0
-
         self.cartTableView.reloadData()
         
         print("Now List : \(cartPickNowArray.count)")
         print("Later List : \(cartPickLaterArray.count)")
+        
     }
     
     override func viewDidAppear(animated: Bool) {
+
         self.reCalculate()
     }
     
@@ -137,10 +137,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.lblUnitPrice.text = pricePerProd.currency
                 cell.lblTotalPrice.text = totalPrice.currency
                 cell.swtPickupType.on = true
+                /*
                 self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
                 if indexPath.row == self.cartPickNowArray.count - 1 && self.cartPickLaterArray.count == 0 {
                     self.lblGrandTotal.text = self.grandTotal.currency
-                }
+                }*/
                 cell.stpQuantity.value = Double(cell.txtfQuantity.text!)!
                 cell.swtPickupType.addTarget(self, action: Selector("checkSwitchChanged:"), forControlEvents: UIControlEvents.ValueChanged)
                 cell.stpQuantity.addTarget(self, action: Selector("checkQuantityChanged:"), forControlEvents: UIControlEvents.ValueChanged)
@@ -164,10 +165,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.lblUnitPrice.text = pricePerProd.currency
                 cell.lblTotalPrice.text = totalPrice.currency
                 cell.swtPickupType.on = false
+                /*
                 self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
                 if indexPath.row == self.cartPickLaterArray.count - 1 {
                     self.lblGrandTotal.text = self.grandTotal.currency
-                }
+                }*/
                 cell.stpQuantity.value = Double(cell.txtfQuantity.text!)!
                 cell.swtPickupType.addTarget(self, action: Selector("checkSwitchChanged:"), forControlEvents: UIControlEvents.ValueChanged)
                 cell.stpQuantity.addTarget(self, action: Selector("checkQuantityChanged:"), forControlEvents: UIControlEvents.ValueChanged)
@@ -252,34 +254,35 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        var oldPrice = NSDecimalNumber(int: 0)
-        var oldQuantity = NSDecimalNumber(int: 0)
+        //var oldPrice = NSDecimalNumber(int: 0)
+        //var oldQuantity = NSDecimalNumber(int: 0)
         if editingStyle == .Delete {
             switch indexPath.section {
             case 0 :
-                oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
-                oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
+               // oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath.row].cart_prod.prod_price)
+               // oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath.row].cart_quantity)
                 //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 let cart = self.cartPickNowArray[indexPath.row]
                 CartController().deleteByCartId(cart.cart_id)
                 self.cartPickNowArray.removeAtIndex(indexPath.row)
-                
+                self.setupNav.addAmountInCart(-cart.cart_quantity.hashValue)
                 self.cartTableView.reloadData()
             case 1 :
-                oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
-                oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
+               // oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath.row].cart_prod.prod_price)
+               // oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath.row].cart_quantity)
                 //self.cartTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 let cart = self.cartPickLaterArray[indexPath.row]
                 CartController().deleteByCartId(cart.cart_id)
                 self.cartPickLaterArray.removeAtIndex(indexPath.row)
+                self.setupNav.addAmountInCart(-cart.cart_quantity.hashValue)
                 self.cartTableView.reloadData()
             default :
                 print("default")
             }
-            self.setupNav.addAmountInCart((-1))
-            let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
-            self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice)
-            self.lblGrandTotal.text = self.grandTotal.currency
+            
+            //let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
+            //self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice)
+            //self.lblGrandTotal.text = self.grandTotal.currency
             self.reCalculate()
         }
     }
@@ -365,8 +368,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
         let newTotalPrice = quantity.decimalNumberByMultiplyingBy(pricePerItem)
         clickedCell.lblTotalPrice.text = newTotalPrice.currency
-        self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice).decimalNumberByAdding(newTotalPrice)
-        self.lblGrandTotal.text = self.grandTotal.currency
+        //self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice).decimalNumberByAdding(newTotalPrice)
+        //self.lblGrandTotal.text = self.grandTotal.currency
         self.reCalculate()
     }
     
@@ -424,156 +427,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         CommonViewController().viewCartMethod(self)
     }
 
-    
-//    func setupNavigationBar(){
-//        print("navigation frame: \(navigationController!.navigationBar.frame.width) x \(navigationController!.navigationBar.frame.height)")
-//        //Remove the shadow image altogether
-//        for parent in self.navigationController!.navigationBar.subviews {
-//            for childView in parent.subviews {
-//                if(childView is UIImageView) {
-//                    childView.removeFromSuperview()
-//                }
-//            }
-//        }
-//        //Container Layout
-//        navBar.frame=CGRectMake(0, 0, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height)
-//        navBar.barTintColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))//UIColor(hexString: "000000")
-//        self.view.addSubview(navBar)
-//        self.view.sendSubviewToBack(navBar)
-//        
-//        //Navigation Bar
-//        self.navigationController!.navigationBar.barTintColor =  UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
-//        
-//        let imageTitleItem : UIImage = UIImage(named: gv.getConfigValue("navigationBarImgName") as! String)!
-//        let imageTitleView = UIImageView(frame: CGRect(
-//            x: gv.getConfigValue("navigationBarImgPositionX") as! Int,
-//            y: gv.getConfigValue("navigationBarImgPositionY") as! Int,
-//            width: gv.getConfigValue("navigationBarImgWidth") as! Int,
-//            height: gv.getConfigValue("navigationBarImgHeight") as! Int))
-//        
-//        imageTitleView.contentMode = .ScaleAspectFit
-//        imageTitleView.image = imageTitleItem
-//        self.navigationItem.titleView = imageTitleView
-//        
-//        self.addRightNavItemOnView()
-//        self.addLeftNavItemOnView()
-//        
-//    }
-//    func addLeftNavItemOnView()
-//    {
-//        //Back
-//        let buttonMenu = UIButton(type: UIButtonType.Custom) as UIButton
-//        buttonMenu.frame = CGRectMake(
-//            gv.getConfigValue("navigationItemBackImgPositionX") as! CGFloat,
-//            gv.getConfigValue("navigationItemBackImgPositionY") as! CGFloat,
-//            gv.getConfigValue("navigationItemBackImgWidth") as! CGFloat,
-//            gv.getConfigValue("navigationItemBackImgHeight") as! CGFloat)
-//        
-//        buttonMenu.setImage(UIImage(named: gv.getConfigValue("navigationItemBackImgName") as! String), forState: UIControlState.Normal)
-//        buttonMenu.addTarget(self, action: "backToPreviousPage:", forControlEvents: UIControlEvents.TouchUpInside) //use thiss
-//        let leftBarButtonItemMenu = UIBarButtonItem(customView: buttonMenu)
-//        
-//        //Flight
-//        let buttonFlight = UIButton(type: UIButtonType.Custom) as UIButton
-//        buttonFlight.frame = CGRectMake(
-//            gv.getConfigValue("navigationItemAirplainImgPositionX") as! CGFloat,
-//            gv.getConfigValue("navigationItemAirplainImgPositionY") as! CGFloat,
-//            gv.getConfigValue("navigationItemAirplainImgWidth") as! CGFloat,
-//            gv.getConfigValue("navigationItemAirplainImgHeight") as! CGFloat)
-//        buttonFlight.setImage(UIImage(named: gv.getConfigValue("navigationItemAirplainImgName") as! String), forState: UIControlState.Normal)
-//        buttonFlight.addTarget(self, action: "navItemFlightClick:", forControlEvents: UIControlEvents.TouchUpInside)
-//        let leftBarButtonItemFilght = UIBarButtonItem(customView: buttonFlight)
-//        
-//        
-//        // add multiple right bar button items
-//        self.navigationItem.setLeftBarButtonItems([leftBarButtonItemMenu,leftBarButtonItemFilght], animated: true)
-//        // uncomment to add single right bar button item
-//        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-//        
-//    }
-//    func addRightNavItemOnView()
-//    {
-//        //Call
-//        let buttonCall = UIButton(type: UIButtonType.Custom) as UIButton
-//        buttonCall.frame = CGRectMake(
-//            gv.getConfigValue("navigationItemCallImgPositionX") as! CGFloat,
-//            gv.getConfigValue("navigationItemCallImgPositionY") as! CGFloat,
-//            gv.getConfigValue("navigationItemCallImgWidth") as! CGFloat,
-//            gv.getConfigValue("navigationItemCallImgHeight") as! CGFloat)
-//        
-//        buttonCall.setImage(UIImage(named: gv.getConfigValue("navigationItemCallImgName") as! String), forState: UIControlState.Normal)
-//        buttonCall.addTarget(self, action: "navItemCallClick:", forControlEvents: UIControlEvents.TouchUpInside)
-//        let rightBarButtonItemCall = UIBarButtonItem(customView: buttonCall)
-//        
-//        //Cart
-//        let buttonCart = UIButton(type: UIButtonType.Custom) as UIButton
-//        buttonCart.frame = CGRectMake(
-//            gv.getConfigValue("navigationItemCartImgPositionX") as! CGFloat,
-//            gv.getConfigValue("navigationItemCartImgPositionY") as! CGFloat,
-//            gv.getConfigValue("navigationItemCartImgWidth") as! CGFloat,
-//            gv.getConfigValue("navigationItemCartImgHeight") as! CGFloat)
-//        
-//        buttonCart.setImage(UIImage(named: gv.getConfigValue("navigationItemCartImgName") as! String), forState: UIControlState.Normal)
-//        buttonCart.addTarget(self, action: "navItemCartClick:", forControlEvents: UIControlEvents.TouchUpInside)
-//        let rightBarButtonItemCart = UIBarButtonItem(customView: buttonCart)
-//        
-//        //Search
-//        let buttonSearch = UIButton(type: UIButtonType.Custom) as UIButton
-//        buttonSearch.frame = CGRectMake(
-//            gv.getConfigValue("navigationItemSearchImgPositionX") as! CGFloat,
-//            gv.getConfigValue("navigationItemSearchImgPositionY") as! CGFloat,
-//            gv.getConfigValue("navigationItemSearchImgWidth") as! CGFloat,
-//            gv.getConfigValue("navigationItemSearchImgHeight") as! CGFloat)
-//        buttonSearch.setImage(UIImage(named: gv.getConfigValue("navigationItemSearchImgName") as! String), forState: UIControlState.Normal)
-//        buttonSearch.addTarget(self, action: "navItemSearchClick:", forControlEvents: UIControlEvents.TouchUpInside)
-//        let rightBarButtonItemSearch = UIBarButtonItem(customView: buttonSearch)
-//        
-//        
-//        
-//        // add multiple right bar button items
-//        self.navigationItem.setRightBarButtonItems([rightBarButtonItemSearch,rightBarButtonItemCart,rightBarButtonItemCall], animated: true)
-//        
-//        // uncomment to add single right bar button item
-//        //self.navigationItem.setRightBarButtonItem(rightBarButtonItem, animated: false)
-//    }
-//    
-//    //Navigation Bar
-//    func backToPreviousPage(sender: AnyObject) {
-//        self.navigationController?.popViewControllerAnimated(true)
-//    }
-//    
-//    func navItemFlightClick(sender:UIButton!)
-//    {
-//        self.removeNavigateView()
-//        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
-//        flightViewController.showInView(self.view, animated: true)
-//    }
-//    
-//    func navItemCallClick(sender:UIButton!)
-//    {
-//        self.removeNavigateView()
-//        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
-//        callAssistanceViewController.showInView(self.view, animated: true)
-//        
-//    }
-//    
-//    func navItemCartClick(sender:UIButton!)
-//    {
-//        print("navItemCartClick")
-//        let cartViewController = self.storyboard?.instantiateViewControllerWithIdentifier("CartViewController") as? CartViewController
-//        self.navigationController?.pushViewController(cartViewController!, animated: true)
-//        
-//    }
-//    
-//    func navItemSearchClick(sender:UIButton!)
-//    {
-//        print("navItemSearchClick")
-//        let searchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchViewController") as? SearchViewController
-//        let modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.FormSheet
-//        searchViewController?.modalPresentationStyle = modalStyle
-//        self.presentViewController(searchViewController!, animated: true, completion: nil)
-//    }
-    
     func removeNavigateView(){
         if(flightViewController != nil && !flightViewController.view.hidden)
         {
@@ -586,6 +439,20 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func reCalculate(){
+        self.grandTotal = 0
+        for cart in cartPickNowArray {
+            let quantity = NSDecimalNumber(int: cart.cart_quantity)
+            //let pricePerProd = NSDecimalNumber(double: cart.cart_prod.prod_price)
+            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: cart.cart_prod.prod_price))
+            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+        }
+        for cart in cartPickLaterArray {
+            let quantity = NSDecimalNumber(int: cart.cart_quantity)
+            //let pricePerProd = NSDecimalNumber(double: cart.cart_prod.prod_price)
+            let totalPrice = quantity.decimalNumberByMultiplyingBy(NSDecimalNumber(double: cart.cart_prod.prod_price))
+            self.grandTotal = self.grandTotal.decimalNumberByAdding(totalPrice)
+        }
+        self.lblGrandTotal.text = self.grandTotal.currency
         discount = grandTotal.decimalNumberByMultiplyingBy(percentDiscount).decimalNumberByDividingBy(100)
         self.lblDiscount.text = "-\(discount.currency)"
         //self.lblPercentDiscount.text = "-\(discount)"

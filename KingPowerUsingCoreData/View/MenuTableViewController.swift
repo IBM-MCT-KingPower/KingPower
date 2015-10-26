@@ -12,7 +12,8 @@ import APAvatarImageView
 class MenuTableViewController: UITableViewController {
     
     @IBOutlet weak var imvProfile: APAvatarImageView!
-    @IBOutlet weak var lblProfileName: UILabel!
+    @IBOutlet weak var lblProfileFirstName: UILabel!
+    @IBOutlet weak var lblProfileLastName: UILabel!
     @IBOutlet weak var lblMain: UILabel!
     @IBOutlet weak var lblProfile: UILabel!
     @IBOutlet weak var lblOrderList: UILabel!
@@ -34,12 +35,16 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMenuList:",name:"loadMenuList", object: nil)
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let customer = CustomerController().getCustomerByCustId(custId)!
         
         self.imvProfile.image = UIImage(named: "05.png")
         self.imvProfile.contentMode = .ScaleAspectFit
         self.imvProfile.borderWidth = 5.0
         self.imvProfile.borderColor = UIColor(hexString: String(gv.getConfigValue("navigationBarColor")))
-        self.lblProfileName.text = "MR.XXX XXXXXXXXX"
+        self.lblProfileFirstName.text = "\(customer.cust_title).  \(customer.cust_first_name)"
+        self.lblProfileLastName.text = "\(customer.cust_last_name)"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

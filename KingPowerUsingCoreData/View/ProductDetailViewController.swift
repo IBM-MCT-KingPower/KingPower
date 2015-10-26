@@ -74,6 +74,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidAppear(animated: Bool) {
         //        self.setupNavigationBar()
+        self.setupNav.setAmountInCart()
         
     }
     override func didReceiveMemoryWarning() {

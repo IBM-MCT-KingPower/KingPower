@@ -43,6 +43,8 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     var myTimer : NSTimer = NSTimer()
     var countTimer:Int = 0
     
+    var customer:CustomerModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
@@ -100,9 +102,12 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         print(selectedGroup)
         // get product list
         self.productArray.removeAll()
-        print("ProductController")
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        customer = CustomerController().getCustomerByCustId(custId)!
+        
         if selectedGroup == 0 {
-            self.productArray = ProductController().getProductByGenderWithLimit(String(gv.getConfigValue("genderWomen")))//.getAllProduct()
+            self.productArray = ProductController().getProductByGenderWithLimit(customer.cust_gender)//.getAllProduct()
             
         } else {
             self.productArray = ProductController().getProductByProductGroupIDWithLimit(Int32(selectedGroup))
@@ -775,7 +780,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
                 if buttonList[index].tag == 1 {
                     var productAllArray = []
                     if index == 0 {
-                        productAllArray = ProductController().getProductByGender(String(gv.getConfigValue("genderWomen")))
+                        productAllArray = ProductController().getProductByGender(customer.cust_gender)
                     }else{
                         productAllArray = ProductController().getProductByProductGroupID(Int32(index))
                     }

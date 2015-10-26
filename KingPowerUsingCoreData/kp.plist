@@ -124,22 +124,22 @@
 	<string>Profile Menu</string>
 	<key>messageSettingMenuTitle</key>
 	<string>Setting Menu</string>
-    <key>messageFlightInfoRequiredTitle</key>
-    <string>Requires your information</string>
-    <key>messageFlightInfoRequiredField</key>
-    <string>Please insert all required field.</string>
-    <key>messageCartTitle</key>
-    <string>Cart</string>
-    <key>messageCartRequireProduct</key>
-    <string>Cannot found any items in your cart.</string>
+	<key>messageFlightInfoRequiredTitle</key>
+	<string>Requires your information</string>
+	<key>messageFlightInfoRequiredField</key>
+	<string>Please insert all required field.</string>
+	<key>messageCartTitle</key>
+	<string>Cart</string>
+	<key>messageCartRequireProduct</key>
+	<string>Cannot found any items in your cart.</string>
 	<key>flagYes</key>
 	<string>Y</string>
 	<key>flagNo</key>
 	<string>N</string>
 	<key>genderMen</key>
-	<string>MEN</string>
+	<string>MALE</string>
 	<key>genderWomen</key>
-	<string>WOMEN</string>
+	<string>FEMALE</string>
 	<key>genderUnisex</key>
 	<string>UNISEX</string>
 	<key>productGroupFashion</key>
