@@ -254,8 +254,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        //var oldPrice = NSDecimalNumber(int: 0)
-        //var oldQuantity = NSDecimalNumber(int: 0)
         if editingStyle == .Delete {
             switch indexPath.section {
             case 0 :
@@ -279,10 +277,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             default :
                 print("default")
             }
-            
-            //let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
-            //self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice)
-            //self.lblGrandTotal.text = self.grandTotal.currency
+        
             self.reCalculate()
         }
     }
@@ -322,7 +317,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func checkSwitchChanged(sender: AnyObject) {
-        self.grandTotal = NSDecimalNumber(double: 0.0)
         let switch1 = sender as! UISwitch
         
         let clickedCell  = switch1.superview?.superview as! UITableViewCell
@@ -347,25 +341,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let clickedCell  = stepper.superview?.superview as! CartTableViewCell
         let indexPath = self.cartTableView.indexPathForCell(clickedCell) as NSIndexPath?
-        var oldPrice = NSDecimalNumber(int: 0)
-        var oldQuantity = NSDecimalNumber(int: 0)
         if indexPath!.section == 0 {
-            oldPrice = NSDecimalNumber(double: self.cartPickNowArray[indexPath!.row].cart_prod.prod_price)
-            oldQuantity = NSDecimalNumber(int: self.cartPickNowArray[indexPath!.row].cart_quantity)
-            //self.goodsNowList[indexPath!.row].goodsQuantity = Int(stepper.value)
-            // update quantity
-             self.cartPickNowArray[indexPath!.row].cart_quantity = Int32(stepper.value)
+            self.cartPickNowArray[indexPath!.row].cart_quantity = Int32(stepper.value)
             pricePerItem = NSDecimalNumber(double: self.cartPickNowArray[indexPath!.row].cart_prod.prod_price)
         }else{
-            oldPrice = NSDecimalNumber(double: self.cartPickLaterArray[indexPath!.row].cart_prod.prod_price)
-            oldQuantity = NSDecimalNumber(int: self.cartPickLaterArray[indexPath!.row].cart_quantity)
-            //self.goodsNowList[indexPath!.row].goodsQuantity = Int(stepper.value)
-            // update quantity
             self.cartPickLaterArray[indexPath!.row].cart_quantity = Int32(stepper.value)
             pricePerItem = NSDecimalNumber(double: self.cartPickLaterArray[indexPath!.row].cart_prod.prod_price)
         }
         clickedCell.txtfQuantity.text = String(Int(stepper.value))
-        let oldTotalPrice = oldQuantity.decimalNumberByMultiplyingBy(oldPrice)
         let newTotalPrice = quantity.decimalNumberByMultiplyingBy(pricePerItem)
         clickedCell.lblTotalPrice.text = newTotalPrice.currency
         //self.grandTotal = self.grandTotal.decimalNumberBySubtracting(oldTotalPrice).decimalNumberByAdding(newTotalPrice)
@@ -380,12 +363,6 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        /*
-        if segue.identifier == "promotionPopupSegue" {
-        let viewController:PromotionPopupViewController = segue.destinationViewController as! PromotionPopupViewController
-        viewController.goodsNowList = goodsNowList
-        viewController.goodsLaterList = goodsLaterList
-        }*/
         self.allPopupView.hidden = true
         self.popupView.hidden = true
         if segue.identifier == "checkoutSegue" {
@@ -396,6 +373,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             viewController.percentDiscount = percentDiscount
             print("NETTOTAL1 : \(netTotal)")
             viewController.netTotal = netTotal
+            print("GRANDTOTAL1 : \(grandTotal)")
             viewController.grandTotal = grandTotal
         }else if segue.identifier == "currencyConvertorSegue"{
             let viewController:CurrencyConvertorPopupViewController = segue.destinationViewController as! CurrencyConvertorPopupViewController
