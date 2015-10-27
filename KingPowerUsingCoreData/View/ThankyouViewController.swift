@@ -31,16 +31,7 @@ class ThankyouViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.lblOrderNo.text = orderNo
         self.setupNav.setupNavigationBar(self)
-        print("1")
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
-        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
-        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
-        print("2")
-        prefs.synchronize()
-        print("3")
-        CartController().deleteByCustomerId(custId,user_id: userId)
-        print("4")
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,6 +42,17 @@ class ThankyouViewController: UIViewController {
         //        self.setupNavigationBar()
         
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        prefs.setInteger(0, forKey: gv.getConfigValue("currentAmountInCart") as! String)
+        prefs.synchronize()
+        
+      //  let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        let userId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentUserId") as! String))
+        CartController().deleteByCustomerId(custId,user_id: userId)
     }
     
     override func didReceiveMemoryWarning() {
