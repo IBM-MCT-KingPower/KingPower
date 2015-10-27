@@ -1,6 +1,42 @@
 {
   "images" : [
     {
+      "idiom" : "iphone",
+      "size" : "29x29",
+      "scale" : "2x",
+      "filename" : "Icon-Small@2x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "29x29",
+      "scale" : "3x",
+      "filename" : "Icon-Small@3x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "40x40",
+      "scale" : "2x",
+      "filename" : "Icon-40@2x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "40x40",
+      "scale" : "3x",
+      "filename" : "Icon-40@3x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "2x",
+      "filename" : "Icon-60@2x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "3x",
+      "filename" : "Icon-60@3x.png"
+    },
+    {
       "idiom" : "ipad",
       "size" : "29x29",
       "scale" : "1x",
@@ -16,13 +52,13 @@
       "idiom" : "ipad",
       "size" : "40x40",
       "scale" : "1x",
-      "filename" : "Icon-Small-40.png"
+      "filename" : "Icon-40.png"
     },
     {
       "idiom" : "ipad",
       "size" : "40x40",
       "scale" : "2x",
-      "filename" : "Icon-Small-40@2x.png"
+      "filename" : "Icon-40@2x.png"
     },
     {
       "idiom" : "ipad",
@@ -39,6 +75,6 @@
   ],
   "info" : {
     "version" : 1,
-    "author" : "xcode"
+    "author" : "makeappicon"
   }
 }

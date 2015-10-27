@@ -169,11 +169,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
     func viewFlightMethod(){
         self.removeNavigateView()
-        CommonViewController().viewFlightMethod(self)
+        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
+        CommonViewController().viewFlightMethod(self, flight: flightViewController)
     }
     func callAssistMethod(){
         self.removeNavigateView()
-        CommonViewController().callAssistMethod(self)
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        CommonViewController().callAssistMethod(self, call: callAssistanceViewController)
     }
     func searchMethod(){
         CommonViewController().searchMethod(self)

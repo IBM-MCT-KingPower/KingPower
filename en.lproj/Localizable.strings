@@ -6,7 +6,7 @@
   Copyright © 2558 IBM. All rights reserved.
 */
 loginCompanyName="KING POWER";
-loginStaffId="UserID / Member Card no.";
+loginStaffId="Staff ID";
 loginEmployeeId="EmployeeID";
 loginStaffPassword="Password";
 loginLogin="Log In";

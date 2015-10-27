@@ -29,8 +29,13 @@ class ThankyouViewController: UIViewController {
         self.btnOk.layer.borderColor = UIColor.whiteColor().CGColor
         self.btnOk.layer.borderWidth = 1.0
         // Do any additional setup after loading the view.
+        print("Thank you 1")
         self.lblOrderNo.text = orderNo
+        
+        print("Thank you 2")
         self.setupNav.setupNavigationBar(self)
+        
+        print("Thank you 3")
 
     }
     
@@ -79,7 +84,8 @@ class ThankyouViewController: UIViewController {
 
     func callAssistMethod(){
         self.removeNavigateView()
-        CommonViewController().callAssistMethod(self)
+        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
+        CommonViewController().callAssistMethod(self, call: callAssistanceViewController)
     }
     
     //    func setupNavigationBar(){

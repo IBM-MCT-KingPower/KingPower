@@ -53,7 +53,7 @@ class OrderMainController{
         
         for pickNow in cartPickNowArray {
             print("PICKNOW \(pickNow.cart_id)")
-            self.insertDetail(orderMain.ordm_id, ordd_prod_id: pickNow.cart_prod_id , ordd_quantity: pickNow.cart_quantity, ordd_total_price: Double(pickNow.cart_quantity) * pickNow.cart_prod.prod_price, ordd_pickup_now: yFlag)
+            insertDetail(orderMain.ordm_id, ordd_prod_id: pickNow.cart_prod_id , ordd_quantity: pickNow.cart_quantity, ordd_total_price: Double(pickNow.cart_quantity) * pickNow.cart_prod.prod_price, ordd_pickup_now: yFlag)
         }
         for pickLater in cartPickLaterArray {
             print("PICKLATER \(pickLater.cart_id)")

@@ -34,10 +34,9 @@ class CommonViewController: UIViewController {
         
     }
     
-    func viewFlightMethod(uiView: UIViewController){
+    func viewFlightMethod(uiView: UIViewController, flight: FlightViewController){
         print("CommonViewController: ViewFlight Method")
-        flightViewController = FlightViewController(nibName: "FlightViewController", bundle: nil)
-        flightViewController.showInView(uiView.view, animated: true)
+        flight.showInView(uiView.view, animated: true)
         
     }
     
@@ -47,10 +46,10 @@ class CommonViewController: UIViewController {
         uiView.navigationController?.pushViewController(cartViewController!, animated: true)
     }
     
-    func callAssistMethod(uiView: UIViewController){
+    func callAssistMethod(uiView: UIViewController, call: CallAssistanceViewController){
         print("CommonViewController: CallAssist Method")
-        callAssistanceViewController = CallAssistanceViewController(nibName: "CallAssistanceViewController", bundle: nil)
-        callAssistanceViewController.showInView(uiView.view, animated: true)    }
+        call.showInView(uiView.view, animated: true)
+    }
     
     func searchMethod(uiView: UIViewController){
         print("CommonViewController: Search Method")
