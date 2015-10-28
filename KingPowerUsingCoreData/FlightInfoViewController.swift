@@ -69,8 +69,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.departAirlineTextField.addTarget(self, action: "showhide:", forControlEvents: UIControlEvents.EditingDidBegin)
         self.departAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         self.returnAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
-        self.departAirlineTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
-        self.returnAirlineTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+
         
         pickerViewDepart.delegate = self
         pickerViewReturn.delegate = self
@@ -145,8 +144,9 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
                 orderMain.ordm_flight_departure = departFlightArray[countDepart-1].flii_id
             }else{
                 departAirlineTextField.text = ""
+                self.departAirlineTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
             }
-            print("selectedDepart \(selectedDepartAirline) \(selectedDepartFlightNo) \(selectedDepartDate)")
+
         }
         if countReturn > 0 {
             selectedReturnAirline = returnFlightArray[countReturn-1].flii_airline
@@ -158,6 +158,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
                 orderMain.ordm_flight_arrival = returnFlightArray[countReturn-1].flii_id
             }else{
                 returnAirlineTextField.text = ""
+                self.returnAirlineTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
             }
             print("selectedReturn \(selectedReturnAirline) \(selectedReturnFlightNo) \(selectedReturnDate)")
         }
@@ -253,7 +254,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
     }
     func setDefaultValue(sender: UITextField){
-        let textFont = UIFont(name: "Century Gothic", size: 16.0)!
+        let textFont = UIFont(name: "Century Gothic", size: 17.0)!
         if(sender.tag == 3){
             if departFlightArray.count > 0 {
                 self.departAirlineTextField.text = selectedDepartFlightNo + " (" + selectedDepartAirline + ") " + selectedDepartDate

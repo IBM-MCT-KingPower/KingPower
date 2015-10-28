@@ -26,8 +26,6 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     @IBOutlet weak var lblRequiredDepart: UILabel!
     @IBOutlet weak var lblRequiredReturn: UILabel!
     
-    var dateFormatter = NSDateFormatter()
-    
     var departAirlinePickerOption : [String] = KPVariable.airlinePickerOption
     var returnAirlinePickerOption : [String] = KPVariable.airlinePickerOption
     
@@ -129,6 +127,13 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         pickerViewDepartFlight.tag = 4
         pickerViewReturnFlight.tag = 5
         
+        departAirlineTextField.tag = 6
+        departFlightNoTextField.tag = 7
+        departDateTextField.tag = 8
+        returnAirlineTextField.tag = 9
+        returnFlightNoTextField.tag = 10
+        returnDateTextField.tag = 11
+        
         departAirlineTextField.inputView = pickerViewDepart
         departAirlineTextField.inputAccessoryView = toolBar
         departAirlineTextField.autocapitalizationType = UITextAutocapitalizationType.None
@@ -171,6 +176,10 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             let date = dateFormatter.dateFromString(selectedDepartDate)
             pickerViewDepartDate.setDate(date!, animated: false)
             
+        }else{
+            departAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
+            departFlightNoTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
+            departDateTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         }
         if selectedReturnAirline != "" {
             var index = returnAirlinePickerOption.indexOf(selectedReturnAirline)
@@ -186,6 +195,10 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             dateFormatter.dateFormat = "dd/MM/yyyy"
             let date = dateFormatter.dateFromString(selectedReturnDate)
             pickerViewReturnDate.setDate(date!, animated: false)
+        }else{
+            returnAirlineTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
+            returnFlightNoTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
+            returnDateTextField.addTarget(self, action: "setDefaultValue:", forControlEvents: UIControlEvents.EditingDidBegin)
         }
         
         pickerViewDepartDate.addTarget(self, action: Selector("departDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
@@ -315,22 +328,49 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         returnDateTextField.text = commonViewController.kpDateTimeFormat(date, dateOnly:true)
     }
     func setDefaultValue(sender: UITextField){
-        let textFont = UIFont(name: "Century Gothic", size: 16.0)!
-        if(sender.tag == 3){
-            if departFlightArray.count > 0 {
-                self.departAirlineTextField.text = selectedDepartFlightNo + " (" + selectedDepartAirline + ") " + selectedDepartDate
-                self.departAirlineTextField.font = textFont
-                self.departAirlineTextField.textColor = textColor
-            }
-        }else if(sender.tag == 4){
-            if returnFlightArray.count > 0 {
-                self.returnAirlineTextField.text = selectedReturnFlightNo + " (" + selectedReturnAirline + ") " + selectedReturnDate
-                self.returnAirlineTextField.font = textFont
-                self.returnAirlineTextField.textColor = textColor
-            }
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        let textFont = UIFont(name: "Century Gothic", size: 17.0)!
+        if(sender.tag == 6){
+            //Depart Airline
+            self.departAirlineTextField!.text = self.departAirlinePickerOption[0]
+            self.departFlightPickerOption = KPVariable.getFlightNoByAirline(self.departAirlinePickerOption[0])
+            self.departAirlineTextField!.font = textFont
+            self.departAirlineTextField!.textColor = textColor
+        }else if(sender.tag == 7){
+            //Depart Flight
+            self.departFlightNoTextField!.text = self.departFlightPickerOption[0]
+            self.departFlightNoTextField!.font = textFont
+            self.departFlightNoTextField!.textColor = textColor
+            
+        }else if(sender.tag == 8){
+            //Depart Date
+            let date = commonViewController.castDateFromString(dateFormatter.stringFromDate(NSDate()), dateOnly:true)
+            self.departDateTextField!.text = commonViewController.kpDateTimeFormat(date, dateOnly:true)
+            self.departDateTextField!.font = textFont
+            self.departDateTextField!.textColor = textColor
+        }else if(sender.tag == 9){
+            //Return Airline
+            self.returnAirlineTextField!.text = self.returnAirlinePickerOption[0]
+            self.returnFlightPickerOption = KPVariable.getFlightNoByAirline(self.returnAirlinePickerOption[0])
+            self.returnAirlineTextField!.font = textFont
+            self.returnAirlineTextField!.textColor = textColor
+        }else if(sender.tag == 10){
+            //Return Flight
+            self.returnFlightNoTextField!.text = self.returnFlightPickerOption[0]
+            self.returnFlightNoTextField!.font = textFont
+            self.returnFlightNoTextField!.textColor = textColor
+        }else if(sender.tag == 11){
+            //Return Date
+            let date = commonViewController.castDateFromString(dateFormatter.stringFromDate(NSDate()), dateOnly:true)
+            self.returnDateTextField!.text = commonViewController.kpDateTimeFormat(date, dateOnly:true)
+            self.returnDateTextField!.font = textFont
+            self.returnDateTextField!.textColor = textColor
         }
         
     }
+    
     
     // MARK: - IB Action
     @IBAction func btnScanBarcodeTapped(sender: AnyObject){
@@ -373,9 +413,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "dd/MM/yyyy"
                     let departDateWithFormat = dateFormatter.dateFromString(departDate)
-                    print("departDateWithFormat \(departDateWithFormat)")
                     let returnDateWithFormat = dateFormatter.dateFromString(returnDate)
-                    print("returnDateWithFormat \(returnDateWithFormat)")
                     if (departDateWithFormat!.isGreaterThanDate((returnDateWithFormat)!)){
                         isCorrect = false
                         commonViewController.alertView(self, title: gv.getConfigValue("messageDepartReturnDateTitle") as! String, message: gv.getConfigValue("messageDepartReturnDate") as! String)

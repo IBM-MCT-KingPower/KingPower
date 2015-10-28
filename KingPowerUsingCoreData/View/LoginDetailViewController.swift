@@ -235,32 +235,40 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func setDefaultValue(sender: UITextField){
-        
+        let textFont = UIFont(name: "Century Gothic", size: 17.0)!
         if(sender.tag == 6){
             //Depart Airline
             self.departAirlineTextField!.text = self.departAirlinePickerOption[0]
             self.departFlightPickerOption = KPVariable.getFlightNoByAirline(self.departAirlinePickerOption[0])
+            self.departAirlineTextField!.font = textFont
+            self.departAirlineTextField!.textColor = textColor
         }else if(sender.tag == 7){
             //Depart Flight
             self.departFlightNoTextField!.text = self.departFlightPickerOption[0]
+            self.departFlightNoTextField!.font = textFont
+            self.departFlightNoTextField!.textColor = textColor
             
         }else if(sender.tag == 8){
             //Depart Date
-            self.departDateTextField.text = self.dateFormatter.stringFromDate(NSDate())
-            
+            self.departDateTextField!.text = self.dateFormatter.stringFromDate(NSDate())
+            self.departDateTextField!.font = textFont
+            self.departDateTextField!.textColor = textColor
         }else if(sender.tag == 9){
             //Return Airline
             self.returnAirlineTextField!.text = self.returnAirlinePickerOption[0]
             self.returnFlightPickerOption = KPVariable.getFlightNoByAirline(self.returnAirlinePickerOption[0])
-            
+            self.returnAirlineTextField!.font = textFont
+            self.returnAirlineTextField!.textColor = textColor
         }else if(sender.tag == 10){
             //Return Flight
             self.returnFlightNoTextField!.text = self.returnFlightPickerOption[0]
-            
+            self.returnFlightNoTextField!.font = textFont
+            self.returnFlightNoTextField!.textColor = textColor
         }else if(sender.tag == 11){
             //Return Date
-            self.returnDateTextField.text = self.dateFormatter.stringFromDate(NSDate())
-            
+            self.returnDateTextField!.text = self.dateFormatter.stringFromDate(NSDate())
+            self.returnDateTextField!.font = textFont
+            self.returnDateTextField!.textColor = textColor
         }
         
     }
@@ -335,10 +343,24 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             }
             
         }
+        var isCorrect:Bool = true
+        
+        if hasDepartInfo && hasReturnInfo {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+            dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+            let departDateWithFormat = dateFormatter.dateFromString(self.departDateTextField!.text!)!
+            let returnDateWithFormat = dateFormatter.dateFromString(self.returnDateTextField!.text!)!
+            if (departDateWithFormat.isGreaterThanDate(returnDateWithFormat)){
+                isCorrect = false
+                commonViewController.alertView(self, title: gv.getConfigValue("messageDepartReturnDateTitle") as! String, message: gv.getConfigValue("messageDepartReturnDate") as! String)
+            }
+
+        }
         
         var flightInfoController = FlightInfoController()
         
-        if(hasDepartInfo){
+        if(hasDepartInfo && isCorrect){
             //Insert into FlightInfo Table
             
             var flightDateAsString = commonViewController.castDateFromString(self.departDateTextField!.text!, dateOnly: false)
@@ -352,7 +374,7 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             
         }
         
-        if(hasReturnInfo){
+        if(hasReturnInfo && isCorrect){
             //Insert into FlightInfo Table
             
             var flightDateAsString = commonViewController.castDateFromString(self.returnDateTextField!.text!, dateOnly: false)
