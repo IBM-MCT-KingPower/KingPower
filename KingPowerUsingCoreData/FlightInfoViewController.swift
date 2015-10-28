@@ -57,21 +57,7 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav.setupNavigationBar(self)
-        if cartPickNowArray.count > 0 {
-            lblRequiredDepart.hidden = false
-        }
-        if cartPickLaterArray.count > 0 {
-            lblRequiredReturn.hidden = false
-        }
-        for cart in cartPickNowArray {
-            print("Pick now \(cart.cart_id)")
-        }
-        for cart in cartPickLaterArray {
-            print("Pick later \(cart.cart_id)")
-        }
-        
         // Do any additional setup after loading the view.
-        
         
         self.PassportNoTextField.tag = 10
         self.departAirlineTextField.tag = 11
@@ -79,16 +65,11 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.PassportNoTextField.addTarget(self, action: "showhide:", forControlEvents: UIControlEvents.EditingDidBegin)
         self.departAirlineTextField.addTarget(self, action: "showhide:", forControlEvents: UIControlEvents.EditingDidBegin)
         
-        //Prepare the customer information
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        
         pickerViewDepart.delegate = self
         pickerViewReturn.delegate = self
         
         pickerViewDepart.backgroundColor = self.pickerBgColor
         pickerViewDepart.backgroundColor = self.pickerBgColor
-        
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default
@@ -98,10 +79,11 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         toolBar.barTintColor = self.toolBarBgColor
         toolBar.sizeToFit()
         
+        let flexibleItemSpaceWidth = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         
-        toolBar.setItems([cancelButton, doneButton], animated: false)
+        toolBar.setItems([cancelButton, flexibleItemSpaceWidth, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         
         pickerViewDepart.tag = 0
@@ -118,31 +100,25 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
         //pickerViewReturnDate.addTarget(self, action: Selector("returnDatePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         // Do any additional setup after loading the view.
         initButtonStyle()
+        setupFlightList()
     }
     
-    func showhide(sender: AnyObject){
-        var castSender = sender as! UITextField
-        
-        print("sender tag : \(castSender.tag)")
-        
-        if(castSender.tag == 10){
-            //Do Nothing
-            print("DO NOTHING")
-            NSNotificationCenter.defaultCenter().removeObserver(self)
-        }else if(castSender.tag == 11){
-            print("PREPARE TO SHOW HIDE KEYBOARD")
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
-        }
-    }
-    
-    func initButtonStyle(){
-        self.btnDone.layer.cornerRadius = 5
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+    func setupFlightList(){
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
+        
+        if cartPickNowArray.count > 0 {
+            lblRequiredDepart.hidden = false
+        }
+        if cartPickLaterArray.count > 0 {
+            lblRequiredReturn.hidden = false
+        }
+        for cart in cartPickNowArray {
+            print("Pick now \(cart.cart_id)")
+        }
+        for cart in cartPickLaterArray {
+            print("Pick later \(cart.cart_id)")
+        }
         
         let flightArray = FlightInfoController().getFlightByCustomerId(custId)
         departFlightArray = flightArray!.filter({$0.flii_return_flag == nFlag})
@@ -169,6 +145,30 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
             self.pickerViewReturn.selectRow(countReturn-1, inComponent: 0, animated: true)
             orderMain.ordm_flight_arrival = returnFlightArray[countReturn-1].flii_id
         }
+    }
+    
+    func showhide(sender: AnyObject){
+        var castSender = sender as! UITextField
+        
+        print("sender tag : \(castSender.tag)")
+        
+        if(castSender.tag == 10){
+            //Do Nothing
+            print("DO NOTHING")
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }else if(castSender.tag == 11){
+            print("PREPARE TO SHOW HIDE KEYBOARD")
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
+        }
+    }
+    
+    func initButtonStyle(){
+        self.btnDone.layer.cornerRadius = 5
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
     }
     
     override func didReceiveMemoryWarning() {

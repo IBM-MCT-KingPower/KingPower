@@ -98,6 +98,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
         setupTable()
         self.tbvCatagory.delegate = self
     }
+    
     func getProductList(selectedGroup:Int){
         print(selectedGroup)
         // get product list
@@ -144,7 +145,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     
     }
     override func viewWillAppear(animated: Bool) {
-        setupNav.setAmountInCart()
+        self.setupNav.setAmountInCart()
     }
     //Start - Promotion
     func loadVisiblePages() {

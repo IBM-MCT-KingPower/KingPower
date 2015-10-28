@@ -116,10 +116,11 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         toolBar.barTintColor = self.toolBarBgColor
         toolBar.sizeToFit()
         
+        let flexibleItemSpaceWidth = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
         
-        toolBar.setItems([cancelButton, doneButton], animated: false)
+        toolBar.setItems([cancelButton, flexibleItemSpaceWidth, doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         
         pickerViewDepart.tag = 0
@@ -157,6 +158,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         returnDateTextField.text = selectedReturnDate
         
         if selectedDepartAirline != "" {
+            print("\(selectedDepartAirline) \(selectedDepartFlightNo) \(selectedDepartDate)")
             var index = departAirlinePickerOption.indexOf(selectedDepartAirline)
             pickerViewDepart.selectRow(index!, inComponent: 0, animated: true)
             departFlightPickerOption = KPVariable.getFlightNoByAirline(selectedDepartAirline)

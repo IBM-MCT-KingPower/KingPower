@@ -119,8 +119,8 @@ class PromotionDetailViewController: UIViewController, UITableViewDataSource, UI
         self.initialTabView()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
+    override func viewWillAppear(animated: Bool) {
+        self.setupNav.setAmountInCart()
     }
     
     func initialTabView(){
