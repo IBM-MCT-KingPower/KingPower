@@ -132,6 +132,10 @@
 	<string>Cart</string>
 	<key>messageCartRequireProduct</key>
 	<string>Cannot found any items in your cart.</string>
+	<key>messageDepartReturnDateTitle</key>
+	<string>Departure/Arrival Date Fail.</string>
+	<key>messageDepartReturnDate</key>
+	<string>Arrival Flight Date must be later than Departure Date.</string>
 	<key>flagYes</key>
 	<string>Y</string>
 	<key>flagNo</key>

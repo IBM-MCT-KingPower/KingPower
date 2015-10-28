@@ -27,3 +27,13 @@ extension UIFont {
         return UIFont(descriptor: fontDesc, size: 0)
     }
 }
+
+
+
+extension NSDate{
+    func isGreaterThanDate(rhs: NSDate) -> Bool{
+        return self.compare(rhs) == NSComparisonResult.OrderedDescending
+        
+    }
+
+}

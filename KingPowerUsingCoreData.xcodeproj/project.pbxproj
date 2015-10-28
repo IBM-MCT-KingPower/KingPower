@@ -250,7 +250,7 @@
 		A11F141C1BC389980045B7B6 /* product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EBE1F1BBE30DB00274BB3 /* product.swift */; };
 		A11F141D1BC389980045B7B6 /* DrawLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDCD1BC3781900F1B427 /* DrawLine.swift */; };
 		A11F141E1BC389980045B7B6 /* KPNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDCE1BC3781900F1B427 /* KPNavigationBar.swift */; };
-		A11F141F1BC389980045B7B6 /* StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDCF1BC3781900F1B427 /* StringFormat.swift */; };
+		A11F141F1BC389980045B7B6 /* ExtensionFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DDDCF1BC3781900F1B427 /* ExtensionFormat.swift */; };
 		A11F14201BC389980045B7B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC94261B96C43E00B20D9F /* AppDelegate.swift */; };
 		A11F14211BC389980045B7B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EBE351BBE314700274BB3 /* Constants.swift */; };
 		A11F14221BC389980045B7B6 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC9BD91B98528100EF5DF6 /* LanguageManager.swift */; };
@@ -786,7 +786,7 @@
 		A16DDD9F1BC377CE00F1B427 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingControl.swift; path = View/RatingControl.swift; sourceTree = "<group>"; };
 		A16DDDCD1BC3781900F1B427 /* DrawLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawLine.swift; path = Utilities/DrawLine.swift; sourceTree = "<group>"; };
 		A16DDDCE1BC3781900F1B427 /* KPNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KPNavigationBar.swift; path = Utilities/KPNavigationBar.swift; sourceTree = "<group>"; };
-		A16DDDCF1BC3781900F1B427 /* StringFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFormat.swift; path = Utilities/StringFormat.swift; sourceTree = "<group>"; };
+		A16DDDCF1BC3781900F1B427 /* ExtensionFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionFormat.swift; path = Utilities/ExtensionFormat.swift; sourceTree = "<group>"; };
 		A16DDDD31BC3782A00F1B427 /* SidebarMenu-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SidebarMenu-Bridging-Header.h"; path = "Framework/SWReal/SidebarMenu-Bridging-Header.h"; sourceTree = "<group>"; };
 		A16DDDD41BC3782A00F1B427 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = Framework/SWReal/SWRevealViewController.h; sourceTree = "<group>"; };
 		A16DDDD51BC3782A00F1B427 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = Framework/SWReal/SWRevealViewController.m; sourceTree = "<group>"; };
@@ -1860,7 +1860,7 @@
 				3ACEF66E1BC3CEF600707DB5 /* DatabaseUtil.swift */,
 				A16DDDCD1BC3781900F1B427 /* DrawLine.swift */,
 				A16DDDCE1BC3781900F1B427 /* KPNavigationBar.swift */,
-				A16DDDCF1BC3781900F1B427 /* StringFormat.swift */,
+				A16DDDCF1BC3781900F1B427 /* ExtensionFormat.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -3258,7 +3258,7 @@
 				F930A7861BC7762500758366 /* InventoryModel.swift in Sources */,
 				F930A7891BC7762500758366 /* OrderStatusModel.swift in Sources */,
 				A11F141E1BC389980045B7B6 /* KPNavigationBar.swift in Sources */,
-				A11F141F1BC389980045B7B6 /* StringFormat.swift in Sources */,
+				A11F141F1BC389980045B7B6 /* ExtensionFormat.swift in Sources */,
 				A11F14201BC389980045B7B6 /* AppDelegate.swift in Sources */,
 				A11F14211BC389980045B7B6 /* Constants.swift in Sources */,
 				A11F14221BC389980045B7B6 /* LanguageManager.swift in Sources */,
