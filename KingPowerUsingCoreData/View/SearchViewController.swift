@@ -48,6 +48,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        searchBar.placeholder = gv.getConfigValue("searchPlaceholder") as? String
         
     }
     
@@ -78,7 +79,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Type")
         if searchText.characters.count > 1 {
             searchTextFilter = searchText
             /*

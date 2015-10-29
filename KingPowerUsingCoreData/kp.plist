@@ -170,5 +170,7 @@
 	<integer>4</integer>
 	<key>maximumRelatedProductAmount</key>
 	<integer>10</integer>
+	<key>searchPlaceholder</key>
+	<string>Search by Brand or Product Group or Product Category</string>
 </dict>
 </plist>
