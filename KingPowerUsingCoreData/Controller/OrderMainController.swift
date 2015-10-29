@@ -278,6 +278,7 @@ class OrderMainController{
                 orderMain.ordm_cust_id = rs.intForColumn("ordm_cust_id")
                 orderMain.ordm_no = rs.stringForColumn("ordm_no")
                 orderMain.ordm_currency = rs.stringForColumn("ordm_currency")
+                orderMain.ordm_flight_departure = rs.intForColumn("ordm_flight_departure")
                 orderMain.ordm_receipt_departure = rs.stringForColumn("ordm_receipt_departure") == nil ? "": rs.stringForColumn("ordm_receipt_departure")
                 orderMain.ordm_picknow_flag = rs.stringForColumn("ordm_picknow_flag")
                 orderMain.ordm_flight_arrival = rs.intForColumn("ordm_flight_arrival")

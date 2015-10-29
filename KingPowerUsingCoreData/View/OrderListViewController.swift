@@ -33,6 +33,9 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         let custId: Int32 = Int32(prefs.integerForKey(gv.getConfigValue("currentCustomerId") as! String))
         
         self.orderCurrentDateArray = OrderMainController().getOrderByCurrentDate(custId)
+        for orderMain in orderCurrentDateArray! {
+            print("current : \(orderMain.ordm_id) \(orderMain.ordm_flight_departure) \(orderMain.ordm_flight_arrival) \(orderMain.ordm_no)")
+        }
         self.orderHistoryDateArray = OrderMainController().getOrderByHistoryDate(custId)
         
         

@@ -59,8 +59,7 @@ class FlightInfoController{
     
     func getFlightById(flii_id: Int32) -> FlightInfoModel? {
         var flightInfo = FlightInfoModel()
-        let query = "SELECT FLII_ID, FLII_CUST_ID, FLII_AIRLINE, FLII_FLIGHT_NO, FLII_FLIGHT_DATE, FLII_RETURN_FLAG, FLII_CREATE_DATE FROM FLIGHT_INFO WHERE FLII_ID = \(flii_id)"
-        //        let query = String(format: flightInfo.queryGetFlightById, flii_id)
+        let query = String(format: flightInfo.queryGetFlightById, flii_id)
         if let rs = database.executeQuery(query, withArgumentsInArray: nil){
             while rs.next(){
                 flightInfo.flii_id = rs.intForColumn("flii_id")

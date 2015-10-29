@@ -279,10 +279,12 @@ class FlightInfoViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBAction func addNewFlightTapped(sender:AnyObject){
         orderMain.ordm_passport_no = self.PassportNoTextField!.text!
         if departAirlineTextField.text == "" {
+            orderMain.ordm_flight_departure = Int32(0)
             selectedDepartAirline = ""
             selectedDepartFlightNo = ""
             selectedDepartDate = ""
         }else if returnAirlineTextField.text == "" {
+            orderMain.ordm_flight_arrival = Int32(0)
             selectedReturnAirline = ""
             selectedReturnFlightNo = ""
             selectedReturnDate = ""

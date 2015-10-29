@@ -16,6 +16,8 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var lblNetAmt:UILabel!
     @IBOutlet weak var lblGrandCurrency: UILabel!
     @IBOutlet weak var detailtableview: UITableView!
+    @IBOutlet weak var lblDepartFlight:UILabel!
+    @IBOutlet weak var lblReturnFlight:UILabel!
     
     var setupNav = KPNavigationBar()
     var gv = GlobalVariable()
@@ -33,18 +35,22 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNav.setupNavigationBar(self)
+        self.detailtableview.backgroundColor = UIColor.whiteColor()
         self.detailtableview.registerNib(UINib(nibName: "NoItemFoundCell", bundle: nil), forCellReuseIdentifier: "noItemFoundCell")
-        //orderId = 2
-        print("order id \(orderId)")
+        let commonViewController = CommonViewController()
+        let departFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_departure)
+        let returnFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_arrival)
+        
+        if let flight = departFlight {
+            self.lblDepartFlight.text = "\(flight.flii_flight_no) (\(flight.flii_airline)) \(commonViewController.kpDateTimeFormat(flight.flii_flight_date, dateOnly: true))"
+        }
+        if let flight = returnFlight {
+            self.lblReturnFlight.text = "\(flight.flii_flight_no) (\(flight.flii_airline)) \(commonViewController.kpDateTimeFormat(flight.flii_flight_date, dateOnly: true))"
+        }
+        
         self.orderDetailPickNowArray = OrderDetailController().getOrderDetailPickTypeByOrderId(orderId, ordd_pickup_now: "Y")!
         self.orderDetailPickLaterArray = OrderDetailController().getOrderDetailPickTypeByOrderId(orderId, ordd_pickup_now: "N")!
-        /*
-        for var indexNow = 0; indexNow < self.orderDetailPickNowArray.count; ++indexNow {
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(NSDecimalNumber(double: self.orderDetailPickNowArray[indexNow].ordd_total_price))
-        }
-        for var indexLater = 0; indexLater < self.orderDetailPickLaterArray.count; ++indexLater{
-            self.grandTotal = self.grandTotal.decimalNumberByAdding(NSDecimalNumber(double: self.orderDetailPickLaterArray[indexLater].ordd_total_price))
-        }*/
+        
         let grandTotal = self.orderMain.ordm_total_price
         let netTotal = self.orderMain.ordm_net_total_price
         lblGrandTotalAmt.text = NSDecimalNumber(double: grandTotal).currency
