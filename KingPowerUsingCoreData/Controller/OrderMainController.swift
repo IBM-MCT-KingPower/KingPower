@@ -12,6 +12,7 @@ class OrderMainController{
     
     var database:FMDatabase!
     var orderDetailController = OrderDetailController()
+    var orderStatusController = OrderStatusController()
     
     init(){
         self.database = DatabaseUtil().getDBConnect()
@@ -151,7 +152,7 @@ class OrderMainController{
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
-                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_detailarray = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
                 return orderMain
                 
             }
@@ -196,7 +197,7 @@ class OrderMainController{
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
-                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_detailarray = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
                 orderMainArray.append(orderMain)
                 
             }
@@ -207,7 +208,7 @@ class OrderMainController{
             return nil
         }
     }
-    func getOrderByMaxRunningNo(ordm_no: String) -> OrderMainModel? { //Need return list of Order
+    func getOrderByMaxRunningNo(ordm_no: String) -> OrderMainModel? {
         
         var orderMain = OrderMainModel()
         let query = String(format: orderMain.queryGetOrderMainByMaxRunningNo, ordm_no)
@@ -294,7 +295,8 @@ class OrderMainController{
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
-                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_detailarray = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_ords = orderStatusController.getOrderByStatusId(orderMain.ordm_ords_id)
                 orderMainArray.append(orderMain)
                 
             }
@@ -337,7 +339,8 @@ class OrderMainController{
                 orderMain.ordm_net_total_price = rs.doubleForColumn("ordm_net_total_price")
                 orderMain.ordm_running_no = rs.intForColumn("ordm_running_no")
                 orderMain.ordm_card_discount = rs.intForColumn("ordm_card_discount")
-                orderMain.ordm_ords = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_detailarray = orderDetailController.getOrderDetailByOrderId(orderMain.ordm_id)
+                orderMain.ordm_ords = orderStatusController.getOrderByStatusId(orderMain.ordm_ords_id)
                 orderMainArray.append(orderMain)
                 
             }

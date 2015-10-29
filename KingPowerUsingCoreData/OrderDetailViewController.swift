@@ -41,7 +41,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let commonViewController = CommonViewController()
         let departFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_departure)
         let returnFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_arrival)
-        self.lblOrderNo.text = "ORDER NO. : \(orderMain.ordm_no)"
+        self.lblOrderNo.text = "ORDER NO. : \(orderMain.ordm_no) (\(orderMain.ordm_ords.ords_name))"
         if let flight = departFlight {
             self.lblDepartFlight.text = "\(flight.flii_flight_no) (\(flight.flii_airline)) \(commonViewController.kpDateTimeFormat(flight.flii_flight_date, dateOnly: true))"
         }else{

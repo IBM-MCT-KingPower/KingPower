@@ -108,11 +108,12 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 let cell = tableView.dequeueReusableCellWithIdentifier("orderlistcell", forIndexPath: indexPath) as! OrderListTableViewCell
                 
                 orderstatusid = (self.orderCurrentDateArray?[indexPath.row].ordm_ords_id)!
-                orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
+                orderstatus = (self.orderCurrentDateArray?[indexPath.row].ordm_ords.ords_name)!
+                    //OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
                 cell.mOrderNo.text = self.orderCurrentDateArray?[indexPath.row].ordm_no
                 var amount:Int32 = 0
-                for orderDetail in (self.orderCurrentDateArray?[indexPath.row].ordm_ords)!{
+                for orderDetail in (self.orderCurrentDateArray?[indexPath.row].ordm_detailarray)!{
                     amount += orderDetail.ordd_quantity
                 }
                 //let amount = self.orderCurrentDateArray?[indexPath.row].ordm_ords.count
@@ -125,7 +126,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 cell.mOrderDateTime.text = self.orderCurrentDateArray?[indexPath.row].ordm_submit_date
                 cell.mOrderStatus.text = orderstatus
                 
-                if orderstatusid == 4 {
+                if orderstatusid == 3 {
                     cell.mOrderStatus.textColor = UIColor.blueColor()
                 } else {
                     cell.mOrderStatus.textColor = UIColor.orangeColor()
@@ -147,11 +148,12 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 
                 
                 orderstatusid = (self.orderHistoryDateArray?[indexPath.row].ordm_ords_id)!
-                orderstatus = OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
+                orderstatus = (self.orderHistoryDateArray?[indexPath.row].ordm_ords.ords_name)!
+                //OrderStatusController().getOrderByStatusId(Int32(orderstatusid))?.ords_name
                 
                 cell.mOrderNo.text = self.orderHistoryDateArray?[indexPath.row].ordm_no
                 var amount:Int32 = 0
-                for orderDetail in (self.orderHistoryDateArray?[indexPath.row].ordm_ords)!{
+                for orderDetail in (self.orderHistoryDateArray?[indexPath.row].ordm_detailarray)!{
                     amount += orderDetail.ordd_quantity
                 }
                 //let amount = self.orderHistoryDateArray?[indexPath.row].ordm_ords.count
@@ -162,7 +164,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 
                 cell.mOrderDateTime.text = self.orderHistoryDateArray?[indexPath.row].ordm_submit_date
                 cell.mOrderStatus.text = orderstatus
-                if orderstatusid == 4 {
+                if orderstatusid == 3 {
                     cell.mOrderStatus.textColor = UIColor.blueColor()
                 } else {
                     cell.mOrderStatus.textColor = UIColor.orangeColor()
