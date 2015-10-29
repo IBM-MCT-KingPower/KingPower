@@ -283,25 +283,29 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     // MARK: - Action
     @IBAction func checkOutClicked(sender: AnyObject) {
-        let promotionList = PromotionController().getPromotionByTypeAndEffective("UPSALE", includeExpire: false)
-        print("promotion list \(promotionList.count)")
-        let promotion = promotionList[0]
-        let promotionUpsaleArray = PromotionUpSaleLevelController().getPromotionUpSaleLevelByPromotionId(promotion.prom_id)
-        print("promotion upsale list \(promotionUpsaleArray!.count)")
-        let matchPromotion = promotionUpsaleArray!.filter({
-            $0.prup_max_amount > netTotal.doubleValue
-        })
-        if matchPromotion.count != 0 {
-            let promotionUpsale = matchPromotion[0]
-        
-            self.txtvPromotionDetail.text = "Special offers \(promotionUpsale.prup_max_content) when puschase more than \(NSDecimalNumber(double:promotionUpsale.prup_max_amount).currency) baht"
-            self.allPopupView.hidden = false
-            self.popupView.hidden = false
-            UIView.animateWithDuration(0.5, animations: {
-                self.popupView.alpha = 1.0
-            })
+        if cartPickNowArray.count == 0 && cartPickLaterArray.count == 0 {
+            CommonViewController().alertView(self, title: gv.getConfigValue("messageCartTitle") as! String, message: gv.getConfigValue("messageCartRequireProduct") as! String)
         }else{
-            performSegueWithIdentifier("checkoutSegue", sender: nil)
+            let promotionList = PromotionController().getPromotionByTypeAndEffective("UPSALE", includeExpire: false)
+            print("promotion list \(promotionList.count)")
+            let promotion = promotionList[0]
+            let promotionUpsaleArray = PromotionUpSaleLevelController().getPromotionUpSaleLevelByPromotionId(promotion.prom_id)
+            print("promotion upsale list \(promotionUpsaleArray!.count)")
+            let matchPromotion = promotionUpsaleArray!.filter({
+                $0.prup_max_amount > netTotal.doubleValue
+            })
+            if matchPromotion.count != 0 {
+                let promotionUpsale = matchPromotion[0]
+                
+                self.txtvPromotionDetail.text = "Special offers \(promotionUpsale.prup_max_content) when puschase more than \(NSDecimalNumber(double:promotionUpsale.prup_max_amount).currency) baht"
+                self.allPopupView.hidden = false
+                self.popupView.hidden = false
+                UIView.animateWithDuration(0.5, animations: {
+                    self.popupView.alpha = 1.0
+                })
+            }else{
+                performSegueWithIdentifier("checkoutSegue", sender: nil)
+            }
         }
         
     }
