@@ -9,7 +9,7 @@
 import UIKit
 
 protocol sendSortFilterDelegate {
-    func sendAllFilter(prodcatIndex:Int, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndexList:NSMutableArray)
+    func sendAllFilter(prodcatIndex:NSMutableArray, brandIndexList:NSMutableArray, genderIndex:Int, priceRangeIndex:Int,  colorIndexList:NSMutableArray)
     func setSorting(sortIndex : Int)
     
 }
@@ -23,7 +23,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     var filterDetailSubCat:[ProductCategoryModel] = []
     var filterDetailBrand:[BrandModel] = []
     
-    var filterSubCatIndex:Int = -1
+    var filterSubCatIndex:NSMutableArray = NSMutableArray()
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
     var filterPriceRangeIndex:Int = -1
@@ -88,7 +88,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
         print(sortIndex)
     }
     
-    func addSubcat(prodCatIndex: Int) {
+    func addSubcatList (prodCatIndex: NSMutableArray) {
         print("FilterViewController : Add Subcat \(prodCatIndex)")
         filterSubCatIndex = prodCatIndex
         
@@ -102,7 +102,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     func addPriceRange (rangeIndex:Int){
         filterPriceRangeIndex = rangeIndex
     }
-    func addColor (colorIndexList:NSMutableArray){
+    func addColorList (colorIndexList:NSMutableArray){
         filterColorIndex = colorIndexList
     }
     
@@ -128,7 +128,7 @@ class popupViewController: UIViewController, sortDelegate, filterDetailDelegate 
     }
     
     @IBAction func clearAllFilter(sender:AnyObject) {
-        delegate?.sendAllFilter(-1, brandIndexList: NSMutableArray(), genderIndex: -1, priceRangeIndex: -1, colorIndexList: NSMutableArray())
+        delegate?.sendAllFilter(NSMutableArray(), brandIndexList: NSMutableArray(), genderIndex: -1, priceRangeIndex: -1, colorIndexList: NSMutableArray())
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

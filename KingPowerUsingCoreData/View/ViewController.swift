@@ -29,13 +29,13 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
     var groupId:Int32 = 0
     
     // Filter : Full List
-    var filterDetailSubCat:[ProductCategoryModel] = [] // select 1 subcat
+    var filterDetailSubCat:[ProductCategoryModel] = [] // select more than 1 subcat
     var filterDetailBrand:[BrandModel] = []             // select more than 1
     var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList   // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList             // Select more than 1
     // Filter : Selected Index/List
-    var filterSubCatIndex:Int = -1
+    var filterSubCatIndex:NSMutableArray = NSMutableArray()
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
     var filterPriceRangeIndex:Int = -1
@@ -84,14 +84,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             forIndexPath: indexPath) as! ProductCollectionViewCell
         cell.productName.text = (self.productArray[indexPath.row]).prod_name
         cell.productDescription.text = (self.productArray[indexPath.row]).prod_description
-        /*
-        var currencyFormatter = NSNumberFormatter()
-        currencyFormatter.currencyCode = "THB"
-        currencyFormatter.numberStyle = .CurrencyStyle
-        currencyFormatter.negativeFormat = "-¤#,##0.00"
-        
-        cell.productPrice.text = currencyFormatter.stringFromNumber(self.productArray[indexPath.row].product_price)
-*/
         cell.productPrice.text = NSNumber(double: self.productArray[indexPath.row].prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
         cell.backgroundColor = UIColor.whiteColor()
         cell.productImage.image = UIImage(named: self.productArray[indexPath.row].prod_imageArray[0].proi_image_path)
@@ -370,12 +362,22 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
         self.reloadWithAnimate()
     }
     
-    func sendAllFilter(prodcatIndex: Int, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndexList: NSMutableArray) {
+    func sendAllFilter(prodcatIndex: NSMutableArray, brandIndexList: NSMutableArray, genderIndex: Int, priceRangeIndex: Int, colorIndexList: NSMutableArray) {
         self.productArray.removeAll()
         self.productArray.appendContentsOf(tempProductArray)
         // Filter
-        if prodcatIndex != -1 {
-            self.productArray = productArray.filter({ $0.prod_prc_id == filterDetailSubCat[prodcatIndex].prc_id })
+        if prodcatIndex.count > 0 {
+            var i : Int = 1
+            var ind : Int = 1
+            var tmpProductArray1 = productArray.filter({ $0.prod_prc_id == filterDetailSubCat[prodcatIndex[0] as! Int].prc_id
+            })
+            var tmpProductArray2:[ProductModel] = []
+            for (i=1 ; i < prodcatIndex.count ; i++) {
+                ind = prodcatIndex[i] as! Int
+                tmpProductArray2 = self.productArray.filter({ $0.prod_prc_id == filterDetailSubCat[ind].prc_id})
+                tmpProductArray1.appendContentsOf(tmpProductArray2)
+            }
+            self.productArray = tmpProductArray1
         }
         if brandIndexList.count > 0 {
             var i : Int = 1

@@ -57,12 +57,33 @@ class CatagoryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
             cell.imvProduct.image = UIImage(named: self.prodRelated[row].prod_imageArray[0].proi_image_path)
             cell.imvProduct.layer.borderWidth = 1.0
             cell.imvProduct.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
+            if self.prodRelated[row].prod_arrival_flag == "Y" {
+                cell.imgHotItem.hidden = false
+            }else {
+                cell.imgHotItem.hidden = true
+            }
+            if self.prodRelated[row].prod_flight_only == "Y" {
+                cell.imgFlightOnly.hidden = false
+            }else{
+                cell.imgFlightOnly.hidden = true
+            }
+            
         }else{
             cell.lblProductName.text = self.prodRecommend[row].prod_name
             cell.lblProductPrice.text = NSDecimalNumber(double: self.prodRecommend[row].prod_price).currency + " " + String(gv.getConfigValue("defaultCurrency"))
             cell.imvProduct.image = UIImage(named: self.prodRecommend[row].prod_imageArray[0].proi_image_path)
             cell.imvProduct.layer.borderWidth = 1.0
             cell.imvProduct.layer.borderColor = UIColor(hexString: String(gv.getConfigValue("borderCollectionColor"))).CGColor
+            if self.prodRecommend[row].prod_arrival_flag == "Y" {
+                cell.imgHotItem.hidden = false
+            }else {
+                cell.imgHotItem.hidden = true
+            }
+            if self.prodRecommend[row].prod_flight_only == "Y" {
+                cell.imgFlightOnly.hidden = false
+            }else{
+                cell.imgFlightOnly.hidden = true
+            }
         }
 
         return cell

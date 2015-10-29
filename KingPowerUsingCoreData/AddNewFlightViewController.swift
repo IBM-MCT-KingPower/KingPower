@@ -89,6 +89,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
         let pickerViewDepartDate = UIDatePicker()
         let pickerViewReturnDate = UIDatePicker()
         
+        
         pickerViewDepart.delegate = self
         pickerViewReturn.delegate = self
         pickerViewDepartFlight.delegate = self
@@ -294,6 +295,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             returnFlightNoTextField.text = ""
             returnDateTextField.text = ""
             returnFlightPickerOption = KPVariable.getFlightNoByAirline(selectedAirline)
+            
             
         }else if(pickerView.tag == 4){
             departFlightNoTextField.text = departFlightPickerOption[row]

@@ -14,14 +14,14 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var filterTableView: UITableView!
     var filterDataArray:[String] = ["SUB CATEGORY","BRAND","GENDER","PRICE RANGE","COLOR"]
     var filterDataDetailArray:[String] = ["All", "All", "All", "All", "All"]
-    var filterDetailSubCat:[ProductCategoryModel] = []  // select 1 subcat
+    var filterDetailSubCat:[ProductCategoryModel] = []  // select more than 1 subcat
     var filterDetailBrand:[BrandModel] = []             // select more than 1
     var filterDetailGender:[String] = KPVariable.genderList //Select 1 gender
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
     var delegate:filterDetailDelegate?
     let detailTransitioningDelegate: filterdetailManager = filterdetailManager()
-    var filterSubCatIndex:Int = -1
+    var filterSubCatIndex:NSMutableArray = NSMutableArray()
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
     var filterPriceRangeIndex:Int = -1
@@ -30,9 +30,17 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if filterSubCatIndex != -1 {
-            self.filterDataDetailArray[0] = filterDetailSubCat[filterSubCatIndex].prc_name
-        }else {
+        if filterSubCatIndex.count == 1 {
+            self.filterDataDetailArray[0] = filterDetailSubCat[(filterSubCatIndex[0] as! Int)].prc_name
+        }else if filterSubCatIndex.count > 1 {
+            var str = filterDetailSubCat[(filterSubCatIndex[0] as! Int)].prc_name
+            var i = 1;
+            while ( i < filterSubCatIndex.count ) {
+                str += "," + filterDetailSubCat[(filterSubCatIndex[i] as! Int)].prc_name
+                i++
+            }
+            self.filterDataDetailArray[0] = str
+        }else{
             self.filterDataDetailArray[0] = "All"
         }
         if filterBrandIndex.count == 1 {
@@ -125,18 +133,25 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
         
     }
-    func addSubcat(prodCatIndex: Int) {
-        print("FilterViewController : Add Subcat 1 \(prodCatIndex)")
-        filterSubCatIndex = prodCatIndex
-        if prodCatIndex != -1 {
-            self.filterDataDetailArray[0] = filterDetailSubCat[prodCatIndex].prc_name
-        }else {
+    func addSubcatList(prodCatIndexList: NSMutableArray) {
+        print("FilterViewController : Add Subcat 1 \(prodCatIndexList)")
+        filterSubCatIndex = prodCatIndexList
+        if prodCatIndexList.count == 1 {
+            self.filterDataDetailArray[0] = filterDetailSubCat[(prodCatIndexList[0] as! Int)].prc_name
+            //self.filterDataDetailArray[1] = (brandList[0] as! BrandModel).bran_name
+        }else if prodCatIndexList.count > 1 {
+            var str = filterDetailSubCat[(prodCatIndexList[0] as! Int)].prc_name
+            var i = 1;
+            while ( i < prodCatIndexList.count ) {
+                str += "," + filterDetailSubCat[(prodCatIndexList[i] as! Int)].prc_name
+                i++
+            }
+            self.filterDataDetailArray[0] = str
+        }else{
             self.filterDataDetailArray[0] = "All"
         }
-        //self.filterDataDetailArray[0] = prodCat.prc_name != "" ? prodCat.prc_name : "All"
         self.filterTableView.reloadData()
-        //self.filterTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-        delegate!.addSubcat(prodCatIndex)
+        delegate!.addSubcatList(prodCatIndexList)
     }
     func addBrandList (brandIndexList:NSMutableArray){
         filterBrandIndex = brandIndexList
@@ -181,7 +196,7 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.filterTableView.reloadData()
         delegate!.addPriceRange(rangeIndex)
     }
-    func addColor (colorIndexList:NSMutableArray){
+    func addColorList (colorIndexList:NSMutableArray){
         filterColorIndex = colorIndexList
         if colorIndexList.count == 1 {
             self.filterDataDetailArray[4] = filterDetailColor[(colorIndexList[0] as! Int)]
@@ -197,7 +212,7 @@ class filterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.filterDataDetailArray[4] = "All"
         }
         self.filterTableView.reloadData()
-        delegate!.addColor(colorIndexList)
+        delegate!.addColorList(colorIndexList)
         
     }
     

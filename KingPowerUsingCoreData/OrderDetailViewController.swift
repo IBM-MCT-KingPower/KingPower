@@ -10,6 +10,7 @@ import UIKit
 
 class OrderDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var lblOrderNo : UILabel!
     @IBOutlet weak var lblGrandTotalAmt :UILabel!
     @IBOutlet weak var lblPercentDiscount:UILabel!
     @IBOutlet weak var lblDiscount:UILabel!
@@ -40,12 +41,16 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let commonViewController = CommonViewController()
         let departFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_departure)
         let returnFlight = FlightInfoController().getFlightById(orderMain.ordm_flight_arrival)
-        
+        self.lblOrderNo.text = "ORDER NO. : \(orderMain.ordm_no)"
         if let flight = departFlight {
             self.lblDepartFlight.text = "\(flight.flii_flight_no) (\(flight.flii_airline)) \(commonViewController.kpDateTimeFormat(flight.flii_flight_date, dateOnly: true))"
+        }else{
+             self.lblDepartFlight.text = "-"
         }
         if let flight = returnFlight {
             self.lblReturnFlight.text = "\(flight.flii_flight_no) (\(flight.flii_airline)) \(commonViewController.kpDateTimeFormat(flight.flii_flight_date, dateOnly: true))"
+        }else{
+            self.lblReturnFlight.text = "-"
         }
         
         self.orderDetailPickNowArray = OrderDetailController().getOrderDetailPickTypeByOrderId(orderId, ordd_pickup_now: "Y")!

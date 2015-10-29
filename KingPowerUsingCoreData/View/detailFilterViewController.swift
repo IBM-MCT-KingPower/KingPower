@@ -10,11 +10,11 @@ import UIKit
 
 
 protocol filterDetailDelegate {
-    func addSubcat (prodCatIndex:Int)
+    func addSubcatList (prodCatIndexList:NSMutableArray)
     func addBrandList (brandIndexList:NSMutableArray)
     func addGender (genderIndex:Int)
     func addPriceRange (rangeIndex:Int)
-    func addColor (colorIndexList:NSMutableArray)
+    func addColorList (colorIndexList:NSMutableArray)
 }
 
 class detailFilterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
@@ -26,13 +26,13 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     var filterDetailPriceRange:[String] = KPVariable.priceRangeList          // select 1 range
     var filterDetailColor:[String] = KPVariable.colorList                 // Select more than 1
 
-    var filterSubCatIndex:Int = -1
+    var filterSubCatIndex:NSMutableArray = NSMutableArray()
     var filterBrandIndex:NSMutableArray = NSMutableArray()
     var filterGenderIndex:Int = -1
     var filterPriceRangeIndex:Int = -1
     var filterColorIndex:NSMutableArray = NSMutableArray()
     var selectedIndexMain = 0
-    var tmpFilterSubCatIndex:Int = -1
+    var tmpFilterSubCatIndex:NSMutableArray = NSMutableArray()
     var tmpFilterBrandIndex:NSMutableArray = NSMutableArray()
     var tmpFilterGenderIndex:Int = -1
     var tmpFilterPriceRangeIndex:Int = -1
@@ -46,7 +46,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
         
     }
     override func viewDidAppear(animated: Bool) {
-        tmpFilterSubCatIndex = filterSubCatIndex
+        tmpFilterSubCatIndex = filterSubCatIndex.mutableCopy() as! NSMutableArray
         tmpFilterBrandIndex = filterBrandIndex.mutableCopy() as! NSMutableArray
         tmpFilterGenderIndex = filterGenderIndex
         tmpFilterPriceRangeIndex = filterPriceRangeIndex
@@ -61,8 +61,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
     @IBAction func backAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
         if selectedIndexMain == 0 {
-            print("DetailFilterViewController : Done Action \(filterSubCatIndex)")
-            delegate!.addSubcat(tmpFilterSubCatIndex)
+            delegate!.addSubcatList(tmpFilterSubCatIndex)
         }else if selectedIndexMain == 1 {
             delegate!.addBrandList(tmpFilterBrandIndex)
         }else if selectedIndexMain == 2 {
@@ -70,14 +69,13 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
         }else if selectedIndexMain == 3 {
             delegate!.addPriceRange(tmpFilterPriceRangeIndex)
         }else if selectedIndexMain == 4 {
-            delegate!.addColor(tmpFilterColorIndex)
+            delegate!.addColorList(tmpFilterColorIndex)
         }
     }
 
     @IBAction func doneAction(sender: AnyObject) {
         if selectedIndexMain == 0 {
-            print("DetailFilterViewController : Done Action \(filterSubCatIndex)")
-            delegate!.addSubcat(filterSubCatIndex)
+            delegate!.addSubcatList(filterSubCatIndex)
         }else if selectedIndexMain == 1 {
             delegate!.addBrandList(filterBrandIndex)
         }else if selectedIndexMain == 2 {
@@ -85,7 +83,7 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
         }else if selectedIndexMain == 3 {
             delegate!.addPriceRange(filterPriceRangeIndex)
         }else if selectedIndexMain == 4 {
-            delegate!.addColor(filterColorIndex)
+            delegate!.addColorList(filterColorIndex)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         
@@ -116,10 +114,10 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifierID) as! filterDetailTableViewCell?
         print("DetailViewController : \(selectedIndexMain), \(filterSubCatIndex), \(filterBrandIndex), \(filterGenderIndex), \(filterPriceRangeIndex), \(filterColorIndex)")
         if selectedIndexMain == 0 {
-            if indexPath.row == filterSubCatIndex {
+            if filterSubCatIndex.filter({ ($0 as! Int)  == indexPath.row }).count > 0 {
                 cell?.markImage.hidden = false
                 self.indexpath = indexPath
-            }else {
+            }else{
                 cell?.markImage.hidden = true
             }
             cell?.detailLabel!.text = self.filterDetailSubCat[indexPath.row].prc_name
@@ -164,8 +162,11 @@ class detailFilterViewController: UIViewController,UITableViewDataSource,UITable
         print("Select row \(indexPath.row)")
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! filterDetailTableViewCell?
         if selectedIndexMain == 0 {
-            filterSubCatIndex = indexPath.row
-            print("DetailFilterViewController : Add Sub Cat \(filterSubCatIndex)")
+            if cell?.markImage.hidden == true {
+                filterSubCatIndex.addObject(indexPath.row)
+            }else{
+                filterSubCatIndex.removeObject(indexPath.row)
+            }
         }else if selectedIndexMain == 1 {
             if cell?.markImage.hidden == true {
                 filterBrandIndex.addObject(indexPath.row)
