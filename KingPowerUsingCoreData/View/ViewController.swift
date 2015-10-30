@@ -397,19 +397,19 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
             
         }
         if priceRangeIndex != -1 {
-            //static var priceRangeList = ["< 2,000 THB", "2,000 - 5,000 THB", "5,000 - 10,000 THB", "10,000 - 15,000 THB", "15000 - 20000 THB", "> 20,000 THB"]
+            //static var priceRangeList = ["< 3,000 THB", "3,000 - 6,000 THB", "6,000 - 9,000 THB", "9,000 - 12,000 THB", "12000 - 15,000 THB", "> 15,000 THB"]
             if priceRangeIndex == 0 {
-                self.productArray = productArray.filter({ $0.prod_price < 2000 })
+                self.productArray = productArray.filter({ $0.prod_price < 3000 })
             }else if priceRangeIndex == 1 {
-                self.productArray = productArray.filter({ $0.prod_price >= 2000 && $0.prod_price < 5000 })
+                self.productArray = productArray.filter({ $0.prod_price >= 3000 && $0.prod_price < 6000 })
             }else if priceRangeIndex == 2 {
-                self.productArray = productArray.filter({ $0.prod_price >= 5000 && $0.prod_price < 10000 })
+                self.productArray = productArray.filter({ $0.prod_price >= 6000 && $0.prod_price < 9000 })
             }else if priceRangeIndex == 3 {
-                self.productArray = productArray.filter({ $0.prod_price >= 10000 && $0.prod_price < 15000 })
+                self.productArray = productArray.filter({ $0.prod_price >= 9000 && $0.prod_price < 12000 })
             }else if priceRangeIndex == 4 {
-                self.productArray = productArray.filter({ $0.prod_price >= 15000 && $0.prod_price < 20000 })
+                self.productArray = productArray.filter({ $0.prod_price >= 12000 && $0.prod_price < 15000 })
             }else if priceRangeIndex == 5 {
-                self.productArray = productArray.filter({ $0.prod_price >= 20000 })
+                self.productArray = productArray.filter({ $0.prod_price >= 15000 })
             }
         }
         if colorIndexList.count != 0 {

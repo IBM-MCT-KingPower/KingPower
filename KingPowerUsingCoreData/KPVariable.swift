@@ -12,7 +12,7 @@ struct KPVariable {
     
     static var sortDataArray = ["PRODUCT NAME A-Z","PRODUCT NAME Z-A","BRAND NAME A-Z","BRAND NAME Z-A","PRICE LOW-HIGH","PRICE HIGH-LOW","NEW ARRIVAL","MOST POPULAR","DISCOUNT"]
     static var genderList = ["Male", "Female", "Unisex"]
-    static var priceRangeList = ["< 2,000 THB", "2,000 - 5,000 THB", "5,000 - 10,000 THB", "10,000 - 15,000 THB", "15000 - 20000 THB", "> 20,000 THB"]
+    static var priceRangeList = ["< 3,000 THB", "3,000 - 6,000 THB", "6,000 - 9,000 THB", "9,000 - 12,000 THB", "12000 - 15,000 THB", "> 15,000 THB"]
     static var colorList = ["N/A", "White", "Brown", "Pink", "Purple", "Orange", "Green", "Silver", "Yellow", "Red", "Black", "Gold", "Blue", "Gray"]
     
     static var airlinePickerOption = ["ANA", "Cathay Pacific", "Emirates", "Etihad Airways", "Japan Airline", "KLM", "Lufthansa", "Qantas", "Qatar Airways", "Singapore Airlines", "Thai Airways"]
