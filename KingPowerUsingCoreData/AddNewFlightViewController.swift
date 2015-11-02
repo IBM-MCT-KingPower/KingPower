@@ -64,6 +64,13 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
     var selectedReturnDate = ""
     var selectedReturnDateFormat:NSDate!
     
+    let pickerViewDepart = UIPickerView()
+    let pickerViewReturn = UIPickerView()
+    let pickerViewDepartFlight = UIPickerView()
+    let pickerViewReturnFlight = UIPickerView()
+    let pickerViewDepartDate = UIDatePicker()
+    let pickerViewReturnDate = UIDatePicker()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,12 +89,6 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             lblRequiredReturn.hidden = false
         }
         // setup toolbar and all picker view
-        let pickerViewDepart = UIPickerView()
-        let pickerViewReturn = UIPickerView()
-        let pickerViewDepartFlight = UIPickerView()
-        let pickerViewReturnFlight = UIPickerView()
-        let pickerViewDepartDate = UIDatePicker()
-        let pickerViewReturnDate = UIDatePicker()
         
         
         pickerViewDepart.delegate = self
@@ -288,6 +289,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             departFlightNoTextField.text = ""
             departDateTextField.text = ""
             departFlightPickerOption = KPVariable.getFlightNoByAirline(selectedAirline)
+            pickerViewDepartFlight.reloadAllComponents()
             
         }else if(pickerView.tag == 1){
             selectedAirline = returnAirlinePickerOption[row]
@@ -295,7 +297,7 @@ class AddNewFlightViewController: UIViewController , UIPickerViewDataSource, UIP
             returnFlightNoTextField.text = ""
             returnDateTextField.text = ""
             returnFlightPickerOption = KPVariable.getFlightNoByAirline(selectedAirline)
-            
+            pickerViewReturnFlight.reloadAllComponents()
             
         }else if(pickerView.tag == 4){
             departFlightNoTextField.text = departFlightPickerOption[row]

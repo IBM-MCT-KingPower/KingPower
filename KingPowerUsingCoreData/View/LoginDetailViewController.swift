@@ -51,6 +51,14 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var originY : CGFloat = 0.0
     
     
+    var pickerViewDepart = UIPickerView()
+    var pickerViewReturn = UIPickerView()
+    var pickerViewDepartFlight = UIPickerView()
+    var pickerViewReturnFlight = UIPickerView()
+    var pickerViewDepartDate = UIDatePicker()
+    var pickerViewReturnDate = UIDatePicker()
+    
+    
     override func viewDidLoad() {
         print("LoginDetailViewController")
         super.viewDidLoad()
@@ -73,14 +81,6 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         
         var cardImage = UIImage(named: self.customer.cust_card_level.uppercaseString+".png")
         self.customerCardImage.image = cardImage
-        
-        var pickerViewDepart = UIPickerView()
-        var pickerViewReturn = UIPickerView()
-        var pickerViewDepartFlight = UIPickerView()
-        var pickerViewReturnFlight = UIPickerView()
-        var pickerViewDepartDate = UIDatePicker()
-        var pickerViewReturnDate = UIDatePicker()
-        
         
         pickerViewDepart.delegate = self
         pickerViewReturn.delegate = self
@@ -279,11 +279,13 @@ class LoginDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
             selectedAirline = departAirlinePickerOption[row]
             departAirlineTextField.text = selectedAirline
             departFlightPickerOption = KPVariable.getFlightNoByAirline(selectedAirline)
+            self.pickerViewDepartFlight.reloadAllComponents()
             
         }else if(pickerView.tag == 1){
             selectedAirline = returnAirlinePickerOption[row]
             returnAirlineTextField.text = selectedAirline
             returnFlightPickerOption = KPVariable.getFlightNoByAirline(selectedAirline)
+            self.pickerViewReturnFlight.reloadAllComponents()
             
         }else if(pickerView.tag == 4){
             departFlightNoTextField.text = departFlightPickerOption[row]
