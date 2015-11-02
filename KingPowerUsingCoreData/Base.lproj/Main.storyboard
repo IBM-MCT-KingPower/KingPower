@@ -3345,11 +3345,11 @@
                                             <segue destination="igJ-2c-uRp" kind="push" identifier="checkoutSegue" id="7Re-W6-OID"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Promo 1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tBW-Fn-dRI">
-                                        <rect key="frame" x="50" y="34" width="500" height="150"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="upsale.png" translatesAutoresizingMaskIntoConstraints="NO" id="tBW-Fn-dRI">
+                                        <rect key="frame" x="50" y="34" width="500" height="175"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Special offers and promotions when puschase more than 100,000 baht" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-lZ-XIc">
-                                        <rect key="frame" x="32" y="192" width="536" height="50.5"/>
+                                        <rect key="frame" x="32" y="217" width="536" height="61.5"/>
                                         <fontDescription key="fontDescription" name="CenturyGothic" family="Century Gothic" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -5149,6 +5149,7 @@ with any Estee Lauder purchase of 3,000THB</string>
         <image name="search.png" width="24" height="24"/>
         <image name="sort.png" width="20" height="24"/>
         <image name="takeoff.png" width="26" height="26"/>
+        <image name="upsale.png" width="393" height="185"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ojR-mU-43F"/>
