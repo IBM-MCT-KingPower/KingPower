@@ -258,7 +258,7 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
                     print("Up")
                     self.vCatagory.frame.origin.y = 0 + 64
                     self.tbvCatagory.frame.origin.y = 0 + 64 + 40
-                    self.tbvCatagory.frame.size.height = 768 - 64
+                    self.tbvCatagory.frame.size.height = 768 - 64 - 40
                     self.lastDirection = "Up"
                 });
             }
