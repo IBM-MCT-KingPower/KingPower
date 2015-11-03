@@ -114,7 +114,11 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             self.productArray = ProductController().getProductByProductGroupIDWithLimit(Int32(selectedGroup))
         }
         prodRemain = self.productArray.count%8
-        prodRow = self.productArray.count/8 + 1
+        if prodRemain == 0 {
+            prodRow = self.productArray.count/8
+        }else{
+            prodRow = self.productArray.count/8 + 1
+        }
         prodCount = self.productArray.count
         print("Product Count : \(prodCount)")
         self.tbvCatagory.reloadData()
@@ -238,6 +242,9 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
     }
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         pointNow = scrollView.contentOffset;
+        print("offset : \(scrollView.contentOffset.y) and point now : \(pointNow.y)")
+            countTimer = 0
+            myTimer.invalidate()
     }
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == scvPromotion {
@@ -245,14 +252,22 @@ class PromotionViewController: UIViewController, UIScrollViewDelegate, UITableVi
             //scrollView.setContentOffset(CGPointMake(scrollView.contentOffset.x, 0), animated: false )
             loadVisiblePages()
         } else if scrollView == self.tbvCatagory{
+            //print("offset : \(scrollView.contentOffset.y) and point now : \(pointNow.y)")
+            
+
             if scrollView.contentOffset.y < pointNow.y && lastDirection != "Down" { //Down
-                UIView.animateWithDuration(0.5, animations: {
+                if scrollView.contentOffset.y < 399 {
+                    
+                myTimer = NSTimer.scheduledTimerWithTimeInterval(gv.getConfigValue("promotionImgTimer") as! Double, target: self, selector: Selector("autoSlidePromotionImg"), userInfo: nil, repeats: true)
+                UIView.animateWithDuration(1.5, animations: {
                     print("Down")
                     self.vCatagory.frame.origin.y = 340
                     self.tbvCatagory.frame.origin.y = 399
                     self.tbvCatagory.frame.size.height = 369
                     self.lastDirection = "Down"
+                    
                 });
+                    }
             }else if scrollView.contentOffset.y > pointNow.y && lastDirection != "Up" { //Up
                 UIView.animateWithDuration(0.5, animations: {
                     print("Up")

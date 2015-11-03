@@ -275,7 +275,7 @@ class ProductController {
     func getProductByGenderWithLimit(prod_gender:String) -> [ProductModel]{
         var productArray:[ProductModel] = []
         var product = ProductModel()
-        let prodQuery = String(format: product.queryProductByGenderWithLimit, prod_gender, "prod_name", "ASC")
+        let prodQuery = String(format: product.queryProductByGenderWithLimit, prod_gender, "PROD_NAME", "ASC")
         print(prodQuery)
         if let rs = database.executeQuery(prodQuery, withArgumentsInArray: nil) {
             while rs.next(){
